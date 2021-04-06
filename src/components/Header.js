@@ -1,31 +1,31 @@
 import React from "react";
 import {Link} from "react-router-dom";
+import logo from "../assets/logo.png";
+import {Button} from "reactstrap";
 
 export default function Header() {
     return (
-        <header className="header">
-            <nav>
-                <ul>
-                    <div>
+        <header>
+            <nav className="navbar navbar-expand-md navbar-dark clearfix masthead">
+                <div className="navbar-brand mx-auto">
+                    <Link to="/">
+                        <img src={logo} border="0" width="243" height="auto" id="logo"/>
+                    </Link>
+                </div>
+                <div className="collapse navbar-collapse navbar-horizontal-menu">
+                    <ul className="navbar-nav ml-auto">
                         <li>
-                            <Link to="/">Home</Link>
+                            <Button color="success">
+                                Đăng nhập
+                            </Button>
                         </li>
                         <li>
-                            <Link to="/about">About</Link>
+                            <Button color="success">
+                                Đăng ký
+                            </Button>
                         </li>
-                        <li>
-                            <Link to="/products">Products</Link>
-                        </li>
-                    </div>
-                    <div>
-                        <li>
-                            <Link to="/login">Login</Link>
-                        </li>
-                        <li>
-                            <Link to="/cart">Cart</Link>
-                        </li>
-                    </div>
-                </ul>
+                    </ul>
+                </div>
             </nav>
         </header>
     )
