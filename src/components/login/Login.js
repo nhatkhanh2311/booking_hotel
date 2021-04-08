@@ -44,7 +44,6 @@ export default function Login() {
     return (
         <div className="Login">
             <form onSubmit={onSubmit} action="/asdasd"  method="get">
-                <h2>Sign In</h2>
 
                 <div className="form-group">
                     <label>Email address</label>

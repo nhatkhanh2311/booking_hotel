@@ -61,7 +61,6 @@ export default function SignUp() {
     return (
         <div className="SignUp">
             <form onSubmit={onSubmit}>
-                <h3>Sign Up</h3>
 
                 <div className="form-group">
                     <label>Name</label>
