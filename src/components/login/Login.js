@@ -22,13 +22,13 @@ export default function Login() {
         let x = {};
         if (email == "") {
            
-            x.email = "Email not empty";
+            x.email = "Email không được để trống";
            
             isvalid = false;
         }
         if (pass == "") {
             
-            x.pass = "Password not empty";
+            x.pass = "Mật khẩu không được để trống";
         
             isvalid = false;
         }
@@ -46,16 +46,16 @@ export default function Login() {
             <form onSubmit={onSubmit} action="/asdasd"  method="get">
 
                 <div className="form-group">
-                    <label>Email address</label>
+                    <label>Địa chỉ email</label>
                     <input type="email"
                         onBlur={(e) => setEmail(e.target.value)}
-                        className="form-control" placeholder="Enter email" />
+                        className="form-control" placeholder="Nhập email" />
                     <span style={{ color: "red" }} >{err["email"]}</span>
                 </div>
 
                 <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password"
+                    <label>Mật khẩu</label>
+                    <input type="password" className="form-control" placeholder="Nhập mật khẩu"
                         onBlur={(e) => setPass(e.target.value)}
                     />
                     <span style={{ color: "red" }} >{err["pass"]}</span><br></br>
@@ -65,13 +65,13 @@ export default function Login() {
                 <div className="form-group">
                     <div className="custom-control custom-checkbox">
                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                        <label className="custom-control-label" htmlFor="customCheck1">Ghi nhớ đăng nhập</label>
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                <button type="submit" className="btn btn-primary btn-block">Đăng nhập</button>
                 <p className="forgot-password text-right">
-                    Forgot <a href="#">password?</a>
+                    Quên <a href="#">mật khẩu ?</a>
                 </p>
             </form>
         </div>

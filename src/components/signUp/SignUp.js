@@ -27,26 +27,26 @@ export default function SignUp() {
         let x = {};
         if (email == "") {
 
-            x.email = "Email not empty";
+            x.email = "Email không được để trống";
 
             isvalid = false;
         }
         if (pass == "") {
 
-            x.pass = "Password not empty";
+            x.pass = "Mật khẩu không được để trống";
 
             isvalid = false;
         }
         if (name == "") {
-            x.name = "Name not empty";
+            x.name = "Tên không được để trống";
             isvalid = false;
         }
         if (phone == "") {
-            x.phone = "Phone not empty";
+            x.phone = "Số điện thoại không được để trống";
             isvalid = false;
         }
         if (pass != retypePass) {
-            x.retypePass = "Retype pass is not correct";
+            x.retypePass = "Nhập lại mật khẩu không chính xác";
             isvalid = false;
         }
 
@@ -63,8 +63,8 @@ export default function SignUp() {
             <form onSubmit={onSubmit}>
 
                 <div className="form-group">
-                    <label>Name</label>
-                    <input type="text" className="form-control" placeholder="Type your name"
+                    <label>Tên:</label>
+                    <input type="text" className="form-control" placeholder="Nhập tên"
                         onBlur={(e) => setName(e.target.value)}
                     />
                     <span style={{ color: "red" }} >{err["name"]}</span>
@@ -73,8 +73,8 @@ export default function SignUp() {
 
 
                 <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email"
+                    <label>Địa chỉ email</label>
+                    <input type="email" className="form-control" placeholder="Nhập email"
                         onBlur={(e) => setEmail(e.target.value)}
                     />
                     <span style={{ color: "red" }} >{err["email"]}</span>
@@ -82,8 +82,8 @@ export default function SignUp() {
                 </div>
 
                 <div className="form-group">
-                    <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password"
+                    <label>Mật khẩu</label>
+                    <input type="password" className="form-control" placeholder="Nhập mật khẩu"
                         onBlur={(e) => setPass(e.target.value)}
                     />
                      <span style={{ color: "red" }} >{err["pass"]}</span>
@@ -91,8 +91,8 @@ export default function SignUp() {
                 </div>
                
                 <div className="form-group">
-                    <label>Retype Password</label>
-                    <input type="password" className="form-control" placeholder="Retype your password"
+                    <label>Nhập lại mật khẩu</label>
+                    <input type="password" className="form-control" placeholder="Xác nhận lại mật khẩu"
                         onBlur={(e) => setRetypePass(e.target.value)}
                     />
                      <span style={{ color: "red" }} >{err["retypePass"]}</span>
@@ -100,8 +100,8 @@ export default function SignUp() {
                 </div>
                
                 <div className="form-group">
-                    <label>Phone</label>
-                    <input type="tel" pattern="[0-9]{4}[0-9]{2}[0-9]{4}" className="form-control" placeholder="Enter your phone"
+                    <label>Số điện thoại</label>
+                    <input type="tel" pattern="[0-9]{4}[0-9]{2}[0-9]{4}" className="form-control" placeholder="Nhập số điện thoại"
                         onBlur={(e) => setPhone(e.target.value)}
                     />
                      <span style={{ color: "red" }} >{err["phone"]}</span>
@@ -109,21 +109,21 @@ export default function SignUp() {
                 </div>
                
                 <div className="form-group">
-                    <label>Description</label>
-                    <textarea type="phone" className="form-control" placeholder="Enter your information" />
+                    <label>Mô tả</label>
+                    <textarea type="phone" className="form-control" placeholder="Nhập mô tả" />
                 </div>
 
                 <div className="form-group">
                     <div className="custom-control custom-checkbox">
                         <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">I'm hotel director</label>
+                        <label className="custom-control-label" htmlFor="customCheck1">Tôi là nhân viên khách sạn</label>
                     </div>
                 </div>
 
 
-                <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                <button type="submit" className="btn btn-primary btn-block">Đăng ký</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="#">sign in?</a>
+                    Đã có tài khoản <a href="#">Đăng nhập ?</a>
                 </p>
             </form>
         </div>
