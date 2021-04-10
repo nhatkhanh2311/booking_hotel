@@ -23,6 +23,16 @@ export default function Header() {
                     <div className="collapse navbar-collapse navbar-horizontal-menu">
                         <ul className="navbar-nav ml-auto">
                             <li>
+                                <Link className="nav-link header-link">
+                                    Địa điểm
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className="nav-link header-link">
+                                    Trải nghiệm
+                                </Link>
+                            </li>
+                            <li>
                                 <Button color="success" onClick={toggleLogin}>
                                     Đăng nhập
                                 </Button>

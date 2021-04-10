@@ -16,8 +16,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 @media (min-width: 64em) {
@@ -55,11 +54,25 @@ code {
   margin: 0;
 }
 
+.masthead li {
+  margin-left: 10px;
+}
+
+.masthead Button {
+  margin-top: 5px;
+}
+
 .mastfoot {
   background: darkslateblue;
   bottom: 0;
   font-size: 16px;
   color: #fff;
+  text-align: center;
+}
+
+.mastfoot li {
+  display: inline;
+  padding-right: 40px;
 }
 
 .inner-footer {
@@ -68,4 +81,25 @@ code {
   padding-top: 20px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.header-link {
+  color: white !important;
+  font-size: 20px;
+}
+.header-link:hover {
+  background-color: mediumblue;
+}
+
+.follow {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.follow img {
+  width: 20px;
+}
+
+.footer-link {
+  color: white !important;
 }
