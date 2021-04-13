@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './Login.css';
+import './css/Login.css';
 
 
 export default function Login() {
@@ -18,32 +18,32 @@ export default function Login() {
     }
 
     const validate = () => {
-        let isvalid = true;
+        let isValid = true;
         let x = {};
         if (email == "") {
            
             x.email = "Email không được để trống";
            
-            isvalid = false;
+            isValid = false;
         }
         if (pass == "") {
             
             x.pass = "Mật khẩu không được để trống";
         
-            isvalid = false;
+            isValid = false;
         }
         
         setErr(x);
        
         
         
-        return isvalid;
+        return isValid;
 
     }
 
     return (
         <div className="Login">
-            <form onSubmit={onSubmit} action="/asdasd"  method="get">
+            <form onSubmit={onSubmit} action="/asdasd"  method="post">
 
                 <div className="form-group">
                     <label>Địa chỉ email</label>
@@ -70,8 +70,8 @@ export default function Login() {
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Đăng nhập</button>
-                <p className="forgot-password text-right">
-                    Quên <a href="#">mật khẩu ?</a>
+                <p className="forgot-password text-right" style={{marginTop: '10px'}}>
+                    <a href="#">Quên mật khẩu?</a>
                 </p>
             </form>
         </div>

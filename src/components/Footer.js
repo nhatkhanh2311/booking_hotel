@@ -1,4 +1,5 @@
 import React from "react";
+import "./css/Header-Footer.css"
 import {Link} from "react-router-dom";
 import facebook from "../assets/facebook.svg"
 
@@ -11,7 +12,7 @@ export default function Footer() {
                         <div className="follow col-12">
                             {"Theo dõi trên "}
                             <Link>
-                                <img src={facebook}/>
+                                <img src={facebook} width="22px"/>
                             </Link>
                         </div>
                         <div className="col-12">

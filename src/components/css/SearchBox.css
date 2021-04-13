@@ -1,0 +1,71 @@
+.cover-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+.cover {
+    padding: 0 1.5rem;
+    margin-top: 50px;
+    margin-bottom: 55px;
+}
+
+.cover-heading {
+    font-family: 'Cormorant Garamond', serif, Helvetica, Arial, Verdana, Calibri;
+    font-style: italic;
+    font-size: 40px;
+    text-shadow: 1px 1px 1px #000;
+    color: white;
+}
+
+.search-input-container {
+    background: #ffffff;
+    border: 1px solid #999999;
+    padding: 6px;
+    border-radius: 5px;
+    min-height: 60px;
+    margin: 6px 2px;
+}
+
+.input-label {
+    text-align: left;
+    font-size: 12px;
+    color: #292e46;
+    text-transform: uppercase;
+}
+
+#search-keyword {
+    font-size: 17px;
+    line-height: 24px;
+    border-bottom: none;
+    font-weight: bold;
+    color: #292e46;
+    background: transparent;
+    width: 100%;
+    text-align: left;
+    margin: auto auto 0;
+    outline: none;
+    border: 0;
+}
+
+.input-date {
+    font-size: 17px;
+    line-height: 24px;
+    width: calc(100% - 25px);
+    font-weight: 400;
+    color: #333;
+    outline: none;
+    border: 0;
+}
+
+.input-guests {
+    font-size: 17px;
+    line-height: 24px;
+    text-align: left;
+    width: 50px;
+    font-weight: 400;
+    color: #333;
+    outline: none;
+    border: 0;
+}

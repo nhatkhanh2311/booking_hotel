@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container } from "reactstrap";
-import './SignUp.css';
+import './css/SignUp.css';
 
 
 export default function SignUp() {
@@ -23,38 +23,38 @@ export default function SignUp() {
     }
 
     const validate = () => {
-        let isvalid = true;
+        let isValid = true;
         let x = {};
         if (email == "") {
 
             x.email = "Email không được để trống";
 
-            isvalid = false;
+            isValid = false;
         }
         if (pass == "") {
 
             x.pass = "Mật khẩu không được để trống";
 
-            isvalid = false;
+            isValid = false;
         }
         if (name == "") {
             x.name = "Tên không được để trống";
-            isvalid = false;
+            isValid = false;
         }
         if (phone == "") {
             x.phone = "Số điện thoại không được để trống";
-            isvalid = false;
+            isValid = false;
         }
         if (pass != retypePass) {
             x.retypePass = "Nhập lại mật khẩu không chính xác";
-            isvalid = false;
+            isValid = false;
         }
 
         setErr(x);
 
 
 
-        return isvalid;
+        return isValid;
 
     }
 
@@ -63,7 +63,7 @@ export default function SignUp() {
             <form onSubmit={onSubmit}>
 
                 <div className="form-group">
-                    <label>Tên:</label>
+                    <label>Tên</label>
                     <input type="text" className="form-control" placeholder="Nhập tên"
                         onBlur={(e) => setName(e.target.value)}
                     />
@@ -101,7 +101,7 @@ export default function SignUp() {
                
                 <div className="form-group">
                     <label>Số điện thoại</label>
-                    <input type="tel" pattern="[0-9]{4}[0-9]{2}[0-9]{4}" className="form-control" placeholder="Nhập số điện thoại"
+                    <input type="tel" pattern="[0]{1}[0-9]{9}" className="form-control" placeholder="Nhập số điện thoại"
                         onBlur={(e) => setPhone(e.target.value)}
                     />
                      <span style={{ color: "red" }} >{err["phone"]}</span>
@@ -122,8 +122,8 @@ export default function SignUp() {
 
 
                 <button type="submit" className="btn btn-primary btn-block">Đăng ký</button>
-                <p className="forgot-password text-right">
-                    Đã có tài khoản <a href="#">Đăng nhập ?</a>
+                <p className="forgot-password text-right" style={{marginTop: '10px'}}>
+                    Đã có tài khoản? <a href="#">Đăng nhập</a>
                 </p>
             </form>
         </div>
