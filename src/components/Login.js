@@ -48,7 +48,7 @@ export default function Login() {
                 <div className="form-group">
                     <label>Địa chỉ email</label>
                     <input type="email"
-                        onBlur={(e) => setEmail(e.target.value)}
+                        onChange{(e) => setEmail(e.target.value)}
                         className="form-control" placeholder="Nhập email" />
                     <span style={{ color: "red" }} >{err["email"]}</span>
                 </div>
@@ -56,7 +56,7 @@ export default function Login() {
                 <div className="form-group">
                     <label>Mật khẩu</label>
                     <input type="password" className="form-control" placeholder="Nhập mật khẩu"
-                        onBlur={(e) => setPass(e.target.value)}
+                        onChange{(e) => setPass(e.target.value)}
                     />
                     <span style={{ color: "red" }} >{err["pass"]}</span><br></br>
                     
