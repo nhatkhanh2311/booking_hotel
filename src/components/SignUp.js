@@ -25,27 +25,27 @@ export default function SignUp() {
     const validate = () => {
         let isValid = true;
         let x = {};
-        if (email == "") {
+        if (email === "") {
 
             x.email = "Email không được để trống";
 
             isValid = false;
         }
-        if (pass == "") {
+        if (pass === "") {
 
             x.pass = "Mật khẩu không được để trống";
 
             isValid = false;
         }
-        if (name == "") {
+        if (name === "") {
             x.name = "Tên không được để trống";
             isValid = false;
         }
-        if (phone == "") {
+        if (phone === "") {
             x.phone = "Số điện thoại không được để trống";
             isValid = false;
         }
-        if (pass != retypePass) {
+        if (pass !== retypePass) {
             x.retypePass = "Nhập lại mật khẩu không chính xác";
             isValid = false;
         }
