@@ -1,8 +1,8 @@
 
 import React, { useState } from "react";
 import { Button, Label, Input, FormGroup, Col, Row, Form, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
-import './css/Hotel.css'
-export default function Hotel() {
+import './css/UpHotel.css'
+export default function UpHotel() {
     const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);

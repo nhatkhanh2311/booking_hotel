@@ -36,13 +36,13 @@ export default function Login() {
     const validate = () => {
         let isValid = true;
         let x = {};
-        if (email == "") {
+        if (email === "") {
 
             x.email = "Email không được để trống";
 
             isValid = false;
         }
-        if (pass == "") {
+        if (pass === "") {
 
             x.pass = "Mật khẩu không được để trống";
 
