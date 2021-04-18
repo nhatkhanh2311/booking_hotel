@@ -1,3 +1,8 @@
+.cover-img {
+    background: url("../../assets/cover.jpg") top right no-repeat;
+    background-size: cover;
+}
+
 .cover-container {
     width: 100%;
     margin-right: auto;
@@ -6,8 +11,7 @@
 }
 
 .cover {
-    padding: 0 1.5rem;
-    margin-top: 50px;
+    padding: 50px 1.5rem 0;
     margin-bottom: 55px;
 }
 
@@ -17,6 +21,14 @@
     font-size: 40px;
     text-shadow: 1px 1px 1px #000;
     color: white;
+}
+
+#search-box {
+    max-width: 1200px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 14px 30px 10px;
 }
 
 .search-input-container {
@@ -68,4 +80,14 @@
     color: #333;
     outline: none;
     border: 0;
+}
+
+.search-input-container.search {
+    background-color: #222f5b;
+    border: 2px solid #ffffff;
+    text-align: center;
+    font-size: 17px;
+    line-height: 43px;
+    font-weight: bold;
+    color: white;
 }

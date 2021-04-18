@@ -38,7 +38,7 @@ export default function Header() {
                             </Button>
                             <Modal className="modal-dialog modal-dialog-centered" isOpen={login} toggle={toggleLogin}>
                                 <ModalHeader>
-                                    <h2>Sign In</h2>
+                                    <h2>Đăng nhập</h2>
                                 </ModalHeader>
                                 <ModalBody>
                                     <Login/>
@@ -51,7 +51,7 @@ export default function Header() {
                             </Button>
                             <Modal className="modal-dialog modal-dialog-centered" isOpen={signup} toggle={toggleSignup}>
                                 <ModalHeader>
-                                    <h3>Sign Up</h3>
+                                    <h3>Đăng ký</h3>
                                 </ModalHeader>
                                 <ModalBody>
                                     <SignUp/>

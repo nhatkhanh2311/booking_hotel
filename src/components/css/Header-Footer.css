@@ -5,9 +5,8 @@
 }
 
 #logo {
-    max-width: 200px;
-    width: 243px;
-    height: auto;
+    width: 200px;
+    height: 70px;
 }
 
 @media (min-width: 48em) {
@@ -68,7 +67,7 @@
 }
 
 .header-link:hover {
-    background-color: mediumblue;
+    color: chartreuse !important;
 }
 
 .follow {

@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
+import Error from "./pages/Error";
 
 export default function App() {
     return (
@@ -11,6 +12,9 @@ export default function App() {
             <Switch>
                 <Route exact path="/">
                     <Home/>
+                </Route>
+                <Route path="*">
+                    <Error/>
                 </Route>
             </Switch>
             <Footer/>

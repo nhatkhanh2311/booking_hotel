@@ -1,9 +1,11 @@
 import React from "react";
 import "./css/SearchBox.css"
 import {Link} from "react-router-dom";
+import cover from "../assets/cover.jpg"
 
 export default function SearchBox() {
     return (
+        <div className="cover-img">
         <div className="cover-container">
             <div className="cover">
                 <h1 className="cover-heading">Giải pháp đặt phòng khách sạn sang trọng và hiện đại</h1>
@@ -50,9 +52,11 @@ export default function SearchBox() {
                                 </div>
                             </Link>
                         </div>
+                        <div className="col-12 col-md-1 d-none d-md-inline-block"></div>
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     )
 }
