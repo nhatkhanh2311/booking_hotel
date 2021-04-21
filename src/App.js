@@ -8,8 +8,17 @@ import UpHotel from "./components/UpHotel";
 
 export default function App() {
     return (
-        <div>
-            <UpHotel></UpHotel>
-        </div>
+        <Router>
+            <Header/>
+            <Switch>
+                <Route exact path="/">
+                    <Home/>
+                </Route>
+                <Route path="*">
+                    <Error/>
+                </Route>
+            </Switch>
+            <Footer/>
+        </Router>
     );
 }
