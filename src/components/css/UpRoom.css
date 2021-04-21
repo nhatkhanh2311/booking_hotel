@@ -1,0 +1,10 @@
+.UpRoom{
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    height: 150px;
+    margin-top: -170px;
+    
+    width: 450px;
+    margin-left: -110px; 
+}
