@@ -17,7 +17,7 @@ export default function Header() {
             <nav className="navbar navbar-expand-md navbar-dark clearfix masthead">
                 <div className="navbar-brand mx-auto">
                     <Link to="/">
-                        <img src={logo} border="0" width="243" height="auto" id="logo"/>
+                        <img src={logo} border="0" id="logo"/>
                     </Link>
                 </div>
                 <div className="collapse navbar-collapse navbar-horizontal-menu">
