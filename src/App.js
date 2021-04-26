@@ -5,13 +5,13 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
 import UpHotel from "./components/UpHotel";
-import Nav from "./components/NavbarAdmin"
+
 export default function App() {
     return (
         <Router>
             <Header/>
-            <Nav></Nav>
-            {/* <Switch>
+           
+             <Switch>
                 <Route exact path="/">
                     <Home/>
                 </Route>
@@ -19,7 +19,7 @@ export default function App() {
                     <Error/>
                 </Route>
             </Switch>
-            <Footer/> */}
+            <Footer/> 
         </Router>
     );
 }
