@@ -6,11 +6,12 @@ import Home from "./pages/Home";
 import Error from "./pages/Error";
 import Admin from "./pages/Admin";
 import User from "./pages/User";
-
+import HotelList from "./components/InformationUpdate"
 export default function App() {
     return (
         <Router>
-            <Header/>
+            <HotelList></HotelList>
+            {/* <Header/>
             <Switch>
                 <Route exact path="/">
                     <Home/>
@@ -28,7 +29,7 @@ export default function App() {
                     <Error/>
                 </Route>
             </Switch>
-            <Footer/>
+            <Footer/> */}
         </Router>
     );
 }
