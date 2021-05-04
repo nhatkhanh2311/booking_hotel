@@ -1,5 +1,4 @@
 import * as IoIcons from 'react-icons/io';
-import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import React from "react";
 import "./css/Navbar.css";
@@ -13,17 +12,17 @@ export default function NavbarAdmin() {
         
         </div>
 
-        <li onClick={() => window.location.pathname = "/"} className="row">
+        <li onClick={() => window.location.pathname = "/postRequest"} className="row">
           <div className="icon"><IoIcons.IoIosPaper /></div>
           <div className="title">Duyệt bài đăng</div>
         </li>
 
-        <li onClick={() => window.location.pathname = "/"} className="row">
+        <li onClick={() => window.location.pathname = "/accountList"} className="row">
           <div className="icon"><AiIcons.AiFillIdcard /></div>
           <div className="title">Danh sách tài khoản</div>
         </li>
 
-        <li conClick={() => window.location.pathname = "/"} className="row">
+        <li conClick={() => window.location.pathname = "/infomarionUpdate"} className="row">
           <div className="icon"> <IoIcons.IoMdPeople /></div>
           <div className="title">Cập nhật thông tin</div>
         </li>

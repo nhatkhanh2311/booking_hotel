@@ -8,7 +8,9 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/icons/Delete';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
+import { ArrowLeft } from '@material-ui/icons';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -39,6 +41,10 @@ const useStyles = makeStyles({
   table: {
     minWidth: 700,
   },
+  addButton:{
+    marginLeft:'90%',
+    marginBottom: '20px'
+  },
 });
 
 export default function HotelList() {
@@ -51,7 +57,13 @@ export default function HotelList() {
     createData('Gingerbread', "Nguyễn văn Phong", "Thái Nguyên", "Phạm Hùng"),
   ];
   return (
+    
     <TableContainer component={Paper}>
+      <Fab color="primary" aria-label="add" className={classes.addButton} >
+        <AddIcon />
+        
+      </Fab>
+      
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
