@@ -4,7 +4,7 @@ import * as AiIcons from 'react-icons/ai';
 import React from "react";
 import "./css/Navbar.css";
 
-export default function NavbarUser() {
+export default function NavbarHotelDirector() {
   return (
     <div className="Sidebar">
       <ul className="SidebarList">
