@@ -7,6 +7,7 @@ import Error from "./pages/Error";
 import Admin from "./pages/Admin";
 import User from "./pages/User";
 
+
 export default function App() {
     return (
         <Router>

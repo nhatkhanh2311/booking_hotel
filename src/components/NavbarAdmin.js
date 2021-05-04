@@ -13,11 +13,6 @@ export default function NavbarAdmin() {
         
         </div>
 
-        <li onClick={() => window.location.pathname = "/login"} className="row">
-          <div className="icon"><AiIcons.AiFillCheckSquare /></div>
-          <div className="title">Duyệt tài khoản</div>
-        </li>
-
         <li onClick={() => window.location.pathname = "/"} className="row">
           <div className="icon"><IoIcons.IoIosPaper /></div>
           <div className="title">Duyệt bài đăng</div>

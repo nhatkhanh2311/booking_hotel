@@ -29,11 +29,17 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, type, city, boss) {
-  return { name, type, city, boss };
+function createData(name, phoneNumber, day1,day2,roomCode,hotelName, nameType) {
+  return { name, phoneNumber, day1,day2,roomCode,hotelName, nameType };
 }
 
-
+const rows = [
+  createData('Frozen yoghurt', "0858571662", "22-5-2020","27-5-2020","103", "Hotel Phú Bài"),
+  createData('Ice cream sandwich', "0914156990", "17-4-2021","20-4-2021","305", "SaiGon Hotel"),
+  createData('Eclair', "01648644145", "30-4-2018", "2-5-2018","008" ,"Codo Hotel"),
+  createData('Cupcake', "01676780444", "19-10-2019","22-10-2019","100", "Trọ sinh viên"),
+  createData('Gingerbread', "0353938409", "15-9-2020","18-9-2020","312", "Nhà nghỉ An Nhiên"),
+];
 
 const useStyles = makeStyles({
   table: {
@@ -41,26 +47,22 @@ const useStyles = makeStyles({
   },
 });
 
-export default function HotelList() {
+export default function BookingRequest() {
   const classes = useStyles();
-  const rows = [
-    createData('Frozen yoghurt', "Nguyễn văn A", "Hải Phòng", "Trần Cảnh"),
-    createData('Ice cream sandwich', "Nguyễn văn Nguyên", "Thái Nguyên", "Lý Công Uẩn"),
-    createData('Eclair', "Nguyễn văn Loan", "Thái Nguyên", "Lê Hoàng"),
-    createData('Cupcake', "Nguyễn văn Huyền", "Thái Nguyên", "Nguyễn Long"),
-    createData('Gingerbread', "Nguyễn văn Phong", "Thái Nguyên", "Phạm Hùng"),
-  ];
+
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>Tên khách sạn</StyledTableCell>
-            <StyledTableCell align="left">Loại khách sạn</StyledTableCell>
-            <StyledTableCell align="left">Thành phố</StyledTableCell>
-            <StyledTableCell align="left">Đại diện khách sạn</StyledTableCell>
-            <StyledTableCell align="center">Sửa</StyledTableCell>
-            <StyledTableCell align="center">Xóa</StyledTableCell>
+            <StyledTableCell>Tên người đặt</StyledTableCell>
+            <StyledTableCell align="left">Số điện thoại</StyledTableCell>
+            <StyledTableCell align="left">Ngày nhận</StyledTableCell>
+            <StyledTableCell align="left">Ngày trả</StyledTableCell>
+            <StyledTableCell align="left"> Mã phòng</StyledTableCell>
+            <StyledTableCell align="left">Thuộc khách sạn</StyledTableCell>
+            <StyledTableCell align="center">Đồng ý</StyledTableCell>
+            <StyledTableCell align="center">Từ chối</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -69,9 +71,11 @@ export default function HotelList() {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="left">{row.type}</StyledTableCell>
-              <StyledTableCell align="left">{row.city}</StyledTableCell>
-              <StyledTableCell align="left">{row.boss}</StyledTableCell>
+              <StyledTableCell align="left">{row.phoneNumber}</StyledTableCell>
+              <StyledTableCell align="left">{row.day1}</StyledTableCell>
+              <StyledTableCell align="left">{row.day2}</StyledTableCell>
+              <StyledTableCell align="left">{row.roomCode}</StyledTableCell>
+              <StyledTableCell align="left">{row.hotelName}</StyledTableCell>
               <StyledTableCell align="center">
                 <Button
                   variant="contained"
@@ -79,7 +83,7 @@ export default function HotelList() {
                   className={classes.button}
 
                 >
-                  Sửa
+                  Duyệt
       </Button>
               </StyledTableCell>
               <StyledTableCell align="center">
@@ -89,7 +93,7 @@ export default function HotelList() {
                   className={classes.button}
 
                 >
-                  Delete
+                  Từ chối
       </Button>
               </StyledTableCell>
 

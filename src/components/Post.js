@@ -11,7 +11,22 @@ import RoomList from "./RoomList";
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
-import Login from "./Login";
+const dataRoom =[
+  {'code':'102','price': 300000,'describe': "Phòng sạch sẽ thoáng mát ",'type': "Phòng khách sạn"},
+  {'code':'305','price': 580000,'describe': "Phòng sạch sẽ thoáng mát",'type': "Phòng khách sạn"},
+  {'code':'207','price': 600000,'describe': "Phòng sạch sẽ thoáng mát",'type': "Phòng khách sạn"},
+  {'code':'408','price': 900000,'describe': "Phòng sạch sẽ thoáng mát",'type': "Phòng khách sạn"},
+  {'code':'47','price': 200000,'describe': "Phòng sạch sẽ thoáng mát",'type': "Phòng khách sạn"},
+];
+
+const dataHotel = [
+  {'name':'Frozen yoghurt','type': "Nguyễn văn A",'city': "Hải Phòng",'boss':"Trần Cảnh"},
+  {'name':'Ice cream sandwich', 'type':"Nguyễn văn Nguyên",'city': "Thái Nguyên",'boss': "Lý Công Uẩn"},
+  {'name':'Eclair', 'type':"Nguyễn văn Loan", 'city':"Thái Nguyên",'boss': "Lê Hoàng"},
+  {'name':'Cupcake', 'type':"Nguyễn văn Huyền", 'city':"Thái Nguyên",'boss': "Nguyễn Long"},
+  {'name':'Gingerbread','type': "Nguyễn văn Phong",'city': "Thái Nguyên", 'boss':"Phạm Hùng"},
+];
+
 
 
 function TabPanel(props) {
@@ -81,10 +96,10 @@ export default function ScrollableTabsButtonForce() {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-       <HotelList></HotelList>
+       <HotelList data={dataHotel}></HotelList>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <RoomList></RoomList>
+        <RoomList data = {dataRoom}></RoomList>
       </TabPanel>
 
     </div>

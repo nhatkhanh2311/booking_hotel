@@ -30,17 +30,7 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(code, price, describe, type) {
-  return { code, price, describe, type };
-}
 
-const rows = [
-  createData('102', 300000, "Phòng sạch sẽ thoáng mát ", "Phòng khách sạn"),
-  createData('305', 580000, "Phòng sạch sẽ thoáng mát", "Phòng khách sạn"),
-  createData('207', 600000, "Phòng sạch sẽ thoáng mát", "Phòng khách sạn"),
-  createData('408', 900000, "Phòng sạch sẽ thoáng mát", "Phòng khách sạn"),
-  createData('47', 200000, "Phòng sạch sẽ thoáng mát", "Phòng khách sạn"),
-];
 
 const useStyles = makeStyles({
   table: {
@@ -48,9 +38,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function RoomList() {
+export default function RoomList(props) {
   const classes = useStyles();
-
+  const rows = props.data;
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">
