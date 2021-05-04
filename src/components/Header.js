@@ -1,16 +1,27 @@
 import React, {useState} from "react";
 import "./css/Header-Footer.css"
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import logo from "../assets/logo.png";
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Login from "./Login";
 import SignUp from "./SignUp";
 
 export default function Header() {
+    const history = useHistory();
     const [login, setLogin] = useState(false);
     const [signup, setSignup] = useState(false);
     const toggleLogin = () => setLogin(!login);
     const toggleSignup = () => setSignup(!signup);
+
+    const toAccount = () => history.push('/account');
+
+    const logout = () => {
+        localStorage.removeItem('username');
+        localStorage.removeItem('roles');
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('tokenType');
+        window.location.reload();
+    }
 
     return (
         <header>
@@ -32,32 +43,50 @@ export default function Header() {
                                 Trải nghiệm
                             </Link>
                         </li>
-                        <li>
-                            <Button color="success" onClick={toggleLogin}>
-                                Đăng nhập
-                            </Button>
-                            <Modal className="modal-dialog modal-dialog-centered" isOpen={login} toggle={toggleLogin}>
-                                <ModalHeader>
-                                    <h2>Đăng nhập</h2>
-                                </ModalHeader>
-                                <ModalBody>
-                                    <Login/>
-                                </ModalBody>
-                            </Modal>
-                        </li>
-                        <li>
-                            <Button color="success" onClick={toggleSignup}>
-                                Đăng ký
-                            </Button>
-                            <Modal className="modal-dialog modal-dialog-centered" isOpen={signup} toggle={toggleSignup}>
-                                <ModalHeader>
-                                    <h3>Đăng ký</h3>
-                                </ModalHeader>
-                                <ModalBody>
-                                    <SignUp/>
-                                </ModalBody>
-                            </Modal>
-                        </li>
+                        {localStorage.getItem('roles') && (
+                            <>
+                                <li>
+                                    <Button color="success" onClick={toAccount}>
+                                        Thông tin
+                                    </Button>
+                                </li>
+                                <li>
+                                    <Button color="danger" onClick={logout}>
+                                        Đăng xuất
+                                    </Button>
+                                </li>
+                            </>
+                        )}
+                        {!localStorage.getItem('roles') && (
+                            <>
+                                <li>
+                                    <Button color="success" onClick={toggleLogin}>
+                                        Đăng nhập
+                                    </Button>
+                                    <Modal className="modal-dialog modal-dialog-centered" isOpen={login} toggle={toggleLogin}>
+                                        <ModalHeader>
+                                            <h2>Đăng nhập</h2>
+                                        </ModalHeader>
+                                        <ModalBody>
+                                            <Login/>
+                                        </ModalBody>
+                                    </Modal>
+                                </li>
+                                <li>
+                                    <Button color="success" onClick={toggleSignup}>
+                                        Đăng ký
+                                    </Button>
+                                    <Modal className="modal-dialog modal-dialog-centered" isOpen={signup} toggle={toggleSignup}>
+                                        <ModalHeader>
+                                            <h3>Đăng ký</h3>
+                                        </ModalHeader>
+                                        <ModalBody>
+                                            <SignUp/>
+                                        </ModalBody>
+                                    </Modal>
+                                </li>
+                            </>
+                        )}
                     </ul>
                 </div>
             </nav>
