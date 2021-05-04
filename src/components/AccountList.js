@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -10,6 +10,14 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 
 
+const data = [
+  {'name':'Frozen yoghurt','role': "Người dùng",'day': "22-5-2020",'quantity': "5",'status': 0},
+   {'name':'Ice cream sandwich','role': "Đại diện khách sạn",'day': "17-4-2021",'quantity': "1",'status': 1},
+    {'name':'Eclair','role': "Người dùng",'day': "30-4-2018",'quantity': "0",'status': 0},
+    {'name':'Cupcake','role': "Đại diện khách sạn",'day': "19-10-2019",'quantity': "2",'status': 1},
+    {'name':'Gingerbread','role': "Người dùng",'day': "15-9-2020",'quantity': "0",'status': 1},
+  ];
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -17,7 +25,8 @@ const StyledTableCell = withStyles((theme) => ({
   },
   body: {
     fontSize: 14,
-    
+
+
   },
 }))(TableCell);
 
@@ -29,26 +38,49 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, role, day, quality) {
-  return { name, role, day, quality };
-}
-
-const rows = [
-  createData('Frozen yoghurt', "Người dùng", "22-5-2020", "5"),
-  createData('Ice cream sandwich', "Đại diện khách sạn", "17-4-2021", "1"),
-  createData('Eclair', "Người dùng", "30-4-2018", "0"),
-  createData('Cupcake', "Đại diện khách sạn", "19-10-2019", "2"),
-  createData('Gingerbread', "Người dùng", "15-9-2020", "0"),
-];
-
+  
 const useStyles = makeStyles({
   table: {
     minWidth: 700,
   },
 });
 
+
+
 export default function AccountList() {
   const classes = useStyles();
+  
+  const [rows,setRows] = useState(data);
+  const [tric, setTric] = useState(0);
+  
+  console.log("a");
+  const kiemTra = (x) => {
+    if (x.status == 0) {
+      return <Button
+        variant="contained"
+        color="secondary"
+        className={classes.button}
+        onClick={()=>{
+          x.status = 1;
+          setTric(tric+1);
+        }}
+      >
+        Mở
+</Button>
+    }
+    return <Button
+      variant="contained"
+      color="primary"
+      className={classes.button}
+      onClick={()=>{
+        x.status = 0;
+        setTric(tric+1);
+      }}
+    >
+      Khóa
+</Button>
+  }
+
 
   return (
     <TableContainer component={Paper}>
@@ -59,8 +91,8 @@ export default function AccountList() {
             <StyledTableCell align="left">Vai trò</StyledTableCell>
             <StyledTableCell align="left">Ngày đăng ký</StyledTableCell>
             <StyledTableCell align="center">Số lượng bài đăng</StyledTableCell>
-            <StyledTableCell align="center">Khóa Tài khoản</StyledTableCell>
-            <StyledTableCell align="center">Mở khóa</StyledTableCell>
+            <StyledTableCell align="center">Khóa/Mở Tài khoản</StyledTableCell>
+
           </TableRow>
         </TableHead>
         <TableBody>
@@ -69,32 +101,18 @@ export default function AccountList() {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="left">{row.role}</StyledTableCell>
+              <StyledTableCell align="left" >{row.role}</StyledTableCell>
               <StyledTableCell align="left">{row.day}</StyledTableCell>
-              <StyledTableCell align="center">{row.quality}</StyledTableCell>
+              <StyledTableCell align="center">{row.quantity}</StyledTableCell>
               <StyledTableCell align="center">
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.button}
-
-                >
-                  Khóa tài khoản
-      </Button>
+                {kiemTra(row)}
               </StyledTableCell>
-              <StyledTableCell align="center">
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  className={classes.button}
 
-                >
-                  Mở khóa   
-      </Button>
-              </StyledTableCell>
 
             </StyledTableRow>
-          ))}
+          )
+
+          )}
         </TableBody>
       </Table>
     </TableContainer>

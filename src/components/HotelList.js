@@ -10,7 +10,7 @@ import Paper from '@material-ui/core/Paper';
 import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import { ArrowLeft } from '@material-ui/icons';
+
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -47,15 +47,9 @@ const useStyles = makeStyles({
   },
 });
 
-export default function HotelList() {
+export default function HotelList(props) {
   const classes = useStyles();
-  const rows = [
-    createData('Frozen yoghurt', "Nguyễn văn A", "Hải Phòng", "Trần Cảnh"),
-    createData('Ice cream sandwich', "Nguyễn văn Nguyên", "Thái Nguyên", "Lý Công Uẩn"),
-    createData('Eclair', "Nguyễn văn Loan", "Thái Nguyên", "Lê Hoàng"),
-    createData('Cupcake', "Nguyễn văn Huyền", "Thái Nguyên", "Nguyễn Long"),
-    createData('Gingerbread', "Nguyễn văn Phong", "Thái Nguyên", "Phạm Hùng"),
-  ];
+  const rows = props.data
   return (
     
     <TableContainer component={Paper}>
