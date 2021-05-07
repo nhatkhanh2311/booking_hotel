@@ -31,9 +31,7 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-function createData(name, type, city, boss) {
-  return { name, type, city, boss };
-}
+
 
 
 
