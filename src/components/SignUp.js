@@ -9,7 +9,9 @@ export default function SignUp() {
     const [pass, setPass] = useState("");
     const [retypePass, setRetypePass] = useState("");
     const [name, setName] = useState("");
+    const [date, setDate] = useState("");
     const [phone, setPhone] = useState("");
+    const [role, setRole] = useState(true);
     const [err, setErr] = useState({});
 
     const onSubmit = (e) => {
@@ -18,9 +20,34 @@ export default function SignUp() {
             const fetchData = async () => {
                 await axios
                     .post('/signup', {
-
+                        username: user,
+                        password: pass,
+                        email: email,
+                        role: [role ? "user" : "director"],
+                        userDetail: {
+                            nameUserDetail: name,
+                            birth: date,
+                            phoneNumber: phone
+                        }
                     })
+                    .then(function (res) {
+                        switch (res.data['message']) {
+                            case 'User registered successfully!':
+                                window.location.reload();
+                                window.alert('Đăng ký tài khoản thành công!');
+                                break;
+                            case 'Error: Email is already in use!':
+                                window.alert('Email đã được sử dụng!');
+                                break;
+                            case 'Error: Username is already taken!':
+                                window.alert('Tên đăng nhập đã được sử dụng!');
+                        }
+                    })
+                    .catch(function (err) {
+                        window.alert('Đã có lỗi xảy ra!');
+                    });
             }
+            fetchData();
         }
     }
 
@@ -61,28 +88,28 @@ export default function SignUp() {
                 <div className="form-group">
                     <label>Tên đăng nhập</label>
                     <input type="text" className="form-control" placeholder="Nhập tên đăng nhập"
-                        onBlur={(e) => setUser(e.target.value)}/>
+                           onBlur={(e) => setUser(e.target.value)}/>
                     <span style={{ color: "red" }}>{err["user"]}</span>
                 </div>
 
                 <div className="form-group">
                     <label>Mật khẩu</label>
                     <input type="password" className="form-control" placeholder="Nhập mật khẩu"
-                        onBlur={(e) => setPass(e.target.value)}/>
-                     <span style={{ color: "red" }}>{err["pass"]}</span>
+                           onBlur={(e) => setPass(e.target.value)}/>
+                    <span style={{ color: "red" }}>{err["pass"]}</span>
                 </div>
 
                 <div className="form-group">
                     <label>Nhập lại mật khẩu</label>
                     <input type="password" className="form-control" placeholder="Xác nhận lại mật khẩu"
-                        onBlur={(e) => setRetypePass(e.target.value)}/>
-                     <span style={{ color: "red" }}>{err["retypePass"]}</span>
+                           onBlur={(e) => setRetypePass(e.target.value)}/>
+                    <span style={{ color: "red" }}>{err["retypePass"]}</span>
                 </div>
 
                 <div className="form-group">
                     <label>Địa chỉ email</label>
                     <input type="email" className="form-control" placeholder="Nhập email"
-                        onBlur={(e) => setEmail(e.target.value)}/>
+                           onBlur={(e) => setEmail(e.target.value)}/>
                     <span style={{ color: "red" }}>{err["email"]}</span>
                 </div>
 
@@ -94,16 +121,28 @@ export default function SignUp() {
                 </div>
 
                 <div className="form-group">
-                    <label>Số điện thoại</label>
-                    <input type="tel" pattern="[0]{1}[0-9]{9}" className="form-control" placeholder="Nhập số điện thoại"
-                        onBlur={(e) => setPhone(e.target.value)}/>
-                     <span style={{ color: "red" }}>{err["phone"]}</span>
+                    <label>Ngày sinh</label>
+                    <input type="date" className="form-control" required
+                           onBlur={(e) => setDate(e.target.value)}/>
                 </div>
 
                 <div className="form-group">
-                    <div className="custom-control custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Tôi là nhân viên khách sạn</label>
+                    <label>Số điện thoại</label>
+                    <input type="tel" pattern="[0]{1}[0-9]{9}" className="form-control" placeholder="Nhập số điện thoại"
+                           onBlur={(e) => setPhone(e.target.value)}/>
+                    <span style={{ color: "red" }}>{err["phone"]}</span>
+                </div>
+
+                <div className="form-group">
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="role" id="user" defaultChecked
+                               onClick={() => setRole(true)}/>
+                        <label className="form-check-label" htmlFor="user">Tôi là khách hàng</label>
+                    </div>
+                    <div className="form-check">
+                        <input className="form-check-input" type="radio" name="role" id="director"
+                               onClick={() => setRole(false)}/>
+                        <label className="form-check-label" htmlFor="director">Tôi là nhân viên khách sạn</label>
                     </div>
                 </div>
 

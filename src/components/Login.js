@@ -19,18 +19,27 @@ export default function Login() {
                         password: pass
                     })
                     .then(function (res) {
-                        localStorage.setItem('username', res.data['username']);
-                        localStorage.setItem('roles', res.data['roles'][0]);
-                        localStorage.setItem('accessToken', res.data['accessToken']);
-                        localStorage.setItem('tokenType', res.data['tokenType']);
-                        switch (res.data['roles'][0]) {
-                            case 'ROLE_USER': window.location.reload(); break;
-                            case 'ROLE_DIRECTOR': history.push('/director'); break;
-                            case 'ROLE_ADMIN': history.push('/admin');
+                        if (res.data['message'] === 'Error: Username or password is incorrect')
+                            window.alert('Tên tài khoản hoặc mật khẩu không đúng!');
+                        else {
+                            localStorage.setItem('username', res.data['username']);
+                            localStorage.setItem('roles', res.data['roles'][0]);
+                            localStorage.setItem('accessToken', res.data['accessToken']);
+                            localStorage.setItem('tokenType', res.data['tokenType']);
+                            switch (res.data['roles'][0]) {
+                                case 'ROLE_USER':
+                                    window.location.reload();
+                                    break;
+                                case 'ROLE_DIRECTOR':
+                                    history.push('/director');
+                                    break;
+                                case 'ROLE_ADMIN':
+                                    history.push('/admin');
+                            }
                         }
                     })
                     .catch(function (err) {
-                        console.log(err);
+                        window.alert('Đã có lỗi xảy ra!');
                     });
             };
             fetchData();
@@ -58,15 +67,15 @@ export default function Login() {
                 <div className="form-group">
                     <label>Tên đăng nhập</label>
                     <input type="user"
-                        onBlur={(e) => setUser(e.target.value)}
-                        className="form-control" placeholder="Nhập tên đăng nhập" />
+                           onBlur={(e) => setUser(e.target.value)}
+                           className="form-control" placeholder="Nhập tên đăng nhập" />
                     <span style={{ color: "red" }}>{err["user"]}</span>
                 </div>
 
                 <div className="form-group">
                     <label>Mật khẩu</label>
                     <input type="password" className="form-control" placeholder="Nhập mật khẩu"
-                        onChange={(e) => setPass(e.target.value)}/>
+                           onChange={(e) => setPass(e.target.value)}/>
                     <span style={{ color: "red" }}>{err["pass"]}</span><br/>
                 </div>
 
