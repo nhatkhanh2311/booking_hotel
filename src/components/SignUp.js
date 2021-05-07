@@ -32,14 +32,14 @@ export default function SignUp() {
                     })
                     .then(function (res) {
                         switch (res.data['message']) {
-                            case 'User registered successfully!':
+                            case 'successfull':
                                 window.location.reload();
                                 window.alert('Đăng ký tài khoản thành công!');
                                 break;
-                            case 'Error: Email is already in use!':
+                            case 'email is taken':
                                 window.alert('Email đã được sử dụng!');
                                 break;
-                            case 'Error: Username is already taken!':
+                            case 'username is taken':
                                 window.alert('Tên đăng nhập đã được sử dụng!');
                         }
                     })

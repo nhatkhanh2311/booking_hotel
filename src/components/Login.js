@@ -19,7 +19,7 @@ export default function Login() {
                         password: pass
                     })
                     .then(function (res) {
-                        if (res.data['message'] === 'Error: Username or password is incorrect')
+                        if (res.data['message'] === 'incorrect')
                             window.alert('Tên tài khoản hoặc mật khẩu không đúng!');
                         else {
                             localStorage.setItem('username', res.data['username']);
@@ -77,13 +77,6 @@ export default function Login() {
                     <input type="password" className="form-control" placeholder="Nhập mật khẩu"
                            onChange={(e) => setPass(e.target.value)}/>
                     <span style={{ color: "red" }}>{err["pass"]}</span><br/>
-                </div>
-
-                <div className="form-group">
-                    <div className="custom-control custom-checkbox">
-                        <input type="checkbox" className="custom-control-input" id="customCheck1" />
-                        <label className="custom-control-label" htmlFor="customCheck1">Ghi nhớ đăng nhập</label>
-                    </div>
                 </div>
 
                 <button type="submit" className="btn btn-primary btn-block">Đăng nhập</button>
