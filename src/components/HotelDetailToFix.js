@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { Button, Label, Input, FormGroup, Col, Row, Form, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from "reactstrap";
 import './css/UpHotel.css'
-export default function UpHotel() {
+export default function HotelDetailToFix() {
     const [dropdownOpen, setDropdownOpen] = useState(true);
 
     const toggle = () => setDropdownOpen(prevState => !prevState);
@@ -46,7 +46,7 @@ export default function UpHotel() {
                     
                 </FormGroup>
 
-                <button type="submit" className="btn btn-primary btn-block">Tạo khách sạn</button>
+                <button type="submit" className="btn btn-primary btn-block">Sửa</button>
             </Form>
         </div>
     );

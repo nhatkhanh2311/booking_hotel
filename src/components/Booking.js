@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid, TextField, Form, Button, makeStyles, TextareaAutosize } from '@material-ui/core';
-import  './css/InformationUpdate.css';
+import InformationUpdate from './css/InformationUpdate.css';
 
 const useStyle = makeStyles(theme => ({
     root: {
@@ -13,7 +13,7 @@ const useStyle = makeStyles(theme => ({
 }))
 
 
-export default function InformationUpdate() {
+export default function Booking () {
     const classes = useStyle();
 
     return (

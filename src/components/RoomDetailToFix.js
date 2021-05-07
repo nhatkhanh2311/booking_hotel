@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import { Container,FormGroup,Label,Input } from "reactstrap";
+import {Label,Input } from "reactstrap";
 import './css/UpRoom.css';
 
 
-export default function UpRoom() {
+export default function RoomDetailToFix() {
    
     const onSubmit = (e) => {
         e.preventDefault();
 
       
     }
-
-   
-
     return (
         <div className="UpRoom">
             <form onSubmit={onSubmit}>
@@ -64,7 +61,7 @@ export default function UpRoom() {
 
                
 
-                <button type="submit" className="btn btn-primary btn-block">Tạo phòng</button>
+                <button type="submit" className="btn btn-primary btn-block">Sửa thông tin</button>
                 
             </form>
         </div>
