@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {axios} from '../axios';
 import {useHistory} from "react-router-dom";
-import './css/Login.css';
 
 export default function Login() {
     const history = useHistory();
@@ -40,6 +39,7 @@ export default function Login() {
                     })
                     .catch(function (err) {
                         window.alert('Đã có lỗi xảy ra!');
+                        console.log(err);
                     });
             };
             fetchData();
@@ -50,11 +50,11 @@ export default function Login() {
         let isValid = true;
         let x = {};
         if (user === "") {
-            x.user = "Tên đăng nhập không được để trống";
+            x.user = "Tên đăng nhập không được để trống!";
             isValid = false;
         }
         if (pass === "") {
-            x.pass = "Mật khẩu không được để trống";
+            x.pass = "Mật khẩu không được để trống!";
             isValid = false;
         }
         setErr(x);
@@ -68,7 +68,7 @@ export default function Login() {
                     <label>Tên đăng nhập</label>
                     <input type="user"
                            onBlur={(e) => setUser(e.target.value)}
-                           className="form-control" placeholder="Nhập tên đăng nhập" />
+                           className="form-control" placeholder="Nhập tên đăng nhập"/>
                     <span style={{ color: "red" }}>{err["user"]}</span>
                 </div>
 

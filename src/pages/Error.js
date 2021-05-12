@@ -1,5 +1,4 @@
 import React from "react";
-import "./css/Error.css";
 import {Link} from "react-router-dom";
 import oops from "../assets/oops.svg";
 import Header from "../components/Header";
@@ -9,11 +8,11 @@ export default function Error() {
     return (
         <>
             <Header/>
-            <section className="error-page">
-                <div className="error-container">
-                    <img src={oops} height="100"/>
+            <section style={{display: 'flex', justifyContent: 'center', padding: '4rem 0'}}>
+                <div style={{textAlign: 'center', textTransform: 'capitalize'}}>
+                    <img src={oops} style={{height: '100px', marginBottom: '50px'}}/>
                     <h2>Trang bạn đang cần truy cập không tồn tại!</h2>
-                    <Link to="/" className="to-home">
+                    <Link to="/" style={{fontSize: '20px'}}>
                         {"<< Về trang chủ"}
                     </Link>
                 </div>

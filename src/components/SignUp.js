@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import {axios} from '../axios';
-import { Container } from "reactstrap";
-import './css/SignUp.css';
 
 export default function SignUp() {
     const [email, setEmail] = useState("");
@@ -45,6 +43,7 @@ export default function SignUp() {
                     })
                     .catch(function (err) {
                         window.alert('Đã có lỗi xảy ra!');
+                        console.log(err);
                     });
             }
             fetchData();
@@ -55,27 +54,27 @@ export default function SignUp() {
         let isValid = true;
         let x = {};
         if (email === "") {
-            x.email = "Email không được để trống";
+            x.email = "Email không được để trống!";
             isValid = false;
         }
         if (user === "") {
-            x.user = "Tên đăng nhập không được để trống";
+            x.user = "Tên đăng nhập không được để trống!";
             isValid = false;
         }
         if (pass === "") {
-            x.pass = "Mật khẩu không được để trống";
+            x.pass = "Mật khẩu không được để trống!";
             isValid = false;
         }
         if (name === "") {
-            x.name = "Họ tên không được để trống";
+            x.name = "Họ tên không được để trống!";
             isValid = false;
         }
         if (phone === "") {
-            x.phone = "Số điện thoại không được để trống";
+            x.phone = "Số điện thoại không được để trống!";
             isValid = false;
         }
         if (pass !== retypePass) {
-            x.retypePass = "Nhập lại mật khẩu không chính xác";
+            x.retypePass = "Nhập lại mật khẩu không chính xác!";
             isValid = false;
         }
         setErr(x);

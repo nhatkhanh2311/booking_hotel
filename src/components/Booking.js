@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import { Grid, TextField, Form, Button, makeStyles, TextareaAutosize } from '@material-ui/core';
 import InformationUpdate from './css/InformationUpdate.css';
 
@@ -7,18 +7,15 @@ const useStyle = makeStyles(theme => ({
         '& .MuiFormControl-root': {
             width: '80%',
             margin: theme.spacing(1)
-
         }
     }
 }))
-
 
 export default function Booking () {
     const classes = useStyle();
 
     return (
         <div className="update">
-            
             <form onSubmit className={classes.root}>
                 <Grid container className="test">
                     <Grid item xs={6}>
@@ -44,8 +41,6 @@ export default function Booking () {
 
                             required
                         />
-
-
                     </Grid>
                     <Grid item xs={6}>
                         <TextField
@@ -65,20 +60,16 @@ export default function Booking () {
                             required
                         />
 
-
                         <TextField
                             label="Nhập mô tả"
                             name="describe"
                             variant="outlined"
                         />
-                        <br></br>
+                        <br/>
 
                         <Button variant="contained" color="primary" type="submit" >
                             Chỉnh sửa
-                    </Button>
-
-
-
+                        </Button>
                     </Grid>
                 </Grid>
             </form>

@@ -1,32 +1,29 @@
 import * as IoIcons from 'react-icons/io';
 import * as AiIcons from 'react-icons/ai';
-import React from "react";
+import React, {useState} from "react";
 import "./css/Navbar.css";
 
-export default function NavbarAdmin() {
-  return (
-    <div className="Sidebar">
-      <ul className="SidebarList">
+export default function NavbarAdmin(props) {
+    const [tab, setTab] = useState('confirm');
 
-        <div className="logo">
-        
+    return (
+        <div className="Sidebar">
+            <ul className="SidebarList">
+                <div className="logo">
+
+                </div>
+
+                <li onClick={() => setTab('confirm')} className="row">
+                    <div className="icon"><IoIcons.IoIosPaper /></div>
+                    <div className="title">Duyệt bài đăng</div>
+                </li>
+
+                <li onClick={() => setTab('account')} className="row">
+                    <div className="icon"><AiIcons.AiFillIdcard /></div>
+                    <div className="title">Danh sách tài khoản</div>
+                </li>
+            </ul>
+            {props.render(tab)}
         </div>
-
-        <li onClick={() => window.location.pathname = "/postRequest"} className="row">
-          <div className="icon"><IoIcons.IoIosPaper /></div>
-          <div className="title">Duyệt bài đăng</div>
-        </li>
-
-        <li onClick={() => window.location.pathname = "/accountList"} className="row">
-          <div className="icon"><AiIcons.AiFillIdcard /></div>
-          <div className="title">Danh sách tài khoản</div>
-        </li>
-
-        <li conClick={() => window.location.pathname = "/infomarionUpdate"} className="row">
-          <div className="icon"> <IoIcons.IoMdPeople /></div>
-          <div className="title">Cập nhật thông tin</div>
-        </li>
-      </ul>
-    </div>
-  )
+    )
 }
