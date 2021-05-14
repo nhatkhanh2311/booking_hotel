@@ -1,19 +1,19 @@
 import React from "react";
 import "./css/SearchBox.css"
 import {Link} from "react-router-dom";
+import cover from "../assets/cover.jpg"
 
 export default function SearchBox() {
     return (
         <div className="cover-img">
             <div className="cover-container">
                 <div className="cover">
-                    <h1 className="cover-heading">Giải pháp đặt phòng khách sạn sang trọng và hiện đại</h1>
+                    <h1 className="cover-heading">travellers choice</h1>
                 </div>
                 <div id="search-box">
                     <form id="inventory-search" action method="get">
                         <div className="row mb-1">
                             <div className="col-12 col-md-1 d-none d-md-inline-block"></div>
-
                             <div className="col-12 col-md-4 col-lg-4 pr-0 pl-1">
                                 <div className="search-input-container">
                                     <div className="input-label">
@@ -23,7 +23,6 @@ export default function SearchBox() {
                                            placeholder="Bạn dự định đến đâu?"/>
                                 </div>
                             </div>
-
                             <div className="col-9 col-md-3 col-lg-3 pr-0 pl-1">
                                 <div className="search-input-container">
                                     <div className="input-label">
@@ -35,7 +34,6 @@ export default function SearchBox() {
                                     </div>
                                 </div>
                             </div>
-
                             <div className="col-3 col-md-1 col-lg-1 text-center pr-0 pl-1">
                                 <div className="search-input-container">
                                     <div className="input-label">
@@ -47,7 +45,6 @@ export default function SearchBox() {
                                     </div>
                                 </div>
                             </div>
-
                             <div className="col-12 col-md-2 col-lg-2 pr-0 pl-1">
                                 <Link id="button-submit">
                                     <div className="search-input-container search">
@@ -55,7 +52,6 @@ export default function SearchBox() {
                                     </div>
                                 </Link>
                             </div>
-
                             <div className="col-12 col-md-1 d-none d-md-inline-block"></div>
                         </div>
                     </form>
