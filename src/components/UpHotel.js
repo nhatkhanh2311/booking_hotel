@@ -11,34 +11,61 @@ export default function UpHotel() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const fd = new FormData();
-        fd.append('images', image, image.name);
+        const images = new FormData();
+        images.append('images', image);
+        const hotelRequest = new FormData();
+        hotelRequest.append('hotelRequest', {
+            name: name,
+            standar: 3,
+            localization: {
+                city: city,
+                country: 'Viet Nam',
+                street: address
+            }
+        });
         if (validate()) {
             const fetchData = async () => {
                 await axios
                     .post('/director/hotel/new-hotel', {
-                        fd,
-                        name: name,
-                        localization: {
-                            city: city,
-                            country: 'Viet Nam',
-                            street: address
+                        hotelRequest
+                        //     {
+                        //     name: name,
+                        //     standar: 3,
+                        //     localization: {
+                        //         city: city,
+                        //         country: 'Viet Nam',
+                        //         street: address
+                        //     }
+                        // }
+                    }, {
+                        headers: {
+                            Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
                         }
                     })
+                    // .get('/director/hotel', {
+                    //     headers: {
+                    //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
+                    //     }
+                    // })
                     .then(function (res) {
-                        switch (res.data['message']) {
-                            case 'image is empty':
-                                window.alert('Vui lòng thêm ảnh!');
-                                break;
-                            case 'add hotel successfully':
-                                window.location.reload();
-                                window.alert('Thêm khách sạn thành công!');
-                        }
+                        // switch (res.data['message']) {
+                        //     case 'image is empty':
+                        //         window.alert('Vui lòng thêm ảnh!');
+                        //         break;
+                        //     case 'add hotel successfully':
+                        //         window.location.reload();
+                        //         window.alert('Thêm khách sạn thành công!');
+                        // }
+                        console.log(res.data);
                     })
                     .catch(function (err) {
                         window.alert('Đã có lỗi xảy ra!');
                         console.log(err);
-                    })
+                    });
+                await console.log({
+                    images,
+                    hotelRequest
+                });
             }
             fetchData();
         }
@@ -84,7 +111,7 @@ export default function UpHotel() {
                 <FormGroup>
                     <Label>Hình ảnh khách sạn</Label>
                     <Input type="file" name="image"
-                           onChange={(e) => setImage(e.target.files[0])}/>
+                           onChange={(e) => {setImage(e.target.files[0]);console.log(image)}}/>
                     <br/>
                 </FormGroup>
 
