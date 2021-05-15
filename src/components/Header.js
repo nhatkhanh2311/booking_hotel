@@ -1,11 +1,10 @@
 import React, {useState} from "react";
 import "./css/Header-Footer.css"
 import {Link, useHistory} from "react-router-dom";
-import logo from "../assets/logo.gif";
+import logo from "../assets/logo.png";
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import {axios} from "../axios";
 
 export default function Header() {
     const history = useHistory();
@@ -24,39 +23,6 @@ export default function Header() {
         window.location.reload();
     }
 
-    const onSubmit = (e) => {
-        const fetchData = async () => {
-            await axios
-                // .post('/director/hotel/new-hotel', {}, {
-                //     headers: {
-                //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
-                //     }
-                // })
-                .post('/user/cancelBooing/1')
-                // .get('/user/history-booking-before')
-                // .post('/director/hotel/new-hotel', {
-                //
-                // }, {
-                //     headers: {
-                //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
-                //     }
-                // })
-                // .get('/director/hotel', {
-                //     headers: {
-                //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
-                //     }
-                // })
-                .then(function (res) {
-                    console.log(res.data);
-                })
-                .catch(function (err) {
-                    window.alert('Đã có lỗi xảy ra!');
-                    console.log(err);
-                });
-        }
-        fetchData();
-    }
-
     return (
         <header>
             <nav className="navbar navbar-expand-md navbar-dark clearfix masthead">
@@ -68,19 +34,19 @@ export default function Header() {
                 <div className="collapse navbar-collapse navbar-horizontal-menu">
                     <ul className="navbar-nav ml-auto">
                         <li>
-                            <Link className="nav-link header-link" onClick={onSubmit}>
+                            <Link className="nav-link header-link">
                                 Địa điểm
                             </Link>
                         </li>
                         <li>
                             <Link className="nav-link header-link">
-                                Blog
+                                Trải nghiệm
                             </Link>
                         </li>
                         {localStorage.getItem('roles') && (
                             <>
                                 <li>
-                                    <Button color="rgb(82, 80, 80)" onClick={toAccount}>
+                                    <Button color="success" onClick={toAccount}>
                                         Thông tin
                                     </Button>
                                 </li>
@@ -94,12 +60,12 @@ export default function Header() {
                         {!localStorage.getItem('roles') && (
                             <>
                                 <li>
-                                    <Button class="button"  onClick={toggleLogin}>
-                                        Login
+                                    <Button color="success" onClick={toggleLogin}>
+                                        Đăng nhập
                                     </Button>
                                     <Modal className="modal-dialog modal-dialog-centered" isOpen={login} toggle={toggleLogin}>
                                         <ModalHeader>
-                                            <h2>Login</h2>
+                                            <h2>Đăng nhập</h2>
                                         </ModalHeader>
                                         <ModalBody>
                                             <Login/>
@@ -107,12 +73,12 @@ export default function Header() {
                                     </Modal>
                                 </li>
                                 <li>
-                                    <Button class="button" onClick={toggleSignup}>
-                                        Signup
+                                    <Button color="success" onClick={toggleSignup}>
+                                        Đăng ký
                                     </Button>
                                     <Modal className="modal-dialog modal-dialog-centered" isOpen={signup} toggle={toggleSignup}>
                                         <ModalHeader>
-                                            <h3>Signup</h3>
+                                            <h2>Đăng ký</h2>
                                         </ModalHeader>
                                         <ModalBody>
                                             <SignUp/>

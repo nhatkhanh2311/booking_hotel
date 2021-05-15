@@ -1,9 +1,6 @@
 .cover-img {
-    background-image: linear-gradient(rgba(88, 88, 88, 0.5), rgba(88, 88, 88, 0.5)),
-    url("https://amazingdalat.com/media/upload/images/am-thuc/Ca%CC%80%20phe%CC%82%20Woodstock%20Da%20Lat.jpg");
+    background: url("../../assets/cover.jpg") top right no-repeat;
     background-size: cover;
-    background-position: center;
-    height: 80vh;
 }
 
 .cover-container {
@@ -19,9 +16,10 @@
 }
 
 .cover-heading {
-    font-family: 'Pacifico', cursive;
-    margin-top: 3vh;
-    font-size: 5vw;
+    font-family: 'Cormorant Garamond', serif, Helvetica, Arial, Verdana, Calibri;
+    font-style: italic;
+    font-size: 40px;
+    text-shadow: 1px 1px 1px #000;
     color: white;
 }
 

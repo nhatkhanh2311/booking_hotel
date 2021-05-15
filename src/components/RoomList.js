@@ -54,7 +54,7 @@ export default function RoomList(props) {
                 <AddIcon/>
             </Fab>
 
-            <Modal className='modal-dialog modal-dialog-centered' isOpen={up} toggle={toggleUp}>
+            <Modal isOpen={up} toggle={toggleUp}>
                 <ModalHeader>
                     <h2>Thêm phòng</h2>
                 </ModalHeader>
