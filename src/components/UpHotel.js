@@ -23,11 +23,14 @@ export default function UpHotel() {
                 street: address
             }
         });
+        const Authorization = new FormData();
+        Authorization.append('Authorization', `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`);
         if (validate()) {
             const fetchData = async () => {
                 await axios
                     .post('/director/hotel/new-hotel', {
-                        hotelRequest
+                        hotelRequest,
+                        Authorization
                         //     {
                         //     name: name,
                         //     standar: 3,
@@ -37,10 +40,10 @@ export default function UpHotel() {
                         //         street: address
                         //     }
                         // }
-                    }, {
-                        headers: {
-                            Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
-                        }
+                    // }, {
+                    //     headers: {
+                    //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
+                    //     }
                     })
                     // .get('/director/hotel', {
                     //     headers: {

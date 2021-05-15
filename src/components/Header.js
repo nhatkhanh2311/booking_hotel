@@ -5,6 +5,7 @@ import logo from "../assets/logo.png";
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import {axios} from "../axios";
 
 export default function Header() {
     const history = useHistory();
@@ -23,6 +24,39 @@ export default function Header() {
         window.location.reload();
     }
 
+    const onSubmit = (e) => {
+        const fetchData = async () => {
+            await axios
+                // .post('/director/hotel/new-hotel', {}, {
+                //     headers: {
+                //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
+                //     }
+                // })
+                .post('/user/cancelBooing/1')
+                // .get('/user/history-booking-before')
+                // .post('/director/hotel/new-hotel', {
+                //
+                // }, {
+                //     headers: {
+                //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
+                //     }
+                // })
+                // .get('/director/hotel', {
+                //     headers: {
+                //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
+                //     }
+                // })
+                .then(function (res) {
+                    console.log(res.data);
+                })
+                .catch(function (err) {
+                    window.alert('Đã có lỗi xảy ra!');
+                    console.log(err);
+                });
+        }
+        fetchData();
+    }
+
     return (
         <header>
             <nav className="navbar navbar-expand-md navbar-dark clearfix masthead">
@@ -34,7 +68,7 @@ export default function Header() {
                 <div className="collapse navbar-collapse navbar-horizontal-menu">
                     <ul className="navbar-nav ml-auto">
                         <li>
-                            <Link className="nav-link header-link">
+                            <Link className="nav-link header-link" onClick={onSubmit}>
                                 Địa điểm
                             </Link>
                         </li>
