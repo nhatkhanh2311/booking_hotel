@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./css/Header-Footer.css"
 import {Link, useHistory} from "react-router-dom";
-import logo from "../assets/logo.gif";
+import logo from "../assets/logo.png";
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Login from "./Login";
 import SignUp from "./SignUp";
@@ -68,19 +68,23 @@ export default function Header() {
                 <div className="collapse navbar-collapse navbar-horizontal-menu">
                     <ul className="navbar-nav ml-auto">
                         <li>
+<<<<<<< HEAD
                             <Link className="nav-link header-link" onClick={onSubmit}>
+=======
+                            <Link className="nav-link header-link">
+>>>>>>> parent of f25f364 (client)
                                 Địa điểm
                             </Link>
                         </li>
                         <li>
                             <Link className="nav-link header-link">
-                                Blog
+                                Trải nghiệm
                             </Link>
                         </li>
                         {localStorage.getItem('roles') && (
                             <>
                                 <li>
-                                    <Button color="rgb(82, 80, 80)" onClick={toAccount}>
+                                    <Button color="success" onClick={toAccount}>
                                         Thông tin
                                     </Button>
                                 </li>
@@ -94,12 +98,12 @@ export default function Header() {
                         {!localStorage.getItem('roles') && (
                             <>
                                 <li>
-                                    <Button class="button"  onClick={toggleLogin}>
-                                        Login
+                                    <Button color="success" onClick={toggleLogin}>
+                                        Đăng nhập
                                     </Button>
                                     <Modal className="modal-dialog modal-dialog-centered" isOpen={login} toggle={toggleLogin}>
                                         <ModalHeader>
-                                            <h2>Login</h2>
+                                            <h2>Đăng nhập</h2>
                                         </ModalHeader>
                                         <ModalBody>
                                             <Login/>
@@ -107,12 +111,12 @@ export default function Header() {
                                     </Modal>
                                 </li>
                                 <li>
-                                    <Button class="button" onClick={toggleSignup}>
-                                        Signup
+                                    <Button color="success" onClick={toggleSignup}>
+                                        Đăng ký
                                     </Button>
                                     <Modal className="modal-dialog modal-dialog-centered" isOpen={signup} toggle={toggleSignup}>
                                         <ModalHeader>
-                                            <h3>Signup</h3>
+                                            <h2>Đăng ký</h2>
                                         </ModalHeader>
                                         <ModalBody>
                                             <SignUp/>
