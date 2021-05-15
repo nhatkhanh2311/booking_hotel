@@ -1,3 +1,10 @@
+header {
+    font-family: "Syne Mono", monospace;
+    font-size: 17px;
+    position: fixed;
+    width: 100vw;
+}
+
 @media (min-width: 64em) {
     #logo {
         max-width: 243px;
@@ -12,7 +19,7 @@
 @media (min-width: 48em) {
     .navbar-horizontal-menu {
         padding: 0;
-        margin: 8px 20px 0 0;
+        margin: 1vw 5vw 0 0;
     }
 }
 
@@ -23,7 +30,7 @@
 }
 
 .masthead {
-    background-color: darkslateblue;
+    background-color: rgb(82, 80, 80);
     min-width: 100%;
     width: 100%;
     min-height: 42px;
@@ -33,7 +40,7 @@
 }
 
 .masthead li {
-    margin-left: 10px;
+    margin-left: 3vw;
 }
 
 .masthead Button {
@@ -41,7 +48,7 @@
 }
 
 .mastfoot {
-    background: darkslateblue;
+    background: rgb(82, 80, 80);
     bottom: 0;
     font-size: 16px;
     color: #fff;
@@ -62,19 +69,42 @@
 }
 
 .header-link {
-    color: white !important;
-    font-size: 20px;
+    color: rgb(250, 246, 246) !important;
+
 }
 
 .header-link:hover {
-    color: chartreuse !important;
+    color: rgb(144, 146, 142)  !important;
+    border-bottom: 0.5px solid white;
 }
 
 .follow {
-    font-size: 20px;
+
     margin-bottom: 10px;
 }
 
 .footer-link {
     color: white !important;
 }
+
+.button {
+    border-radius: 10px;
+    background-color: rgb(82, 80, 80);
+    border: 1px solid white;
+    font-family: "Syne Mono", monospace;
+
+}
+
+input::placeholder {
+    text-align: center;
+}
+.input-label {
+    text-align: center;
+    font-size: 16px;
+    font-family: "Syne Mono", monospace;
+
+}
+/* 
+#search-keyword, #search-date-range, #search-guests {
+    text-align: center;
+} */

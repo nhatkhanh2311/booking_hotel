@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./css/Header-Footer.css"
 import {Link, useHistory} from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/logo.gif";
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
 import Login from "./Login";
 import SignUp from "./SignUp";
@@ -74,13 +74,13 @@ export default function Header() {
                         </li>
                         <li>
                             <Link className="nav-link header-link">
-                                Trải nghiệm
+                                Blog
                             </Link>
                         </li>
                         {localStorage.getItem('roles') && (
                             <>
                                 <li>
-                                    <Button color="success" onClick={toAccount}>
+                                    <Button color="rgb(82, 80, 80)" onClick={toAccount}>
                                         Thông tin
                                     </Button>
                                 </li>
@@ -94,12 +94,12 @@ export default function Header() {
                         {!localStorage.getItem('roles') && (
                             <>
                                 <li>
-                                    <Button color="success" onClick={toggleLogin}>
-                                        Đăng nhập
+                                    <Button class="button"  onClick={toggleLogin}>
+                                        Login
                                     </Button>
                                     <Modal className="modal-dialog modal-dialog-centered" isOpen={login} toggle={toggleLogin}>
                                         <ModalHeader>
-                                            <h2>Đăng nhập</h2>
+                                            <h2>Login</h2>
                                         </ModalHeader>
                                         <ModalBody>
                                             <Login/>
@@ -107,12 +107,12 @@ export default function Header() {
                                     </Modal>
                                 </li>
                                 <li>
-                                    <Button color="success" onClick={toggleSignup}>
-                                        Đăng ký
+                                    <Button class="button" onClick={toggleSignup}>
+                                        Signup
                                     </Button>
                                     <Modal className="modal-dialog modal-dialog-centered" isOpen={signup} toggle={toggleSignup}>
                                         <ModalHeader>
-                                            <h2>Đăng ký</h2>
+                                            <h3>Signup</h3>
                                         </ModalHeader>
                                         <ModalBody>
                                             <SignUp/>
