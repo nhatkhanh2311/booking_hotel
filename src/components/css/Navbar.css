@@ -1,7 +1,13 @@
 .Sidebar{
   min-height: 660px;
   width: 250px;
-  background-color: #2F4050;
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.5)
+  ), url('/src/assets/bg1.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 370px;
 }
 
 .SidebarList{
@@ -24,7 +30,7 @@
 
 .Sidebar .row:hover{
   cursor: pointer;
-  background-color: #293846;
+ 
 }
 
 .icon{

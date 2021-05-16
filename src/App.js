@@ -5,11 +5,12 @@ import Error from "./pages/Error";
 import Admin from "./pages/Admin";
 import User from "./pages/User";
 import Director from "./pages/Director";
-
+import Nav from "./components/NavbarAdmin"
 export default function App() {
     return (
         <Router>
-            <Switch>
+            <Nav></Nav>
+            {/* <Switch>
                 <Route exact path="/">
                     <Home/>
                 </Route>
@@ -42,7 +43,7 @@ export default function App() {
                 <Route path="*">
                     <Error/>
                 </Route>
-            </Switch>
+            </Switch> */}
         </Router>
     );
 }
