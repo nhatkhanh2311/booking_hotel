@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {axios} from "../axios";
 import {withStyles, makeStyles} from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -54,7 +55,7 @@ export default function RoomList(props) {
                 <AddIcon/>
             </Fab>
 
-            <Modal isOpen={up} toggle={toggleUp}>
+            <Modal className='modal-dialog modal-dialog-centered' isOpen={up} toggle={toggleUp}>
                 <ModalHeader>
                     <h2>Thêm phòng</h2>
                 </ModalHeader>

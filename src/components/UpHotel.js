@@ -37,16 +37,11 @@ export default function UpHotel() {
                         //         street: address
                         //     }
                         // }
-                    }, {
-                        headers: {
-                            Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
-                        }
-                    })
-                    // .get('/director/hotel', {
+                    // }, {
                     //     headers: {
                     //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
                     //     }
-                    // })
+                    })
                     .then(function (res) {
                         // switch (res.data['message']) {
                         //     case 'image is empty':
