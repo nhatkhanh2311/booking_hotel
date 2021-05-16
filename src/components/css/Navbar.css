@@ -23,14 +23,14 @@
   margin: 0%;
   display: flex;
   flex-direction: row;
-  color: white;
+  color: lightgray;
   justify-content: center;
   align-items: center;
 }
 
 .Sidebar .row:hover{
   cursor: pointer;
- 
+  color:white;
 }
 
 .icon{
