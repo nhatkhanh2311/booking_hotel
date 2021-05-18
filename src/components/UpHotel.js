@@ -1,13 +1,12 @@
 import React, {useState} from "react";
 import {axios} from "../axios";
-import {Label, Input, FormGroup, Form} from "reactstrap";
+import {Label, Input, FormGroup, Form, Button} from "reactstrap";
 
 export default function UpHotel() {
     const [name, setName] = useState("");
     const [city, setCity] = useState("");
     const [address, setAddress] = useState("");
     const [image, setImage] = useState(null);
-    const [err, setErr] = useState({});
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -23,96 +22,77 @@ export default function UpHotel() {
                 street: address
             }
         });
-        if (validate()) {
-            const fetchData = async () => {
-                await axios
-                    .post('/director/hotel/new-hotel', {
-                        hotelRequest
-                        //     {
-                        //     name: name,
-                        //     standar: 3,
-                        //     localization: {
-                        //         city: city,
-                        //         country: 'Viet Nam',
-                        //         street: address
-                        //     }
-                        // }
+        const fetchData = async () => {
+            await axios
+                .post('/director/hotel/new-hotel', {
+                    hotelRequest
+                    //     {
+                    //     name: name,
+                    //     standar: 3,
+                    //     localization: {
+                    //         city: city,
+                    //         country: 'Viet Nam',
+                    //         street: address
+                    //     }
+                    // }
                     // }, {
                     //     headers: {
                     //         Authorization: `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`
                     //     }
-                    })
-                    .then(function (res) {
-                        // switch (res.data['message']) {
-                        //     case 'image is empty':
-                        //         window.alert('Vui lòng thêm ảnh!');
-                        //         break;
-                        //     case 'add hotel successfully':
-                        //         window.location.reload();
-                        //         window.alert('Thêm khách sạn thành công!');
-                        // }
-                        console.log(res.data);
-                    })
-                    .catch(function (err) {
-                        window.alert('Đã có lỗi xảy ra!');
-                        console.log(err);
-                    });
-                await console.log({
-                    images,
-                    hotelRequest
+                })
+                .then(function (res) {
+                    // switch (res.data['message']) {
+                    //     case 'image is empty':
+                    //         window.alert('Vui lòng thêm ảnh!');
+                    //         break;
+                    //     case 'add hotel successfully':
+                    //         window.location.reload();
+                    //         window.alert('Thêm khách sạn thành công!');
+                    // }
+                    console.log(res.data);
+                })
+                .catch(function (err) {
+                    window.alert('Đã có lỗi xảy ra!');
+                    console.log(err);
                 });
-            }
-            fetchData();
         }
-    }
-
-    const validate = () => {
-        let isValid = true;
-        let x = {};
-        if (city === "") {
-            x.email = "Vui lòng chọn tỉnh/thành phố!";
-            isValid = false;
-        }
-        setErr(x);
-        return isValid;
+        fetchData();
     }
 
     return (
-        <div>
-            <Form onSubmit={onSubmit}>
-                <FormGroup>
-                    <Label for="nameInput">Tên khách sạn</Label>
-                    <Input type="text" name="name" id="nameInput" placeholder="Nhập tên khách sạn" required
-                           onBlur={(e) => setName(e.target.value)}/>
-                </FormGroup>
+        <Form onSubmit={onSubmit}>
+            <FormGroup>
+                <Label for="nameInput">Tên khách sạn</Label>
+                <Input type="text" id="nameInput" placeholder="Nhập tên khách sạn" required
+                       onBlur={(e) => setName(e.target.value)}/>
+            </FormGroup>
 
-                <FormGroup>
-                    <Label>Tỉnh/Thành phố</Label>
-                    <br/>
-                    <select className="form-select"
-                            onChange={(e) => setCity(e.target.value)}>
-                        <option value=''>--Chọn tỉnh/thành--</option>
-                        {cities.map((city) => <option value={city}>{city}</option>)}
-                    </select>
-                    <span style={{color: "red"}}>{err["email"]}</span>
-                </FormGroup>
+            <FormGroup>
+                <Label for="cityInput">Tỉnh/Thành phố</Label>
+                <Input type="select" id="cityInput" required
+                       onBlur={(e) => setCity(e.target.value)}>
+                    <option value=''>--Chọn tỉnh/thành--</option>
+                    {cities.map((city) => <option value={city}>{city}</option>)}
+                </Input>
+            </FormGroup>
 
-                <FormGroup>
-                    <Label for="addressInput">Số nhà, tên đường</Label>
-                    <Input type="text" name="address" id="addressInput" placeholder="Nhập số nhà, tên đường" required
-                           onBlur={(e) => setAddress(e.target.value)}/>
-                </FormGroup>
+            <FormGroup>
+                <Label for="addressInput">Số nhà, tên đường</Label>
+                <Input type="text" id="addressInput" placeholder="Nhập số nhà, tên đường" required
+                       onBlur={(e) => setAddress(e.target.value)}/>
+            </FormGroup>
 
-                <FormGroup>
-                    <Label>Hình ảnh khách sạn</Label>
-                    <Input type="file" name="image"
-                           onChange={(e) => {setImage(e.target.files[0]);console.log(image)}}/>
-                    <br/>
-                </FormGroup>
+            <FormGroup>
+                <Label>Hình ảnh khách sạn</Label>
+                <Input type="file" required
+                       onChange={(e) => setImage(e.target.files[0])}/>
+            </FormGroup>
 
-                <button type="submit" className="btn btn-primary btn-block">Thêm khách sạn</button>
-            </Form>
-        </div>
+            <br/>
+            <Button color="primary" block>
+                Thêm khách sạn
+            </Button>
+        </Form>
     );
 }
 

@@ -1,56 +1,31 @@
 import React, {useEffect, useState} from 'react';
 import {axios} from "../axios";
-import {withStyles, makeStyles} from '@material-ui/core/styles';
+import UpRoom from "./UpRoom";
+import "./css/List.css"
+import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
+import {Link} from "react-router-dom";
+import {StyledTableCell, StyledTableRow, useStyles} from "./Table";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
-import {TextareaAutosize} from '@material-ui/core';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import {Modal, ModalBody, ModalHeader} from "reactstrap";
-import UpRoom from "./UpRoom";
-
-const StyledTableCell = withStyles((theme) => ({
-    head: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white,
-    },
-    body: {
-        fontSize: 14,
-    },
-}))(TableCell);
-
-const StyledTableRow = withStyles((theme) => ({
-    root: {
-        '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.action.hover,
-        },
-    },
-}))(TableRow);
-
-const useStyles = makeStyles({
-    table: {
-        minWidth: 700,
-    },
-    addButton:{
-        marginLeft:'90%',
-        marginBottom: '20px'
-    },
-});
 
 export default function RoomList(props) {
+    const classes = useStyles();
+    const [data, setData] = useState(props.data);
     const [up, setUp] = useState(false);
     const toggleUp = () => setUp(!up);
-    const classes = useStyles();
-    const rows = props.data;
 
     return (
-        <TableContainer component={Paper}>
+        <TableContainer style={{padding: '30px'}}>
+            <Link className='back' onClick={() => props.render('hotel')}>
+                {'<< Khách sạn của bạn'}
+            </Link>
+
+            <h2>Khách sạn {props.data.name}</h2>
+
             <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleUp}>
                 <AddIcon/>
             </Fab>
@@ -60,47 +35,67 @@ export default function RoomList(props) {
                     <h2>Thêm phòng</h2>
                 </ModalHeader>
                 <ModalBody>
-                    <UpRoom/>
+                    <UpRoom id={props.data.id}/>
                 </ModalBody>
             </Modal>
 
             <Table className={classes.table} aria-label="customized table">
                 <TableHead>
-                    <TableRow>
-                        <StyledTableCell>Mã phòng</StyledTableCell>
-                        <StyledTableCell align="left">Giá phòng(mỗi ngày)</StyledTableCell>
-                        <StyledTableCell align="left">Mô tả</StyledTableCell>
-                        <StyledTableCell align="left">Loại phòng</StyledTableCell>
+                    <StyledTableRow>
+                        <StyledTableCell align="center">Tên phòng</StyledTableCell>
+                        <StyledTableCell align="center">Diện tích</StyledTableCell>
+                        <StyledTableCell align="center">Trạng thái</StyledTableCell>
+                        <StyledTableCell align="center">Loại phòng</StyledTableCell>
+                        <StyledTableCell align="center">Số người</StyledTableCell>
+                        <StyledTableCell align="center">Giá phòng/ngày</StyledTableCell>
+                        <StyledTableCell align="center">Mô tả</StyledTableCell>
                         <StyledTableCell align="center">Sửa</StyledTableCell>
                         <StyledTableCell align="center">Xóa</StyledTableCell>
-                    </TableRow>
+                    </StyledTableRow>
                 </TableHead>
 
                 <TableBody>
-                    {rows.map((row) => (
+                    {data.rooms.map((row) => (
                         <StyledTableRow key={row.name}>
-                            <StyledTableCell component="th" scope="row">
-                                {row.code}
-                            </StyledTableCell>
-                            <StyledTableCell align="left">{row.price}</StyledTableCell>
-                            <StyledTableCell align="left"><TextareaAutosize>{row.describe}</TextareaAutosize></StyledTableCell>
-                            <StyledTableCell align="left">{row.type}</StyledTableCell>
                             <StyledTableCell align="center">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    className={classes.button}
-                                >
+                                {row.name}
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                                {row.area}m²
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                                {row.availability && 'Còn trống'}
+                                {!row.availability && 'Đã đặt'}
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                                {row.type === 'basic' && 'Tiêu chuẩn'}
+                                {row.type === 'advance' && 'Cao cấp'}
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                                {row.capacity}
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                                {row.price} VND
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                                {row.description}
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                                <Button outline color="primary">
                                     Sửa
                                 </Button>
                             </StyledTableCell>
+
                             <StyledTableCell align="center">
-                                <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    className={classes.button}
-                                >
-                                    Delete
+                                <Button outline color="danger">
+                                    Xóa
                                 </Button>
                             </StyledTableCell>
                         </StyledTableRow>

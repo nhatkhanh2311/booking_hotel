@@ -1,22 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import {axios} from "../axios";
-import {withStyles, makeStyles} from '@material-ui/core/styles';
+import UpHotel from "./UpHotel";
+import "./css/List.css"
+import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
+import {StyledTableCell, StyledTableRow, useStyles} from "./Table";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-import {Modal, ModalBody, ModalHeader} from "reactstrap";
-import UpHotel from "./UpHotel";
 
-export default function HotelList() {
+export default function HotelList(props) {
     const classes = useStyles();
     const [data, setData] = useState([]);
+    const [reload, setReload] = useState(false);
     const [up, setUp] = useState(false);
     const toggleUp = () => setUp(!up);
 
@@ -26,7 +24,8 @@ export default function HotelList() {
                 .get('/director/hotel')
                 .then(function (res) {
                     console.log(res.data);
-                    setData([]);
+                    setData(res.data);
+                    setReload(true);
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -37,15 +36,17 @@ export default function HotelList() {
 
     useEffect(() => {
         getData();
-    }, [data]);
+    }, [reload]);
 
     return (
-        <TableContainer component={Paper}>
+        <TableContainer style={{padding: '30px'}}>
+            <h2>Khách sạn của bạn</h2>
+
             <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleUp}>
                 <AddIcon/>
             </Fab>
 
-            <Modal isOpen={up} toggle={toggleUp}>
+            <Modal className='modal-dialog modal-dialog-centered' isOpen={up} toggle={toggleUp}>
                 <ModalHeader>
                     <h2>Thêm khách sạn</h2>
                 </ModalHeader>
@@ -56,20 +57,22 @@ export default function HotelList() {
 
             <Table className={classes.table} aria-label="customized table">
                 <TableHead>
-                    <TableRow>
-                        <StyledTableCell align="center">Tên</StyledTableCell>
+                    <StyledTableRow>
+                        <StyledTableCell align="center">Tên khách sạn</StyledTableCell>
                         <StyledTableCell align="center">Địa chỉ</StyledTableCell>
                         <StyledTableCell align="center">Số phòng</StyledTableCell>
                         <StyledTableCell align="center">Danh sách phòng</StyledTableCell>
                         <StyledTableCell align="center">Sửa</StyledTableCell>
                         <StyledTableCell align="center">Xóa</StyledTableCell>
-                    </TableRow>
+                    </StyledTableRow>
                 </TableHead>
 
                 <TableBody>
                     {data.map((row) => (
                         <StyledTableRow key={row.name}>
-                            <StyledTableCell align="center">{row.name}</StyledTableCell>
+                            <StyledTableCell align="center">
+                                {row.name}
+                            </StyledTableCell>
 
                             <StyledTableCell align="center">
                                 {row.address.city}
@@ -77,22 +80,24 @@ export default function HotelList() {
                                 {row.address.street}
                             </StyledTableCell>
 
-                            <StyledTableCell align="center">{row.rooms.length}</StyledTableCell>
+                            <StyledTableCell align="center">
+                                {row.rooms.length}
+                            </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button variant="contained" color="success" className={classes.button}>
+                                <Button outline color="success" onClick={() => props.render('room', row)}>
                                     Xem
                                 </Button>
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button variant="contained" color="primary" className={classes.button}>
+                                <Button outline color="primary">
                                     Sửa
                                 </Button>
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button variant="contained" color="secondary" className={classes.button}>
+                                <Button outline color="danger">
                                     Xóa
                                 </Button>
                             </StyledTableCell>
@@ -103,31 +108,3 @@ export default function HotelList() {
         </TableContainer>
     );
 }
-
-const StyledTableCell = withStyles((theme) => ({
-    head: {
-        backgroundColor: theme.palette.common.black,
-        color: theme.palette.common.white
-    },
-    body: {
-        fontSize: 14
-    }
-}))(TableCell);
-
-const StyledTableRow = withStyles((theme) => ({
-    root: {
-        '&:nth-of-type(odd)': {
-            backgroundColor: theme.palette.action.hover
-        }
-    }
-}))(TableRow);
-
-const useStyles = makeStyles({
-    table: {
-        minWidth: 700
-    },
-    addButton: {
-        marginLeft:'90%',
-        marginBottom: '20px'
-    }
-});

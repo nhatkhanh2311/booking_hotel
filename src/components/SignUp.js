@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {axios} from '../axios';
+import {Button, Form, FormGroup, Input, Label} from "reactstrap";
 
 export default function SignUp() {
     const [email, setEmail] = useState("");
@@ -53,28 +54,8 @@ export default function SignUp() {
     const validate = () => {
         let isValid = true;
         let x = {};
-        if (email === "") {
-            x.email = "Email không được để trống!";
-            isValid = false;
-        }
-        if (user === "") {
-            x.user = "Tên đăng nhập không được để trống!";
-            isValid = false;
-        }
-        if (pass === "") {
-            x.pass = "Mật khẩu không được để trống!";
-            isValid = false;
-        }
-        if (name === "") {
-            x.name = "Họ tên không được để trống!";
-            isValid = false;
-        }
-        if (phone === "") {
-            x.phone = "Số điện thoại không được để trống!";
-            isValid = false;
-        }
         if (pass !== retypePass) {
-            x.retypePass = "Nhập lại mật khẩu không chính xác!";
+            x.retypePass = "Mật khẩu nhập lại không chính xác!";
             isValid = false;
         }
         setErr(x);
@@ -82,75 +63,71 @@ export default function SignUp() {
     }
 
     return (
-        <div className="SignUp">
-            <form onSubmit={onSubmit}>
-                <div className="form-group">
-                    <label>Tên đăng nhập</label>
-                    <input type="text" className="form-control" placeholder="Nhập tên đăng nhập"
-                           onBlur={(e) => setUser(e.target.value)}/>
-                    <span style={{ color: "red" }}>{err["user"]}</span>
-                </div>
+        <Form onSubmit={onSubmit}>
+            <FormGroup>
+                <Label for="userInput">Tên đăng nhập</Label>
+                <Input type="text" id="userInput" placeholder="Nhập tên đăng nhập" required
+                       onBlur={(e) => setUser(e.target.value)}/>
+            </FormGroup>
 
-                <div className="form-group">
-                    <label>Mật khẩu</label>
-                    <input type="password" className="form-control" placeholder="Nhập mật khẩu"
-                           onBlur={(e) => setPass(e.target.value)}/>
-                    <span style={{ color: "red" }}>{err["pass"]}</span>
-                </div>
+            <FormGroup>
+                <Label for="passInput">Mật khẩu</Label>
+                <Input type="password" id="passInput" placeholder="Nhập mật khẩu" required
+                       onBlur={(e) => setPass(e.target.value)}/>
+            </FormGroup>
 
-                <div className="form-group">
-                    <label>Nhập lại mật khẩu</label>
-                    <input type="password" className="form-control" placeholder="Xác nhận lại mật khẩu"
-                           onBlur={(e) => setRetypePass(e.target.value)}/>
-                    <span style={{ color: "red" }}>{err["retypePass"]}</span>
-                </div>
+            <FormGroup>
+                <Label for="repassInput">Nhập lại mật khẩu</Label>
+                <Input type="password" id="repassInput" placeholder="Xác nhận lại mật khẩu" required
+                       onBlur={(e) => setRetypePass(e.target.value)}/>
+                <span style={{color: "red"}}>{err["retypePass"]}</span>
+            </FormGroup>
 
-                <div className="form-group">
-                    <label>Địa chỉ email</label>
-                    <input type="email" className="form-control" placeholder="Nhập email"
-                           onBlur={(e) => setEmail(e.target.value)}/>
-                    <span style={{ color: "red" }}>{err["email"]}</span>
-                </div>
+            <FormGroup>
+                <Label for="emailInput">Địa chỉ email</Label>
+                <Input type="email" id="emailInput" placeholder="Nhập email" required
+                       onBlur={(e) => setEmail(e.target.value)}/>
+            </FormGroup>
 
-                <div className="form-group">
-                    <label>Họ tên</label>
-                    <input type="text" className="form-control" placeholder="Nhập họ tên"
-                           onBlur={(e) => setName(e.target.value)}/>
-                    <span style={{ color: "red" }}>{err["user"]}</span>
-                </div>
+            <FormGroup>
+                <Label for="nameInput">Họ tên</Label>
+                <Input type="text" id="nameInput" placeholder="Nhập họ tên" required
+                       onBlur={(e) => setName(e.target.value)}/>
+            </FormGroup>
 
-                <div className="form-group">
-                    <label>Ngày sinh</label>
-                    <input type="date" className="form-control" required
-                           onBlur={(e) => setDate(e.target.value)}/>
-                </div>
+            <FormGroup>
+                <Label for="dateInput">Ngày sinh</Label>
+                <Input type="date" id="dateInput" required
+                       onBlur={(e) => setDate(e.target.value)}/>
+            </FormGroup>
 
-                <div className="form-group">
-                    <label>Số điện thoại</label>
-                    <input type="tel" pattern="[0]{1}[0-9]{9}" className="form-control" placeholder="Nhập số điện thoại"
-                           onBlur={(e) => setPhone(e.target.value)}/>
-                    <span style={{ color: "red" }}>{err["phone"]}</span>
-                </div>
+            <FormGroup>
+                <Label for="teleInput">Số điện thoại</Label>
+                <Input type="tel" pattern="[0]{1}[0-9]{9}" id="teleInput" placeholder="Nhập số điện thoại" required
+                       onBlur={(e) => setPhone(e.target.value)}/>
+            </FormGroup>
 
-                <div className="form-group">
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="role" id="user" defaultChecked
-                               onClick={() => setRole(true)}/>
-                        <label className="form-check-label" htmlFor="user">Tôi là khách hàng</label>
-                    </div>
-                    <div className="form-check">
-                        <input className="form-check-input" type="radio" name="role" id="director"
-                               onClick={() => setRole(false)}/>
-                        <label className="form-check-label" htmlFor="director">Tôi là nhân viên khách sạn</label>
-                    </div>
-                </div>
+            <FormGroup>
+                <FormGroup check>
+                    <Input type="radio" name="role" id="user" defaultChecked
+                           onClick={() => setRole(true)}/>
+                    <Label check htmlFor="user">Tôi là khách hàng</Label>
+                </FormGroup>
+                <FormGroup check>
+                    <Input type="radio" name="role" id="director"
+                           onClick={() => setRole(false)}/>
+                    <Label check htmlFor="director">Tôi là nhân viên khách sạn</Label>
+                </FormGroup>
+            </FormGroup>
 
-                <button type="submit" className="btn btn-primary btn-block">Đăng ký</button>
+            <br/>
+            <Button color="primary" block>
+                Đăng ký
+            </Button>
 
-                <p className="forgot-password text-right" style={{marginTop: '10px'}}>
-                    Đã có tài khoản? <a href="#">Đăng nhập</a>
-                </p>
-            </form>
-        </div>
+            <p className="forgot-password text-right" style={{marginTop: '10px'}}>
+                Đã có tài khoản? <a href="#">Đăng nhập</a>
+            </p>
+        </Form>
     );
 }
