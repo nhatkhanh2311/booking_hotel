@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {axios} from "../axios";
+import {axios} from "../../axios";
 import UpRoom from "./UpRoom";
-import "./css/List.css"
+import "../css/List.css"
 import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
 import {Link} from "react-router-dom";
-import {StyledTableCell, StyledTableRow, useStyles} from "./Table";
+import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';

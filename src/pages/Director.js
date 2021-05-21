@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import Header from "../components/Header";
 import NavbarHotelDirector from "../components/NavbarHotelDirector";
 import Footer from "../components/Footer";
-import InformationUpdate from "../components/InformationUpdate";
-import Post from "../components/Post";
+import Post from "../components/director/Post";
 import BookingRequest from "../components/BookingRequest";
+import Information from "../components/Information";
 
 export default function Director() {
     const [tab, setTab] = useState("");
@@ -16,7 +16,7 @@ export default function Director() {
                 <NavbarHotelDirector render={(tab) => setTab(tab)}/>
                 {tab === 'posted' && <Post/>}
                 {tab === 'request' && <BookingRequest/>}
-                {tab === 'information' && <InformationUpdate/>}
+                {tab === 'information' && <Information/>}
             </div>
             <Footer/>
         </>

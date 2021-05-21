@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {axios} from "../axios";
+import {axios} from "../../axios";
 import {Label, Input, FormGroup, Form, Button} from "reactstrap";
 
 export default function UpHotel() {
@@ -64,13 +64,13 @@ export default function UpHotel() {
             <FormGroup>
                 <Label for="nameInput">Tên khách sạn</Label>
                 <Input type="text" id="nameInput" placeholder="Nhập tên khách sạn" required
-                       onBlur={(e) => setName(e.target.value)}/>
+                       onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="cityInput">Tỉnh/Thành phố</Label>
                 <Input type="select" id="cityInput" required
-                       onBlur={(e) => setCity(e.target.value)}>
+                       onChange={(e) => setCity(e.target.value)}>
                     <option value=''>--Chọn tỉnh/thành--</option>
                     {cities.map((city) => <option value={city}>{city}</option>)}
                 </Input>
@@ -79,7 +79,7 @@ export default function UpHotel() {
             <FormGroup>
                 <Label for="addressInput">Số nhà, tên đường</Label>
                 <Input type="text" id="addressInput" placeholder="Nhập số nhà, tên đường" required
-                       onBlur={(e) => setAddress(e.target.value)}/>
+                       onChange={(e) => setAddress(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>

@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import AccountList from "../components/AccountList";
 import PostRequest from "../components/PostRequest";
+import Information from "../components/Information";
 
 export default function Admin() {
     const [tab, setTab] = useState("");
@@ -15,6 +16,7 @@ export default function Admin() {
                 <NavbarAdmin render={(tab) => setTab(tab)}/>
                 {tab === 'confirm' && <PostRequest/>}
                 {tab === 'account' && <AccountList/>}
+                {tab === 'information' && <Information/>}
             </div>
             <Footer/>
         </>

@@ -67,44 +67,44 @@ export default function SignUp() {
             <FormGroup>
                 <Label for="userInput">Tên đăng nhập</Label>
                 <Input type="text" id="userInput" placeholder="Nhập tên đăng nhập" required
-                       onBlur={(e) => setUser(e.target.value)}/>
+                       onChange={(e) => setUser(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="passInput">Mật khẩu</Label>
                 <Input type="password" id="passInput" placeholder="Nhập mật khẩu" required
-                       onBlur={(e) => setPass(e.target.value)}/>
+                       onChange={(e) => setPass(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="repassInput">Nhập lại mật khẩu</Label>
                 <Input type="password" id="repassInput" placeholder="Xác nhận lại mật khẩu" required
-                       onBlur={(e) => setRetypePass(e.target.value)}/>
+                       onChange={(e) => setRetypePass(e.target.value)}/>
                 <span style={{color: "red"}}>{err["retypePass"]}</span>
             </FormGroup>
 
             <FormGroup>
                 <Label for="emailInput">Địa chỉ email</Label>
                 <Input type="email" id="emailInput" placeholder="Nhập email" required
-                       onBlur={(e) => setEmail(e.target.value)}/>
+                       onChange={(e) => setEmail(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="nameInput">Họ tên</Label>
                 <Input type="text" id="nameInput" placeholder="Nhập họ tên" required
-                       onBlur={(e) => setName(e.target.value)}/>
+                       onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="dateInput">Ngày sinh</Label>
                 <Input type="date" id="dateInput" required
-                       onBlur={(e) => setDate(e.target.value)}/>
+                       onChange={(e) => setDate(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="teleInput">Số điện thoại</Label>
                 <Input type="tel" pattern="[0]{1}[0-9]{9}" id="teleInput" placeholder="Nhập số điện thoại" required
-                       onBlur={(e) => setPhone(e.target.value)}/>
+                       onChange={(e) => setPhone(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>

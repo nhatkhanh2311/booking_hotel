@@ -3,7 +3,7 @@ import NavbarUser from "../components/NavbarUser";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import RoomBooked from "../components/RoomBooked";
-import InformationUpdate from "../components/InformationUpdate";
+import Information from "../components/Information";
 
 export default function User() {
     const [tab, setTab] = useState("");
@@ -14,7 +14,7 @@ export default function User() {
             <div style={{display: 'flex', flexDirection: 'row'}}>
                 <NavbarUser render={(tab) => setTab(tab)}/>
                 {tab === 'booked' && <RoomBooked/>}
-                {tab === 'information' && <InformationUpdate/>}
+                {tab === 'information' && <Information/>}
             </div>
             <Footer/>
         </>

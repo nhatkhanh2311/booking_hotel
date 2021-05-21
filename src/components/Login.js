@@ -49,13 +49,13 @@ export default function Login() {
             <FormGroup>
                 <Label for="userInput">Tên đăng nhập</Label>
                 <Input type="text" id="userInput" placeholder="Nhập tên đăng nhập" required
-                       onBlur={(e) => setUser(e.target.value)}/>
+                       onChange={(e) => setUser(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="passInput">Mật khẩu</Label>
                 <Input type="password" id="passInput" placeholder="Nhập mật khẩu" required
-                       onBlur={(e) => setPass(e.target.value)}/>
+                       onChange={(e) => setPass(e.target.value)}/>
             </FormGroup>
 
             <br/>

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {axios} from "../axios";
+import {axios} from "../../axios";
 import {Label, Input, Form, FormGroup, Button} from "reactstrap";
 
 export default function UpRoom(props) {
@@ -54,13 +54,13 @@ export default function UpRoom(props) {
             <FormGroup>
                 <Label for="nameInput">Tên phòng</Label>
                 <Input type="text" id="nameInput" placeholder="Nhập tên phòng" required
-                       onBlur={(e) => setName(e.target.value)}/>
+                       onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="typeInput">Loại phòng</Label>
                 <Input type="select" id="typeInput" required
-                       onBlur={(e) => setType(e.target.value)}>
+                       onChange={(e) => setType(e.target.value)}>
                     <option value='basic'>Tiêu chuẩn</option>
                     <option value='advance'>Cao cấp</option>
                 </Input>
@@ -69,25 +69,25 @@ export default function UpRoom(props) {
             <FormGroup>
                 <Label for="areaInput">Diện tích phòng (m²)</Label>
                 <Input type="number" id="areaInput" placeholder="0" required
-                       onBlur={(e) => setArea(parseInt(e.target.value))}/>
+                       onChange={(e) => setArea(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="priceInput">Giá phòng/ngày (VND)</Label>
                 <Input type="number" id="priceInput" placeholder="0" required
-                       onBlur={(e) => setPrice(parseInt(e.target.value))}/>
+                       onChange={(e) => setPrice(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="capaInput">Số người</Label>
                 <Input type="number" id="capaInput" placeholder="0" required
-                       onBlur={(e) => setCapa(parseInt(e.target.value))}/>
+                       onChange={(e) => setCapa(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="descInput">Mô tả</Label>
                 <Input type="textarea" id="descInput" placeholder="Nhập mô tả" required
-                       onBlur={(e) => setDesc(e.target.value)}/>
+                       onChange={(e) => setDesc(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
