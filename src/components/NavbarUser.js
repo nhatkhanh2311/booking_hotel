@@ -24,5 +24,5 @@ export default function NavbarUser(props) {
             </ul>
             {props.render(tab)}
         </div>
-    )
+    );
 }

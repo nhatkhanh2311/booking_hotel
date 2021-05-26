@@ -15,27 +15,25 @@ export default function UpRoom(props) {
         e.preventDefault();
         // const images = new FormData();
         // images.append('images', image);
-        const roomRequest = new FormData();
-        roomRequest.append('roomRequest', {
-            area: area,
-            price: price,
-            type: type,
-            name: name,
-            description: desc,
-            capacity: capa
-        });
+        // const roomRequest = new FormData();
+        // roomRequest.append('roomRequest', {
+        //     area: area,
+        //     price: price,
+        //     type: type,
+        //     name: name,
+        //     description: desc,
+        //     capacity: capa
+        // });
         const fetchData = async () => {
             await axios
                 .post(`/director/hotel/${props.id}/new-room`, {
                     // roomRequest
-                    roomRequest: {
-                        area: area,
-                        price: price,
-                        type: type,
-                        name: name,
-                        description: desc,
-                        capacity: capa
-                    }
+                    area: area,
+                    price: price,
+                    type: type,
+                    name: name,
+                    description: desc,
+                    capacity: capa
                 })
                 .then(function (res) {
                     console.log(res.data);
@@ -44,7 +42,6 @@ export default function UpRoom(props) {
                     window.alert('Đã có lỗi xảy ra!');
                     console.log(err);
                 });
-            console.log(roomRequest);
         }
         fetchData();
     }
@@ -74,7 +71,7 @@ export default function UpRoom(props) {
 
             <FormGroup>
                 <Label for="priceInput">Giá phòng/ngày (VND)</Label>
-                <Input type="number" id="priceInput" placeholder="0" required
+                <Input type="number" step="100000" id="priceInput" placeholder="0" required
                        onChange={(e) => setPrice(parseInt(e.target.value))}/>
             </FormGroup>
 

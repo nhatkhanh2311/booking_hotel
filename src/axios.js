@@ -10,4 +10,4 @@ axios.interceptors.request.use(
         config.headers.Authorization = `${localStorage.getItem('tokenType')} ${localStorage.getItem('accessToken')}`;
         return config;
     }
-)
+);

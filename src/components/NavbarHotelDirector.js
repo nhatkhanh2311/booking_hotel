@@ -4,7 +4,7 @@ import * as IoIcons from 'react-icons/io';
 import * as AiIcons from 'react-icons/ai';
 
 export default function NavbarHotelDirector(props) {
-    const [tab, setTab] = useState('information');
+    const [tab, setTab] = useState('posted');
 
     return (
         <div className="Sidebar">
@@ -29,5 +29,5 @@ export default function NavbarHotelDirector(props) {
             </ul>
             {props.render(tab)}
         </div>
-    )
+    );
 }

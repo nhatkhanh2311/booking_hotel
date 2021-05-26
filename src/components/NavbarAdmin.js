@@ -17,6 +17,10 @@ export default function NavbarAdmin(props) {
                     <div className="title">Thông tin cá nhân</div>
                 </li>
 
+                <li onClick={() => setTab('statistic')} className="row">
+                    <div className="title">Thống kê khách sạn</div>
+                </li>
+
                 <li onClick={() => setTab('confirm')} className="row">
                     <div className="icon"><IoIcons.IoIosPaper/></div>
                     <div className="title">Duyệt bài đăng</div>
@@ -24,10 +28,10 @@ export default function NavbarAdmin(props) {
 
                 <li onClick={() => setTab('account')} className="row">
                     <div className="icon"><AiIcons.AiFillIdcard/></div>
-                    <div className="title">Danh sách tài khoản</div>
+                    <div className="title">Duyệt tài khoản</div>
                 </li>
             </ul>
             {props.render(tab)}
         </div>
-    )
+    );
 }

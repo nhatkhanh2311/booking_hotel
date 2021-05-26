@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {axios} from "../../axios";
 import UpRoom from "./UpRoom";
-import "../css/List.css"
+import "../css/List.css";
 import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
 import {Link} from "react-router-dom";
 import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
@@ -39,7 +39,7 @@ export default function RoomList(props) {
                 </ModalBody>
             </Modal>
 
-            <Table className={classes.table} aria-label="customized table">
+            <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
                         <StyledTableCell align="center">Tên phòng</StyledTableCell>

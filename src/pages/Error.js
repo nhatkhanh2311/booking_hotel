@@ -19,5 +19,5 @@ export default function Error() {
             </section>
             <Footer/>
         </>
-    )
+    );
 }
