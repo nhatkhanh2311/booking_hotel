@@ -11,20 +11,21 @@ import TableHead from '@material-ui/core/TableHead';
 export default function AccountList() {
     const classes = useStyles();
     const [data, setData] = useState([]);
-    const [reload, setReload] = useState(false);
+    
 
     const unlock = (id) => {
         const fetchData = async () => {
             await axios
                 .put(`/admin/getDirector/unlock/${id}`)
                 .then(function (res) {
-                    setReload(false);
+                    getData();
                 })
                 .catch(function (err) {
                     console.log(err);
                 })
         }
         fetchData();
+        
     }
 
     const getData = () => {
@@ -34,7 +35,7 @@ export default function AccountList() {
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
-                    setReload(true);
+                    
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -45,7 +46,7 @@ export default function AccountList() {
 
     useEffect(() => {
         getData();
-    }, [reload]);
+    }, []);
 
     return (
         <TableContainer style={{padding: '30px'}}>
@@ -87,7 +88,7 @@ export default function AccountList() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="success" onClick={unlock(row.id)}>
+                                <Button outline color="success" onClick={()=>unlock(row.id)}>
                                     Duyệt
                                 </Button>
                             </StyledTableCell>
