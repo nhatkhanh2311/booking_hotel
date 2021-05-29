@@ -9,7 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { UncontrolledCarousel } from 'reactstrap';
-import "./css/ListSearchResult.css"
+import "./css/HomePage.css"
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "23%",
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ListSearchResult() {
+export default function HomePage() {
   const classes = useStyles();
 
   const data = [
