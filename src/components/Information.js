@@ -112,11 +112,13 @@ export default function Information() {
                         </td>
                     </tr>
 
-                    <tr>
-                        <th>Trạng thái tài khoản</th>
-                        {data.locked && <td style={{color: 'green'}}>Đã duyệt</td>}
-                        {!data.locked && <td style={{color: 'red'}}>Chưa duyệt</td>}
-                    </tr>
+                    {localStorage.getItem('roles') === 'ROLE_DIRECTOR' && (
+                        <tr>
+                            <th>Trạng thái tài khoản</th>
+                            {data.locked && <td style={{color: 'green'}}>Đã duyệt</td>}
+                            {!data.locked && <td style={{color: 'red'}}>Chưa duyệt</td>}
+                        </tr>
+                    )}
                 </Table>
 
                 <Button color="success" onClick={toggleOpen}>

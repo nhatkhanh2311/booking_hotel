@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import HotelList from "./HotelList";
 import {useStyles} from "../Table";
+import HotelList from "./HotelList";
 import RoomList from "./RoomList";
 
 export default function Post() {

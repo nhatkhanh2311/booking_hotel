@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import AccountList from "../components/admin/AccountList";
 import PostRequest from "../components/PostRequest";
 import Information from "../components/Information";
-import Statistic from "../components/admin/Statistic";
+import StatisticTab from "../components/admin/StatisticTab";
 
 export default function Admin() {
     const [tab, setTab] = useState("");
@@ -15,7 +15,7 @@ export default function Admin() {
             <Header/>
             <div style={{display: 'flex', flexDirection: 'row'}}>
                 <NavbarAdmin render={(tab) => setTab(tab)}/>
-                {tab === 'statistic' && <Statistic/>}
+                {tab === 'statistic' && <StatisticTab/>}
                 {tab === 'confirm' && <PostRequest/>}
                 {tab === 'account' && <AccountList/>}
                 {tab === 'information' && <Information/>}

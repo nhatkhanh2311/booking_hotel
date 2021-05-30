@@ -11,7 +11,6 @@ import TableHead from '@material-ui/core/TableHead';
 export default function AccountList() {
     const classes = useStyles();
     const [data, setData] = useState([]);
-    
 
     const unlock = (id) => {
         const fetchData = async () => {
@@ -25,7 +24,6 @@ export default function AccountList() {
                 })
         }
         fetchData();
-        
     }
 
     const getData = () => {
@@ -35,7 +33,6 @@ export default function AccountList() {
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
-                    
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -88,7 +85,7 @@ export default function AccountList() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="success" onClick={()=>unlock(row.id)}>
+                                <Button outline color="success" onClick={() => unlock(row.id)}>
                                     Duyệt
                                 </Button>
                             </StyledTableCell>

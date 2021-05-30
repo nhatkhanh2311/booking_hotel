@@ -1,22 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import {axios} from "../../axios";
 import "../css/List.css";
-import {Button} from "reactstrap";
 import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
 import TableContainer from "@material-ui/core/TableContainer";
+import {Link} from "react-router-dom";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
 
-export default function Statistic(props) {
+export default function StatisticHotel(props) {
     const classes = useStyles();
+    const [name, setName] = useState(props.name);
     const [data, setData] = useState([]);
     const [reload, setReload] = useState(false);
 
-    const getData = () => {
+    const getData = (name) => {
         const fetchData = async () => {
             await axios
-                .get('/admin/thongke')
+                .get(`/admin/thongke/${name}`)
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
@@ -30,19 +31,24 @@ export default function Statistic(props) {
     }
 
     useEffect(() => {
-        getData();
+        getData(name);
     }, [reload]);
 
     return (
         <TableContainer style={{padding: '30px'}}>
-            <h2>Thống kê khách sạn theo tỉnh/thành phố</h2>
+            <Link className='back' onClick={() => props.render('city')}>
+                {'<< Thống kê theo thành phố'}
+            </Link>
+
+            <h2>Khách sạn ở {props.name}</h2>
 
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell align="center">Tỉnh/Thành phố</StyledTableCell>
-                        <StyledTableCell align="center">Số lượng khách sạn</StyledTableCell>
-                        <StyledTableCell align="center">Danh sách khách sạn</StyledTableCell>
+                        <StyledTableCell align="center">Tên khách sạn</StyledTableCell>
+                        <StyledTableCell align="center">Địa chỉ</StyledTableCell>
+                        <StyledTableCell align="center">Chủ sở hữu</StyledTableCell>
+                        <StyledTableCell align="center">Số điện thoại</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
@@ -50,17 +56,19 @@ export default function Statistic(props) {
                     {data.map((row) => (
                         <StyledTableRow key={row.name}>
                             <StyledTableCell align="center">
-                                {row.city}
+                                {row.hotelName}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.numberOfHotel}
+                                {row.street}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="success" onClick={() => props.render('hotel', row.city)}>
-                                    Xem
-                                </Button>
+                                {row.hotelOwner}
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                                {row.phone_number}
                             </StyledTableCell>
                         </StyledTableRow>
                     ))}
