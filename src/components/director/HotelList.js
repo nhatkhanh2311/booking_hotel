@@ -14,7 +14,6 @@ import AddIcon from '@material-ui/icons/Add';
 export default function HotelList(props) {
     const classes = useStyles();
     const [data, setData] = useState([]);
-    const [reload, setReload] = useState(false);
     const [up, setUp] = useState(false);
     const toggleUp = () => setUp(!up);
 
@@ -25,7 +24,6 @@ export default function HotelList(props) {
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
-                    setReload(true);
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -36,7 +34,7 @@ export default function HotelList(props) {
 
     useEffect(() => {
         getData();
-    }, [reload]);
+    }, []);
 
     return (
         <TableContainer style={{padding: '30px'}}>

@@ -3,8 +3,8 @@ import "./css/Navbar.css";
 import * as IoIcons from 'react-icons/io';
 import * as AiIcons from 'react-icons/ai';
 
-export default function NavbarHotelDirector(props) {
-    const [tab, setTab] = useState('posted');
+export default function NavbarDirector(props) {
+    const [tab, setTab] = useState('information');
 
     return (
         <div className="Sidebar">
@@ -19,12 +19,7 @@ export default function NavbarHotelDirector(props) {
 
                 <li onClick={() => setTab('posted')} className="row">
                     <div className="icon"><IoIcons.IoIosPaper/></div>
-                    <div className="title">Bài đăng</div>
-                </li>
-
-                <li onClick={() => setTab('request')} className="row">
-                    <div className="icon"><AiIcons.AiTwotoneBell/></div>
-                    <div className="title">Yêu cầu đặt phòng</div>
+                    <div className="title">Khách sạn</div>
                 </li>
             </ul>
             {props.render(tab)}

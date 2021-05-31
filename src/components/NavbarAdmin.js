@@ -18,12 +18,8 @@ export default function NavbarAdmin(props) {
                 </li>
 
                 <li onClick={() => setTab('statistic')} className="row">
-                    <div className="title">Thống kê khách sạn</div>
-                </li>
-
-                <li onClick={() => setTab('confirm')} className="row">
                     <div className="icon"><IoIcons.IoIosPaper/></div>
-                    <div className="title">Duyệt bài đăng</div>
+                    <div className="title">Thống kê khách sạn</div>
                 </li>
 
                 <li onClick={() => setTab('account')} className="row">

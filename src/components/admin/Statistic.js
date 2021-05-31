@@ -11,7 +11,6 @@ import TableBody from "@material-ui/core/TableBody";
 export default function Statistic(props) {
     const classes = useStyles();
     const [data, setData] = useState([]);
-    const [reload, setReload] = useState(false);
 
     const getData = () => {
         const fetchData = async () => {
@@ -20,7 +19,6 @@ export default function Statistic(props) {
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
-                    setReload(true);
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -31,7 +29,7 @@ export default function Statistic(props) {
 
     useEffect(() => {
         getData();
-    }, [reload]);
+    }, []);
 
     return (
         <TableContainer style={{padding: '30px'}}>

@@ -12,7 +12,6 @@ export default function StatisticHotel(props) {
     const classes = useStyles();
     const [name, setName] = useState(props.name);
     const [data, setData] = useState([]);
-    const [reload, setReload] = useState(false);
 
     const getData = (name) => {
         const fetchData = async () => {
@@ -21,7 +20,6 @@ export default function StatisticHotel(props) {
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
-                    setReload(true);
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -32,7 +30,7 @@ export default function StatisticHotel(props) {
 
     useEffect(() => {
         getData(name);
-    }, [reload]);
+    }, []);
 
     return (
         <TableContainer style={{padding: '30px'}}>

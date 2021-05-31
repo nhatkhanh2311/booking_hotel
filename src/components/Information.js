@@ -19,7 +19,6 @@ export default function Information() {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [birth, setBirth] = useState('');
-    const [reload, setReload] = useState(false);
     const [open, setOpen] = useState(false);
     const toggleOpen = () => setOpen(!open);
 
@@ -34,7 +33,7 @@ export default function Information() {
                 })
                 .then(function (res) {
                     console.log(res.data);
-                    setReload(false);
+                    getData();
                     toggleOpen();
                 })
                 .catch(function (err) {
@@ -51,7 +50,6 @@ export default function Information() {
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
-                    setReload(true);
                     setName(data.userDetail.nameUserDetail);
                     setPhone(data.userDetail.phoneNumber);
                     setBirth(data.userDetail.birth);
@@ -65,7 +63,7 @@ export default function Information() {
 
     useEffect(() => {
         getData();
-    }, [reload]);
+    }, []);
 
     return (
         <div>
