@@ -1,10 +1,15 @@
 .container{
-    display: flex;
-   
-    border-bottom: 3px solid lightgray;
-    padding-bottom: 50px;
+    display: block;
+    /* border-bottom: 3px solid lightgray;
+    padding-bottom: 50px; */
 }
-
+.cou{
+    width: 700px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    /* border: 1px solid red; */
+    
+}
 
 .dt{
     margin-top: 20px;

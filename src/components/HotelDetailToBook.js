@@ -126,7 +126,7 @@ export default function HotelDetailToBook() {
         <div>
             <h2>Thông tin khách sạn</h2>
             <div className="container">
-                <div className="img" >
+                <div className="cou" >
                     <UncontrolledCarousel items={items} />
                 </div>
                 <div className="table">
