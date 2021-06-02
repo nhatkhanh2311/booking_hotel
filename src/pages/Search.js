@@ -1,15 +1,15 @@
 import React from "react";
-import SearchBox from "../components/SearchBox";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import HomePage from "../components/HomePage";
+import ListSearchResults from "../components/ListSearchResults";
+import SearchBox from "../components/SearchBox";
 
-export default function Home() {
+export default function Search() {
     return (
         <>
             <Header/>
             <SearchBox/>
-            <HomePage/>
+            <ListSearchResults/>
             <Footer/>
         </>
     );

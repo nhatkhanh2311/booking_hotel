@@ -1,15 +1,13 @@
 import React from "react";
-import SearchBox from "../components/SearchBox";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import HomePage from "../components/HomePage";
+import HotelDetailToBook from "../components/HotelDetailToBook";
 
-export default function Home() {
+export default function Hotel() {
     return (
         <>
             <Header/>
-            <SearchBox/>
-            <HomePage/>
+            <HotelDetailToBook/>
             <Footer/>
         </>
     );

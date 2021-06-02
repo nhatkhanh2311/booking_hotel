@@ -10,7 +10,6 @@ import TableBody from "@material-ui/core/TableBody";
 
 export default function StatisticHotel(props) {
     const classes = useStyles();
-    const [name, setName] = useState(props.name);
     const [data, setData] = useState([]);
 
     const getData = (name) => {
@@ -29,13 +28,13 @@ export default function StatisticHotel(props) {
     }
 
     useEffect(() => {
-        getData(name);
+        getData(props.name);
     }, []);
 
     return (
         <TableContainer style={{padding: '30px'}}>
             <Link className='back' onClick={() => props.render('city')}>
-                {'<< Thống kê theo thành phố'}
+                {'<< Thống kê theo tỉnh/thành phố'}
             </Link>
 
             <h2>Khách sạn ở {props.name}</h2>

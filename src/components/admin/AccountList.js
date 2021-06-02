@@ -21,7 +21,7 @@ export default function AccountList() {
                 })
                 .catch(function (err) {
                     console.log(err);
-                })
+                });
         }
         fetchData();
     }

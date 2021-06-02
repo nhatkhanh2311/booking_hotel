@@ -5,6 +5,8 @@ import Error from "./pages/Error";
 import Admin from "./pages/Admin";
 import User from "./pages/User";
 import Director from "./pages/Director";
+import Search from "./pages/Search";
+import Hotel from "./pages/Hotel";
 
 export default function App() {
     return (
@@ -12,6 +14,16 @@ export default function App() {
             <Switch>
                 <Route exact path="/">
                     <Home/>
+                </Route>
+
+                <Route path="/search" render={() => {
+                    return <Search/>
+                }}>
+                </Route>
+
+                <Route path="/hotel" render={() => {
+                    return <Hotel/>
+                }}>
                 </Route>
 
                 <Route path="/account" render={() => {
