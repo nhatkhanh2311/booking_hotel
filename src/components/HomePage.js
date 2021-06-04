@@ -92,7 +92,7 @@ export default function HomePage() {
         <UncontrolledCarousel items={items} />
       </div>
       <hr></hr>
-      <h3>khách sạn mới nhất</h3>
+      <h3 className="h3">khách sạn mới nhất</h3>
       <div className="db">
         {data.map(d => {
           return (
@@ -125,7 +125,7 @@ export default function HomePage() {
 
 
       </div>
-      <h3>Phòng được được yêu thích</h3>
+      <h3 className ="h3">Phòng được được yêu thích</h3>
       <div className="db">
         {data.map(d => {
           return (
@@ -157,7 +157,7 @@ export default function HomePage() {
           )
         })}
       </div>
-        <h3>Top điểm đến được yêu thích</h3>
+        <h3 className="h3">Top điểm đến được yêu thích</h3>
       <div className="destinations">
       <div className="destination" >
         <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />

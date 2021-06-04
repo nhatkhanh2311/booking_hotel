@@ -124,7 +124,7 @@ export default function HotelDetailToBook() {
     ];
     return (
         <div>
-            <h2>Thông tin khách sạn</h2>
+            <h2 className="h2">Thông tin khách sạn</h2>
             <div className="container">
                 <div className="cou" >
                     <UncontrolledCarousel items={items} />
@@ -168,7 +168,7 @@ export default function HotelDetailToBook() {
                     </Table>
                 </div>
             </div>
-            <h2>Phòng thuộc khách sạn</h2>
+            <h2 className="h2">Phòng thuộc khách sạn</h2>
 
             {data.map(d => {
                 return (
