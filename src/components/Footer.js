@@ -1,7 +1,7 @@
 import React from "react";
-import "./css/Header-Footer.css"
+import "./css/Header-Footer.css";
 import {Link} from "react-router-dom";
-import facebook from "../assets/facebook.svg"
+import facebook from "../assets/facebook.svg";
 
 export default function Footer() {
     return (

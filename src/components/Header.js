@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./css/Header-Footer.css"
+import "./css/Header-Footer.css";
 import {Link, useHistory} from "react-router-dom";
 import logo from "../assets/logo.png";
 import {Button, Modal, ModalBody, ModalHeader} from "reactstrap";

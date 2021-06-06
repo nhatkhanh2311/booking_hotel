@@ -46,7 +46,7 @@ export default function Statistic(props) {
 
                 <TableBody>
                     {data.map((row) => (
-                        <StyledTableRow key={row.name}>
+                        <StyledTableRow key={row.city}>
                             <StyledTableCell align="center">
                                 {row.city}
                             </StyledTableCell>

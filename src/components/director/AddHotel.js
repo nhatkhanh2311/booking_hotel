@@ -2,18 +2,18 @@ import React, {useState} from "react";
 import {axios} from "../../axios";
 import {Label, Input, FormGroup, Form, Button} from "reactstrap";
 
-export default function UpHotel() {
+export default function AddHotel() {
     const [name, setName] = useState("");
     const [city, setCity] = useState("");
     const [address, setAddress] = useState("");
-    const [image, setImage] = useState(null);
+    const [images, setImages] = useState({});
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const images = new FormData();
-        images.append('images', image);
-        const hotelRequest = new FormData();
-        hotelRequest.append('hotelRequest', {
+        const formData = new FormData();
+        Object.keys(images).map((index) => formData.append('images', images[index]));
+        // formData.append('images', images[0]);
+        formData.append('hotelRequest', JSON.stringify({
             name: name,
             standar: 3,
             localization: {
@@ -21,21 +21,19 @@ export default function UpHotel() {
                 country: 'Viet Nam',
                 street: address
             }
-        });
+        }));
         const fetchData = async () => {
             await axios
-                .post('/director/hotel/new-hotel', {
-                    hotelRequest
-                })
+                .post('/director/hotel/new-hotel', formData)
                 .then(function (res) {
-                    // switch (res.data['message']) {
-                    //     case 'image is empty':
-                    //         window.alert('Vui lòng thêm ảnh!');
-                    //         break;
-                    //     case 'add hotel successfully':
-                    //         window.location.reload();
-                    //         window.alert('Thêm khách sạn thành công!');
-                    // }
+                    switch (res.data['message']) {
+                        case 'image is empty':
+                            window.alert('Vui lòng thêm ảnh!');
+                            break;
+                        case 'add hotel successfully':
+                            // window.location.reload();
+                            window.alert('Thêm khách sạn thành công!');
+                    }
                     console.log(res.data);
                 })
                 .catch(function (err) {
@@ -71,9 +69,15 @@ export default function UpHotel() {
 
             <FormGroup>
                 <Label>Hình ảnh khách sạn</Label>
-                <Input type="file" required
-                       onChange={(e) => setImage(e.target.files[0])}/>
+                <Input type="file" multiple required
+                       onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>
+
+            <div>
+                {Object.keys(images).map((index) => (
+                    <img src={URL.createObjectURL(images[index])} style={{height:"100px"}}/>
+                ))}
+            </div>
 
             <br/>
             <Button color="primary" block>

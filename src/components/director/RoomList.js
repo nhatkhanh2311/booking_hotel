@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {axios} from "../../axios";
-import UpRoom from "./UpRoom";
+import AddRoom from "./AddRoom";
 import "../css/List.css";
 import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
 import {Link} from "react-router-dom";
@@ -35,7 +35,7 @@ export default function RoomList(props) {
                     <h2>Thêm phòng</h2>
                 </ModalHeader>
                 <ModalBody>
-                    <UpRoom id={props.data.id}/>
+                    <AddRoom id={props.data.id}/>
                 </ModalBody>
             </Modal>
 
@@ -56,7 +56,7 @@ export default function RoomList(props) {
 
                 <TableBody>
                     {data.rooms.map((row) => (
-                        <StyledTableRow key={row.name}>
+                        <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
                                 {row.name}
                             </StyledTableCell>

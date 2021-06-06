@@ -2,39 +2,30 @@ import React, {useState} from "react";
 import {axios} from "../../axios";
 import {Label, Input, Form, FormGroup, Button} from "reactstrap";
 
-export default function UpRoom(props) {
+export default function AddRoom(props) {
     const [name, setName] = useState("");
     const [type, setType] = useState("");
     const [area, setArea] = useState(0);
     const [price, setPrice] = useState(0);
     const [capa, setCapa] = useState(0);
     const [desc, setDesc] = useState("");
-    const [image, setImage] = useState(null);
+    const [images, setImages] = useState({});
 
     const onSubmit = (e) => {
         e.preventDefault();
-        // const images = new FormData();
-        // images.append('images', image);
-        // const roomRequest = new FormData();
-        // roomRequest.append('roomRequest', {
-        //     area: area,
-        //     price: price,
-        //     type: type,
-        //     name: name,
-        //     description: desc,
-        //     capacity: capa
-        // });
+        const formData = new FormData();
+        Object.keys(images).map((index) => formData.append('images', images[index]));
+        formData.append('roomRequest', JSON.stringify({
+            area: area,
+            price: price,
+            type: type,
+            name: name,
+            description: desc,
+            capacity: capa
+        }));
         const fetchData = async () => {
             await axios
-                .post(`/director/hotel/${props.id}/new-room`, {
-                    // roomRequest
-                    area: area,
-                    price: price,
-                    type: type,
-                    name: name,
-                    description: desc,
-                    capacity: capa
-                })
+                .post(`/director/hotel/${props.id}/new-room`, formData)
                 .then(function (res) {
                     console.log(res.data);
                 })
@@ -89,9 +80,15 @@ export default function UpRoom(props) {
 
             <FormGroup>
                 <Label>Hình ảnh phòng</Label>
-                <Input type="file" required
-                       onChange={(e) => setImage(e.target.files[0])}/>
+                <Input type="file" multiple required
+                       onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>
+
+            <div>
+                {Object.keys(images).map((index) => (
+                    <img src={URL.createObjectURL(images[index])} style={{height:"100px"}}/>
+                ))}
+            </div>
 
             <br/>
             <Button color="primary" block>

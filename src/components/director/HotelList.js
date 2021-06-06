@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {axios} from "../../axios";
-import UpHotel from "./UpHotel";
+import AddHotel from "./AddHotel";
 import "../css/List.css";
 import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
 import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
@@ -49,7 +49,7 @@ export default function HotelList(props) {
                     <h2>Thêm khách sạn</h2>
                 </ModalHeader>
                 <ModalBody>
-                    <UpHotel/>
+                    <AddHotel/>
                 </ModalBody>
             </Modal>
 
@@ -67,7 +67,7 @@ export default function HotelList(props) {
 
                 <TableBody>
                     {data.map((row) => (
-                        <StyledTableRow key={row.name}>
+                        <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
                                 {row.name}
                             </StyledTableCell>

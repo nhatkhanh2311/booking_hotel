@@ -51,7 +51,7 @@ export default function StatisticHotel(props) {
 
                 <TableBody>
                     {data.map((row) => (
-                        <StyledTableRow key={row.name}>
+                        <StyledTableRow key={row.hotelID}>
                             <StyledTableCell align="center">
                                 {row.hotelName}
                             </StyledTableCell>

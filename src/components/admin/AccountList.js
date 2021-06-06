@@ -63,7 +63,7 @@ export default function AccountList() {
 
                 <TableBody>
                     {data.map((row) => (
-                        <StyledTableRow key={row.name}>
+                        <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
                                 {row.userDetail.nameUserDetail}
                             </StyledTableCell>
