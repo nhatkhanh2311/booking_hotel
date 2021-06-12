@@ -64,7 +64,7 @@
 .input-date {
     font-size: 17px;
     line-height: 24px;
-    width: calc(100% - 25px);
+    width: 100%;
     font-weight: 400;
     color: #333;
     outline: none;
@@ -90,4 +90,5 @@
     line-height: 43px;
     font-weight: bold;
     color: white;
+    width: 100%;
 }
