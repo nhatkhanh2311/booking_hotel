@@ -5,35 +5,33 @@ import "./css/SearchBox.css";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import {Button, Form, Input} from "reactstrap";
+import {Redirect} from "react-router-dom";
 
 export default function SearchBox() {
     const [city, setCity] = useState("");
-    const [checkInDate, setCheckInDate] = useState("");
-    const [checkOutDate, setCheckOutDate] = useState("");
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [startString, setStartString] = useState("");
+    const [endString, setEndString] = useState("");
 
     const onSubmit = (e) => {
         e.preventDefault();
-
+        if (startDate != null && endDate != null) {
+            setStartString(startDate.getFullYear() + '-' +
+                String(startDate.getMonth() + 1).padStart(2, '0') + '-' +
+                String(startDate.getDate()).padStart(2, '0'));
+            setEndString(endDate.getFullYear() + '-' +
+                String(endDate.getMonth() + 1).padStart(2, '0') + '-' +
+                String(endDate.getDate()).padStart(2, '0'));
+        }
+        console.log(startDate, endDate);
+        console.log(startString, endString);
     }
 
-    const handleCheckInDate = (date) => {
-        setCheckInDate(date);
-        setCheckOutDate("");
-        console.log(checkInDate);
-    };
-
-    const handleCheckOutDate = (date) => {
-        setCheckOutDate(date);
-        console.log(checkOutDate);
-    };
-
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
-    const onChange = (dates) => {
+    const getDate = (dates) => {
         const [start, end] = dates;
         setStartDate(start);
         setEndDate(end);
-        console.log(startDate, endDate);
     };
 
     return (
@@ -67,27 +65,8 @@ export default function SearchBox() {
                                     <div className="input-label">
                                         check-in / check-out
                                     </div>
-                                    <DatePicker className="input-date"
-                                        onChange={onChange}
-                                        startDate={startDate}
-                                        endDate={endDate}
-                                                minDate={new Date()}
-                                        selectsRange
-                                    />
-                                    {/*<div>*/}
-                                    {/*    <div className="input-label">*/}
-                                    {/*        check-in*/}
-                                    {/*    </div>*/}
-                                    {/*    <DatePicker className="input-date" selected={checkInDate} minDate={new Date()}*/}
-                                    {/*                onChange={handleCheckInDate} required/>*/}
-                                    {/*</div>*/}
-                                    {/*<div>*/}
-                                    {/*    <div className="input-label">*/}
-                                    {/*        check-out*/}
-                                    {/*    </div>*/}
-                                    {/*    <DatePicker className="input-date" selected={checkOutDate} minDate={checkInDate}*/}
-                                    {/*                onChange={handleCheckOutDate} required/>*/}
-                                    {/*</div>*/}
+                                    <DatePicker className="input-date" startDate={startDate} endDate={endDate}
+                                                minDate={new Date()} selectsRange onChange={getDate} required/>
                                 </div>
                             </div>
 
