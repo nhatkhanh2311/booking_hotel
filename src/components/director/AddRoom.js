@@ -4,7 +4,7 @@ import {Label, Input, Form, FormGroup, Button} from "reactstrap";
 
 export default function AddRoom(props) {
     const [name, setName] = useState("");
-    const [type, setType] = useState("");
+    const [type, setType] = useState("basic");
     const [area, setArea] = useState(0);
     const [price, setPrice] = useState(0);
     const [capa, setCapa] = useState(0);
@@ -23,8 +23,8 @@ export default function AddRoom(props) {
             description: desc,
             capacity: capa
         }));
-        const fetchData = async () => {
-            await axios
+        const fetchData = () => {
+            axios
                 .post(`/director/hotel/${props.id}/new-room`, formData)
                 .then(function (res) {
                     console.log(res.data);

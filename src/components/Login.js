@@ -8,10 +8,10 @@ export default function Login() {
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
 
-    const onSubmit = async e => {
+    const onSubmit = (e) => {
         e.preventDefault();
-        const fetchData = async () => {
-            await axios
+        const fetchData = () => {
+            axios
                 .post('/signin', {
                     username: user,
                     password: pass
@@ -40,7 +40,7 @@ export default function Login() {
                     window.alert('Đã có lỗi xảy ra!');
                     console.log(err);
                 });
-        };
+        }
         fetchData();
     }
 

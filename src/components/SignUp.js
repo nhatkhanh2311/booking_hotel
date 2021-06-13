@@ -16,8 +16,8 @@ export default function SignUp() {
     const onSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
-            const fetchData = async () => {
-                await axios
+            const fetchData = () => {
+                axios
                     .post('/signup', {
                         username: user,
                         password: pass,

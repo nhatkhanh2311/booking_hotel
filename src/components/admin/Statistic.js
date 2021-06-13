@@ -13,8 +13,8 @@ export default function Statistic(props) {
     const [data, setData] = useState([]);
 
     const getData = () => {
-        const fetchData = async () => {
-            await axios
+        const fetchData = () => {
+            axios
                 .get('/admin/thongke')
                 .then(function (res) {
                     console.log(res.data);

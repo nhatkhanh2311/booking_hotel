@@ -13,8 +13,8 @@ export default function StatisticHotel(props) {
     const [data, setData] = useState([]);
 
     const getData = (name) => {
-        const fetchData = async () => {
-            await axios
+        const fetchData = () => {
+            axios
                 .get(`/admin/thongke/${name}`)
                 .then(function (res) {
                     console.log(res.data);

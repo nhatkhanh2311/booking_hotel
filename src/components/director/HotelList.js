@@ -18,8 +18,8 @@ export default function HotelList(props) {
     const toggleUp = () => setUp(!up);
 
     const getData = () => {
-        const fetchData = async () => {
-            await axios
+        const fetchData = () => {
+            axios
                 .get('/director/hotel')
                 .then(function (res) {
                     console.log(res.data);

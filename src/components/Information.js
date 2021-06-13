@@ -24,8 +24,8 @@ export default function Information() {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        const fetchData = async () => {
-            await axios
+        const fetchData = () => {
+            axios
                 .post('/update-information/save', {
                     nameUserDetail: name,
                     phoneNumber: phone,

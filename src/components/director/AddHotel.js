@@ -22,8 +22,8 @@ export default function AddHotel() {
                 street: address
             }
         }));
-        const fetchData = async () => {
-            await axios
+        const fetchData = () => {
+            axios
                 .post('/director/hotel/new-hotel', formData)
                 .then(function (res) {
                     switch (res.data['message']) {

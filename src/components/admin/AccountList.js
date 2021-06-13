@@ -13,8 +13,8 @@ export default function AccountList() {
     const [data, setData] = useState([]);
 
     const unlock = (id) => {
-        const fetchData = async () => {
-            await axios
+        const fetchData = () => {
+            axios
                 .put(`/admin/getDirector/unlock/${id}`)
                 .then(function (res) {
                     getData();
@@ -27,8 +27,8 @@ export default function AccountList() {
     }
 
     const getData = () => {
-        const fetchData = async () => {
-            await axios
+        const fetchData = () => {
+            axios
                 .get('/admin/getDirector')
                 .then(function (res) {
                     console.log(res.data);
