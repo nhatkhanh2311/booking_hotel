@@ -17,19 +17,27 @@
 }
 
 @media (min-width: 48em) {
-    .masthead, .mastfoot {
+    .masthead,
+    .mastfoot {
         width: 100%;
     }
 }
 
+
+#head {
+    position: fixed;
+    width: 100vw;
+}
+
 .masthead {
-    background-color: darkslateblue;
+    /* background-color: rgba(41, 46, 49, 1); */
     min-width: 100%;
     width: 100%;
     min-height: 42px;
     z-index: 100;
     padding: 0;
     margin: 0;
+    position: fixed;
 }
 
 .masthead li {

@@ -1,10 +1,7 @@
 .Sidebar {
     min-height: 660px;
     width: 250px;
-    background-image: linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)
-    ), url('/src/assets/bg1.jpg');
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/src/assets/bg1.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: 370px;
@@ -12,14 +9,14 @@
 
 .SidebarList {
     height: auto;
-    padding:0;
+    padding: 0;
     width: 100%;
 }
 
 .SidebarList .row {
     height: 60px;
     width: 100%;
-    list-style-type:none;
+    list-style-type: none;
     margin: 0%;
     display: flex;
     flex-direction: row;
@@ -30,12 +27,12 @@
 
 .Sidebar .row:hover {
     cursor: pointer;
-    color:white;
+    color: white;
 }
 
 .icon {
     flex: 30px;
-    display: grid;
+    /* display: grid; */
     place-items: center;
 }
 

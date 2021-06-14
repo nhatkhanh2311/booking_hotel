@@ -1,6 +1,7 @@
 .cover-img {
-    background: url("../../assets/cover.jpg") top right no-repeat;
-    background-size: cover;
+    background: url("../../assets/hotel_demo_77.jpg") top right no-repeat;
+    background-size: auto;
+
 }
 
 .cover-container {
