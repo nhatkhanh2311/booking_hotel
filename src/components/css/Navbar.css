@@ -1,19 +1,14 @@
 .Sidebar {
-    min-height: 660px;
-    width: 250px;
-    background-image: linear-gradient(
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)
-    ), url('/src/assets/bg1.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 370px;
+    /* min-height: 660px; */
+    height: 100vh;
+    /* position: fixed; */
+    background-color: rgb(170,169,175);
+    width: 20vw;
 }
 
 .SidebarList {
     height: auto;
     padding:0;
-    width: 100%;
 }
 
 .SidebarList .row {
@@ -44,10 +39,13 @@
 }
 
 .logo {
-    border: 3px solid #293846;
-    height: 230px;
-    background-image: url('/src/assets/avatar.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 150px;
+    height: 18vh;
+    width: 8vw;
+    margin: 5vh 2vw;
+}
+
+.logo img {
+    border-radius: 50%;
+    width: 8vw;
+    height: 18vh;
 }

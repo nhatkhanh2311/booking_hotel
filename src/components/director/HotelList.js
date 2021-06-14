@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {axios} from "../../axios";
 import AddHotel from "./AddHotel";
-import "../css/List.css";
 import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
 import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
 import Table from '@material-ui/core/Table';
@@ -10,6 +9,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import "../css/Hotel.css"
 
 export default function HotelList(props) {
     const classes = useStyles();
@@ -53,56 +53,44 @@ export default function HotelList(props) {
                 </ModalBody>
             </Modal>
 
-            <Table className={classes.table}>
-                <TableHead>
-                    <StyledTableRow>
-                        <StyledTableCell align="center">Tên khách sạn</StyledTableCell>
-                        <StyledTableCell align="center">Địa chỉ</StyledTableCell>
-                        <StyledTableCell align="center">Số phòng</StyledTableCell>
-                        <StyledTableCell align="center">Danh sách phòng</StyledTableCell>
-                        <StyledTableCell align="center">Sửa</StyledTableCell>
-                        <StyledTableCell align="center">Xóa</StyledTableCell>
-                    </StyledTableRow>
-                </TableHead>
-
-                <TableBody>
-                    {data.map((row) => (
-                        <StyledTableRow key={row.id}>
-                            <StyledTableCell align="center">
-                                {row.name}
+            <div class="hotelList">
+                {data.map((row) => (
+                        <StyledTableRow class="row" key={row.id}>
+                            <StyledTableCell class="img" align="center" >
+                                <img src={`data:image/jpeg;base64,${row.images[0].img}` } />
                             </StyledTableCell>
 
-                            <StyledTableCell align="center">
-                                {row.address.city}
+                            <StyledTableCell class="inf">
+                                <h5>{row.name}</h5>
                                 <br/>
-                                {row.address.street}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.rooms.length}
+                                
+                                <span>Address:</span> {row.address.street} {row.address.city} <br/>
+                                <span>Standard:</span> {row.standard}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
                                 <Button outline color="success" onClick={() => props.render('room', row)}>
                                     Xem
                                 </Button>
-                            </StyledTableCell>
+                                <br/> <br/> <br/>
+                                <StyledTableRow>
+                                    <StyledTableCell align="center">
+                                        <Button outline color="primary">
+                                        <i class='far fa-edit'></i>
+                                        </Button>
+                                    </StyledTableCell>
 
-                            <StyledTableCell align="center">
-                                <Button outline color="primary">
-                                    Sửa
-                                </Button>
+                                    <StyledTableCell align="center">
+                                        <Button outline color="danger">
+                                        <i class='far fa-trash-alt'></i>
+                                        </Button>
+                                    </StyledTableCell>
+                                </StyledTableRow> 
                             </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                <Button outline color="danger">
-                                    Xóa
-                                </Button>
-                            </StyledTableCell>
+                            
                         </StyledTableRow>
                     ))}
-                </TableBody>
-            </Table>
+            </div>
         </TableContainer>
     );
 }

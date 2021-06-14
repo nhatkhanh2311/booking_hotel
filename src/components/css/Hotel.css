@@ -1,0 +1,42 @@
+.hotelList {
+    /* width: 78vw; */
+}
+
+.hotelList .img {
+    width: 16vw;
+}
+
+.hotelList .img img {
+    border: 0.5px solid grey;
+    height: 27vh;
+    width: 18vw;
+}
+.hotelList .inf {
+    width: 35vw;
+    padding-left: 2vw;
+    margin-right: 2vw;
+}
+
+.hotelList .inf span {
+    font-weight: 700;
+}
+
+.hotelList .view {
+    width: 15vw;
+}
+
+.hotelList .view i {
+    font-size: 1.3vw;
+}
+
+.hotelList .view #xem {
+    margin-left: 4vw;
+    font-size: 1.3vw;
+}
+.hotelList .row {
+    height: 35vh;
+    margin: 2vw;
+    border: 1px solid rgb(211, 203, 203);
+    padding: 4vh 0.1vw 4vh 2vw;
+    border-radius: 20px;
+}
