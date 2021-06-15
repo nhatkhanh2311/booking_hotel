@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
-import {axios} from "../../axios";
+import React, { useEffect, useState } from 'react';
+import { axios } from "../../axios";
 import AddHotel from "./AddHotel";
-import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
-import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
+import { Modal, ModalBody, ModalHeader, Button } from "reactstrap";
+import { StyledTableCell, StyledTableRow, useStyles } from "../Table";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -10,6 +10,8 @@ import TableHead from '@material-ui/core/TableHead';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import "../css/Hotel.css"
+import 'react-slideshow-image/dist/styles.css'
+import { Zoom } from 'react-slideshow-image';
 
 export default function HotelList(props) {
     const classes = useStyles();
@@ -37,11 +39,11 @@ export default function HotelList(props) {
     }, []);
 
     return (
-        <TableContainer style={{padding: '30px'}}>
+        <TableContainer class="hotels" style={{ padding: '30px' }}>
             <h2>Khách sạn của bạn</h2>
 
             <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleUp}>
-                <AddIcon/>
+                <AddIcon />
             </Fab>
 
             <Modal className='modal-dialog modal-dialog-centered' isOpen={up} toggle={toggleUp}>
@@ -49,47 +51,52 @@ export default function HotelList(props) {
                     <h2>Thêm khách sạn</h2>
                 </ModalHeader>
                 <ModalBody>
-                    <AddHotel/>
+                    <AddHotel />
                 </ModalBody>
             </Modal>
 
             <div class="hotelList">
                 {data.map((row) => (
-                        <StyledTableRow class="row" key={row.id}>
-                            <StyledTableCell class="img" align="center" >
-                                <img src={`data:image/jpeg;base64,${row.images[0].img}` } />
-                            </StyledTableCell>
+                    <StyledTableRow class="row" key={row.id}>
+                        <StyledTableCell class="img" align="center" >
+                        <Zoom scale={0.4}>
+                            {
+                                row.images.map((each, index) => <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`} />)
+                            }
+                        </Zoom>
+                            {/* <img src={`data:image/jpeg;base64,${row.images[0].img}`} /> */}
+                        </StyledTableCell>
 
-                            <StyledTableCell class="inf">
-                                <h5>{row.name}</h5>
-                                <br/>
-                                
-                                <span>Address:</span> {row.address.street} {row.address.city} <br/>
-                                <span>Standard:</span> {row.standard}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                <Button outline color="success" onClick={() => props.render('room', row)}>
-                                    Xem
-                                </Button>
-                                <br/> <br/> <br/>
-                                <StyledTableRow>
+                        <StyledTableCell class="inf">
+                            <h5>{row.name}</h5>
+                            <br/>
+                            <span>Address:</span> {row.address.street} {row.address.city} <br />
+                            <span>Standard:</span> {row.standard}
+                            <TableContainer className="chucnang">
+                                <StyledTableRow >
+                                    <StyledTableCell align="center">
+                                        <Button outline color="success" onClick={() => props.render('room', row)}>
+                                            Xem
+                                        </Button>
+                                    </StyledTableCell>
                                     <StyledTableCell align="center">
                                         <Button outline color="primary">
-                                        <i class='far fa-edit'></i>
+                                            <i class='far fa-edit'></i>
                                         </Button>
                                     </StyledTableCell>
 
                                     <StyledTableCell align="center">
                                         <Button outline color="danger">
-                                        <i class='far fa-trash-alt'></i>
+                                            <i class='far fa-trash-alt'></i>
                                         </Button>
                                     </StyledTableCell>
-                                </StyledTableRow> 
-                            </StyledTableCell>
+                                </StyledTableRow>
+                            </TableContainer>
                             
-                        </StyledTableRow>
-                    ))}
+                        </StyledTableCell>
+
+                    </StyledTableRow>
+                ))}
             </div>
         </TableContainer>
     );

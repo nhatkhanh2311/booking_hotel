@@ -71,7 +71,7 @@ export default function Information() {
     }, []);
 
     return (
-        <div>
+        <div class="account">
             <div style={{padding: '2vh 1vw'}}>
                 <h2>Thông tin cá nhân</h2>
 

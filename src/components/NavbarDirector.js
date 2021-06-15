@@ -22,6 +22,11 @@ export default function NavbarDirector(props) {
                     <div className="icon"><IoIcons.IoIosPaper/></div>
                     <div className="title">Khách sạn</div>
                 </li>
+                <hr/>
+                <li>
+                    <i class="fas fa-sign-in-alt"></i>
+                    Logout 
+                </li>
             </ul>
             {props.render(tab)}
         </div>

@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { UncontrolledCarousel } from 'reactstrap';
 import "./css/HomePage.css"
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "23%",
@@ -114,10 +115,10 @@ export default function HomePage() {
               <CardActions>
                 <Button size="small" color="primary" >
                   Share
-        </Button>
+                </Button>
                 <Button size="small" color="primary">
                   Learn More
-        </Button>
+                </Button>
               </CardActions>
             </Card>
           )
@@ -125,7 +126,7 @@ export default function HomePage() {
 
 
       </div>
-      <h3 className ="h3">Phòng được được yêu thích</h3>
+      <h3 className="h3">Phòng được được yêu thích</h3>
       <div className="db">
         {data.map(d => {
           return (
@@ -147,36 +148,35 @@ export default function HomePage() {
               <CardActions>
                 <Button size="small" color="primary" >
                   Share
-        </Button>
+                </Button>
 
                 <Button size="small" color="primary">
                   Learn More
-        </Button>
+                </Button>
               </CardActions>
             </Card>
           )
         })}
       </div>
-        <h3 className="h3">Top điểm đến được yêu thích</h3>
+      <h3 className="h3">Top điểm đến được yêu thích</h3>
       <div className="destinations">
-      <div className="destination" >
-        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />
-        <p>Thành phố Đà Lạt</p>
+        <div className="destination" >
+          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />
+          <p>Thành phố Đà Lạt</p>
+        </div>
+        <div className="destination">
+          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://cdn1.nhatrangtoday.vn/images/photos/bai-bien-nha-trang-4.jpg" className={classes.large} />
+          <p>Bãi biển Nha Trang</p>
+        </div>
+        <div className="destination">
+          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://baodanang.vn/dataimages/202004/original/images1557744_20_4__ANH_CAU_VANG.jpg" className={classes.large} />
+          <p>Thành phố Đà Nẵng</p>
+        </div>
+        <div className="destination">
+          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://media.vov.vn/uploaded/bavu/2015_08_06/2_qcfo.jpg" className={classes.large} />
+          <p>Cố đô Huế</p>
+        </div>
       </div>
-      <div className="destination">
-        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://cdn1.nhatrangtoday.vn/images/photos/bai-bien-nha-trang-4.jpg" className={classes.large} />
-        <p>Bãi biển Nha Trang</p>
-      </div>
-      <div className="destination">
-        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://baodanang.vn/dataimages/202004/original/images1557744_20_4__ANH_CAU_VANG.jpg" className={classes.large} />
-        <p>Thành phố Đà Nẵng</p>
-      </div>
-      <div className="destination">
-        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://media.vov.vn/uploaded/bavu/2015_08_06/2_qcfo.jpg" className={classes.large} />
-        <p>Cố đô Huế</p>
-      </div>
-      </div>
-
     </div>
   );
 }
