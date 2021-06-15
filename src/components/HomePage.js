@@ -88,9 +88,9 @@ export default function HomePage() {
 
   return (
     <div>
-      <div className="cou" >
+      {/* <div className="cou" >
         <UncontrolledCarousel items={items} />
-      </div>
+      </div> */}
       <hr></hr>
       <h3 className="h3">khách sạn mới nhất</h3>
       <div className="db">
@@ -172,7 +172,7 @@ export default function HomePage() {
         <p>Thành phố Đà Nẵng</p>
       </div>
       <div className="destination">
-        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://media.vov.vn/uploaded/bavu/2015_08_06/2_qcfo.jpg" className={classes.large} />
+        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://img1.kienthucvui.vn/uploads/2019/08/14/hinh-anh-hoang-thanh-hue-dep-nhat_054029883.jpg" className={classes.large} />
         <p>Cố đô Huế</p>
       </div>
       </div>

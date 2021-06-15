@@ -1,15 +1,29 @@
+:root{
+    --text-color:  rgb(117, 115, 115);
+}
+
 .cover-img {
-    background: url("../../assets/hotel_demo_77.jpg") top right no-repeat;
-    background-size: auto;
+    background: url("../../assets/hotel_demo_77.jpg") no-repeat;
+    height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+
 
 }
 
 .cover-container {
-    width: 100%;
-    margin-right: auto;
-    margin-left: auto;
+    background-color: rgba(245, 231, 227, 0.1);
+    width: 100vw;
+    height: 100vh;
     text-align: center;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+   }
 
 .cover {
     padding: 50px 1.5rem 0;
@@ -17,16 +31,16 @@
 }
 
 .cover-heading {
-    font-family: 'Cormorant Garamond', serif, Helvetica, Arial, Verdana, Calibri;
-    font-style: italic;
-    font-size: 40px;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 1;
+    font-size: 50px;
     text-shadow: 1px 1px 1px #000;
     color: white;
 }
 
 #search-box {
     max-width: 1200px;
-    width: auto;
+    width: 100vw;
     margin-left: auto;
     margin-right: auto;
     padding: 10px 14px 30px 10px;
@@ -38,22 +52,25 @@
     padding: 6px;
     border-radius: 5px;
     min-height: 60px;
-    margin: 6px 2px;
+    margin: 6px 3px;
+    border-radius: 10px;
+    max-width: 100%;
 }
 
 .input-label {
-    text-align: left;
+    text-align: center;
+    font-weight: 500;
     font-size: 12px;
     color: #292e46;
     text-transform: uppercase;
 }
 
 #search-keyword {
-    font-size: 17px;
+       font-size: 14px;
     line-height: 24px;
     border-bottom: none;
-    font-weight: bold;
-    color: #292e46;
+    font-weight: 500;
+    color: rgb(41, 35, 35);
     background: transparent;
     width: 100%;
     text-align: left;
@@ -63,33 +80,45 @@
 }
 
 .input-date {
-    font-size: 17px;
+    font-size: 14px;
     line-height: 24px;
     width: 100%;
     font-weight: 400;
     color: #333;
     outline: none;
     border: 0;
+   
 }
 
 .input-guests {
-    font-size: 17px;
+    font-size: 14px;
     line-height: 24px;
     text-align: left;
     width: 50px;
     font-weight: 400;
-    color: #333;
+    color: rgb(117, 115, 115);
     outline: none;
     border: 0;
 }
 
 .search-input-container.search {
-    background-color: #222f5b;
-    border: 2px solid #ffffff;
+
+    color: rgb(255, 255, 240);
+    background-color: rgb(244, 95, 92);
+    /* border: 2px solid #ffffff; */
+    border-radius: 40px;
     text-align: center;
-    font-size: 17px;
+    font-size: 14px;
     line-height: 43px;
     font-weight: bold;
     color: white;
-    width: 100%;
+    width: 80%;
 }
+.search-input-container.search:hover{
+        /* border: 2px solid rbga(240,240,240,.5); */
+        color: rgb(255, 255, 240);
+        background-color: rgba(216, 48, 45, 0.5);
+        
+}
+
+  
