@@ -55,32 +55,23 @@ export default function HomePage() {
 
   const items = [
     {
-      src: 'https://scontent.fdad3-3.fna.fbcdn.net/v/t1.6435-9/190579530_3741435479414180_3918195475456542642_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=H0K7Wpp33nAAX_dd97H&_nc_oc=AQkr-PLlCydYyAUafM9tSPDXXpGXVB7V5CbUlSdarjXvEaPoH_mjeIS6ZGmNXCNdC_yANyztkvd4bLEhRVssbKBX&_nc_ht=scontent.fdad3-3.fna&oh=1e13de853b3db089a1962b45361cbafe&oe=60D02947',
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_1-605x465.jpg',
       key: '1'
     },
     {
-      src: 'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.6435-9/187463909_3741438656080529_7421689148204696612_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=ULL2D71ZQgkAX8T2Q9v&_nc_ht=scontent.fdad3-1.fna&oh=ce3a106e1892cd1c7e6d1234113b6464&oe=60CFB3AB',
-
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_1-605x465.jpg',
       key: '2'
     },
     {
-      src: 'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.6435-9/190091531_3741438772747184_8793024995860699333_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=1VMZ6Q4kdioAX_VRDZA&_nc_ht=scontent.fdad3-1.fna&oh=89374cc105dff61bec845d67c1ec1634&oe=60D088DB',
-
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_53-605x465.jpg',
       key: '3'
     },
     {
-      src: 'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.6435-9/187398234_3741440012747060_6576089724660946887_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=vlYGWKXMafwAX9P0a2v&_nc_ht=scontent.fdad3-1.fna&oh=81429bf3271b9fd73381c1d92f9e4aa6&oe=60CF6E5C',
-
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_9-605x465.jpg',
       key: '4'
     },
     {
-      src: 'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.6435-9/190801123_3741441076080287_3441212252874464541_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=le44qYMYB9IAX-IR-4v&_nc_oc=AQl93tCsP6sykXiF0uuMYKClbzSv4rjQLBKj7Fi9PDn4l2cePPv5Kdf04JHeaUvCPcz5ZFUcwNjCUpq4E07MjU7V&_nc_ht=scontent.fdad3-1.fna&oh=e06c0ab4e0569f6c6bdfa9286cfd3127&oe=60D0A292',
-
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_50-605x465.jpg',
       key: '5'
     },
 
@@ -92,7 +83,7 @@ export default function HomePage() {
         <UncontrolledCarousel items={items} />
       </div> */}
       <hr></hr>
-      <h3 className="h3">khách sạn mới nhất</h3>
+      <h3 className="h3">Khách sạn mới nhất</h3>
       <div className="db">
         {data.map(d => {
           return (
@@ -114,10 +105,10 @@ export default function HomePage() {
               <CardActions>
                 <Button size="small" color="primary" >
                   Share
-        </Button>
+                </Button>
                 <Button size="small" color="primary">
                   Learn More
-        </Button>
+                </Button>
               </CardActions>
             </Card>
           )
@@ -125,7 +116,7 @@ export default function HomePage() {
 
 
       </div>
-      <h3 className ="h3">Phòng được được yêu thích</h3>
+      <h3 className="h3">Phòng được được yêu thích</h3>
       <div className="db">
         {data.map(d => {
           return (
@@ -147,36 +138,91 @@ export default function HomePage() {
               <CardActions>
                 <Button size="small" color="primary" >
                   Share
-        </Button>
+                </Button>
 
                 <Button size="small" color="primary">
                   Learn More
-        </Button>
+                </Button>
               </CardActions>
             </Card>
           )
         })}
       </div>
-        <h3 className="h3">Top điểm đến được yêu thích</h3>
-      <div className="destinations">
-      <div className="destination" >
-        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />
-        <p>Thành phố Đà Lạt</p>
-      </div>
-      <div className="destination">
-        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://cdn1.nhatrangtoday.vn/images/photos/bai-bien-nha-trang-4.jpg" className={classes.large} />
-        <p>Bãi biển Nha Trang</p>
-      </div>
-      <div className="destination">
-        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://baodanang.vn/dataimages/202004/original/images1557744_20_4__ANH_CAU_VANG.jpg" className={classes.large} />
-        <p>Thành phố Đà Nẵng</p>
-      </div>
-      <div className="destination">
-        <Avatar style={{marginLeft:"17%"}} alt="Remy Sharp" src="https://img1.kienthucvui.vn/uploads/2019/08/14/hinh-anh-hoang-thanh-hue-dep-nhat_054029883.jpg" className={classes.large} />
-        <p>Cố đô Huế</p>
-      </div>
-      </div>
+     
+      {/* *********** MORE INFOR ***************** */}
+      <div class="more-infor">
+        <div class="five-star infor">
 
+          <div class="five-star-1">
+            <div class="content">
+              <p class="infor-title"> KHÁCH SẠN TIÊU CHUẨN 5 SAO</p>
+              <p class="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
+                deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
+                architecto eaque, ut nobis iure aliquam.</p>
+              <button class="infor-btn">
+                More info
+              </button>
+            </div>
+          </div>
+          <div class="five-star-2">
+
+          </div>
+        </div>
+
+        <div class="transport infor">
+          <div class="transport-1">
+          </div>
+          <div class="transport-2">
+            <div class="content">
+              <p class="infor-title"> BAO GỒM DỊCH VỤ VẬN CHUYỂN </p>
+              <p class="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
+                deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
+                architecto eaque, ut nobis iure aliquam.</p>
+              <button class="infor-btn">
+                More infor
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="conference infor">
+          <div class="conference-1">
+            <div class="content">
+              <p class="infor-title">TRUNG TÂM HỘI NGHỊ </p>
+              <p class="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
+                deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
+                architecto eaque, ut nobis iure aliquam.</p>
+              <button class="infor-btn">
+                More infor
+              </button>
+            </div>
+
+          </div>
+          <div class="conference-2">
+
+          </div>
+        </div>
+      </div>
+      <h3 className="h3">Top điểm đến được yêu thích</h3>
+      <div className="destinations">
+        <div className="destination" >
+          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />
+          <p>Thành phố Đà Lạt</p>
+        </div>
+        <div className="destination">
+          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://cdn1.nhatrangtoday.vn/images/photos/bai-bien-nha-trang-4.jpg" className={classes.large} />
+          <p>Bãi biển Nha Trang</p>
+        </div>
+        <div className="destination">
+          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://baodanang.vn/dataimages/202004/original/images1557744_20_4__ANH_CAU_VANG.jpg" className={classes.large} />
+          <p>Thành phố Đà Nẵng</p>
+        </div>
+        <div className="destination">
+          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://img1.kienthucvui.vn/uploads/2019/08/14/hinh-anh-hoang-thanh-hue-dep-nhat_054029883.jpg" className={classes.large} />
+          <p>Cố đô Huế</p>
+        </div>
+      </div>
     </div>
   );
 }

@@ -44,3 +44,102 @@
     transform: scale(1.1);
     transition: all ease-in-out 0.5s;
 }
+
+/*  */
+:root{
+    --font-family: Spinnaker,Helvetica,Arial,sans-serif ;
+    --tit-fontsize: 30px;
+    --text-fontsize: 16px;
+}
+.more-infor{
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.infor{
+    display: flex;
+    flex: 1;
+   
+}
+.five-star-1{
+    background-color: rgba(202, 196, 196, 0.4);
+   height: 460px;
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  
+}
+.five-star-2{
+    flex: 1;
+    max-width: 100%;
+   height: 460px;
+    background: url('../../assets/hotel_demo_33.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.transport-1{
+    flex: 1;
+    max-width: 100%;
+   height: 460px;
+    background: url('../../assets/hotel_demo_21-605x465.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.transport-2{
+    background-color: rgba(202, 196, 196, 0.4);
+   height: 460px;
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+}
+.conference-1{
+    background-color: rgba(202, 196, 196, 0.4);
+   height: 460px;
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  
+}
+.conference-2{
+    flex: 1;
+    max-width: 100%;
+   height: 460px;
+    background: url('../../assets/hotel_demo_72.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.infor-title{
+    font-weight: 400;
+    font-size: var(--tit-fontsize);
+    letter-spacing: 1px;
+}
+.infor-content{
+    font-size: var(--text-fontsize);
+}
+.infor-btn{
+    height: 50px;
+    width: 150px;
+    font-weight: 500;
+    font-size: var(--text-fontsize);
+    color: rgb(255, 255, 255);
+    background-color: rgba(27, 27, 27, 0.9);
+    border-radius: 40px;
+}
+.infor-btn:hover{
+     background-color: rgba(27, 27, 27, 0.5);
+     transition: 1s ease;
+  
+}
+
+.content{
+    width: 75%;
+    margin: 10%  auto 0;
+    font-family: var(--font-family);
+   
+}

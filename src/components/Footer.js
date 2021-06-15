@@ -28,11 +28,11 @@ export default function Footer() {
             <div className="f-content">
               <ul className="list-infor">
                 <li className="infor">
-                  <i className="bx bx-envelope-open icon"></i>{" "}
+                  <i className="bx bx-envelope-open icon"></i>
                   bookingHotelCNPM@gmail.com
                 </li>
                 <li className="infor">
-                  <i className="bx bxs-phone icon"></i> 0123456789
+                  <i class='bx bx-mobile icon'></i> 01365484574
                 </li>
                 <li className="infor">
                   <i className="bx bxs-map icon"></i>154 - Nguyen Luong Bang -
