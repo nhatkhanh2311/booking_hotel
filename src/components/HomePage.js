@@ -8,8 +8,15 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { UncontrolledCarousel } from 'reactstrap';
+// import { UncontrolledCarousel } from 'reactstrap';
+// import React from 'react';
 import "./css/HomePage.css"
+// import ImageGallery from 'react-image-gallery';
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from 'swiper';
+// Import Swiper styles
+import "swiper/swiper.min.css";
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "23%",
@@ -21,12 +28,13 @@ const useStyles = makeStyles((theme) => ({
     height: 140,
   },
   large: {
-    width: theme.spacing(20),
-    height: theme.spacing(20),
+    width: theme.spacing(25),
+    height: theme.spacing(25),
   },
 }));
 
 export default function HomePage() {
+  SwiperCore.use([Autoplay]);
   const classes = useStyles();
 
   const data = [
@@ -76,80 +84,133 @@ export default function HomePage() {
     },
 
   ];
+  const images = [
+    {
+      original: 'https://picsum.photos/id/1018/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1018/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1015/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1015/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1019/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1019/250/150/',
+    },
+  ];
 
   return (
     <div>
-      {/* <div className="cou" >
-        <UncontrolledCarousel items={items} />
-      </div> */}
-      <hr></hr>
-      <h3 className="h3">Khách sạn mới nhất</h3>
-      <div className="db">
-        {data.map(d => {
-          return (
-            <Card className={classes.root}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image={d.img}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {d.title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    {d.text}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary" >
-                  Share
-                </Button>
-                <Button size="small" color="primary">
-                  Learn More
-                </Button>
-              </CardActions>
-            </Card>
-          )
-        })}
+      <div class="our-hotel-container">
+        <div class="our-hotel-1">
+          <div>
+            <p class="our-hotel-title">
+              Khách sạn của chúng tôi
+            </p>
+            <p class="our-hotel-content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi nesciunt distinctio, eveniet explicabo
+              voluptatum alias minus esse. Laboriosam rem omnis porro, libero accusantium vero ullam velit quaerat.
+              Quos, quisquam iure!
+            </p>
+          </div>
+
+        </div>
 
 
+        <Swiper className="swiper-container"
+          spaceBetween={0}
+          slidesPerView={3}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log('slide change')}
+          loop={true}
+          autoplay={{
+            delay: 3000
+          }}
+        >
+          <SwiperSlide className='swiper-slide'><img src='https://lavenderstudio.com.vn/wp-content/uploads/2017/03/chup-khach-san-dep-tphcm.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://premiumholidayclub.com/Upload/images/couple-hotel-check-in-484378693-small.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://media.cntraveler.com/photos/5d827bb077061d0008731f5f/16:9/w_4000,h_2250,c_limit/1-Hotel-West-Hollywood_2019_Pool_157.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://www.andreus-resorts.it/typo3conf/ext/bn_typo_dist/Resources/Public/client/Bilder/Bildauswahl_Kunde_21.11.18/Yoga_Meditation/_bp_170991_web.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://hotel-theyard.berlin/wp-content/uploads/2017/07/Bistro-the-YARD_BCD0084_Homepage.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://c8.alamy.com/comp/2A9DNYX/hotel-limousine-service-2A9DNYX.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://i.pinimg.com/originals/30/6a/f3/306af3bc7c6ab631736ee2a660f28a3f.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://phanthiet.ttchotels.com/uploads//images/hotel-ttc-hotel-premium-phan-thiet/images/service/gym-phan-thiet.jpg'></img></SwiperSlide>
+        </Swiper>
       </div>
-      <h3 className="h3">Phòng được được yêu thích</h3>
-      <div className="db">
-        {data.map(d => {
-          return (
-            <Card className={classes.root} style={{ borderBottom: "5px solid lightgreen" }}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image={d.img}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {d.title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    {d.text}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary" >
-                  Share
-                </Button>
-
-                <Button size="small" color="primary">
-                  Learn More
-                </Button>
-              </CardActions>
-            </Card>
-          )
-        })}
+{/* ****************************************************** */}
+      <div className='new-hotel con'>
+        <h3 className="h3-tit">Khách sạn mới nhất</h3>
+      
+        <div className="db">
+          {data.map(d => {
+            return (
+              <Card className={classes.root}>
+                <CardActionArea>
+                  <CardMedia
+                    className={classes.media}
+                    image={d.img}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {d.title}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      {d.text}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button className='btn btn-share' >
+                  <p>Share</p>
+                  </Button>
+                  <Button className= 'btn btn-learn'>
+                    <p>Learn More</p>
+                  </Button>
+                </CardActions>
+              </Card>
+            )
+          })}
+        </div>
       </div>
-     
-      {/* *********** MORE INFOR ***************** */}
+{/* ********************************************************************* */}
+      <div className='best-room con'>
+        <h3 className="h3-tit">Phòng được được yêu thích</h3>
+       
+        <div className="db">
+          {data.map(d => {
+            return (
+              <Card className={classes.root} style={{ borderBottom: "5px solid lightgreen" }}>
+                <CardActionArea>
+                  <CardMedia
+                    className={classes.media}
+                    image={d.img}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {d.title}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      {d.text}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button className='btn btn-share' >
+                    <p>Share</p>
+                  </Button>
+
+                  <Button className= 'btn btn-learn'>
+                  <p>Learn More</p>
+                  </Button>
+                </CardActions>
+              </Card>
+            )
+          })}
+        </div>
+      </div>
+
+
+      {/* *********** Thêm thông tin ***************** */}
       <div class="more-infor">
         <div class="five-star infor">
 
@@ -160,7 +221,7 @@ export default function HomePage() {
                 deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
                 architecto eaque, ut nobis iure aliquam.</p>
               <button class="infor-btn">
-                More info
+                Thêm thông tin
               </button>
             </div>
           </div>
@@ -179,7 +240,7 @@ export default function HomePage() {
                 deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
                 architecto eaque, ut nobis iure aliquam.</p>
               <button class="infor-btn">
-                More infor
+                Thêm thông tin
               </button>
             </div>
 
@@ -194,7 +255,7 @@ export default function HomePage() {
                 deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
                 architecto eaque, ut nobis iure aliquam.</p>
               <button class="infor-btn">
-                More infor
+                Thêm thông tin
               </button>
             </div>
 
@@ -204,25 +265,35 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <h3 className="h3">Top điểm đến được yêu thích</h3>
+
+      {/* *********************** */}
+      <div className="best-loacation con">
+      <h3 className="h3-tit des">Top điểm đến được yêu thích</h3>
       <div className="destinations">
         <div className="destination" >
-          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />
           <p>Thành phố Đà Lạt</p>
         </div>
         <div className="destination">
-          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://cdn1.nhatrangtoday.vn/images/photos/bai-bien-nha-trang-4.jpg" className={classes.large} />
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://cdn1.nhatrangtoday.vn/images/photos/bai-bien-nha-trang-4.jpg" className={classes.large} />
           <p>Bãi biển Nha Trang</p>
         </div>
         <div className="destination">
-          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://baodanang.vn/dataimages/202004/original/images1557744_20_4__ANH_CAU_VANG.jpg" className={classes.large} />
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://m.baotuyenquang.com.vn/media/images/2020/08/img_20200824090858.jpg" className={classes.large} />
+          <p>Thủ đô Hà Nội</p>
+        </div>
+        <div className="destination">
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://baodanang.vn/dataimages/202004/original/images1557744_20_4__ANH_CAU_VANG.jpg" className={classes.large} />
           <p>Thành phố Đà Nẵng</p>
         </div>
         <div className="destination">
-          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://img1.kienthucvui.vn/uploads/2019/08/14/hinh-anh-hoang-thanh-hue-dep-nhat_054029883.jpg" className={classes.large} />
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://img1.kienthucvui.vn/uploads/2019/08/14/hinh-anh-hoang-thanh-hue-dep-nhat_054029883.jpg" className={classes.large} />
           <p>Cố đô Huế</p>
         </div>
+   
       </div>
+      </div>
+      
     </div>
   );
 }

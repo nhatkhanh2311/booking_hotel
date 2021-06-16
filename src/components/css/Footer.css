@@ -14,7 +14,7 @@ body {
 }
 
 .footer-container {
-    margin-top: 5%;
+    
     background-color: rgba(41, 46, 49, 1);
     color: var(--text-color);
     display: flex;
