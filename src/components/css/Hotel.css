@@ -1,0 +1,51 @@
+.hotels {
+    width: 78vw;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.hotelList .row {
+    height: 42vh;
+    margin: 1.2vw;
+    width: 72vw;
+    border: 1px solid rgb(211, 203, 203);
+    padding: 4vh 0.1vw 4vh 2vw;
+    border-radius: 20px;
+}
+
+
+.hotelList .img {
+    width: 23vw;
+}
+
+.hotelList .img img {
+    border: 0.5px solid grey;
+    height: 34vh;
+    width: 20vw;
+    border-radius: 10px;
+}
+.hotelList .inf {
+    width: 44vw;
+    /* padding-left: 2vw; */
+    /* margin-right: 2vw; */
+}
+
+.hotelList .inf span {
+    font-weight: 700;
+}
+
+.hotelList .view {
+    /* width: 15vw; */
+}
+
+.hotelList .view i {
+    font-size: 1.3vw;
+}
+
+.hotelList .row .chucnang {
+    width: 20vw;
+    display: inline-block;
+    float: right;
+    margin-top: 10vh;
+}

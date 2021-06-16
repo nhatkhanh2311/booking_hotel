@@ -10,6 +10,7 @@ export default function NavbarDirector(props) {
         <div className="Sidebar">
             <ul className="SidebarList">
                 <div className="logo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSz4aFkpovoNEuEEtx9SyK8YjdSYCcUrJx9w&usqp=CAU" />
                 </div>
 
                 <li onClick={() => setTab('information')} className="row">
@@ -20,6 +21,11 @@ export default function NavbarDirector(props) {
                 <li onClick={() => setTab('posted')} className="row">
                     <div className="icon"><IoIcons.IoIosPaper/></div>
                     <div className="title">Khách sạn</div>
+                </li>
+                <hr/>
+                <li>
+                    <i class="fas fa-sign-in-alt"></i>
+                    Logout 
                 </li>
             </ul>
             {props.render(tab)}
