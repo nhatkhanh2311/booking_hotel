@@ -1,8 +1,7 @@
 import Axios from "axios";
 
 export const axios = Axios.create({
-    baseURL: 'https://hotels-booking-server.herokuapp.com',
-    timeout: 20000
+    baseURL: 'https://hotels-booking-server.herokuapp.com'
 });
 
 axios.interceptors.request.use(

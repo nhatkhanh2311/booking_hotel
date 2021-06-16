@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {axios} from "../axios";
+import {useHistory} from "react-router-dom";
 import {cities} from "./Cities";
 import "./css/SearchBox.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -7,22 +8,17 @@ import DatePicker from "react-datepicker";
 import {Button, Form, Input} from "reactstrap";
 
 export default function SearchBox() {
+    const history = useHistory();
     const [city, setCity] = useState("");
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     const [startString, setStartString] = useState("");
     const [endString, setEndString] = useState("");
-    const [capa, setCapa] = useState(0);
+    const [capa, setCapa] = useState(2);
 
     const onSubmit = (e) => {
         e.preventDefault();
         if (startDate != null && endDate != null) {
-            setStartString(startDate.getFullYear() + '-' +
-                String(startDate.getMonth() + 1).padStart(2, '0') + '-' +
-                String(startDate.getDate()).padStart(2, '0'));
-            setEndString(endDate.getFullYear() + '-' +
-                String(endDate.getMonth() + 1).padStart(2, '0') + '-' +
-                String(endDate.getDate()).padStart(2, '0'));
             const fetchData = () => {
                 axios
                     .post('/search', {
@@ -32,7 +28,13 @@ export default function SearchBox() {
                         capacity: capa
                     })
                     .then((res) => {
-                        console.log(res.data);
+                        history.push('/search', {
+                            data: res.data,
+                            city: city,
+                            checkIn: startString,
+                            checkOut: endString,
+                            capacity: capa
+                        });
                     })
                     .catch((err) => {
                         window.alert('Đã có lỗi xảy ra!');
@@ -47,7 +49,15 @@ export default function SearchBox() {
         const [start, end] = dates;
         setStartDate(start);
         setEndDate(end);
-    };
+        if (start != null && end != null) {
+            setStartString(start.getFullYear() + '-' +
+                String(start.getMonth() + 1).padStart(2, '0') + '-' +
+                String(start.getDate()).padStart(2, '0'));
+            setEndString(end.getFullYear() + '-' +
+                String(end.getMonth() + 1).padStart(2, '0') + '-' +
+                String(end.getDate()).padStart(2, '0'));
+        }
+    }
 
     return (
         <div className="cover-img">
