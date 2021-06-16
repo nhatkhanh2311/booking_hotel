@@ -8,8 +8,14 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import { UncontrolledCarousel } from 'reactstrap';
+// import { UncontrolledCarousel } from 'reactstrap';
+// import React from 'react';
 import "./css/HomePage.css"
+// import ImageGallery from 'react-image-gallery';
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from 'swiper';
+// Import Swiper styles
+import "swiper/swiper.min.css";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,12 +28,13 @@ const useStyles = makeStyles((theme) => ({
     height: 140,
   },
   large: {
-    width: theme.spacing(20),
-    height: theme.spacing(20),
+    width: theme.spacing(25),
+    height: theme.spacing(25),
   },
 }));
 
 export default function HomePage() {
+  SwiperCore.use([Autoplay]);
   const classes = useStyles();
 
   const data = [
@@ -56,127 +63,237 @@ export default function HomePage() {
 
   const items = [
     {
-      src: 'https://scontent.fdad3-3.fna.fbcdn.net/v/t1.6435-9/190579530_3741435479414180_3918195475456542642_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=H0K7Wpp33nAAX_dd97H&_nc_oc=AQkr-PLlCydYyAUafM9tSPDXXpGXVB7V5CbUlSdarjXvEaPoH_mjeIS6ZGmNXCNdC_yANyztkvd4bLEhRVssbKBX&_nc_ht=scontent.fdad3-3.fna&oh=1e13de853b3db089a1962b45361cbafe&oe=60D02947',
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_1-605x465.jpg',
       key: '1'
     },
     {
-      src: 'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.6435-9/187463909_3741438656080529_7421689148204696612_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=ULL2D71ZQgkAX8T2Q9v&_nc_ht=scontent.fdad3-1.fna&oh=ce3a106e1892cd1c7e6d1234113b6464&oe=60CFB3AB',
-
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_1-605x465.jpg',
       key: '2'
     },
     {
-      src: 'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.6435-9/190091531_3741438772747184_8793024995860699333_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=1VMZ6Q4kdioAX_VRDZA&_nc_ht=scontent.fdad3-1.fna&oh=89374cc105dff61bec845d67c1ec1634&oe=60D088DB',
-
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_53-605x465.jpg',
       key: '3'
     },
     {
-      src: 'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.6435-9/187398234_3741440012747060_6576089724660946887_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=vlYGWKXMafwAX9P0a2v&_nc_ht=scontent.fdad3-1.fna&oh=81429bf3271b9fd73381c1d92f9e4aa6&oe=60CF6E5C',
-
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_9-605x465.jpg',
       key: '4'
     },
     {
-      src: 'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.6435-9/190801123_3741441076080287_3441212252874464541_n.jpg?_nc_cat=110&ccb=1-3&_nc_sid=dbeb18&_nc_ohc=le44qYMYB9IAX-IR-4v&_nc_oc=AQl93tCsP6sykXiF0uuMYKClbzSv4rjQLBKj7Fi9PDn4l2cePPv5Kdf04JHeaUvCPcz5ZFUcwNjCUpq4E07MjU7V&_nc_ht=scontent.fdad3-1.fna&oh=e06c0ab4e0569f6c6bdfa9286cfd3127&oe=60D0A292',
-
-
+      src: 'https://bellevue-3c99.kxcdn.com/bellevue/hotel/wp-content/uploads/sites/9/2017/12/hotel_demo_50-605x465.jpg',
       key: '5'
     },
 
   ];
+  const images = [
+    {
+      original: 'https://picsum.photos/id/1018/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1018/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1015/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1015/250/150/',
+    },
+    {
+      original: 'https://picsum.photos/id/1019/1000/600/',
+      thumbnail: 'https://picsum.photos/id/1019/250/150/',
+    },
+  ];
 
   return (
     <div>
-      <div className="cou" >
-        <UncontrolledCarousel items={items} />
-      </div>
-      <hr></hr>
-      <h3 className="h3">khách sạn mới nhất</h3>
-      <div className="db">
-        {data.map(d => {
-          return (
-            <Card className={classes.root}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image={d.img}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {d.title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    {d.text}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary" >
-                  Share
-                </Button>
-                <Button size="small" color="primary">
-                  Learn More
-                </Button>
-              </CardActions>
-            </Card>
-          )
-        })}
+      <div class="our-hotel-container">
+        <div class="our-hotel-1">
+          <div>
+            <p class="our-hotel-title">
+              Khách sạn của chúng tôi
+            </p>
+            <p class="our-hotel-content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi nesciunt distinctio, eveniet explicabo
+              voluptatum alias minus esse. Laboriosam rem omnis porro, libero accusantium vero ullam velit quaerat.
+              Quos, quisquam iure!
+            </p>
+          </div>
+
+        </div>
 
 
+        <Swiper className="swiper-container"
+          spaceBetween={0}
+          slidesPerView={3}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log('slide change')}
+          loop={true}
+          autoplay={{
+            delay: 3000
+          }}
+        >
+          <SwiperSlide className='swiper-slide'><img src='https://lavenderstudio.com.vn/wp-content/uploads/2017/03/chup-khach-san-dep-tphcm.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://premiumholidayclub.com/Upload/images/couple-hotel-check-in-484378693-small.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://media.cntraveler.com/photos/5d827bb077061d0008731f5f/16:9/w_4000,h_2250,c_limit/1-Hotel-West-Hollywood_2019_Pool_157.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://www.andreus-resorts.it/typo3conf/ext/bn_typo_dist/Resources/Public/client/Bilder/Bildauswahl_Kunde_21.11.18/Yoga_Meditation/_bp_170991_web.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://hotel-theyard.berlin/wp-content/uploads/2017/07/Bistro-the-YARD_BCD0084_Homepage.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://c8.alamy.com/comp/2A9DNYX/hotel-limousine-service-2A9DNYX.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://i.pinimg.com/originals/30/6a/f3/306af3bc7c6ab631736ee2a660f28a3f.jpg'></img></SwiperSlide>
+          <SwiperSlide className='swiper-slide'><img src='https://phanthiet.ttchotels.com/uploads//images/hotel-ttc-hotel-premium-phan-thiet/images/service/gym-phan-thiet.jpg'></img></SwiperSlide>
+        </Swiper>
       </div>
-      <h3 className="h3">Phòng được được yêu thích</h3>
-      <div className="db">
-        {data.map(d => {
-          return (
-            <Card className={classes.root} style={{ borderBottom: "5px solid lightgreen" }}>
-              <CardActionArea>
-                <CardMedia
-                  className={classes.media}
-                  image={d.img}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {d.title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary" component="p">
-                    {d.text}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions>
-                <Button size="small" color="primary" >
-                  Share
-                </Button>
+{/* ****************************************************** */}
+      <div className='new-hotel con'>
+        <h3 className="h3-tit">Khách sạn mới nhất</h3>
+      
+        <div className="db">
+          {data.map(d => {
+            return (
+              <Card className={classes.root}>
+                <CardActionArea>
+                  <CardMedia
+                    className={classes.media}
+                    image={d.img}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {d.title}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      {d.text}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button className='btn btn-share' >
+                  <p>Share</p>
+                  </Button>
+                  <Button className= 'btn btn-learn'>
+                    <p>Learn More</p>
+                  </Button>
+                </CardActions>
+              </Card>
+            )
+          })}
+        </div>
+      </div>
+{/* ********************************************************************* */}
+      <div className='best-room con'>
+        <h3 className="h3-tit">Phòng được được yêu thích</h3>
+       
+        <div className="db">
+          {data.map(d => {
+            return (
+              <Card className={classes.root} style={{ borderBottom: "5px solid lightgreen" }}>
+                <CardActionArea>
+                  <CardMedia
+                    className={classes.media}
+                    image={d.img}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {d.title}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary" component="p">
+                      {d.text}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions>
+                  <Button className='btn btn-share' >
+                    <p>Share</p>
+                  </Button>
 
-                <Button size="small" color="primary">
-                  Learn More
-                </Button>
-              </CardActions>
-            </Card>
-          )
-        })}
+                  <Button className= 'btn btn-learn'>
+                  <p>Learn More</p>
+                  </Button>
+                </CardActions>
+              </Card>
+            )
+          })}
+        </div>
       </div>
-      <h3 className="h3">Top điểm đến được yêu thích</h3>
+
+
+      {/* *********** Thêm thông tin ***************** */}
+      <div class="more-infor">
+        <div class="five-star infor">
+
+          <div class="five-star-1">
+            <div class="content">
+              <p class="infor-title"> KHÁCH SẠN TIÊU CHUẨN 5 SAO</p>
+              <p class="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
+                deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
+                architecto eaque, ut nobis iure aliquam.</p>
+              <button class="infor-btn">
+                Thêm thông tin
+              </button>
+            </div>
+          </div>
+          <div class="five-star-2">
+
+          </div>
+        </div>
+
+        <div class="transport infor">
+          <div class="transport-1">
+          </div>
+          <div class="transport-2">
+            <div class="content">
+              <p class="infor-title"> BAO GỒM DỊCH VỤ VẬN CHUYỂN </p>
+              <p class="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
+                deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
+                architecto eaque, ut nobis iure aliquam.</p>
+              <button class="infor-btn">
+                Thêm thông tin
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="conference infor">
+          <div class="conference-1">
+            <div class="content">
+              <p class="infor-title">TRUNG TÂM HỘI NGHỊ </p>
+              <p class="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
+                deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
+                architecto eaque, ut nobis iure aliquam.</p>
+              <button class="infor-btn">
+                Thêm thông tin
+              </button>
+            </div>
+
+          </div>
+          <div class="conference-2">
+
+          </div>
+        </div>
+      </div>
+
+      {/* *********************** */}
+      <div className="best-loacation con">
+      <h3 className="h3-tit des">Top điểm đến được yêu thích</h3>
       <div className="destinations">
         <div className="destination" >
-          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />
           <p>Thành phố Đà Lạt</p>
         </div>
         <div className="destination">
-          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://cdn1.nhatrangtoday.vn/images/photos/bai-bien-nha-trang-4.jpg" className={classes.large} />
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://cdn1.nhatrangtoday.vn/images/photos/bai-bien-nha-trang-4.jpg" className={classes.large} />
           <p>Bãi biển Nha Trang</p>
         </div>
         <div className="destination">
-          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://baodanang.vn/dataimages/202004/original/images1557744_20_4__ANH_CAU_VANG.jpg" className={classes.large} />
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://m.baotuyenquang.com.vn/media/images/2020/08/img_20200824090858.jpg" className={classes.large} />
+          <p>Thủ đô Hà Nội</p>
+        </div>
+        <div className="destination">
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://baodanang.vn/dataimages/202004/original/images1557744_20_4__ANH_CAU_VANG.jpg" className={classes.large} />
           <p>Thành phố Đà Nẵng</p>
         </div>
         <div className="destination">
-          <Avatar style={{ marginLeft: "17%" }} alt="Remy Sharp" src="https://media.vov.vn/uploaded/bavu/2015_08_06/2_qcfo.jpg" className={classes.large} />
+          <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://img1.kienthucvui.vn/uploads/2019/08/14/hinh-anh-hoang-thanh-hue-dep-nhat_054029883.jpg" className={classes.large} />
           <p>Cố đô Huế</p>
         </div>
+   
       </div>
+      </div>
+      
     </div>
   );
 }

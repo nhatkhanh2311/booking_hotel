@@ -79,7 +79,10 @@ export default function SearchBox() {
 
                                     <select id="search-keyword" color="#292e46" required
                                             onChange={(e) => setCity(e.target.value)}>
-                                        <option value=''>Bạn dự định đến đâu?</option>
+                                        <option 
+                                        value='' 
+                                       >
+                                        Bạn dự định đến đâu?</option>
                                         {cities.map((city) => <option value={city}>{city}</option>)}
                                     </select>
                                 </div>
@@ -88,7 +91,7 @@ export default function SearchBox() {
                             <div className="col-9 col-md-3 col-lg-3 pr-0 pl-1">
                                 <div className="search-input-container">
                                     <div className="input-label">
-                                        check-in / check-out
+                                        check-in - check-out
                                     </div>
                                     <DatePicker className="input-date" startDate={startDate} endDate={endDate}
                                                 minDate={new Date()} selectsRange onChange={getDate} required/>

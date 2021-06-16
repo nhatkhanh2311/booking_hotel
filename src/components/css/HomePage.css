@@ -9,11 +9,11 @@
         justify-content: center;
     }
 }
-.h3{
+/* .h3{
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     padding-top: 50px;
-}
+} */
 
 .cou{
     
@@ -24,23 +24,254 @@
     
 }
 .destinations{
-    margin-top: 50px;
+    /* margin-top: 50px; */
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex: 1.5;
 }
 .destination p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-style:oblique;
+    font-family:var(--font-family);
+    /* font-style:oblique; */
+    /* text-align: center; */
     margin-top: 20px;
 }
 
 .destination{
-   
-    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
     text-align: center;
 }
+
 .destination:hover{
-    opacity: 0.8;
+    opacity: 0.5;
     transform: scale(1.1);
     transition: all ease-in-out 0.5s;
 }
+
+/* *******************  MORE HOTEL *********************** */
+:root{
+    --font-family: Spinnaker,Helvetica,Arial,sans-serif ;
+    --tit-fontsize: 30px;
+    --text-fontsize: 16px;
+}
+.more-infor{
+    /* margin-top: 10vh; */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.infor{
+    display: flex;
+    flex: 1;
+   
+}
+.five-star-1{
+    background-color: rgba(202, 196, 196, 0.4);
+   height: 460px;
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  
+}
+.five-star-2{
+    flex: 1;
+    max-width: 100%;
+   height: 460px;
+    background: url('../../assets/hotel_demo_33.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.transport-1{
+    flex: 1;
+    max-width: 100%;
+    height: 460px;
+    background: url('../../assets/yvr-limo-limousine.jpg') ;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.transport-2{
+    background-color: rgba(202, 196, 196, 0.4);
+   height: 460px;
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+   
+}
+.conference-1{
+    background-color: rgba(202, 196, 196, 0.4);
+   height: 460px;
+    flex: 1;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+  
+}
+.conference-2{
+    flex: 1;
+    max-width: 100%;
+   height: 460px;
+    background: url('../../assets/hotel_demo_72.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.infor-title{
+    font-weight: 400;
+    font-size: var(--tit-fontsize);
+    letter-spacing: 1.5px;
+}
+.infor-content{
+    font-size: var(--text-fontsize);
+}
+.infor-btn{
+    height: 50px;
+    width: 150px;
+    font-weight: 500;
+    font-size: var(--text-fontsize);
+    color: rgb(255, 255, 255);
+    background-color: rgba(27, 27, 27, 0.9);
+    border-radius: 40px;
+}
+.infor-btn:hover{
+     background-color: rgba(27, 27, 27, 0.5);
+     transition: 1s ease;
+  
+}
+
+.content{
+    width: 75%;
+    margin: 10%  auto 0;
+    font-family: var(--font-family);
+   
+}
+.content:hover{
+   
+}
+
+
+/* *************SLIDES IMAGES******************* */
+.our-hotel-container{
+    background-color: rgb(236, 227, 177,.2);
+    display: flex;
+    flex-direction: column;
+    height: 650px;
+}
+.our-hotel-1{
+    flex: 2.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.our-hotel-1 div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+
+    
+}
+.our-hotel-title,
+.h3-tit{
+    font-family: var(--font-family);
+    text-align: center;
+    font-size: 40px;
+    color:  rgb(244, 95, 92);
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+.our-hotel-content{
+    font-family: var(--font-family);
+    text-align: center;
+ 
+}
+
+.swiper-container {
+    flex: 1.5;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* *****************new hotel********************* */
+  .new-hotel,
+  .best-room
+ {
+    background-color: rgb(236, 227, 177,.2);
+      /* margin: 5vh 0; */
+      padding: 5vh 0;
+      padding-bottom: 0 ;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 650px;
+      
+  }
+  .best-room{
+      padding-bottom: 5vh;
+  }
+  .best-loacation{
+    background-color: rgb(236, 227, 177,.2);
+    /* margin: 5vh 0; */
+    padding: 5vh 0;
+    /* padding-bottom: 0 ; */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 500px;
+  }
+
+  .h3-tit{
+      flex: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .db{
+      flex: 1;
+  }
+  .des{
+      flex: 0.5;
+  }
+  /* ************************** */
+  .btn{
+    width: 100%;
+  }
+ .btn span  p{
+     margin: 0;
+     padding: 0;
+
+ }
+ 
