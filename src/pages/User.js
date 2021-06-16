@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import NavbarUser from "../components/NavbarUser";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -10,13 +10,15 @@ export default function User() {
 
     return (
         <>
-            <Header/>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
-                <NavbarUser render={(tab) => setTab(tab)}/>
-                {tab === 'booked' && <RoomBooked/>}
-                {tab === 'information' && <Information/>}
+            <Header />
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ width: "300px" }}>
+                    <NavbarUser render={(tab) => setTab(tab)} />
+                </div>
+                {tab === 'booked' && <RoomBooked />}
+                {tab === 'information' && <Information />}
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }

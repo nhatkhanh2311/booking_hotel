@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Header from "../components/Header";
 import NavbarDirector from "../components/NavbarDirector";
 import Footer from "../components/Footer";
@@ -10,13 +10,15 @@ export default function Director() {
 
     return (
         <>
-            <Header/>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
-                <NavbarDirector render={(tab) => setTab(tab)}/>
-                {tab === 'posted' && <Post/>}
-                {tab === 'information' && <Information/>}
+            <Header />
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{width:"300px"}}>
+                    <NavbarDirector render={(tab) => setTab(tab)} />
+                </div>
+                {tab === 'posted' && <Post />}
+                {tab === 'information' && <Information />}
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }

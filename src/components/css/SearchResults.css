@@ -1,20 +1,22 @@
-.container{
-    display: flex;
+.tong{
+  display: flex; 
+  
+}
+
+
+.left{
+    width:300px;
     margin-left: 10%;
 }
-.FormGroup{
-    width:250px;
-    margin-left: 7%;
-}
-.left{
+.left1{
     width:300px;
     background-color: #FFBF00;
     border: 1px solid #F4FA58;
     height:420px;
-    
 }
-.right{
-    margin-left: 20px;
+.FormGroup{
+    width:250px;
+    margin-left: 7%;
 }
 .left2{
     
@@ -24,7 +26,7 @@
     margin-bottom: 10px;
     margin-left: 7%;
 }
-h6{
+.h6{
     margin-left: 7%;
     padding-top: 20px;
    
@@ -36,4 +38,8 @@ h6{
 .rightLB{
     padding-right: 15px;
     color: gray;
+}
+.right{
+   
+    width: 50%; 
 }
