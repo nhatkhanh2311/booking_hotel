@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ListSearchResults from "../components/ListSearchResults";
+import SearchResults from "../components/SearchResults";
 import SearchBox from "../components/SearchBox";
 
 export default function Search() {
@@ -9,7 +9,7 @@ export default function Search() {
         <>
             <Header/>
             <SearchBox/>
-            <ListSearchResults/>
+            <SearchResults/>
             <Footer/>
         </>
     );
