@@ -40,51 +40,26 @@ export default function RoomList(props) {
             </Modal>
 
             <Table className={classes.table}>
-                <TableHead>
-                    <StyledTableRow>
-                        <StyledTableCell align="center">Tên phòng</StyledTableCell>
-                        <StyledTableCell align="center">Diện tích</StyledTableCell>
-                        <StyledTableCell align="center">Trạng thái</StyledTableCell>
-                        <StyledTableCell align="center">Loại phòng</StyledTableCell>
-                        <StyledTableCell align="center">Số người</StyledTableCell>
-                        <StyledTableCell align="center">Giá phòng/ngày</StyledTableCell>
-                        <StyledTableCell align="center">Mô tả</StyledTableCell>
-                        <StyledTableCell align="center">Sửa</StyledTableCell>
-                        <StyledTableCell align="center">Xóa</StyledTableCell>
-                    </StyledTableRow>
-                </TableHead>
 
                 <TableBody>
                     {data.rooms.map((row) => (
                         <StyledTableRow key={row.id}>
-                            <StyledTableCell align="center">
-                                {row.name}
+                            <StyledTableCell class="imgRoom">
+                                <Zoom scale={0.4}>
+                                    {
+                                        row.images.map((each, index) => <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`} />)
+                                    }
+                                </Zoom>
                             </StyledTableCell>
 
-                            <StyledTableCell align="center">
-                                {row.area}m²
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.availability && 'Còn trống'}
-                                {!row.availability && 'Đã đặt'}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.type === 'basic' && 'Tiêu chuẩn'}
-                                {row.type === 'advance' && 'Cao cấp'}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.capacity}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.price} VND
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.description}
+                            <StyledTableCell>
+                                Tên phòng: {row.name} <br/>
+                                Diện tích: {row.area}m² <br/>
+                                Trạng thái: {row.availability && 'Còn trống'}{!row.availability && 'Đã đặt'} <br/>
+                                Loại phòng: {row.type === 'basic' && 'Tiêu chuẩn'}{row.type === 'advance' && 'Cao cấp'} <br/>
+                                Giá phòng/ngày: {row.price} VND <br/>
+                                Số người: {row.capacity} <br/>
+                                Mô tả: {row.description} <br/>
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
