@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import NavbarAdmin from "../components/NavbarAdmin";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -11,14 +11,16 @@ export default function Admin() {
 
     return (
         <>
-            <Header/>
-            <div style={{display: 'flex', flexDirection: 'row'}}>
-                <NavbarAdmin render={(tab) => setTab(tab)}/>
-                {tab === 'statistic' && <StatisticTab/>}
-                {tab === 'account' && <AccountList/>}
-                {tab === 'information' && <Information/>}
+            <Header />
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div style={{ width: "300px" }}>
+                    <NavbarAdmin render={(tab) => setTab(tab)} />
+                </div>
+                {tab === 'statistic' && <StatisticTab />}
+                {tab === 'account' && <AccountList />}
+                {tab === 'information' && <Information />}
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }
