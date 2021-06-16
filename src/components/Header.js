@@ -25,7 +25,6 @@ export default function Header() {
     window.location.reload();
   };
   const changeBackground = () => {
-    console.log(window.scrollY);
     if (window.scrollY >= 50) {
       setNavbar(true);
     } else {

@@ -212,7 +212,7 @@ export default function HomePage() {
 
       {/* *********** Thêm thông tin ***************** */}
       <div class="more-infor">
-        <div class="five-star infor">
+        <div class="five-star infor-more-hotel">
 
           <div class="five-star-1">
             <div class="content">
@@ -230,7 +230,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div class="transport infor">
+        <div class="transport infor-more-hotel">
           <div class="transport-1">
           </div>
           <div class="transport-2">
@@ -247,7 +247,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div class="conference infor">
+        <div class="conference infor-more-hotel">
           <div class="conference-1">
             <div class="content">
               <p class="infor-title">TRUNG TÂM HỘI NGHỊ </p>

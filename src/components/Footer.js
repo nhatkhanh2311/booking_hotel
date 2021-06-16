@@ -6,6 +6,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="footer-container">
+
         <div className="footer-content about-us">
           <div className="footer-title">ABOUT US</div>
           <hr className="hr" />
@@ -21,21 +22,23 @@ export default function Footer() {
             <img id="logo" src={logo} alt="This is logo" />
           </div>
         </div>
+        
+        
         <div className="footer-content social">
           <div className="footer-contact">
             <div className="footer-title">CONTACT INFOR</div>
             <hr className="hr" />
             <div className="f-content">
-              <ul className="list-infor">
-                <li className="infor">
-                  <i className="bx bx-envelope-open icon"></i>
+              <ul className="list-infor-footer">
+                <li className="infor-footer">
+                  <i className="bx bx-envelope-open icon-footer"></i>
                   bookingHotelCNPM@gmail.com
                 </li>
-                <li className="infor">
-                  <i class='bx bx-mobile icon'></i> 01365484574
+                <li className="infor-footer">
+                  <i class='bx bx-mobile icon-footer'></i> 01365484574
                 </li>
-                <li className="infor">
-                  <i className="bx bxs-map icon"></i>154 - Nguyen Luong Bang -
+                <li className="infor-footer">
+                  <i className="bx bxs-map icon-footer"></i>154 - Nguyen Luong Bang -
                   Lien Chieu - Da Nang
                 </li>
               </ul>
@@ -45,26 +48,27 @@ export default function Footer() {
             <div className="footer-title">CONNECT WITH US</div>
             <hr className="hr" />
             <div className="f-content">
-              <ul className="list-infor connect">
-                <li className="infor">
+              <ul className="list-infor-footer connect">
+                <li className="infor-footer">
                   <a href="https://www.instagram.com/" target="_blank">
-                    <i className="bx bxl-instagram-alt icon"></i>
+                    <i className="bx bxl-instagram-alt icon-footer"></i>
                   </a>
                 </li>
-                <li className="infor">
+                <li className="infor-footer">
                   <a href="https://www.facebook.com/" target="_blank">
-                    <i className="bx bxl-facebook-square icon"></i>
+                    <i className="bx bxl-facebook-square icon-footer"></i>
                   </a>
                 </li>
-                <li className="infor">
+                <li className="infor-footer">
                   <a href="https://twitter.com/?lang=vi" target="_blank">
-                    <i className="bx bxl-twitter icon"></i>
+                    <i className="bx bxl-twitter icon-footer"></i>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
         </div>
+
 
         <div className="footer-content payment">
           <div className="footer-title">PAYMENT ACCEPTED</div>
@@ -75,6 +79,7 @@ export default function Footer() {
             <span>MasterCard</span>
           </div>
         </div>
+
 
         <div className="footer-content recent-post">
           <div className="footer-title">RECENT POST</div>

@@ -56,13 +56,15 @@ span {
     padding-left: 0;
 }
 
-.icon {
+.icon-footer {
+    display: inline-block;
     color: var(--text-color);
+    max-width: 100%;
     font-size: 140%;
     margin-right: 5%;
 }
 
-.list-infor {
+.list-infor-footer {
     margin-left: 1%;
     padding-left: 1%;
 }
@@ -72,7 +74,7 @@ span {
     font-size: 150%;
 }
 
-.icon:hover {
+.icon-footer:hover {
     color: rgba(226, 226, 226, 0.5);
     cursor: pointer;
     font-size: 150%;
