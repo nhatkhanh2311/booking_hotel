@@ -79,10 +79,7 @@ export default function SearchBox() {
 
                                     <select id="search-keyword" color="#292e46" required
                                             onChange={(e) => setCity(e.target.value)}>
-                                        <option 
-                                        value='' 
-                                       >
-                                        Bạn dự định đến đâu?</option>
+                                        <option value=''>Bạn dự định đến đâu?</option>
                                         {cities.map((city) => <option value={city}>{city}</option>)}
                                     </select>
                                 </div>

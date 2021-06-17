@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useLocation} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -7,46 +7,10 @@ import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import "./css/SearchResults.css";
 import {Button, Form, FormGroup, Input, Label, ButtonToggle} from "reactstrap";
-
-const data = [
-    {
-        img:"https://www.hoteljob.vn/files/Anh-HTJ-Hong/mau-tam-trang%20tri-giuong-khach-san-dep-nhat-19.jpg",
-        title:"Bãi tắm vũng tàu",
-        describe:"Bãi tắm nổi tiếng khu vực nam trung bộ",
-        id:"1050430",
-        price:"500 000"
-    },
-    {
-        img:"https://media-cdn.tripadvisor.com/media/photo-s/12/47/3e/c6/silverland-yen-hotel.jpg",
-        title:"Bãi tắm vũng tàu",
-        describe:"Rẻ và đẹp",
-        id:"1050430",
-        price:"500 000"
-    },
-    {
-        img:"https://thietkeaz.com/images/thiet-ke-phong-ngu-khach-san-36.jpg",
-        title:"Bãi tắm vũng tàu",
-        describe:"Rẻ và đẹp",
-        id:"1050430",
-        price:"500 000"
-    },
-    {
-        img:"https://www.hoteljob.vn/files/Anh-Hoteljob-Ni/Nam-2019/Thang-6/Bo-sung-2/tim-hieu-dien-tich-phong-tieu-chuan-cac-hang-sao-khach-san-02.jpg",
-        title:"Bãi tắm vũng tàu",
-        describe:"Rẻ và đẹp",
-        id:"1050430",
-        price:"500 000"
-    },
-    {
-        img:"https://www.hoteljob.vn/files/Anh-HTJ-Hong/mau-tam-trang%20tri-giuong-khach-san-dep-nhat-19.jpg",
-        title:"Bãi tắm vũng tàu",
-        describe:"Rẻ và đẹp",
-        id:"1050430",
-        price:"500 000"
-    }
-]
+import {Zoom} from "react-slideshow-image";
 
 export default function SearchResults() {
+    const history = useHistory();
     const location = useLocation();
     const classes = useStyles();
 
@@ -56,164 +20,167 @@ export default function SearchResults() {
 
     return (
         <div className="container">
-            <div className="left">
-                <div className="left2" style={{marginTop: 50}}>
-                    <h6>Các bộ lọc phổ biến</h6>
+            {/*<div className="left">*/}
+            {/*    <div className="left2" style={{marginTop: 50}}>*/}
+            {/*        <h6>Các bộ lọc phổ biến</h6>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Giáp biển
-                            <div className="rightLB">15</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Giáp biển*/}
+            {/*                <div className="rightLB">15</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Bãi biển
-                            <div className="rightLB">26</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Bãi biển*/}
+            {/*                <div className="rightLB">26</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Hồ bơi
-                            <div className="rightLB">10</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Hồ bơi*/}
+            {/*                <div className="rightLB">10</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Bao gồm bữa sáng
-                            <div className="rightLB">7</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Bao gồm bữa sáng*/}
+            {/*                <div className="rightLB">7</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            5 sao
-                            <div className="rightLB">32</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                5 sao*/}
+            {/*                <div className="rightLB">32</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Căn hộ
-                            <div className="rightLB">24</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Căn hộ*/}
+            {/*                <div className="rightLB">24</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Tự nấu
-                            <div className="rightLB">42</div>
-                        </Label>
-                    </FormGroup>
-                </div>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Tự nấu*/}
+            {/*                <div className="rightLB">42</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
+            {/*    </div>*/}
 
-                <div className="left2">
-                    <h6>Sức khỏe và an toàn</h6>
+            {/*    <div className="left2">*/}
+            {/*        <h6>Sức khỏe và an toàn</h6>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Có phòng tập gym
-                            <div className="rightLB">15</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Có phòng tập gym*/}
+            {/*                <div className="rightLB">15</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Có chỗ nghỉ, có tăng cường các biện pháp an toàn và sức khỏe
-                            <div className="rightLB">26</div>
-                        </Label>
-                    </FormGroup>
-                </div>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Có chỗ nghỉ, có tăng cường các biện pháp an toàn và sức khỏe*/}
+            {/*                <div className="rightLB">26</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
+            {/*    </div>*/}
 
-                <div className="left2">
-                    <h6>Hoạt động thú vị</h6>
+            {/*    <div className="left2">*/}
+            {/*        <h6>Hoạt động thú vị</h6>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Xe đạp
-                            <div className="rightLB">15</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Xe đạp*/}
+            {/*                <div className="rightLB">15</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Dạy nấu ăn
-                            <div className="rightLB">26</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Dạy nấu ăn*/}
+            {/*                <div className="rightLB">26</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Tour đi bộ
-                            <div className="rightLB">21</div>
-                        </Label>
-                    </FormGroup>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Tour đi bộ*/}
+            {/*                <div className="rightLB">21</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
 
-                    <FormGroup check className="check">
-                        <Input type="checkbox" name="check"/>
-                        <Label for="exampleCheck" check className="label">
-                            Tour tham quan
-                            <div className="rightLB">32</div>
-                        </Label>
-                    </FormGroup>
-                </div>
-            </div>
+            {/*        <FormGroup check className="check">*/}
+            {/*            <Input type="checkbox" name="check"/>*/}
+            {/*            <Label for="exampleCheck" check className="label">*/}
+            {/*                Tour tham quan*/}
+            {/*                <div className="rightLB">32</div>*/}
+            {/*            </Label>*/}
+            {/*        </FormGroup>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            <h2>Danh sách khách sạn có phòng ứng với điều kiện:</h2>
+            <h2>Địa điểm: {location.state.city}</h2>
+            <h2>Ngày nhận phòng: {location.state.checkIn}</h2>
+            <h2>Ngày trả phòng: {location.state.checkOut}</h2>
+            <h2>Số người: {location.state.capacity}</h2>
 
             <div className="right">
-                {data.map(d=>{
-                    return(
-                        <Paper className={classes.paper} >
-                            <Grid container spacing={2} >
-                                <Grid item >
-                                    <ButtonBase className={classes.image}>
-                                        <img className={classes.img} alt="complex" src={d.img} />
-                                    </ButtonBase>
-                                </Grid >
-                                <Grid item xs={12} sm container  >
-                                    <Grid item xs container direction="column" spacing={2}  >
-                                        <Grid item xs>
-                                            <Typography gutterBottom variant="subtitle1">
-                                                {d.title}
-                                            </Typography>
-                                            <Typography variant="body2" gutterBottom>
-                                                {d.describe}
-                                            </Typography>
-                                            <Typography variant="body2" color="textSecondary">
-                                                {d.id}
-                                            </Typography>
-                                        </Grid>
-
-                                    </Grid>
-                                    <div>
-                                        <div>
-                                            VND:{d.price}
-                                        </div>
-                                        <div style={{marginTop:100}}>
-                                            <ButtonToggle color="info">Xem thêm</ButtonToggle>
-                                        </div>
-                                    </div>
-
-                                </Grid>
+                {location.state.data.map(hotel => (
+                    <Paper className={classes.paper}>
+                        <Grid container spacing={2}>
+                            <Grid item>
+                                <Zoom scale={0.4} className={classes.image}>
+                                    {hotel.hotel.images.map((each, index) => (
+                                        <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`}/>
+                                    ))}
+                                </Zoom>
                             </Grid>
-                        </Paper>
-                    )
-                })}
+                            <Grid item xs={12} sm container>
+                                <Grid item xs container direction="column" spacing={2}>
+                                    <Grid item xs>
+                                        <Typography gutterBottom variant="subtitle1">
+                                            {hotel.hotel.name}
+                                        </Typography>
+                                        <Typography variant="body2" gutterBottom>
+                                            Địa chỉ: {hotel.hotel.address.street} - {hotel.hotel.address.city}
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary">
+                                            Có {hotel.hotel.rooms.length} phòng thỏa mãn điều kiện
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
 
+                                <div>
+                                    <div style={{marginTop:100}}>
+                                        <ButtonToggle color="info"
+                                                      onClick={() => history.push('/hotel', location.state)}>
+                                            Xem thêm
+                                        </ButtonToggle>
+                                    </div>
+                                </div>
+                            </Grid>
+                        </Grid>
+                    </Paper>
+                ))}
             </div>
         </div>
     );
@@ -224,11 +191,11 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(2),
         margin: 'auto',
         marginTop: 15,
-        maxWidth: 500,
+        maxWidth: 700,
     },
     image: {
-        width: 128,
-        height: 128,
+        width: 250,
+        height: 250,
     },
     img: {
         margin: 'auto',
