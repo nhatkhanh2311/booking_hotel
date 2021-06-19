@@ -14,6 +14,16 @@ export default function SearchResults() {
     const location = useLocation();
     const classes = useStyles();
 
+    const toHotel = (hotel) => {
+        history.push('/hotel', {
+            capacity: location.state.capacity,
+            checkIn: location.state.checkIn,
+            checkOut: location.state.checkOut,
+            city: location.state.city,
+            hotel: hotel
+        });
+    }
+
     useEffect(() => {
         console.log(location.state);
     });
@@ -144,7 +154,7 @@ export default function SearchResults() {
             <h2>Số người: {location.state.capacity}</h2>
 
             <div className="right">
-                {location.state.data.map(hotel => (
+                {location.state.data.map((hotel) => (
                     <Paper className={classes.paper}>
                         <Grid container spacing={2}>
                             <Grid item>
@@ -171,8 +181,7 @@ export default function SearchResults() {
 
                                 <div>
                                     <div style={{marginTop:100}}>
-                                        <ButtonToggle color="info"
-                                                      onClick={() => history.push('/hotel', location.state)}>
+                                        <ButtonToggle color="info" onClick={() => toHotel(hotel.hotel)}>
                                             Xem thêm
                                         </ButtonToggle>
                                     </div>

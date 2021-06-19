@@ -7,7 +7,6 @@ import User from "./pages/User";
 import Director from "./pages/Director";
 import Search from "./pages/Search";
 import Hotel from "./pages/Hotel";
-import Header from "./components/Header"
 
 export default function App() {
     return (

@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import HotelDetailToBook from "../components/HotelDetailToBook";
+import HotelDetail from "../components/HotelDetail";
 
 export default function Hotel() {
     return (
         <>
             <Header/>
-            <HotelDetailToBook/>
+            <HotelDetail/>
             <Footer/>
         </>
     );
