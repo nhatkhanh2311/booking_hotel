@@ -11,6 +11,7 @@ export default function User() {
     return (
         <>
             <Header />
+            <div className='header-background' style={{ height: '60px', width:'100%' }}></div>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <div style={{ width: "300px" }}>
                     <NavbarUser render={(tab) => setTab(tab)} />

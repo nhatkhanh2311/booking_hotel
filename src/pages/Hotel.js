@@ -7,6 +7,7 @@ export default function Hotel() {
     return (
         <>
             <Header/>
+            <div className='header-background' style={{ height: '60px', width:'100%' }}></div>
             <HotelDetail/>
             <Footer/>
         </>
