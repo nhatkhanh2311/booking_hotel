@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "../components/Header";
 import NavbarDirector from "../components/NavbarDirector";
 import Footer from "../components/Footer";
@@ -7,6 +7,10 @@ import Information from "../components/Information";
 
 export default function Director() {
     const [tab, setTab] = useState("");
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <>

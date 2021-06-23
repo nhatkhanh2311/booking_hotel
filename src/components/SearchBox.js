@@ -39,7 +39,7 @@ export default function SearchBox() {
                     .catch((err) => {
                         window.alert('Đã có lỗi xảy ra!');
                         console.log(err);
-                    })
+                    });
             }
             fetchData();
         }

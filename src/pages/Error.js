@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Link} from "react-router-dom";
 import oops from "../assets/oops.svg";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default function Error() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <>
             <Header/>

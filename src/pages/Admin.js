@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import NavbarAdmin from "../components/NavbarAdmin";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -8,6 +8,10 @@ import StatisticTab from "../components/admin/StatisticTab";
 
 export default function Admin() {
     const [tab, setTab] = useState("");
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     return (
         <>
