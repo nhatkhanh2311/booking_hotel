@@ -6,8 +6,7 @@
 
 .cou {
     width: 700px;
-    margin: 0 auto;
-    margin-bottom: 30px;
+    margin: 0 auto 30px;
     /* border: 1px solid red; */
 }
 
@@ -26,7 +25,6 @@
 }
 
 .img {
-    width: 50%;
-    height: 300px;
+    width: 500px;
     margin-right: 15px;
 }
