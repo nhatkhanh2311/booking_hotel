@@ -42,11 +42,12 @@ export default function HotelDetail() {
 
     const booking = (id) => {
         if (localStorage.getItem('roles') == null) toggleLogin();
-        else if (localStorage.getItem('roles') === 'ROLE_USER') toggleAccept();
-        else {
-            toggleNotUser();
+        else if (localStorage.getItem('roles') === 'ROLE_USER') {
+            toggleAccept();
             setIdBook(id);
+            console.log(id);
         }
+        else toggleNotUser();
     }
 
     useEffect(() => {
