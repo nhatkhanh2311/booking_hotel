@@ -44,8 +44,8 @@
 }
 
 .hotelList .row .chucnang {
-    width: 20vw;
-    display: inline-block;
+    /*width: 25vw;*/
+    /*display: inline-block;*/
     float: right;
     margin-top: 10vh;
 }

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {axios} from "../../axios";
 import AddRoom from "./AddRoom";
 import "../css/List.css";
@@ -18,13 +18,48 @@ export default function RoomList(props) {
     const [up, setUp] = useState(false);
     const toggleUp = () => setUp(!up);
 
+    const getData = () => {
+        const fetchData = () => {
+            axios
+                .get(`/director/hotel/${data.id}`)
+                .then(function (res) {
+                    console.log(res.data);
+                    setData(res.data);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
+        fetchData();
+    }
+
+    const deleteRoom = (roomID) => {
+        const fetchData = () => {
+            axios
+                .delete(`/director/hotel/${data.id}/${roomID}/delete`)
+                .then(function (res) {
+                    console.log(res.data);
+                    if (res.data['message'] === 'Delete room successful') window.alert('Xóa phòng thành công');
+                    getData();
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
+        fetchData();
+    }
+
+    useEffect(() => {
+        console.log(props.data);
+    }, []);
+
     return (
         <TableContainer style={{padding: '30px'}}>
             <Link className='back' onClick={() => props.render('hotel')}>
                 {'<< Khách sạn của bạn'}
             </Link>
 
-            <h2>Khách sạn {props.data.name}</h2>
+            <h2>Khách sạn {data.name}</h2>
 
             <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleUp}>
                 <AddIcon/>
@@ -35,7 +70,7 @@ export default function RoomList(props) {
                     <h2>Thêm phòng</h2>
                 </ModalHeader>
                 <ModalBody>
-                    <AddRoom id={props.data.id}/>
+                    <AddRoom id={data.id}/>
                 </ModalBody>
             </Modal>
 
@@ -94,7 +129,7 @@ export default function RoomList(props) {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="danger">
+                                <Button outline color="danger" onClick={() => deleteRoom(row.id)}>
                                     Xóa
                                 </Button>
                             </StyledTableCell>

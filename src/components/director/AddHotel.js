@@ -3,7 +3,7 @@ import {axios} from "../../axios";
 import {cities} from "../Cities";
 import {Label, Input, FormGroup, Form, Button} from "reactstrap";
 
-export default function AddHotel() {
+export default function AddHotel(props) {
     const [name, setName] = useState("");
     const [city, setCity] = useState("");
     const [address, setAddress] = useState("");
@@ -31,8 +31,8 @@ export default function AddHotel() {
                             window.alert('Vui lòng thêm ảnh!');
                             break;
                         case 'add hotel successfully':
-                            // window.location.reload();
                             window.alert('Thêm khách sạn thành công!');
+                            props.render('success');
                     }
                     console.log(res.data);
                 })

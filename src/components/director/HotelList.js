@@ -34,6 +34,21 @@ export default function HotelList(props) {
         fetchData();
     }
 
+    const deleteHotel = (id) => {
+        const fetchData = () => {
+            axios
+                .delete(`/director/hotel/${id}/delete`)
+                .then(function (res) {
+                    console.log(res.data);
+                    if (res.data['message'] === 'Delete hotel successful') window.alert('Xóa khách sạn thành công');
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
+        fetchData();
+    }
+
     useEffect(() => {
         getData();
     }, []);
@@ -55,15 +70,13 @@ export default function HotelList(props) {
                 </ModalBody>
             </Modal>
 
-            <div class="hotelList">
+            <div className="hotelList">
                 {data.map((row) => (
                     <StyledTableRow class="row" key={row.id}>
                         <StyledTableCell class="img" align="center" >
-                        <Zoom scale={0.4}>
-                            {
-                                row.images.map((each, index) => <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`} />)
-                            }
-                        </Zoom>
+                            <Zoom scale={0.4}>
+                                {row.images.map((each, index) => <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`} />)}
+                            </Zoom>
                             {/* <img src={`data:image/jpeg;base64,${row.images[0].img}`} /> */}
                         </StyledTableCell>
 
@@ -73,7 +86,7 @@ export default function HotelList(props) {
                             <span>Address:</span> {row.address.street} {row.address.city} <br />
                             <span>Standard:</span> {row.standard}
                             <TableContainer className="chucnang">
-                                <StyledTableRow >
+                                <StyledTableRow>
                                     <StyledTableCell align="center">
                                         <Button outline color="success" onClick={() => props.render('room', row)}>
                                             Xem
@@ -81,20 +94,18 @@ export default function HotelList(props) {
                                     </StyledTableCell>
                                     <StyledTableCell align="center">
                                         <Button outline color="primary">
-                                            <i class='far fa-edit'></i>
+                                            Sửa
                                         </Button>
                                     </StyledTableCell>
 
                                     <StyledTableCell align="center">
-                                        <Button outline color="danger">
-                                            <i class='far fa-trash-alt'></i>
+                                        <Button outline color="danger" onClick={() => deleteHotel(row.id)}>
+                                            Xóa
                                         </Button>
                                     </StyledTableCell>
                                 </StyledTableRow>
                             </TableContainer>
-                            
                         </StyledTableCell>
-
                     </StyledTableRow>
                 ))}
             </div>
