@@ -12,9 +12,11 @@ import AddIcon from '@material-ui/icons/Add';
 import "../css/Hotel.css"
 import 'react-slideshow-image/dist/styles.css'
 import { Zoom } from 'react-slideshow-image';
+import Pagination from "react-js-pagination";
 
 export default function HotelList(props) {
     const classes = useStyles();
+    const [activePage, setActivePage] = useState(1);
     const [data, setData] = useState([]);
     const [up, setUp] = useState(false);
     const toggleUp = () => setUp(!up);
@@ -71,7 +73,7 @@ export default function HotelList(props) {
             </Modal>
 
             <div className="hotelList">
-                {data.map((row) => (
+                {data.slice((activePage - 1) * 2, activePage * 2).map((row) => (
                     <StyledTableRow class="row" key={row.id}>
                         <StyledTableCell class="img" align="center" >
                             <Zoom scale={0.4}>
@@ -109,6 +111,10 @@ export default function HotelList(props) {
                     </StyledTableRow>
                 ))}
             </div>
+
+            <Pagination activePage={activePage} itemsCountPerPage={2} totalItemsCount={data.length}
+                        pageRangeDisplayed={5} onChange={(numPage) => {setActivePage(numPage)}}
+                        itemClass="page-item" linkClass="page-link"/>
         </TableContainer>
     );
 }

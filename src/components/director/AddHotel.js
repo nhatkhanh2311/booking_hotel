@@ -32,7 +32,6 @@ export default function AddHotel(props) {
                             break;
                         case 'add hotel successfully':
                             window.alert('Thêm khách sạn thành công!');
-                            props.render('success');
                     }
                     console.log(res.data);
                 })
