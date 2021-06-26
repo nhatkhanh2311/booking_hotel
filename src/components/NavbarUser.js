@@ -21,6 +21,11 @@ export default function NavbarUser(props) {
                     <div className="icon"><AiIcons.AiFillSchedule/></div>
                     <div className="title">Phòng đã đặt</div>
                 </li>
+
+                <li onClick={() => setTab('history')} className="row">
+                    <div className="icon"><AiIcons.AiFillSchedule/></div>
+                    <div className="title">Lịch sử đặt phòng</div>
+                </li>
             </ul>
             {props.render(tab)}
         </div>

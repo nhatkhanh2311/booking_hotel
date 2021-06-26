@@ -2,8 +2,9 @@ import React, {useEffect, useState} from 'react';
 import NavbarUser from "../components/NavbarUser";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import RoomBooked from "../components/RoomBooked";
 import Information from "../components/Information";
+import Booked from "../components/user/Booked";
+import History from "../components/user/History";
 
 export default function User() {
     const [tab, setTab] = useState("");
@@ -14,15 +15,16 @@ export default function User() {
 
     return (
         <>
-            <Header />
+            <Header/>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <div style={{ width: "300px" }}>
-                    <NavbarUser render={(tab) => setTab(tab)} />
+                    <NavbarUser render={(tab) => setTab(tab)}/>
                 </div>
-                {tab === 'booked' && <RoomBooked />}
-                {tab === 'information' && <Information />}
+                {tab === 'booked' && <Booked/>}
+                {tab === 'history' && <History/>}
+                {tab === 'information' && <Information/>}
             </div>
-            <Footer />
+            <Footer/>
         </>
     );
 }
