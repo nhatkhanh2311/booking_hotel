@@ -16,7 +16,6 @@ export default function Admin() {
     return (
         <>
             <Header />
-            <div className='header-background' style={{ height: '60px', width:'100%' }}></div>
             <div style={{ display: 'flex', flexDirection: 'row' }}>
                 <div style={{ width: "300px" }}>
                     <NavbarAdmin render={(tab) => setTab(tab)} />

@@ -29,131 +29,19 @@ export default function SearchResults() {
     });
 
     return (
-        <div className="container">
-            {/*<div className="left">*/}
-            {/*    <div className="left2" style={{marginTop: 50}}>*/}
-            {/*        <h6>Các bộ lọc phổ biến</h6>*/}
+        <div className="container-search">
+            
+            {/* <div className="search-info">
+                <h2>Thông tin</h2>
+                <h2>Địa điểm: {location.state.city}</h2>
+                <h2>Ngày nhận phòng: {location.state.checkIn}</h2>
+                <h2>Ngày trả phòng: {location.state.checkOut}</h2>
+                <h2>Số người: {location.state.capacity}</h2>
 
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Giáp biển*/}
-            {/*                <div className="rightLB">15</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Bãi biển*/}
-            {/*                <div className="rightLB">26</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Hồ bơi*/}
-            {/*                <div className="rightLB">10</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Bao gồm bữa sáng*/}
-            {/*                <div className="rightLB">7</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                5 sao*/}
-            {/*                <div className="rightLB">32</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Căn hộ*/}
-            {/*                <div className="rightLB">24</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Tự nấu*/}
-            {/*                <div className="rightLB">42</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-            {/*    </div>*/}
-
-            {/*    <div className="left2">*/}
-            {/*        <h6>Sức khỏe và an toàn</h6>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Có phòng tập gym*/}
-            {/*                <div className="rightLB">15</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Có chỗ nghỉ, có tăng cường các biện pháp an toàn và sức khỏe*/}
-            {/*                <div className="rightLB">26</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-            {/*    </div>*/}
-
-            {/*    <div className="left2">*/}
-            {/*        <h6>Hoạt động thú vị</h6>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Xe đạp*/}
-            {/*                <div className="rightLB">15</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Dạy nấu ăn*/}
-            {/*                <div className="rightLB">26</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Tour đi bộ*/}
-            {/*                <div className="rightLB">21</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-
-            {/*        <FormGroup check className="check">*/}
-            {/*            <Input type="checkbox" name="check"/>*/}
-            {/*            <Label for="exampleCheck" check className="label">*/}
-            {/*                Tour tham quan*/}
-            {/*                <div className="rightLB">32</div>*/}
-            {/*            </Label>*/}
-            {/*        </FormGroup>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-            <h2>Danh sách khách sạn có phòng ứng với điều kiện:</h2>
-            <h2>Địa điểm: {location.state.city}</h2>
-            <h2>Ngày nhận phòng: {location.state.checkIn}</h2>
-            <h2>Ngày trả phòng: {location.state.checkOut}</h2>
-            <h2>Số người: {location.state.capacity}</h2>
-
+            </div> */}
+                       
             <div className="right">
+            <h2>Danh sách khách sạn có phòng ứng với điều kiện:</h2>
                 {location.state.data.map((hotel) => (
                     <Paper className={classes.paper}>
                         <Grid container spacing={2}>

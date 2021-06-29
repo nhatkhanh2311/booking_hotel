@@ -1,27 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {axios} from "../../axios";
-import AddRoom from "./AddRoom";
 import "../css/List.css";
-import {Modal, ModalBody, ModalHeader, Button} from "reactstrap";
-import {Link} from "react-router-dom";
 import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import TableContainer from "@material-ui/core/TableContainer";
+import Table from "@material-ui/core/Table";
+import TableHead from "@material-ui/core/TableHead";
+import TableBody from "@material-ui/core/TableBody";
+import {Button} from "reactstrap";
 
-export default function RoomList(props) {
+export default function Booked() {
     const classes = useStyles();
-    const [data, setData] = useState(props.data);
-    const [up, setUp] = useState(false);
-    const toggleUp = () => setUp(!up);
+    const [data, setData] = useState([]);
 
     const getData = () => {
         const fetchData = () => {
             axios
-                .get(`/director/hotel/${data.id}`)
+                .get('/user/history-booking-after')
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
@@ -33,13 +27,12 @@ export default function RoomList(props) {
         fetchData();
     }
 
-    const deleteRoom = (roomID) => {
+    const cancel = (id) => {
         const fetchData = () => {
             axios
-                .delete(`/director/hotel/${data.id}/${roomID}/delete`)
+                .delete(`/user/cancelBooking/${id}`)
                 .then(function (res) {
-                    console.log(res.data);
-                    if (res.data['message'] === 'Delete room successful') window.alert('Xóa phòng thành công');
+                    console.log(res);
                     getData();
                 })
                 .catch(function (err) {
@@ -50,87 +43,72 @@ export default function RoomList(props) {
     }
 
     useEffect(() => {
-        console.log(props.data);
+        getData();
     }, []);
 
     return (
         <TableContainer style={{padding: '30px'}}>
-            <Link className='back' onClick={() => props.render('hotel')}>
-                {'<< Khách sạn của bạn'}
-            </Link>
-
-            <h2>Khách sạn {data.name}</h2>
-
-            <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleUp}>
-                <AddIcon/>
-            </Fab>
-
-            <Modal className='modal-dialog modal-dialog-centered' isOpen={up} toggle={toggleUp}>
-                <ModalHeader>
-                    <h2>Thêm phòng</h2>
-                </ModalHeader>
-                <ModalBody>
-                    <AddRoom id={data.id}/>
-                </ModalBody>
-            </Modal>
+            <h2>Phòng đã đặt</h2>
 
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
                         <StyledTableCell align="center">Tên phòng</StyledTableCell>
+                        <StyledTableCell align="center">Khách sạn</StyledTableCell>
+                        <StyledTableCell align="center">Địa chỉ</StyledTableCell>
                         <StyledTableCell align="center">Diện tích</StyledTableCell>
-                        <StyledTableCell align="center">Trạng thái</StyledTableCell>
                         <StyledTableCell align="center">Loại phòng</StyledTableCell>
                         <StyledTableCell align="center">Số người</StyledTableCell>
                         <StyledTableCell align="center">Giá phòng/ngày</StyledTableCell>
                         <StyledTableCell align="center">Mô tả</StyledTableCell>
-                        <StyledTableCell align="center">Sửa</StyledTableCell>
-                        <StyledTableCell align="center">Xóa</StyledTableCell>
+                        <StyledTableCell align="center">Ngày sử dụng</StyledTableCell>
+                        <StyledTableCell align="center">Hủy đặt</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
                 <TableBody>
-                    {data.rooms.map((row) => (
+                    {data.map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
-                                {row.name}
+                                {row.room.name}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.area}m²
+
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.availability && 'Còn trống'}
-                                {!row.availability && 'Đã đặt'}
+
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.type === 'basic' && 'Tiêu chuẩn'}
-                                {row.type === 'advance' && 'Cao cấp'}
+                                {row.room.area}m²
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.capacity}
+                                {row.room.type === 'basic' && 'Tiêu chuẩn'}
+                                {row.room.type === 'advance' && 'Cao cấp'}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.price} VND
+                                {row.room.capacity}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.description}
+                                {row.room.price} VND
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="primary">
-                                    Sửa
-                                </Button>
+                                {row.room.description}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="danger" onClick={() => deleteRoom(row.id)}>
-                                    Xóa
+                                {row.start} - {row.end}
+                            </StyledTableCell>
+
+                            <StyledTableCell align="center">
+                                <Button outline color="danger" onClick={() => cancel(row.id)}>
+                                    Hủy
                                 </Button>
                             </StyledTableCell>
                         </StyledTableRow>

@@ -12,9 +12,11 @@ import AddIcon from '@material-ui/icons/Add';
 import "../css/Hotel.css"
 import 'react-slideshow-image/dist/styles.css'
 import { Zoom } from 'react-slideshow-image';
+import Pagination from "react-js-pagination";
 
 export default function HotelList(props) {
     const classes = useStyles();
+    const [activePage, setActivePage] = useState(1);
     const [data, setData] = useState([]);
     const [up, setUp] = useState(false);
     const toggleUp = () => setUp(!up);
@@ -26,6 +28,21 @@ export default function HotelList(props) {
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
+        fetchData();
+    }
+
+    const deleteHotel = (id) => {
+        const fetchData = () => {
+            axios
+                .delete(`/director/hotel/${id}/delete`)
+                .then(function (res) {
+                    console.log(res.data);
+                    if (res.data['message'] === 'Delete hotel successful') window.alert('Xóa khách sạn thành công');
                 })
                 .catch(function (err) {
                     console.log(err);
@@ -55,15 +72,13 @@ export default function HotelList(props) {
                 </ModalBody>
             </Modal>
 
-            <div class="hotelList">
-                {data.map((row) => (
+            <div className="hotelList">
+                {data.slice((activePage - 1) * 2, activePage * 2).map((row) => (
                     <StyledTableRow class="row" key={row.id}>
                         <StyledTableCell class="img" align="center" >
-                        <Zoom scale={0.4}>
-                            {
-                                row.images.map((each, index) => <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`} />)
-                            }
-                        </Zoom>
+                            <Zoom scale={0.4}>
+                                {row.images.map((each, index) => <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`} />)}
+                            </Zoom>
                             {/* <img src={`data:image/jpeg;base64,${row.images[0].img}`} /> */}
                         </StyledTableCell>
 
@@ -73,7 +88,7 @@ export default function HotelList(props) {
                             <span>Address:</span> {row.address.street} {row.address.city} <br />
                             <span>Standard:</span> {row.standard}
                             <TableContainer className="chucnang">
-                                <StyledTableRow >
+                                <StyledTableRow>
                                     <StyledTableCell align="center">
                                         <Button outline color="success" onClick={() => props.render('room', row)}>
                                             Xem
@@ -81,23 +96,25 @@ export default function HotelList(props) {
                                     </StyledTableCell>
                                     <StyledTableCell align="center">
                                         <Button outline color="primary">
-                                            <i class='far fa-edit'></i>
+                                            Sửa
                                         </Button>
                                     </StyledTableCell>
 
                                     <StyledTableCell align="center">
-                                        <Button outline color="danger">
-                                            <i class='far fa-trash-alt'></i>
+                                        <Button outline color="danger" onClick={() => deleteHotel(row.id)}>
+                                            Xóa
                                         </Button>
                                     </StyledTableCell>
                                 </StyledTableRow>
                             </TableContainer>
-                            
                         </StyledTableCell>
-
                     </StyledTableRow>
                 ))}
             </div>
+
+            <Pagination activePage={activePage} itemsCountPerPage={2} totalItemsCount={data.length}
+                        pageRangeDisplayed={5} onChange={(numPage) => {setActivePage(numPage)}}
+                        itemClass="page-item" linkClass="page-link"/>
         </TableContainer>
     );
 }

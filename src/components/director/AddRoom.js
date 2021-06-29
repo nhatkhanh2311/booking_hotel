@@ -62,7 +62,7 @@ export default function AddRoom(props) {
 
             <FormGroup>
                 <Label for="priceInput">Giá phòng/ngày (VND)</Label>
-                <Input type="number" step="100000" id="priceInput" placeholder="0" required
+                <Input type="number" step="50000" id="priceInput" placeholder="0" required
                        onChange={(e) => setPrice(parseInt(e.target.value))}/>
             </FormGroup>
 

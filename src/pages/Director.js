@@ -15,7 +15,6 @@ export default function Director() {
     return (
         <>
             <Header/>
-            <div className='header-background' style={{ height: '60px', width:'100%' }}></div>
             <div style={{display: 'flex', flexDirection: 'row', width: '98vw'}}>
                 <NavbarDirector render={(tab) => setTab(tab)}/>
                 {tab === 'posted' && <Post/>}

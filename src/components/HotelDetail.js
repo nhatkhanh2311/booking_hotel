@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 import {axios} from "../axios";
 import "./css/HotelDetail.css";
 import {Button, Modal, ModalBody, ModalFooter, Table} from "reactstrap";
@@ -7,6 +7,7 @@ import {Zoom} from "react-slideshow-image";
 import * as IoIcons from 'react-icons/ai';
 
 export default function HotelDetail() {
+    const history = useHistory();
     const location = useLocation();
     const [idBook, setIdBook] = useState(0);
     const [accept, setAccept] = useState(false);
@@ -42,11 +43,11 @@ export default function HotelDetail() {
 
     const booking = (id) => {
         if (localStorage.getItem('roles') == null) toggleLogin();
-        else if (localStorage.getItem('roles') === 'ROLE_USER') toggleAccept();
-        else {
-            toggleNotUser();
+        else if (localStorage.getItem('roles') === 'ROLE_USER') {
+            toggleAccept();
             setIdBook(id);
         }
+        else toggleNotUser();
     }
 
     useEffect(() => {
@@ -179,10 +180,10 @@ export default function HotelDetail() {
                     <h4>Đặt phòng thành công</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
-                    <Button outline color="success" style={{width: '40%'}}>
+                    <Button outline color="success" style={{width: '40%'}} onClick={() => history.push('/account')}>
                         Đến trang cá nhân
                     </Button>
-                    <Button outline color="success" style={{width: '40%'}}>
+                    <Button outline color="success" style={{width: '40%'}} onClick={() => history.push('/')}>
                         Về trang chủ
                     </Button>
                 </ModalFooter>
