@@ -27,6 +27,10 @@ export default function AddRoom(props) {
             axios
                 .post(`/director/hotel/${props.id}/new-room`, formData)
                 .then(function (res) {
+                    if (res.data['message'] === 'add room successfully') {
+                        window.alert('Thêm phòng thành công!');
+                        props.render('refresh');
+                    }
                     console.log(res.data);
                 })
                 .catch(function (err) {

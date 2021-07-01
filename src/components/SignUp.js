@@ -11,11 +11,10 @@ export default function SignUp() {
     const [date, setDate] = useState("");
     const [phone, setPhone] = useState("");
     const [role, setRole] = useState(true);
-    const [err, setErr] = useState({});
 
     const onSubmit = (e) => {
         e.preventDefault();
-        if (validate()) {
+        if (pass === retypePass) {
             const fetchData = () => {
                 axios
                     .post('/signup', {
@@ -51,17 +50,6 @@ export default function SignUp() {
         }
     }
 
-    const validate = () => {
-        let isValid = true;
-        let x = {};
-        if (pass !== retypePass) {
-            x.retypePass = "Mật khẩu nhập lại không chính xác!";
-            isValid = false;
-        }
-        setErr(x);
-        return isValid;
-    }
-
     return (
         <Form onSubmit={onSubmit}>
             <FormGroup>
@@ -80,7 +68,7 @@ export default function SignUp() {
                 <Label for="repassInput">Nhập lại mật khẩu</Label>
                 <Input type="password" id="repassInput" placeholder="Xác nhận lại mật khẩu" required
                        onChange={(e) => setRetypePass(e.target.value)}/>
-                <span style={{color: "red"}}>{err["retypePass"]}</span>
+                {retypePass && pass !== retypePass && <span style={{color: "red"}}>Mật khẩu nhập lại chưa đúng!</span>}
             </FormGroup>
 
             <FormGroup>

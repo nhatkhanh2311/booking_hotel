@@ -51,6 +51,11 @@ export default function HotelList(props) {
         fetchData();
     }
 
+    const refresh = () => {
+        toggleUp();
+        getData();
+    }
+
     useEffect(() => {
         getData();
     }, []);
@@ -68,7 +73,7 @@ export default function HotelList(props) {
                     <h2>Thêm khách sạn</h2>
                 </ModalHeader>
                 <ModalBody>
-                    <AddHotel />
+                    <AddHotel render={(status) => {if (status === 'refresh') refresh()}}/>
                 </ModalBody>
             </Modal>
 
@@ -79,7 +84,6 @@ export default function HotelList(props) {
                             <Zoom scale={0.4}>
                                 {row.images.map((each, index) => <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`} />)}
                             </Zoom>
-                            {/* <img src={`data:image/jpeg;base64,${row.images[0].img}`} /> */}
                         </StyledTableCell>
 
                         <StyledTableCell class="inf">

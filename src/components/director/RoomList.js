@@ -49,6 +49,11 @@ export default function RoomList(props) {
         fetchData();
     }
 
+    const refresh = () => {
+        toggleUp();
+        getData();
+    }
+
     useEffect(() => {
         console.log(props.data);
     }, []);
@@ -70,7 +75,7 @@ export default function RoomList(props) {
                     <h2>Thêm phòng</h2>
                 </ModalHeader>
                 <ModalBody>
-                    <AddRoom id={data.id}/>
+                    <AddRoom id={data.id} render={(status) => {if (status === 'refresh') refresh()}}/>
                 </ModalBody>
             </Modal>
 
