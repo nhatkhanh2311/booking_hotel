@@ -1,7 +1,9 @@
 import Axios from "axios";
 
 export const axios = Axios.create({
-    baseURL: 'https://hotels-booking-server.herokuapp.com'
+    // baseURL: 'https://hotels-booking-server.herokuapp.com',
+    baseURL: 'http://localhost:8081'
+
 });
 
 axios.interceptors.request.use(
