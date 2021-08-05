@@ -1,35 +1,10 @@
 .account {
-    width: 98vw;
+    /* width: 98vw; */
+    margin-left: 50px;
 }
 
 ul {
     list-style: none;
-}
-
-.avt {
-    width: 70vw;
-}
-
-.avt ul li {
-    display: inline-block;
-}
-.avt img {
-    height: 20vh;
-    width: 9vw;
-    /* border-radius: 50%; */
-    padding: 2vh 0.7vw;
-    background-color: aqua;
-}
-
-.avt ul li input{
-    position: relative;
-    margin: 5vh 1.5vw ;
-    vertical-align: top;
-    top: 2vh;
-}
-
-[type="file"] {
-
 }
 
 .infor {
@@ -39,4 +14,7 @@ ul {
 
 .infor h4, .password h4, .acc, .pw {
     margin: 5vh 3vw;
+}
+button {
+    background-color: red;
 }
