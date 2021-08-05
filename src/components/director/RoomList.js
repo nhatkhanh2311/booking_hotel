@@ -11,12 +11,16 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
+import EditRoom from "./EditRoom";
 
 export default function RoomList(props) {
     const classes = useStyles();
     const [data, setData] = useState(props.data);
-    const [up, setUp] = useState(false);
-    const toggleUp = () => setUp(!up);
+    const [dataEdit, setDataEdit] = useState({});
+    const [add, setAdd] = useState(false);
+    const [edit, setEdit] = useState(false);
+    const toggleAdd = () => setAdd(!add);
+    const toggleEdit = () => setEdit(!edit);
 
     const getData = () => {
         const fetchData = () => {
@@ -31,6 +35,11 @@ export default function RoomList(props) {
                 });
         }
         fetchData();
+    }
+
+    const editRoom = (data) => {
+        setDataEdit(data);
+        toggleEdit();
     }
 
     const deleteRoom = (roomID) => {
@@ -50,7 +59,8 @@ export default function RoomList(props) {
     }
 
     const refresh = () => {
-        toggleUp();
+        setAdd(false);
+        setEdit(false);
         getData();
     }
 
@@ -66,16 +76,25 @@ export default function RoomList(props) {
 
             <h2>Khách sạn {data.name}</h2>
 
-            <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleUp}>
+            <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleAdd}>
                 <AddIcon/>
             </Fab>
 
-            <Modal className='modal-dialog modal-dialog-centered' isOpen={up} toggle={toggleUp}>
+            <Modal className='modal-dialog modal-dialog-centered' isOpen={add} toggle={toggleAdd}>
                 <ModalHeader>
                     <h2>Thêm phòng</h2>
                 </ModalHeader>
                 <ModalBody>
                     <AddRoom id={data.id} render={(status) => {if (status === 'refresh') refresh()}}/>
+                </ModalBody>
+            </Modal>
+
+            <Modal className='modal-dialog modal-dialog-centered' isOpen={edit} toggle={toggleEdit}>
+                <ModalHeader>
+                    <h2>Cập nhật phòng {dataEdit.name}</h2>
+                </ModalHeader>
+                <ModalBody>
+                    <EditRoom id={data.id} data={dataEdit} render={(status) => {if (status === 'refresh') refresh()}}/>
                 </ModalBody>
             </Modal>
 
@@ -128,7 +147,7 @@ export default function RoomList(props) {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="primary">
+                                <Button outline color="primary" onClick={() => editRoom(row)}>
                                     Sửa
                                 </Button>
                             </StyledTableCell>

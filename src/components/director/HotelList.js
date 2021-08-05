@@ -13,18 +13,22 @@ import "../css/Hotel.css"
 import 'react-slideshow-image/dist/styles.css'
 import { Zoom } from 'react-slideshow-image';
 import Pagination from "react-js-pagination";
+import EditHotel from "./EditHotel";
 
 export default function HotelList(props) {
     const classes = useStyles();
     const [activePage, setActivePage] = useState(1);
     const [data, setData] = useState([]);
-    const [up, setUp] = useState(false);
-    const toggleUp = () => setUp(!up);
+    const [dataEdit, setDataEdit] = useState({});
+    const [add, setAdd] = useState(false);
+    const [edit, setEdit] = useState(false);
+    const toggleAdd = () => setAdd(!add);
+    const toggleEdit = () => setEdit(!edit);
 
     const getData = () => {
         const fetchData = () => {
             axios
-                .get('/director/hotel')
+                .get('/director/all-hotel')
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
@@ -34,6 +38,11 @@ export default function HotelList(props) {
                 });
         }
         fetchData();
+    }
+
+    const editHotel = (data) => {
+        setDataEdit(data);
+        toggleEdit();
     }
 
     const deleteHotel = (id) => {
@@ -52,7 +61,8 @@ export default function HotelList(props) {
     }
 
     const refresh = () => {
-        toggleUp();
+        setAdd(false);
+        setEdit(false);
         getData();
     }
 
@@ -64,16 +74,25 @@ export default function HotelList(props) {
         <TableContainer class="hotels" style={{ padding: '30px' }}>
             <h2>Khách sạn của bạn</h2>
 
-            <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleUp}>
+            <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleAdd}>
                 <AddIcon />
             </Fab>
 
-            <Modal className='modal-dialog modal-dialog-centered' isOpen={up} toggle={toggleUp}>
+            <Modal className='modal-dialog modal-dialog-centered' isOpen={add} toggle={toggleAdd}>
                 <ModalHeader>
                     <h2>Thêm khách sạn</h2>
                 </ModalHeader>
                 <ModalBody>
                     <AddHotel render={(status) => {if (status === 'refresh') refresh()}}/>
+                </ModalBody>
+            </Modal>
+
+            <Modal className='modal-dialog modal-dialog-centered' isOpen={edit} toggle={toggleEdit}>
+                <ModalHeader>
+                    <h2>Cập nhật khách sạn {dataEdit.name}</h2>
+                </ModalHeader>
+                <ModalBody>
+                    <EditHotel data={dataEdit} render={(status) => {if (status === 'refresh') refresh()}}/>
                 </ModalBody>
             </Modal>
 
@@ -99,7 +118,7 @@ export default function HotelList(props) {
                                         </Button>
                                     </StyledTableCell>
                                     <StyledTableCell align="center">
-                                        <Button outline color="primary">
+                                        <Button outline color="primary" onClick={() => editHotel(row)}>
                                             Sửa
                                         </Button>
                                     </StyledTableCell>
