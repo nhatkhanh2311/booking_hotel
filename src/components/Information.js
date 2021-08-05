@@ -121,7 +121,7 @@ export default function Information() {
                                 </FormGroup>
                             )}
                             <br/>
-                            <Button color="success" style={{width: '30%'}} onClick={toggleEdit}>Chỉnh sửa</Button>
+                            <Button  style={{width: '200px', backgroundColor:"#092A4A"}} onClick={toggleEdit}>Chỉnh sửa</Button>
                         </Form>
                     </div>
                 )}
@@ -153,9 +153,9 @@ export default function Information() {
                             </FormGroup>
 
                             <br/>
-                            <Button color="primary" style={{width: '30%', marginBottom: '10px'}}>Lưu thay đổi</Button>
+                            <Button style={{width: '200px', marginBottom: '10px', backgroundColor: "#092A4A" }}>Lưu thay đổi</Button>
                             <br/>
-                            <Button color="success" style={{width: '30%'}} onClick={toggleEdit}>Hủy</Button>
+                            <Button color="secondary" style={{width: '200px'}} onClick={toggleEdit}>Hủy</Button>
                         </Form>
                     </div>
                 )}
@@ -189,8 +189,8 @@ export default function Information() {
                             </Col>
                         </FormGroup>
 
-                        <Button color="primary">
-                            SAVE CHANGES
+                        <Button style={{width: '200px', backgroundColor: "#092A4A" }}>
+                            Lưu thay đổi
                         </Button>
                         {/* </Form> */}
                     </div>

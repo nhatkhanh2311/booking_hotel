@@ -107,7 +107,7 @@ export default function AddHotel(props) {
             </div>
 
             <br/>
-            <Button color="primary" block>
+            <Button style={{width: '200px', backgroundColor: "#092A4A", margin:"auto" }} block>
                 Thêm khách sạn
             </Button>
         </Form>

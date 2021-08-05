@@ -1,13 +1,14 @@
 .Sidebar {
-    min-height: 660px;
-    width: 350px;
+    min-height: 100vh;
+    height: 100%;
+    width: 300px;
     background-color: rgb(5, 24, 43);
 }
 
 .SidebarList {
     height: auto;
     padding: 0;
-    width: 100%;
+    width: 300px;
 }
 
 .SidebarList .row {
@@ -36,7 +37,7 @@
     flex: 70%;
 }
 
-.logo {
+.avatar-sidebar {
     height: 150px;
     width: 150px;
     border: 1px solid grey ;
@@ -44,7 +45,7 @@
     border-radius: 50%;
 }
 
-.logo img {
+.avatar-sidebar img {
     height: 150px;
     width: 150px;
     border-radius: 50%;

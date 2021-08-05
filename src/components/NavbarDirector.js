@@ -16,7 +16,8 @@ export default function NavbarDirector(props) {
                         <img src={logo} border="0" id="logo" />
                     </Link>
                 </div>
-                <div className="logo">
+                
+                <div className="avatar-sidebar">
                     <img src="https://i.pinimg.com/736x/21/2d/12/212d12e421963f8a66f95aece1182069.jpg" />
                 </div>
 

@@ -12,7 +12,7 @@ export default function Director() {
 
     return (
         <>
-            <div style={{display: 'flex', flexDirection: 'row', width: '98vw'}}>
+            <div style={{display: 'flex', flexDirection: 'row', width: '300px'}}>
                 <NavbarDirector render={(tab) => setTab(tab)}/>
                 {tab === 'posted' && <Post/>}
                 {tab === 'information' && <Information/>}
