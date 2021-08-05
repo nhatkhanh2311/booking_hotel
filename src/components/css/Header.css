@@ -1,11 +1,10 @@
 :root{
-    --font-family:  "Open Sans", Helvetica, Arial, sans-serif
+    --font-family: 'Montserrat', sans-serif;
 }
 .navbar1{
-    /* background: transparent; */
-    background-color: rgba(74, 84, 90, 0.1);
+    background-color: none;
     width: 100%;
-    height: 50px;
+    height: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,12 +13,13 @@
     transition: .5s ease;
     z-index: 999;
     font-family: var(--font-family);
-
+    font-size: 13px;
 }
 .navbar1.active{
     position: sticky;
     top:0;
-    background-color: rgba(41, 46, 49, 1);
+    background-color: rgb(12, 11, 11);
+    font-size: 13px;
 }
 
 .nav-container{
@@ -31,14 +31,15 @@
     font-family: var(--font-family);
 }
 .nav-logo{
-    margin-left: 5%;
+    margin-left: 2%;
+    flex-basis: 15%;
 }
 #logo {
-    width: 140px;
-    height: 30px;
+    width: 100px;
+    height: 25px;
 }
-.nav-item {
-    flex-basis: 30%;
+.nav-menu {
+    flex-basis: 40%;
 }
 
 .nav-menu ul {
@@ -47,7 +48,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .nav-menu ul li:last-child{
@@ -56,7 +56,6 @@
 
 .nav-menu ul li a{
     color: rgba(255,255,255, 1);
-    font-size: 16px;
     display: inline-block;
 }
 .nav-menu ul li a::after{
@@ -77,7 +76,7 @@
 .nav-menu ul li button{
     background-color: rgba(253, 253, 253,0);
     border: 0;
-    font-size: 16px;
+    font-size: 13px;
 }
 .nav-menu ul li button::after{
     content: '';
@@ -96,3 +95,37 @@
     width: 100%;
     background-color:  rgba(253, 253, 253,0);
 }
+
+.search-box {
+    flex-basis: 50%;
+  }
+
+  i {
+    padding: 5px;
+    border-radius: 50%;
+  }
+  .search-box [type="text"] {
+      width: 120px;
+      padding: 8px;
+
+  }
+
+  .search-box [type= "date"] {
+      width: 120px;
+      padding: 7px;
+
+  }
+  .search-box [type="number"] {
+      width: 80px;
+      padding: 8px;
+
+  }
+
+  .search-box input, button {
+      outline: none;
+      border: 0;
+  }
+  .search-box button {
+      padding: 7px;
+      padding-top: 5px;
+  }

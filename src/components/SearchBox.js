@@ -63,7 +63,7 @@ export default function SearchBox() {
         <div className="cover-img">
             <div className="cover-container">
                 <div className="cover">
-                    <h1 className="cover-heading">Giải pháp đặt phòng khách sạn sang trọng và hiện đại</h1>
+                    <h1 className="cover-heading">provides metadata used when your web app is installed on a</h1>
                 </div>
 
                 <div id="search-box">

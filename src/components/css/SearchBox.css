@@ -3,14 +3,13 @@
 }
 
 .cover-img {
-    background: url("../../assets/hotel_demo_77.jpg") no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(95, 95, 95, 0)), url("https://demo.goodlayers.com/hotelmaster/landing2/wp-content/uploads/sites/6/2019/09/rhema-kallianpur-275251-unsplash.jpg");
     height: 100vh;
      display: flex;
      justify-content: center;
      align-items: center;
-
-
-
+     background-position: center;
+     background-size: cover;
 }
 
 .cover-container {
@@ -21,20 +20,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
-
    }
 
 .cover {
     padding: 50px 1.5rem 0;
     margin-bottom: 55px;
+    width: 70%;
+    margin: 0 auto;
 }
 
 .cover-heading {
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    font-weight: 1;
+         font-family: "Jost";
     font-size: 50px;
-    text-shadow: 1px 1px 1px #000;
     color: white;
 }
 
@@ -49,11 +46,9 @@
 .search-input-container {
     background: #ffffff;
     border: 1px solid #999999;
-    padding: 6px;
-    border-radius: 5px;
+    padding: 6px 10px;
     min-height: 60px;
     margin: 6px 3px;
-    border-radius: 10px;
     max-width: 100%;
 }
 
@@ -104,9 +99,7 @@
 .search-input-container.search {
 
     color: rgb(255, 255, 240);
-    background-color: rgb(244, 95, 92);
-    /* border: 2px solid #ffffff; */
-    border-radius: 40px;
+    background-color: rgb(38,45,48);
     text-align: center;
     font-size: 14px;
     line-height: 43px;
@@ -115,9 +108,8 @@
     width: 80%;
 }
 .search-input-container.search:hover{
-        /* border: 2px solid rbga(240,240,240,.5); */
-        color: rgb(255, 255, 240);
-        background-color: rgba(216, 48, 45, 0.5);
+        color: white;
+        background-color: rgb(38,45,70)
         
 }
 
