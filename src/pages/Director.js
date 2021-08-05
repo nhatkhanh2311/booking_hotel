@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import Header from "../components/Header";
 import NavbarDirector from "../components/NavbarDirector";
-import Footer from "../components/Footer";
 import Post from "../components/director/Post";
 import Information from "../components/Information";
 
@@ -14,7 +12,6 @@ export default function Director() {
 
     return (
         <>
-            <Header/>
             <div style={{display: 'flex', flexDirection: 'row', width: '98vw'}}>
                 <NavbarDirector render={(tab) => setTab(tab)}/>
                 {tab === 'posted' && <Post/>}

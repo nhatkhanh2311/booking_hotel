@@ -40,7 +40,7 @@
     height: 150px;
     width: 150px;
     border: 1px solid grey ;
-    margin: 50px auto 25px;
+    margin: 30px auto 25px;
     border-radius: 50%;
 }
 
@@ -48,4 +48,8 @@
     height: 150px;
     width: 150px;
     border-radius: 50%;
+}
+.Sidebar .nav-logo {
+    width: 100px;
+    margin: 10px auto;
 }
