@@ -12,9 +12,6 @@ ul {
     width: 70vw;
 }
 
-.password h4, .acc, .pw {
+.infor h4, .password h4, .acc, .pw {
     margin: 5vh 3vw;
-}
-button {
-    background-color: red;
 }
