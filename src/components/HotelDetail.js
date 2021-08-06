@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import {useHistory, useLocation} from "react-router-dom";
-import {axios} from "../axios";
+import React, { useEffect, useState } from 'react';
+import { useHistory, useLocation } from "react-router-dom";
+import { axios } from "../axios";
 import "./css/HotelDetail.css";
-import {Button, Modal, ModalBody, ModalFooter, Table} from "reactstrap";
-import {Zoom} from "react-slideshow-image";
+import { Button, Modal, ModalBody, ModalFooter, Table } from "reactstrap";
+import { Zoom } from "react-slideshow-image";
 import * as IoIcons from 'react-icons/ai';
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, { Autoplay } from 'swiper';
+import "swiper/swiper.min.css";
 
 export default function HotelDetail() {
     const history = useHistory();
@@ -21,7 +24,7 @@ export default function HotelDetail() {
 
     const standard = () => {
         let stars = [];
-        for (let i = 0; i < location.state.hotel.standard; i++) stars.push(<IoIcons.AiFillStar/>);
+        for (let i = 0; i < location.state.hotel.standard; i++) stars.push(<IoIcons.AiFillStar />);
         return stars;
     }
 
@@ -54,100 +57,99 @@ export default function HotelDetail() {
         console.log(location.state);
     }, []);
 
+    const roomInf = (room) => {
+        console.log(room);
+        return room
+    }
+
     return (
-        <div>
-            <h2 className="h2">Khách sạn {location.state.hotel.name}</h2>
-            <div className="container">
-                <div className="cou">
-                    <Zoom scale={0.4}>
-                        {location.state.hotel.images.map((each, index) => (
-                            <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`}/>
-                        ))}
-                    </Zoom>
+        <div className="room-page">
+            <div className="hotel-info container">
+                <h4>Grand luxury</h4>
+                <div>
+                    <label>Address: </label>
+                    <span>{location.state.hotel.address.street} - {location.state.hotel.address.city}</span>
                 </div>
+                <div>
+                    <label>Contact: </label>
+                    <span>{location.state.hotel.hOwner.userDetail.phoneNumber}</span>
 
-                <div className="table">
-                    <Table>
-                        <tr>
-                            <th>Địa chỉ</th>
-                            <td>{location.state.hotel.address.street} - {location.state.hotel.address.city}</td>
-                        </tr>
+                </div>
+                <div>
+                    <label></label>
+                    <span>{location.state.hotel.hOwner.email}</span>
+                </div>
+            </div>
+            <div className="room-list">
+                <div>
+                    <Swiper className="swiper-container container"
+                        spaceBetween={0}
+                        slidesPerView={3}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        onSlideChange={() => console.log('slide change')}
+                        loop={true}
+                        autoplay={{
+                            delay: 3000
+                        }}
+                    >
+                        {location.state.hotel.rooms.map((room) => (
+                            <SwiperSlide onClick={() => roomInf(room)} className='swiper-slide'>
+                                <span className="cost-room">GiaTien</span>
+                                <img src={`data:image/jpeg;base64,${room.images[0].img}`} />
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
 
-                        <tr>
-                            <th>Liên hệ</th>
-                            <td>{location.state.hotel.hOwner.userDetail.phoneNumber}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Email</th>
-                            <td>{location.state.hotel.hOwner.email}</td>
-                        </tr>
-
-                        <tr>
-                            <th>Chất lượng</th>
-                            <td style={{color: "#FFBF00"}}>{standard()}</td>
-                        </tr>
-                    </Table>
+                </div>
+                <div className="room-info">
+                    <div className="room-left-content">
+                        {/* thong tin cua room */}
+                        <div>Ten phong: </div>
+                        <div>Dien tich: </div>
+                        <div>So nguoi: </div>
+                        <div>Mo ta: </div>
+                        <div>Gia tien: </div>
+                        hotel rooms price lists holiday parc travel ad hotel template flyer din rooms special ad hotel traveller special early bird discount room hotel holiday promotion advertisement ad flyer din room services advert flyer template holiday offers
+                    </div>
+                    <div className="room-right-content">
+                    <div class="right-content">
+                        <div class="content-info">
+                            <h3>$180 (gia tien tong tu ngay do sang ngay do)</h3>
+                            <h5>GRAND LUXURY</h5>
+                            <p>08 Ha Van Tinh - Hoa Khanh Nam - Lien Chieu - Da Nang</p>
+                            <div class="checkin group">
+                            <label for="">Check in </label><span class="sign">:</span
+                            ><span class="content-group">21-02-2021</span>
+                            </div>
+                            <div class="checkout group">
+                            <label for="">Check out </label><span class="sign">:</span
+                            ><span class="content-group">29-02-2021</span>
+                            </div>
+                            <div class="capacity group">
+                            <label for="">Capacity </label><span class="sign">:</span
+                            ><span class="content-group">5 people</span>
+                            </div>
+                            <Button className="selectBtn"  style={{ width: '40%', backgroundColor: 'rgb(5, 24, 43)', textTransform: 'uppercase' }} onClick={toggleAccept} >
+                        select available
+                    </Button>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <h2 className="h2">Danh sách phòng</h2>
-            {location.state.hotel.rooms.map((room) => (
-                <div className="dt">
-                    <div className="img">
-                        <Zoom scale={0.4}>
-                            {room.images.map((each, index) => (
-                                <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`}/>
-                            ))}
-                        </Zoom>
-                    </div>
 
-                    <div className="table">
-                        <Table borderless className="table">
-                            <tr>
-                                <th>Tên phòng</th>
-                                <td>{room.name}</td>
-                            </tr>
-
-                            <tr>
-                                <th>Diện tích</th>
-                                <td>{room.area}m²</td>
-                            </tr>
-
-                            <tr>
-                                <th>Số người</th>
-                                <td>{room.capacity}</td>
-                            </tr>
-
-                            <tr>
-                                <th>Mô tả</th>
-                                <td>{room.description}</td>
-                            </tr>
-
-                            <tr>
-                                <th>Giá tiền/ngày</th>
-                                <td>{room.price} VND</td>
-                            </tr>
-
-                            <tr>
-                                <th/>
-                                <td><Button color="info" onClick={() => booking(room.id)}>Đặt phòng</Button></td>
-                            </tr>
-                        </Table>
-                    </div>
-                </div>
-            ))}
 
             <Modal className='modal-dialog modal-dialog-centered' isOpen={accept} toggle={toggleAccept}>
                 <ModalBody>
                     <h4>Bạn có chắc chắn muốn đặt phòng này trong khoảng từ {location.state.checkIn} đến {location.state.checkOut}?</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
-                    <Button outline color="success" style={{width: '30%'}}
-                            onClick={() => sendData(idBook, location.state.checkIn, location.state.checkOut)}>
+                    <Button outline color="success" style={{ width: '30%' }}
+                        onClick={() => sendData(idBook, location.state.checkIn, location.state.checkOut)}>
                         Xác nhận
                     </Button>
-                    <Button outline color="danger" style={{width: '30%'}} onClick={toggleAccept}>
+                    <Button outline color="danger" style={{ width: '30%' }} onClick={toggleAccept}>
                         Không
                     </Button>
                 </ModalFooter>
@@ -158,7 +160,7 @@ export default function HotelDetail() {
                     <h4>Bạn phải đăng nhập để đặt phòng!</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
-                    <Button outline color="success" style={{width: '30%'}} onClick={toggleLogin}>
+                    <Button outline color="success" style={{ width: '30%' }} onClick={toggleLogin}>
                         OK
                     </Button>
                 </ModalFooter>
@@ -169,7 +171,7 @@ export default function HotelDetail() {
                     <h4>Chức năng đặt phòng chỉ dành cho tài khoản người dùng!</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
-                    <Button outline color="success" style={{width: '30%'}} onClick={toggleNotUser}>
+                    <Button outline color="success" style={{ width: '30%' }} onClick={toggleNotUser}>
                         OK
                     </Button>
                 </ModalFooter>
@@ -180,10 +182,10 @@ export default function HotelDetail() {
                     <h4>Đặt phòng thành công</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
-                    <Button outline color="success" style={{width: '40%'}} onClick={() => history.push('/account')}>
+                    <Button outline color="success" style={{ width: '40%' }} onClick={() => history.push('/account')}>
                         Đến trang cá nhân
                     </Button>
-                    <Button outline color="success" style={{width: '40%'}} onClick={() => history.push('/')}>
+                    <Button outline color="success" style={{ width: '40%' }} onClick={() => history.push('/')}>
                         Về trang chủ
                     </Button>
                 </ModalFooter>

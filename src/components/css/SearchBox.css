@@ -99,7 +99,7 @@
 .search-input-container.search {
 
     color: rgb(255, 255, 240);
-    background-color: rgb(38,45,48);
+    background-color: rgb(5, 24, 43);
     text-align: center;
     font-size: 14px;
     line-height: 43px;
@@ -109,7 +109,7 @@
 }
 .search-input-container.search:hover{
         color: white;
-        background-color: rgb(5, 24, 43)
+        background-color: rgb(9, 32, 56)
         
 }
 

@@ -69,7 +69,7 @@ export default function RoomList(props) {
     }, []);
 
     return (
-        <TableContainer style={{padding: '30px'}}>
+        <TableContainer className="room-list" style={{padding: '30px', width: '70vw'}}>
             <Link className='back' onClick={() => props.render('hotel')}>
                 {'<< Khách sạn của bạn'}
             </Link>
@@ -98,12 +98,12 @@ export default function RoomList(props) {
                 </ModalBody>
             </Modal>
 
-            <Table className={classes.table}>
-                <TableHead>
+            <Table className={classes.table} style={{ width: '63vw' }}>
+                <TableHead >
                     <StyledTableRow>
-                        <StyledTableCell align="center">Tên phòng</StyledTableCell>
-                        <StyledTableCell align="center">Diện tích</StyledTableCell>
-                        <StyledTableCell align="center">Trạng thái</StyledTableCell>
+                        <StyledTableCell style={{ width: '200px' }} align="center">Tên phòng</StyledTableCell>
+                        <StyledTableCell  align="center">Diện tích</StyledTableCell>
+                        <StyledTableCell style={{ width: '200px' }} align="center">Trạng thái</StyledTableCell>
                         <StyledTableCell align="center">Loại phòng</StyledTableCell>
                         <StyledTableCell align="center">Số người</StyledTableCell>
                         <StyledTableCell align="center">Giá phòng/ngày</StyledTableCell>

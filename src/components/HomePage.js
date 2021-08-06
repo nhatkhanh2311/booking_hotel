@@ -1,13 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import "./css/HomePage.css"
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from 'swiper';
@@ -33,48 +26,20 @@ export default function HomePage() {
   SwiperCore.use([Autoplay]);
   const classes = useStyles();
 
-  const data = [
-    {
-      img: "https://media-cdn.tripadvisor.com/media/photo-s/12/47/3e/c6/silverland-yen-hotel.jpg",
-      title: "Card title",
-      text: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-    }
-    , {
-      img: "https://www.hoteljob.vn/files/Anh-HTJ-Hong/mau-tam-trang%20tri-giuong-khach-san-dep-nhat-19.jpg",
-      title: "Card title",
-      text: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-    },
-    {
-      img: "https://thietkeaz.com/images/thiet-ke-phong-ngu-khach-san-36.jpg",
-      title: "Card title",
-      text: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-    },
-    {
-      img: "https://www.hoteljob.vn/files/Anh-Hoteljob-Ni/Nam-2019/Thang-6/Bo-sung-2/tim-hieu-dien-tich-phong-tieu-chuan-cac-hang-sao-khach-san-02.jpg",
-      title: "Card title",
-      text: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-    },
-
-  ]
-
   return (
     <div>
-      <div class="our-hotel-container">
-        <div class="our-hotel-1">
+      <div className="our-hotel-container">
+        <div className="our-hotel-1">
           <div>
-            <p class="our-hotel-title">
+            <p className="our-hotel-title">
               <h1>OUR HOTELS</h1>
             </p>
-            <p class="our-hotel-content">
+            <p className="our-hotel-content">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi nesciunt distinctio, eveniet explicabo
               voluptatum alias minus essevoluptatum alias minus esse.
-
             </p>
           </div>
-
         </div>
-
-
         <Swiper className="swiper-container"
           spaceBetween={0}
           slidesPerView={3}
@@ -85,7 +50,7 @@ export default function HomePage() {
             delay: 3000
           }}
         >
-          <SwiperSlide className='swiper-slide'><img src='https://i.pinimg.com/564x/3b/17/83/3b178399298a409f7842130f769ffa92.jpg'></img></SwiperSlide>
+          <SwiperSlide onClick={() => console.log('okkkkkkkkkkkk')} className='swiper-slide'><img src='https://i.pinimg.com/564x/3b/17/83/3b178399298a409f7842130f769ffa92.jpg'></img></SwiperSlide>
           <SwiperSlide className='swiper-slide'><img src='https://a0.muscache.com/im/pictures/2f13349d-879d-43c6-83e3-8e5679291d53.jpg?im_w=320'></img></SwiperSlide>
           <SwiperSlide className='swiper-slide'><img src='https://media.cntraveler.com/photos/5d827bb077061d0008731f5f/16:9/w_4000,h_2250,c_limit/1-Hotel-West-Hollywood_2019_Pool_157.jpg'></img></SwiperSlide>
           <SwiperSlide className='swiper-slide'><img src='https://www.andreus-resorts.it/typo3conf/ext/bn_typo_dist/Resources/Public/client/Bilder/Bildauswahl_Kunde_21.11.18/Yoga_Meditation/_bp_170991_web.jpg'></img></SwiperSlide>
@@ -95,12 +60,12 @@ export default function HomePage() {
           <SwiperSlide className='swiper-slide'><img src='https://phanthiet.ttchotels.com/uploads//images/hotel-ttc-hotel-premium-phan-thiet/images/service/gym-phan-thiet.jpg'></img></SwiperSlide>
         </Swiper>
       </div>
-      <div class="container4">
-        <div class="content">
-          <div class="content-left">
+      <div className="container4">
+        <div className="content">
+          <div className="content-left">
             <h1>
               Unlocking the
-              <span class="h1Text">potential</span> of those who
+              <span className="h1Text">potential</span> of those who
               advance the world
             </h1>
             <p>
@@ -108,7 +73,7 @@ export default function HomePage() {
               voluptas ut, quia nobis necessitatibus optio.
             </p>
           </div>
-          <div class="content-right">
+          <div className="content-right">
             <img
               src="https://i.pinimg.com/564x/9c/04/20/9c0420929300a85b6ce85ae79addb46c.jpg"
               alt=""
@@ -116,79 +81,79 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div class="container3">
-        <ul class="list">
+      <div className="container3">
+        <ul className="list">
           <li>
-            <div class="container">
-              <div class="img-hover-zoom">
+            <div className="container">
+              <div className="img-hover-zoom">
                 <img src="https://i.pinimg.com/564x/c1/8d/99/c18d99fb7d6fb9dd37406c71be2447ca.jpg" alt="" />
               </div>
-              <div class="description">
+              <div className="description">
                 <h4>Cho o doc dao</h4>
               </div>
             </div>
           </li>
           <li>
-            <div class="container">
-              <div class="img-hover-zoom">
+            <div className="container">
+              <div className="img-hover-zoom">
                 <img src="https://i.pinimg.com/564x/bf/9e/d4/bf9ed439091ac676d73c4ed133466332.jpg" alt="" />
               </div>
-              <div class="description">
+              <div className="description">
                 <h4>Cho o doc dao</h4>
               </div>
             </div>
           </li>
           <li>
-            <div class="container">
-              <div class="img-hover-zoom">
+            <div className="container">
+              <div className="img-hover-zoom">
                 <img src="https://i.pinimg.com/564x/30/fc/91/30fc91d46ab449defdacb7c717bc3ee5.jpg" alt="" />
               </div>
-              <div class="description">
+              <div className="description">
                 <h4>Cho o doc dao</h4>
               </div>
             </div>
           </li>
           <li>
-            <div class="container">
-              <div class="img-hover-zoom">
+            <div className="container">
+              <div className="img-hover-zoom">
                 <img src="https://i.pinimg.com/564x/5b/d0/d9/5bd0d9c6c17d39f9b11da9ee9f77b9a1.jpg" alt="" />
               </div>
-              <div class="description">
+              <div className="description">
                 <h4>Cho o doc dao</h4>
               </div>
             </div>
           </li>
         </ul>
       </div>
-      <div class="more-infor">
-        <div class="five-star infor-more-hotel">
+      <div className="more-infor">
+        <div className="five-star infor-more-hotel">
 
-          <div class="five-star-1">
-            <div class="content">
-              <p class="infor-title"> KHÁCH SẠN TIÊU CHUẨN 5 SAO</p>
-              <p class="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
+          <div className="five-star-1">
+            <div className="content">
+              <p className="infor-title"> KHÁCH SẠN TIÊU CHUẨN 5 SAO</p>
+              <p className="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
                 deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
                 architecto eaque, ut nobis iure aliquam.</p>
-              <button class="infor-btn">
+              <button className="infor-btn">
                 Thêm thông tin
               </button>
             </div>
           </div>
-          <div class="five-star-2">
+          <div className="five-star-2">
 
           </div>
         </div>
 
-        <div class="transport infor-more-hotel">
-          <div class="transport-1">
+        <div className="transport infor-more-hotel">
+          <div className="transport-1">
           </div>
-          <div class="transport-2">
-            <div class="content">
-              <p class="infor-title"> BAO GỒM DỊCH VỤ VẬN CHUYỂN </p>
-              <p class="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
+          <div className="transport-2">
+            <div className="content">
+              <p className="infor-title"> BAO GỒM DỊCH VỤ VẬN CHUYỂN </p>
+              <p className="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
                 deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
                 architecto eaque, ut nobis iure aliquam.</p>
-              <button class="infor-btn">
+              <button className="infor-btn">
                 Thêm thông tin
               </button>
             </div>
