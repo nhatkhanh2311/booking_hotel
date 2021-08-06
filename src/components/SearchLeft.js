@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import { axios } from "../axios";
 import { useHistory } from "react-router-dom";
 import { cities } from "./Cities";
@@ -57,6 +57,15 @@ export default function SearchBox() {
                 String(end.getDate()).padStart(2, '0'));
         }
     }
+
+    useEffect(() => {
+        setStartString(startDate.getFullYear() + '-' +
+            String(startDate.getMonth() + 1).padStart(2, '0') + '-' +
+            String(startDate.getDate()).padStart(2, '0'));
+        setEndString(endDate.getFullYear() + '-' +
+            String(endDate.getMonth() + 1).padStart(2, '0') + '-' +
+            String(endDate.getDate()).padStart(2, '0'));
+    }, []);
 
     return (
         <div className="search-left">
