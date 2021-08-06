@@ -11,8 +11,12 @@ export default function SearchBox() {
     const [city, setCity] = useState("");
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-    const [startString, setStartString] = useState("");
-    const [endString, setEndString] = useState("");
+    const [startString, setStartString] = useState(startDate.getFullYear() + '-' +
+        String(startDate.getMonth() + 1).padStart(2, '0') + '-' +
+        String(startDate.getDate()).padStart(2, '0'));
+    const [endString, setEndString] = useState(endDate.getFullYear() + '-' +
+        String(endDate.getMonth() + 1).padStart(2, '0') + '-' +
+        String(endDate.getDate()).padStart(2, '0'));
     const [capa, setCapa] = useState(2);
 
     const onSubmit = (e) => {

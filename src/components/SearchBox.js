@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {axios} from "../axios";
 import {useHistory} from "react-router-dom";
 import {cities} from "./Cities";
@@ -12,8 +12,12 @@ export default function SearchBox() {
     const [city, setCity] = useState("");
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-    const [startString, setStartString] = useState("");
-    const [endString, setEndString] = useState("");
+    const [startString, setStartString] = useState(startDate.getFullYear() + '-' +
+        String(startDate.getMonth() + 1).padStart(2, '0') + '-' +
+        String(startDate.getDate()).padStart(2, '0'));
+    const [endString, setEndString] = useState(endDate.getFullYear() + '-' +
+        String(endDate.getMonth() + 1).padStart(2, '0') + '-' +
+        String(endDate.getDate()).padStart(2, '0'));
     const [capa, setCapa] = useState(2);
 
     const onSubmit = (e) => {
@@ -110,7 +114,7 @@ export default function SearchBox() {
 
                             <div className="col-12 col-md-2 col-lg-2 pr-0 pl-1" style={{ padding: '0 0' }}>
                                 <Button id="button-submit" className="search-input-container search">
-                                        Search
+                                    Search
                                 </Button>
                             </div>
 
