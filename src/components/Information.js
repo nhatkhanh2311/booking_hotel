@@ -53,7 +53,7 @@ export default function Information() {
             setErr('');
             const fetchData = () => {
                 axios
-                    .post('update-information/save-password', {
+                    .post('/update-information/save-password', {
                         oldPassword: pass,
                         newPassword: newPass
                     })

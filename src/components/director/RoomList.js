@@ -74,7 +74,7 @@ export default function RoomList(props) {
                 {'<< Khách sạn của bạn'}
             </Link>
 
-            <h2>Khách sạn {data.name}</h2>
+            <h2>Khách sạn {props.data.name}</h2>
 
             <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleAdd}>
                 <AddIcon/>
