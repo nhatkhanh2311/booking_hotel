@@ -56,6 +56,7 @@ export default function HotelDetail() {
 
     useEffect(() => {
         console.log(location.state);
+        setRoom(location.state.hotel.rooms[1]);
     }, []);
 
     const roomInf = (room) => {
