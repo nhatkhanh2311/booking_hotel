@@ -11,6 +11,7 @@ export default function HotelDetail() {
     const history = useHistory();
     const location = useLocation();
     const [idBook, setIdBook] = useState(0);
+    const [room, setRoom] = useState({})
     const [accept, setAccept] = useState(false);
     const toggleAccept = () => setAccept(!accept);
     const [login, setLogin] = useState(false);
@@ -56,13 +57,13 @@ export default function HotelDetail() {
     }, []);
 
     const roomInf = (room) => {
+        setRoom(room);
         console.log(room);
-        return room
     }
     return (
         <div className="room-page">
             <div className="hotel-info container">
-                <h4>Grand luxury</h4>
+                <h4>{location.state.hotel.name}</h4>
                 <div>
                     <label>Address: </label>
                     <span>{location.state.hotel.address.street} - {location.state.hotel.address.city}</span>
@@ -72,25 +73,30 @@ export default function HotelDetail() {
                     <span>{location.state.hotel.hOwner.userDetail.phoneNumber}</span>
                 </div>
                 <div>
-                    <label></label>
+                    <label/>
                     <span>{location.state.hotel.hOwner.email}</span>
                 </div>
+                <div>
+                    <label>Standard: </label>
+                    <span>{standard()}</span>
+                </div>
             </div>
+
             <div className="room-list">
                 <div>
                     <Swiper className="swiper-container container"
-                        spaceBetween={0}
-                        slidesPerView={3}
-                        onSwiper={(swiper) => console.log(swiper)}
-                        onSlideChange={() => console.log('slide change')}
-                        loop={true}
-                        autoplay={{
-                            delay: 3000
-                        }}
+                            spaceBetween={0}
+                            slidesPerView={3}
+                            onSwiper={(swiper) => console.log(swiper)}
+                            onSlideChange={() => console.log('slide change')}
+                            loop={true}
+                            autoplay={{
+                                delay: 3000
+                            }}
                     >
                         {location.state.hotel.rooms.map((room) => (
                             <SwiperSlide onClick={() => roomInf(room)} className='swiper-slide'>
-                                <span className="cost-room">GiaTien</span>
+                                <span className="cost-room">{room.price}đ</span>
                                 <img src={`data:image/jpeg;base64,${room.images[0].img}`} />
                             </SwiperSlide>
                         ))}
@@ -98,33 +104,34 @@ export default function HotelDetail() {
                 </div>
                 <div className="room-info">
                     <div className="room-left-content">
-                        {/* thong tin cua room */}
-                        <div>Ten phong: </div>
-                        <div>Dien tich: </div>
-                        <div>So nguoi: </div>
-                        <div>Mo ta: </div>
-                        <div>Gia tien: </div>
-                        hotel rooms price lists holiday parc travel ad hotel template flyer din rooms special ad hotel traveller special early bird discount room hotel holiday promotion advertisement ad flyer din room services advert flyer template holiday offers
+                        <div>Tên phòng: {room.name}</div>
+                        <div>Diện tích: {room.area}m²</div>
+                        <div>Số người: {room.capacity}</div>
+                        <div>Giá tiền: {room.price}đ/ngày</div>
+                        <div>{room.description}</div>
                     </div>
                     <div className="room-right-content">
-                        <div class="right-content">
-                            <div class="content-info">
-                                <h3>$180 (gia tien tong tu ngay do sang ngay do)</h3>
-                                <h5>GRAND LUXURY</h5>
-                                <p>08 Ha Van Tinh - Hoa Khanh Nam - Lien Chieu - Da Nang</p>
-                                <div class="checkin group">
-                                    <label for="">Check in </label><span class="sign">:</span
-                                    ><span class="content-group">21-02-2021</span>
+                        <div className="right-content">
+                            <div className="content-info">
+                                <h5>{location.state.hotel.name}</h5>
+                                <p>{location.state.hotel.address.street} - {location.state.hotel.address.city}</p>
+                                <div className="checkin group">
+                                    <label>Check in </label>
+                                    <span className="sign">:</span>
+                                    <span className="content-group">{location.state.checkIn}</span>
                                 </div>
-                                <div class="checkout group">
-                                    <label for="">Check out </label><span class="sign">:</span
-                                    ><span class="content-group">29-02-2021</span>
+                                <div className="checkout group">
+                                    <label>Check out </label>
+                                    <span className="sign">:</span>
+                                    <span className="content-group">{location.state.checkOut}</span>
                                 </div>
-                                <div class="capacity group">
-                                    <label for="">Capacity </label><span class="sign">:</span
-                                    ><span class="content-group">5 people</span>
+                                <div className="capacity group">
+                                    <label>Capacity </label>
+                                    <span className="sign">:</span>
+                                    <span className="content-group">{room.capacity} people</span>
                                 </div>
-                                <Button className="selectBtn" style={{ width: '40%', backgroundColor: 'rgb(5, 24, 43)', textTransform: 'uppercase' }} onClick={toggleAccept} >
+                                <Button className="selectBtn" style={{ width: '40%', backgroundColor: 'rgb(5, 24, 43)', textTransform: 'uppercase' }}
+                                        onClick={() => booking(room.id)}>
                                     select available
                                 </Button>
                             </div>
@@ -138,7 +145,7 @@ export default function HotelDetail() {
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
                     <Button outline color="success" style={{ width: '30%' }}
-                        onClick={() => sendData(idBook, location.state.checkIn, location.state.checkOut)}>
+                            onClick={() => sendData(idBook, location.state.checkIn, location.state.checkOut)}>
                         Xác nhận
                     </Button>
                     <Button outline color="danger" style={{ width: '30%' }} onClick={toggleAccept}>

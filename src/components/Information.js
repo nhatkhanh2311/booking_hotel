@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {axios} from "../axios";
-import {Button, Col, Collapse, Form, FormGroup, Input, Label, Table} from "reactstrap";
 import "./css/Account.css";
+import {Button, Col, Collapse, Form, FormGroup, Input, Label} from "reactstrap";
 
 export default function Information() {
     const [data, setData] = useState({
@@ -10,10 +10,6 @@ export default function Information() {
             birth: '',
             phoneNumber: ''
         },
-        password: {
-            currentPassword: null,
-            newPassword: null
-        },
         roles: [{
             name: ''
         }]
@@ -21,8 +17,14 @@ export default function Information() {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [birth, setBirth] = useState('');
+    const [pass, setPass] = useState('');
+    const [newPass, setNewPass] = useState('');
+    const [rePass, setRePass] = useState('');
+    const [err, setErr] = useState('');
     const [edit, setEdit] = useState(false);
+    const [change, setChange] = useState(false);
     const toggleEdit = () => setEdit(!edit);
+    const toggleChange = () => setChange(!change);
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -40,9 +42,43 @@ export default function Information() {
                 })
                 .catch(function (err) {
                     console.log(err);
-                })
+                });
         }
         fetchData();
+    }
+
+    const changePassword = (e) => {
+        e.preventDefault();
+        if (newPass === rePass) {
+            setErr('');
+            const fetchData = () => {
+                axios
+                    .post('/update-information/save-password', {
+                        oldPassword: pass,
+                        newPassword: newPass
+                    })
+                    .then(function (res) {
+                        console.log(res.data);
+                        if (res.data['message'] === 'current password incorrect') {
+                            setErr('Mật khẩu hiện tại chưa đúng!');
+                        }
+                        else {
+                            window.alert('Đổi mật khẩu thành công!');
+                            setPass('');
+                            setRePass('');
+                            setNewPass('');
+                            toggleChange();
+                        }
+                    })
+                    .catch(function (err) {
+                        console.log(err);
+                    });
+            }
+            fetchData();
+        }
+        else {
+            setErr('Mật khẩu nhập lại chưa đúng!');
+        }
     }
 
     const getData = () => {
@@ -75,37 +111,37 @@ export default function Information() {
                     <div className="infor">
                         <Form className="formAccount acc">
                             <FormGroup row>
-                                <Label sm={3}>Tên</Label>
+                                <Label sm={3} style={{fontWeight: '600'}}>Tên</Label>
                                 <Label sm={9}>{data.userDetail.nameUserDetail}</Label>
                             </FormGroup>
 
                             <FormGroup row>
-                                <Label sm={3}>Số điện thoại</Label>
+                                <Label sm={3} style={{fontWeight: '600'}}>Số điện thoại</Label>
                                 <Label sm={9}>{data.userDetail.phoneNumber}</Label>
                             </FormGroup>
 
                             <FormGroup row>
-                                <Label sm={3}>Ngày sinh</Label>
+                                <Label sm={3} style={{fontWeight: '600'}}>Ngày sinh</Label>
                                 <Label sm={9}>{data.userDetail.birth}</Label>
                             </FormGroup>
 
                             <FormGroup row>
-                                <Label sm={3}>Email</Label>
+                                <Label sm={3} style={{fontWeight: '600'}}>Email</Label>
                                 <Label sm={9}>{data.email}</Label>
                             </FormGroup>
 
                             <FormGroup row>
-                                <Label sm={3}>Tên đăng nhập</Label>
+                                <Label sm={3} style={{fontWeight: '600'}}>Tên đăng nhập</Label>
                                 <Label sm={9}>{data.username}</Label>
                             </FormGroup>
 
                             <FormGroup row>
-                                <Label sm={3}>Mật khẩu</Label>
+                                <Label sm={3} style={{fontWeight: '600'}}>Mật khẩu</Label>
                                 <Label sm={9}>********</Label>
                             </FormGroup>
 
                             <FormGroup row>
-                                <Label sm={3}>Chức năng tài khoản</Label>
+                                <Label sm={3} style={{fontWeight: '600'}}>Chức năng tài khoản</Label>
                                 <Label sm={9}>
                                     {data.roles[0].name === 'ROLE_USER' && 'Người dùng'}
                                     {data.roles[0].name === 'ROLE_DIRECTOR' && 'Quản lý khách sạn'}
@@ -115,7 +151,7 @@ export default function Information() {
 
                             {localStorage.getItem('roles') === 'ROLE_DIRECTOR' && (
                                 <FormGroup row>
-                                    <Label sm={3}>Trạng thái tài khoản</Label>
+                                    <Label sm={3} style={{fontWeight: '600'}}>Trạng thái tài khoản</Label>
                                     {data.locked && <Label sm={9} style={{color: 'green'}}>Đã duyệt</Label>}
                                     {!data.locked && <Label sm={9} style={{color: 'red'}}>Chưa duyệt</Label>}
                                 </FormGroup>
@@ -125,11 +161,12 @@ export default function Information() {
                         </Form>
                     </div>
                 )}
+
                 {edit && (
                     <div className="infor">
                         <Form className="formAccount acc" onSubmit={onSubmit}>
                             <FormGroup row>
-                                <Label for="nameInput" sm={3}>Tên</Label>
+                                <Label for="nameInput" sm={3} style={{fontWeight: '600'}}>Tên</Label>
                                 <Col sm={9}>
                                     <Input type="text" id="nameInput" defaultValue={data.userDetail.nameUserDetail} required
                                            onChange={(e) => setName(e.target.value)}/>
@@ -137,7 +174,7 @@ export default function Information() {
                             </FormGroup>
 
                             <FormGroup row>
-                                <Label for="teleInput" sm={3}>Số điện thoại</Label>
+                                <Label for="teleInput" sm={3} style={{fontWeight: '600'}}>Số điện thoại</Label>
                                 <Col sm={9}>
                                     <Input type="tel" pattern="[0]{1}[0-9]{9}" id="teleInput" defaultValue={data.userDetail.phoneNumber} required
                                            onChange={(e) => setPhone(e.target.value)}/>
@@ -145,7 +182,7 @@ export default function Information() {
                             </FormGroup>
 
                             <FormGroup row>
-                                <Label for="birthInput" sm={3}>Ngày sinh</Label>
+                                <Label for="birthInput" sm={3} style={{fontWeight: '600'}}>Ngày sinh</Label>
                                 <Col sm={9}>
                                     <Input type="date" id="birthInput" defaultValue={data.userDetail.birth} required
                                            onChange={(e) => setBirth(e.target.value)}/>
@@ -153,7 +190,9 @@ export default function Information() {
                             </FormGroup>
 
                             <br/>
-                            <Button style={{width: '200px', marginBottom: '10px', backgroundColor: "#092A4A" }}>Lưu thay đổi</Button>
+                            <Button style={{width: '200px', marginBottom: '10px', backgroundColor: "#092A4A" }}>
+                                Lưu thay đổi
+                            </Button>
                             <br/>
                             <Button color="secondary" style={{width: '200px'}} onClick={toggleEdit}>Hủy</Button>
                         </Form>
@@ -161,39 +200,45 @@ export default function Information() {
                 )}
                 <hr/>
 
-                <div className="password">
-                    <h4>CHANGE PASSWORD</h4>
-                    <div className="pw">
-                        {/* <Form onSubmit={onSubmitPW}> */}
-                        <FormGroup row>
-                            <Label for="currentPassword" sm={3}>Current password</Label>
-                            <Col sm={9}>
-                                <Input type="password" id="currentPassword" defaultValue={data.password.currentPassword} required
-                                       onChange={(e) => setName(e.target.value)}/>
-                            </Col>
-                        </FormGroup>
+                <div className="password pw">
+                    <Collapse isOpen={change}>
+                        <h4>Đổi mật khẩu</h4>
+                        <Form onSubmit={changePassword}>
+                            <FormGroup row>
+                                <Label for="currentPassword" sm={3} style={{fontWeight: '600'}}>Mật khẩu hiện tại</Label>
+                                <Col sm={9}>
+                                    <Input type="password" id="currentPassword" required
+                                           onChange={(e) => setPass(e.target.value)}/>
+                                </Col>
+                            </FormGroup>
 
-                        <FormGroup row>
-                            <Label for="newPassword" sm={3}>New password</Label>
-                            <Col sm={9}>
-                                <Input type="password" id="" defaultValue={data.password.newPassword} required
-                                       onChange={(e) => setPhone(e.target.value)}/>
-                            </Col>
-                        </FormGroup>
+                            <FormGroup row>
+                                <Label for="newPassword" sm={3} style={{fontWeight: '600'}}>Mật khẩu mới</Label>
+                                <Col sm={9}>
+                                    <Input type="password" id="newPassword" required
+                                           onChange={(e) => setNewPass(e.target.value)}/>
+                                </Col>
+                            </FormGroup>
 
-                        <FormGroup row>
-                            <Label for="newPasswordAgain" sm={3}>New password again</Label>
-                            <Col sm={9}>
-                                <Input type="password" id="passwordAgain" required
-                                       onChange={(e) => setBirth(e.target.value)}/>
-                            </Col>
-                        </FormGroup>
+                            <FormGroup row>
+                                <Label for="newPasswordAgain" sm={3} style={{fontWeight: '600'}}>Xác nhận mật khẩu mới</Label>
+                                <Col sm={9}>
+                                    <Input type="password" id="newPasswordAgain" required
+                                           onChange={(e) => setRePass(e.target.value)}/>
+                                </Col>
+                            </FormGroup>
+                            <span style={{color: "red", width: "100%"}}>{err}</span>
 
-                        <Button style={{width: '200px', backgroundColor: "#092A4A" }}>
-                            Lưu thay đổi
-                        </Button>
-                        {/* </Form> */}
-                    </div>
+                            <Button style={{width: '200px', marginBottom: '10px', backgroundColor: "#092A4A" }}>
+                                Lưu thay đổi
+                            </Button>
+                        </Form>
+                    </Collapse>
+
+                    <Button color="secondary" style={{width: '200px'}} onClick={toggleChange}>
+                        {change && 'Hủy'}
+                        {!change && 'Đổi mật khẩu'}
+                    </Button>
                 </div>
             </div>
         </div>

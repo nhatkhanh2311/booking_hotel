@@ -15,7 +15,7 @@ import EditRoom from "./EditRoom";
 
 export default function RoomList(props) {
     const classes = useStyles();
-    const [data, setData] = useState(props.data);
+    const [data, setData] = useState(props.data.rooms);
     const [dataEdit, setDataEdit] = useState({});
     const [add, setAdd] = useState(false);
     const [edit, setEdit] = useState(false);
@@ -25,7 +25,7 @@ export default function RoomList(props) {
     const getData = () => {
         const fetchData = () => {
             axios
-                .get(`/director/hotel/${data.id}`)
+                .get(`/director/${props.data.id}/all-room`)
                 .then(function (res) {
                     console.log(res.data);
                     setData(res.data);
@@ -45,7 +45,7 @@ export default function RoomList(props) {
     const deleteRoom = (roomID) => {
         const fetchData = () => {
             axios
-                .delete(`/director/hotel/${data.id}/${roomID}/delete`)
+                .delete(`/director/hotel/${props.data.id}/${roomID}/delete`)
                 .then(function (res) {
                     console.log(res.data);
                     if (res.data['message'] === 'Delete room successful') window.alert('Xóa phòng thành công');
@@ -74,7 +74,7 @@ export default function RoomList(props) {
                 {'<< Khách sạn của bạn'}
             </Link>
 
-            <h2>Khách sạn {data.name}</h2>
+            <h2>Khách sạn {props.data.name}</h2>
 
             <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleAdd}>
                 <AddIcon/>
@@ -85,7 +85,7 @@ export default function RoomList(props) {
                     <h2>Thêm phòng</h2>
                 </ModalHeader>
                 <ModalBody>
-                    <AddRoom id={data.id} render={(status) => {if (status === 'refresh') refresh()}}/>
+                    <AddRoom id={props.data.id} render={(status) => {if (status === 'refresh') refresh()}}/>
                 </ModalBody>
             </Modal>
 
@@ -94,7 +94,7 @@ export default function RoomList(props) {
                     <h2>Cập nhật phòng {dataEdit.name}</h2>
                 </ModalHeader>
                 <ModalBody>
-                    <EditRoom id={data.id} data={dataEdit} render={(status) => {if (status === 'refresh') refresh()}}/>
+                    <EditRoom id={props.data.id} data={dataEdit} render={(status) => {if (status === 'refresh') refresh()}}/>
                 </ModalBody>
             </Modal>
 
@@ -114,7 +114,7 @@ export default function RoomList(props) {
                 </TableHead>
 
                 <TableBody>
-                    {data.rooms.map((row) => (
+                    {data.map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
                                 {row.name}

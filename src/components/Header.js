@@ -24,7 +24,7 @@ export default function Header(props) {
     localStorage.removeItem("roles");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("tokenType");
-    window.location.reload();
+    history.push("/")
   };
   const changeBackground = () => {
     if (window.scrollY >= 50) {
