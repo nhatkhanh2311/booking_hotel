@@ -71,7 +71,7 @@ export default function SearchBox() {
                         <div className="row mb-1">
                             <div className="col-12 col-md-1 d-none d-md-inline-block"/>
 
-                            <div className="col-12 col-md-4 col-lg-4 pr-0 pl-1">
+                            <div className="col-12 col-md-4 col-lg-4 pr-0 pl-1" style={{ padding: 0 }}>
                                 <div className="search-input-container">
                                     <div className="input-label">
                                         điểm đến
@@ -85,7 +85,7 @@ export default function SearchBox() {
                                 </div>
                             </div>
 
-                            <div className="col-9 col-md-3 col-lg-3 pr-0 pl-1">
+                            <div className="col-9 col-md-3 col-lg-3 pr-0 pl-1" style={{ padding: '0 5px' }}>
                                 <div className="search-input-container">
                                     <div className="input-label">
                                         check-in - check-out
@@ -95,7 +95,7 @@ export default function SearchBox() {
                                 </div>
                             </div>
 
-                            <div className="col-3 col-md-1 col-lg-1 text-center pr-0 pl-1">
+                            <div className="search-cpacity col-3 col-md-2 col-lg-2 text-center pr-0 pl-1" style={{ padding: '0' }}>
                                 <div className="search-input-container">
                                     <div className="input-label">
                                         số người
@@ -108,7 +108,7 @@ export default function SearchBox() {
                                 </div>
                             </div>
 
-                            <div className="col-12 col-md-2 col-lg-2 pr-0 pl-1">
+                            <div className="col-12 col-md-2 col-lg-2 pr-0 pl-1" style={{ padding: '0 0' }}>
                                 <Button id="button-submit" className="search-input-container search">
                                         Search
                                 </Button>

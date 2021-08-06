@@ -2,7 +2,8 @@
     --font-family: 'Montserrat', sans-serif;
 }
 .navbar1{
-    background-color: none;
+    /* background-color: none; */
+    background-color: rgb(5, 24, 43);
     width: 100%;
     height: 60px;
     display: flex;
@@ -18,7 +19,7 @@
 .navbar1.active{
     position: sticky;
     top:0;
-    background-color: rgb(12, 11, 11);
+    background-color: rgb(5, 24, 43);
     font-size: 13px;
 }
 

@@ -1,13 +1,14 @@
-import React, {useEffect} from 'react';
-import {useHistory, useLocation} from "react-router-dom";
-import {makeStyles} from '@material-ui/core/styles';
+import React, { useEffect } from 'react';
+import { useHistory, useLocation } from "react-router-dom";
+import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import "./css/SearchResults.css";
-import {Button, Form, FormGroup, Input, Label, ButtonToggle} from "reactstrap";
-import {Zoom} from "react-slideshow-image";
+import { Button, Form, FormGroup, Input, Label, ButtonToggle } from "reactstrap";
+import { Zoom } from "react-slideshow-image";
+import SearchLeft from "./SearchLeft"
 
 export default function SearchResults() {
     const history = useHistory();
@@ -29,21 +30,16 @@ export default function SearchResults() {
     });
 
     return (
-        <div className="container-search">
-            
-            {/* <div className="search-info">
-                <h2>Thông tin</h2>
-                <h2>Địa điểm: {location.state.city}</h2>
-                <h2>Ngày nhận phòng: {location.state.checkIn}</h2>
-                <h2>Ngày trả phòng: {location.state.checkOut}</h2>
-                <h2>Số người: {location.state.capacity}</h2>
+        <div className="container-search-result">
+            <div>
+                <h4 style={{ marginLeft: 'px' }} className="title-search">Your Reservation</h4>
+            <SearchLeft/>
+            </div>
 
-            </div> */}
-                       
             <div className="right">
-            <h2>Danh sách khách sạn có phòng ứng với điều kiện:</h2>
+                <h4 className="title-search">Hotel</h4>
                 {location.state.data.map((hotel) => (
-                    <Paper className={classes.paper}>
+                    <Paper className="hotel-info">
                         <Grid container spacing={2}>
                             <Grid item>
                                 <Zoom scale={0.4} className={classes.image}>
@@ -52,11 +48,11 @@ export default function SearchResults() {
                                     ))}
                                 </Zoom>
                             </Grid>
-                            <Grid item xs={12} sm container>
+                            <Grid item xs={12} sm container style={{ marginLeft: '20px' }}>
                                 <Grid item xs container direction="column" spacing={2}>
                                     <Grid item xs>
                                         <Typography gutterBottom variant="subtitle1">
-                                            {hotel.hotel.name}
+                                           <h6> {hotel.hotel.name}</h6>
                                         </Typography>
                                         <Typography variant="body2" gutterBottom>
                                             Địa chỉ: {hotel.hotel.address.street} - {hotel.hotel.address.city}
@@ -65,15 +61,13 @@ export default function SearchResults() {
                                             Có {hotel.hotel.rooms.length} phòng thỏa mãn điều kiện
                                         </Typography>
                                     </Grid>
-                                </Grid>
-
-                                <div>
-                                    <div style={{marginTop:100}}>
-                                        <ButtonToggle color="info" onClick={() => toHotel(hotel.hotel)}>
+                                    <Grid item sm>
+                                    <ButtonToggle className={classes.button} onClick={() => toHotel(hotel.hotel)}>
                                             Xem thêm
                                         </ButtonToggle>
-                                    </div>
-                                </div>
+                                    </Grid>
+                                    
+                                </Grid>
                             </Grid>
                         </Grid>
                     </Paper>
@@ -84,20 +78,21 @@ export default function SearchResults() {
 }
 
 const useStyles = makeStyles((theme) => ({
-    paper: {
-        padding: theme.spacing(2),
-        margin: 'auto',
-        marginTop: 15,
-        maxWidth: 700,
-    },
+    
     image: {
         width: 250,
-        height: 250,
+        height: 180,
+        marginLeft: '20px'
     },
     img: {
         margin: 'auto',
         display: 'block',
         maxWidth: '100%',
         maxHeight: '100%',
+    },
+    button: {
+        backgroundColor: 'rgb(9, 32, 56)',
+        marginTop: '25px',
+        width: '150px'
     }
 }));

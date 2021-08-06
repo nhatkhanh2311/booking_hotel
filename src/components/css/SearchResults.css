@@ -1,48 +1,35 @@
-.container-search {
+.container-search-result {
+    padding-top: 100px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-}
-/* .search-info{
-    max-width: 30%;
-    background-color: khaki;
-    margin: 1%;
-} */
-.right{
-    max-width: 70%;
-    margin: 3% 0;
-    padding: 0;
-}
-/* 
-.left {
-    width: 300px;
 }
 
-.right {
-    margin-left: 20px;
+.container-search-result .right {
+    flex-basis: 65%;
 }
 
-.left2 {
-    border: 1px solid lightgray;
+.container-search-result .hotel-info {
+    border-bottom: 1px solid grey;
+    margin-top: 35px;
+}
+.search-left {
+    margin: 0 50px 0 5px;
+    padding: 20px 20px 40px;
+    flex-basis: 25%;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
-.check {
-    margin-bottom: 10px;
-    margin-left: 7%;
+.title-search, h6, h4, h3 {
+    font-family: "Jost";
+    text-transform: uppercase;
+    /* margin-left: 10%; */
 }
 
-h6 {
-    margin-left: 7%;
-    padding-top: 20px;
-}
-
-.label {
+.search-left-content {
+    width: 250px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
 
-.rightLB {
-    padding-right: 15px;
-    color: gray;
-} */
+.search-left-group {
+    margin-top: 20px;
+}
