@@ -60,19 +60,19 @@ export default function AddRoom(props) {
 
             <FormGroup>
                 <Label for="areaInput">Diện tích phòng (m²)</Label>
-                <Input type="number" id="areaInput" placeholder="0" required
+                <Input type="number" id="areaInput" min="0" placeholder="0" required
                        onChange={(e) => setArea(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="priceInput">Giá phòng/ngày (VND)</Label>
-                <Input type="number" step="50000" id="priceInput" placeholder="0" required
+                <Input type="number" step="10000" min="0" id="priceInput" placeholder="0" required
                        onChange={(e) => setPrice(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="capaInput">Số người</Label>
-                <Input type="number" id="capaInput" placeholder="0" required
+                <Input type="number" id="capaInput" min="0" placeholder="0" required
                        onChange={(e) => setCapa(parseInt(e.target.value))}/>
             </FormGroup>
 
