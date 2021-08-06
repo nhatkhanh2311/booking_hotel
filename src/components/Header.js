@@ -6,8 +6,9 @@ import logo from "../assets/logo.png";
 import { Button, Modal, ModalBody, ModalHeader } from "reactstrap";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import { Dropdown } from 'react-bootstrap';
 
-export default function Header() {
+export default function Header(props) {
   const history = useHistory();
   const [login, setLogin] = useState(false);
   const [signup, setSignup] = useState(false);
@@ -16,6 +17,7 @@ export default function Header() {
   const toggleSignup = () => setSignup(!signup);
 
   const toAccount = () => history.push("/account");
+  const toBookingHistory = () => history.push("booking")
 
   const logout = () => {
     localStorage.removeItem("username");
@@ -33,7 +35,7 @@ export default function Header() {
   };
   window.addEventListener('scroll', changeBackground);
   return (
-    <div className={navbar ? "navbar1 active" : "navbar1"}>
+    <div className={navbar ? "navbar1 active" : "navbar1"} style={{ backgroundColor: props.color }}>
       <div className="nav-container">
         <div className="nav-item nav-logo">
           <Link to="/">
@@ -51,7 +53,7 @@ export default function Header() {
             </li>
             {localStorage.getItem("roles") && (
               <>
-                <li>
+                {/* <li>
                   <Button onClick={toAccount}>
                     Thông tin
                   </Button>
@@ -60,6 +62,19 @@ export default function Header() {
                   <Button onClick={logout}>
                     Đăng xuất
                   </Button>
+                </li> */}
+                <li>
+                  <Dropdown>
+                    <Dropdown.Toggle id="dropdown-basic">
+                      Avatar
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu style={{ backgroundColor: 'white', color: 'black' }}>
+                      <Dropdown.Item onClick={toAccount} style={{ color: 'black'}}>Profile</Dropdown.Item>
+                      <Dropdown.Item onClick={toBookingHistory} style={{ color: 'black'}}>Booking history</Dropdown.Item>
+                      <Dropdown.Item onClick={logout} style={{ color: 'black'}}>Logout</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </li>
               </>
             )}

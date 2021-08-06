@@ -10,7 +10,7 @@ export default function Hotel() {
 
     return (
         <>
-            <Header/>
+            <Header color="rgb(5, 24, 43)"/>
             <HotelDetail/>
             <Footer/>
         </>

@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 import { axios } from "../axios";
 import "./css/HotelDetail.css";
-import { Button, Modal, ModalBody, ModalFooter, Table } from "reactstrap";
-import { Zoom } from "react-slideshow-image";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 import * as IoIcons from 'react-icons/ai';
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from 'swiper';
 import "swiper/swiper.min.css";
 
 export default function HotelDetail() {
@@ -61,7 +59,6 @@ export default function HotelDetail() {
         console.log(room);
         return room
     }
-
     return (
         <div className="room-page">
             <div className="hotel-info container">
@@ -73,7 +70,6 @@ export default function HotelDetail() {
                 <div>
                     <label>Contact: </label>
                     <span>{location.state.hotel.hOwner.userDetail.phoneNumber}</span>
-
                 </div>
                 <div>
                     <label></label>
@@ -99,7 +95,6 @@ export default function HotelDetail() {
                             </SwiperSlide>
                         ))}
                     </Swiper>
-
                 </div>
                 <div className="room-info">
                     <div className="room-left-content">
@@ -112,34 +107,31 @@ export default function HotelDetail() {
                         hotel rooms price lists holiday parc travel ad hotel template flyer din rooms special ad hotel traveller special early bird discount room hotel holiday promotion advertisement ad flyer din room services advert flyer template holiday offers
                     </div>
                     <div className="room-right-content">
-                    <div class="right-content">
-                        <div class="content-info">
-                            <h3>$180 (gia tien tong tu ngay do sang ngay do)</h3>
-                            <h5>GRAND LUXURY</h5>
-                            <p>08 Ha Van Tinh - Hoa Khanh Nam - Lien Chieu - Da Nang</p>
-                            <div class="checkin group">
-                            <label for="">Check in </label><span class="sign">:</span
-                            ><span class="content-group">21-02-2021</span>
+                        <div class="right-content">
+                            <div class="content-info">
+                                <h3>$180 (gia tien tong tu ngay do sang ngay do)</h3>
+                                <h5>GRAND LUXURY</h5>
+                                <p>08 Ha Van Tinh - Hoa Khanh Nam - Lien Chieu - Da Nang</p>
+                                <div class="checkin group">
+                                    <label for="">Check in </label><span class="sign">:</span
+                                    ><span class="content-group">21-02-2021</span>
+                                </div>
+                                <div class="checkout group">
+                                    <label for="">Check out </label><span class="sign">:</span
+                                    ><span class="content-group">29-02-2021</span>
+                                </div>
+                                <div class="capacity group">
+                                    <label for="">Capacity </label><span class="sign">:</span
+                                    ><span class="content-group">5 people</span>
+                                </div>
+                                <Button className="selectBtn" style={{ width: '40%', backgroundColor: 'rgb(5, 24, 43)', textTransform: 'uppercase' }} onClick={toggleAccept} >
+                                    select available
+                                </Button>
                             </div>
-                            <div class="checkout group">
-                            <label for="">Check out </label><span class="sign">:</span
-                            ><span class="content-group">29-02-2021</span>
-                            </div>
-                            <div class="capacity group">
-                            <label for="">Capacity </label><span class="sign">:</span
-                            ><span class="content-group">5 people</span>
-                            </div>
-                            <Button className="selectBtn"  style={{ width: '40%', backgroundColor: 'rgb(5, 24, 43)', textTransform: 'uppercase' }} onClick={toggleAccept} >
-                        select available
-                    </Button>
-                        </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
             <Modal className='modal-dialog modal-dialog-centered' isOpen={accept} toggle={toggleAccept}>
                 <ModalBody>
                     <h4>Bạn có chắc chắn muốn đặt phòng này trong khoảng từ {location.state.checkIn} đến {location.state.checkOut}?</h4>
@@ -154,7 +146,6 @@ export default function HotelDetail() {
                     </Button>
                 </ModalFooter>
             </Modal>
-
             <Modal className='modal-dialog modal-dialog-centered' isOpen={login} toggle={toggleLogin}>
                 <ModalBody>
                     <h4>Bạn phải đăng nhập để đặt phòng!</h4>
@@ -165,7 +156,6 @@ export default function HotelDetail() {
                     </Button>
                 </ModalFooter>
             </Modal>
-
             <Modal className='modal-dialog modal-dialog-centered' isOpen={notUser} toggle={toggleNotUser}>
                 <ModalBody>
                     <h4>Chức năng đặt phòng chỉ dành cho tài khoản người dùng!</h4>
@@ -176,7 +166,6 @@ export default function HotelDetail() {
                     </Button>
                 </ModalFooter>
             </Modal>
-
             <Modal className='modal-dialog modal-dialog-centered' isOpen={success}>
                 <ModalBody>
                     <h4>Đặt phòng thành công</h4>

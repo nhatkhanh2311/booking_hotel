@@ -47,14 +47,14 @@ export default function Login() {
     return (
         <Form onSubmit={onSubmit} >
             <FormGroup>
-                <Label for="userInput">Tên đăng nhập</Label>
-                <Input type="text" id="userInput" placeholder="Nhập tên đăng nhập" required
+                <Label style={{ marginBottom: '10px' }} for="userInput">Tên đăng nhập</Label>
+                <Input style={{ marginBottom: '10px' }} type="text" id="userInput" placeholder="Nhập tên đăng nhập" required
                        onChange={(e) => setUser(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
-                <Label for="passInput">Mật khẩu</Label>
-                <Input type="password" id="passInput" placeholder="Nhập mật khẩu" required
+                <Label style={{ marginBottom: '10px' }} for="passInput">Mật khẩu</Label>
+                <Input style={{ marginBottom: '10px' }} type="password" id="passInput" placeholder="Nhập mật khẩu" required
                        onChange={(e) => setPass(e.target.value)}/>
             </FormGroup>
 
