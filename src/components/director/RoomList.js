@@ -12,17 +12,17 @@ import TableHead from '@material-ui/core/TableHead';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import EditRoom from "./EditRoom";
-import { Input } from '@material-ui/core';
+import Pagination from "react-js-pagination";
 
 export default function RoomList(props) {
     const classes = useStyles();
+    const [activePage, setActivePage] = useState(1);
     const [data, setData] = useState(props.data.rooms);
     const [dataEdit, setDataEdit] = useState({});
     const [add, setAdd] = useState(false);
     const [edit, setEdit] = useState(false);
     const toggleAdd = () => setAdd(!add);
     const toggleEdit = () => setEdit(!edit);
-    const [searchText, setSearchText] = useState('');
 
     const getData = () => {
         const fetchData = () => {
@@ -100,10 +100,6 @@ export default function RoomList(props) {
                 </ModalBody>
             </Modal>
 
-            <div>
-                <Input style={{ marginBottom: '10px' }} type="text" id="userInput" placeholder="Search..." required
-                                onChange={(e) => setSearchText(e.target.value)} />
-            </div>
             <Table className={classes.table}  >
                 <TableHead >
                     <StyledTableRow>
@@ -120,7 +116,7 @@ export default function RoomList(props) {
                 </TableHead>
 
                 <TableBody>
-                    {data.map((row) => (
+                    {data.slice((activePage - 1) * 5, activePage * 5).map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
                                 {row.name}
@@ -163,6 +159,13 @@ export default function RoomList(props) {
                     ))}
                 </TableBody>
             </Table>
+
+            <br/>
+            <div style={{ textAlign: 'center', marginLeft: '40%' }}>
+                <Pagination  activePage={activePage} itemsCountPerPage={5} totalItemsCount={data.length}
+                             pageRangeDisplayed={5} onChange={(numPage) => { setActivePage(numPage) }}
+                             itemClass="page-item" linkClass="page-link" />
+            </div>
         </TableContainer>
     );
 }

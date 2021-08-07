@@ -101,8 +101,8 @@ export default function Login() {
                     <Form onSubmit={submitForgot}>
                         <h5 style={{ textAlign: 'center' }}>Quên mật khẩu</h5>
                         <FormGroup>
-                            <Label for="emailInput">Nhập email</Label>
-                            <Input type="email" id="emailInput" placeholder="Nhập email" required
+                            <Label style={{ marginBottom: '10px' }} for="emailInput">Nhập email</Label>
+                            <Input style={{ marginBottom: '10px' }} type="email" id="emailInput" placeholder="Nhập email" required
                                 onChange={(e) => setEmail(e.target.value)} />
                         </FormGroup>
                         <Button color="primary" block>
@@ -118,8 +118,8 @@ export default function Login() {
                     <Form>
                         <h5 style={{ textAlign: 'center' }}>Quên mật khẩu</h5>
                         <FormGroup>
-                            <Label for="tokenInput">Kiểm tra email và nhập token vào đây</Label>
-                            <Input type="token" id="tokenInput" placeholder="Nhập token" required
+                            <Label style={{ marginBottom: '10px' }} for="tokenInput">Kiểm tra email và nhập token vào đây</Label>
+                            <Input style={{ marginBottom: '10px' }} type="token" id="tokenInput" placeholder="Nhập token" required
                                 onChange={(e) => setToken(e.target.value)} />
                         </FormGroup>
                         <Button color="primary" block>

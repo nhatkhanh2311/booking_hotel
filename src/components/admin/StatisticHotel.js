@@ -7,9 +7,11 @@ import {Link} from "react-router-dom";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
+import Pagination from "react-js-pagination";
 
 export default function StatisticHotel(props) {
     const classes = useStyles();
+    const [activePage, setActivePage] = useState(1);
     const [data, setData] = useState([]);
 
     const getData = (name) => {
@@ -34,7 +36,7 @@ export default function StatisticHotel(props) {
     return (
         <TableContainer style={{ padding: '30px', width: '90%', marginLeft: '5%' }}>
             <Link style={{ textDecoration: 'none' }} className='back' onClick={() => props.render('city')}>
-                <i class='bx bxs-dashboard' ></i> {' Thống kê theo tỉnh/thành phố'}
+                <i class='bx bxs-dashboard' /> {' Thống kê theo tỉnh/thành phố'}
             </Link>
 
             <h2>Khách sạn ở {props.name}</h2>
@@ -50,7 +52,7 @@ export default function StatisticHotel(props) {
                 </TableHead>
 
                 <TableBody>
-                    {data.map((row) => (
+                    {data.slice((activePage - 1) * 5, activePage * 5).map((row) => (
                         <StyledTableRow key={row.hotelID}>
                             <StyledTableCell align="center">
                                 {row.hotelName}
@@ -71,6 +73,13 @@ export default function StatisticHotel(props) {
                     ))}
                 </TableBody>
             </Table>
+
+            <br/>
+            <div style={{ textAlign: 'center', marginLeft: '40%' }}>
+                <Pagination  activePage={activePage} itemsCountPerPage={5} totalItemsCount={data.length}
+                             pageRangeDisplayed={5} onChange={(numPage) => { setActivePage(numPage) }}
+                             itemClass="page-item" linkClass="page-link" />
+            </div>
         </TableContainer>
     );
 }

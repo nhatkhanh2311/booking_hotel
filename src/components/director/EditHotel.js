@@ -98,6 +98,7 @@ export default function EditHotel(props) {
 
             <FormGroup>
                 <Label>Hình ảnh khách sạn</Label>
+                <br/>
                 <Input style={{ margin: '10px 0' }} type="file" multiple required
                        onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>

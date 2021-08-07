@@ -45,14 +45,14 @@ export default function EditRoom(props) {
         <Form onSubmit={onSubmit}>
             <FormGroup>
                 <Label for="nameInput">Tên phòng</Label>
-                <Input type="text" id="nameInput" placeholder="Nhập tên phòng" required
+                <Input style={{ margin: '10px 0' }} type="text" id="nameInput" placeholder="Nhập tên phòng" required
                        defaultValue={name}
                        onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="typeInput">Loại phòng</Label>
-                <Input type="select" id="typeInput" required
+                <Input style={{ margin: '10px 0' }} type="select" id="typeInput" required
                        defaultValue={type}
                        onChange={(e) => setType(e.target.value)}>
                     <option value='basic'>Tiêu chuẩn</option>
@@ -62,34 +62,35 @@ export default function EditRoom(props) {
 
             <FormGroup>
                 <Label for="areaInput">Diện tích phòng (m²)</Label>
-                <Input type="number" id="areaInput" placeholder="0" required
+                <Input style={{ margin: '10px 0' }} type="number" id="areaInput" min="0" placeholder="0" required
                        defaultValue={area}
                        onChange={(e) => setArea(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="priceInput">Giá phòng/ngày (VND)</Label>
-                <Input type="number" step="50000" id="priceInput" placeholder="0" required
+                <Input style={{ margin: '10px 0' }} type="number" step="10000" min="0" id="priceInput" placeholder="0" required
                        defaultValue={price}
                        onChange={(e) => setPrice(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="capaInput">Số người</Label>
-                <Input type="number" id="capaInput" placeholder="0" required
+                <Input style={{ margin: '10px 0' }} type="number" id="capaInput" min="0" placeholder="0" required
                        defaultValue={capa}
                        onChange={(e) => setCapa(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="descInput">Mô tả</Label>
-                <Input type="textarea" id="descInput" placeholder="Nhập mô tả" required
+                <Input style={{ margin: '10px 0' }} type="textarea" id="descInput" placeholder="Nhập mô tả" required
                        defaultValue={desc}
                        onChange={(e) => setDesc(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label>Hình ảnh phòng</Label>
+                <br/>
                 <Input type="file" multiple required
                        onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>
@@ -101,7 +102,7 @@ export default function EditRoom(props) {
             </div>
 
             <br/>
-            <Button color="primary" block>
+            <Button style={{width: '200px', backgroundColor: "#092A4A", margin:"auto" }} block>
                 Cập nhật phòng
             </Button>
         </Form>

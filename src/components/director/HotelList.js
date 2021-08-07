@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { axios } from "../../axios";
 import AddHotel from "./AddHotel";
-import { Modal, ModalBody, ModalHeader, Button } from "reactstrap";
+import {Modal, ModalBody, ModalHeader, Button, ModalFooter} from "reactstrap";
 import { StyledTableCell, StyledTableRow, useStyles } from "../Table";
 import TableContainer from '@material-ui/core/TableContainer';
 import Fab from '@material-ui/core/Fab';
@@ -110,15 +110,15 @@ export default function HotelList(props) {
                             <span>Standard:</span> {row.standard}
                             <TableContainer class="chucnang">
                                 <StyledTableCell align="center">
-                                    <i onClick={() => props.render('room', row)} style={{ color: 'black', fontSize: '20px' }} class='bx bx-show'></i>
+                                    <i onClick={() => props.render('room', row)} style={{color: 'black', fontSize: '20px'}} class='bx bx-show'/>
                                 </StyledTableCell>
 
                                 <StyledTableCell align="center">
-                                    <i onClick={() => editHotel(row)} style={{ color: 'green', fontSize: '20px' }} class='bx bx-pencil'></i>
+                                    <i onClick={() => editHotel(row)} style={{color: 'green', fontSize: '20px'}} class='bx bx-pencil'/>
                                 </StyledTableCell>
 
                                 <StyledTableCell align="center">
-                                    <i onClick={() => deleteHotel(row.id)} style={{ color: 'red', fontSize: '20px' }} class='bx bx-trash' ></i>
+                                    <i onClick={() => deleteHotel(row.id)} style={{color: 'red', fontSize: '20px'}} class='bx bx-trash'/>
                                 </StyledTableCell>
                             </TableContainer>
                         </StyledTableCell>
@@ -127,9 +127,9 @@ export default function HotelList(props) {
             </div>
 
             <div style={{ textAlign: 'center', marginLeft: '40%' }}>
-            <Pagination  activePage={activePage} itemsCountPerPage={2} totalItemsCount={data.length}
-                pageRangeDisplayed={5} onChange={(numPage) => { setActivePage(numPage) }}
-                itemClass="page-item" linkClass="page-link" />
+                <Pagination  activePage={activePage} itemsCountPerPage={2} totalItemsCount={data.length}
+                             pageRangeDisplayed={5} onChange={(numPage) => { setActivePage(numPage) }}
+                             itemClass="page-item" linkClass="page-link" />
             </div>
         </TableContainer>
     );

@@ -17,16 +17,11 @@ export default function App() {
                     <Home/>
                 </Route>
 
-                <Route path="/booking" render={() => {
-                    return <Booking/>
-                }}>
-                </Route>
-
                 <Route path="/search" render={() => {
                     return <Search/>
                 }}>
-
                 </Route>
+
                 <Route path="/hotel" render={() => {
                     return <Hotel/>
                 }}>
@@ -54,6 +49,11 @@ export default function App() {
 
                 <Route path="/user" render={() => {
                     return localStorage.getItem('roles') === 'ROLE_USER' ? <User/> : <Redirect to="/"/>
+                }}>
+                </Route>
+
+                <Route path="/booking" render={() => {
+                    return localStorage.getItem('roles') === 'ROLE_USER' ? <Booking/> : <Redirect to="/"/>
                 }}>
                 </Route>
 

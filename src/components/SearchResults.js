@@ -1,21 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
+import React, {useEffect, useState} from 'react';
+import {useHistory, useLocation} from "react-router-dom";
+import {makeStyles} from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import "./css/SearchResults.css";
-import { Button, Form, FormGroup, Input, Label, ButtonToggle } from "reactstrap";
-import { Zoom } from "react-slideshow-image";
-import SearchLeft from "./SearchLeft"
+import {Button, ButtonToggle} from "reactstrap";
+import {Zoom} from "react-slideshow-image";
+import SearchLeft from "./SearchLeft";
 import * as IoIcons from 'react-icons/ai';
-
 
 export default function SearchResults() {
     const history = useHistory();
     const location = useLocation();
     const classes = useStyles();
+    const [data, setData] = useState(location.state.data);
 
     const toHotel = (hotel) => {
         history.push('/hotel', {
@@ -26,24 +25,24 @@ export default function SearchResults() {
             hotel: hotel
         });
     }
+
     const standard = (start) => {
         let stars = [];
         for (let i = 0; i < start; i++) stars.push(<IoIcons.AiFillStar style={{ color: 'red', fontSize: '15px', opacity: '0.7' }} />);
         return stars;
     };
-    
-    const sortByStandar = () => {
-        location.state.data.sort((a, b) => (a.hotel.standard > b.hotel.standard) ? 1 : -1)
-        console.log(location.state.data);
+
+    const sortByStandard = () => {
+        setData(data.slice().sort((a, b) => (a.hotel.standard < b.hotel.standard) ? 1 : -1));
     }
 
     const sortByRoomAvailable = () => {
-        location.state.data.sort((a, b) => (a.hotel.rooms.length < b.hotel.rooms.length) ? 1 : -1)
-        console.log(location.state.data);
+        setData(data.slice().sort((a, b) => (a.hotel.rooms.length < b.hotel.rooms.length) ? 1 : -1));
     }
+
     useEffect(() => {
         console.log('fetch', location.state);
-    });
+    }, []);
 
     return (
         <div className="container-search-result">
@@ -53,15 +52,17 @@ export default function SearchResults() {
             </div>
             <div className="right">
                 <div style={{ display: 'flex' }}>
-                <Button style={{ width: '150px'}} id="button-submit" className="search-input-container search" onClick={() => sortByStandar()} >
-                sortByStandar
-                                </Button>
-                                <Button style={{ width: '200px'}} id="button-submit" className="search-input-container search" onClick={() => sortByRoomAvailable()} >
-                                sortByRoomAvailable
-                                </Button>
+                    <Button style={{ width: '150px'}} id="button-submit" className="search-input-container search"
+                            onClick={() => sortByStandard()} >
+                        Sort by standard
+                    </Button>
+                    <Button style={{ width: '200px'}} id="button-submit" className="search-input-container search"
+                            onClick={() => sortByRoomAvailable()} >
+                        Sort by room available
+                    </Button>
                 </div>
                 <h4 style={{ marginLeft: '25px' }} className="title-search">Hotel</h4>
-                {location.state.data.map((hotel) => (
+                {data.map((hotel) => (
                     <Paper className="hotel-info">
                         <Grid container spacing={2}>
                             <Grid item>
@@ -92,7 +93,6 @@ export default function SearchResults() {
                                             See more
                                         </ButtonToggle>
                                     </Grid>
-
                                 </Grid>
                             </Grid>
                         </Grid>
