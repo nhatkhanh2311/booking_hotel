@@ -17,7 +17,7 @@ export default function Booked() {
             axios
                 .get('/user/history-booking-after')
                 .then(function (res) {
-                    console.log(res.data);
+                    console.log('after', res.data);
                     setData(res.data);
                 })
                 .catch(function (err) {
@@ -53,22 +53,19 @@ export default function Booked() {
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell align="center">Tên phòng</StyledTableCell>
-                        <StyledTableCell align="center">Khách sạn</StyledTableCell>
-                        <StyledTableCell align="center">Địa chỉ</StyledTableCell>
-                        <StyledTableCell align="center">Diện tích</StyledTableCell>
-                        <StyledTableCell align="center">Loại phòng</StyledTableCell>
-                        <StyledTableCell align="center">Số người</StyledTableCell>
-                        <StyledTableCell align="center">Giá phòng/ngày</StyledTableCell>
-                        <StyledTableCell align="center">Mô tả</StyledTableCell>
-                        <StyledTableCell align="center">Ngày sử dụng</StyledTableCell>
-                        <StyledTableCell align="center">Hủy đặt</StyledTableCell>
+                    <StyledTableCell align="center">Room name</StyledTableCell>
+                        <StyledTableCell align="center">Hotel</StyledTableCell>
+                        <StyledTableCell align="center">Address</StyledTableCell>
+                        <StyledTableCell align="center">Room type</StyledTableCell>
+                        <StyledTableCell align="center">Total cost</StyledTableCell>
+                        <StyledTableCell align="center">Checkin - Checkout</StyledTableCell>
+                        <StyledTableCell align="center">Cancel</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
                 <TableBody>
                     {data.map((row) => (
-                        <StyledTableRow key={row.id}>
+                        <StyledTableRow key={row.bookingId}>
                             <StyledTableCell align="center">
                                 {row.roomName}
                             </StyledTableCell>
@@ -80,26 +77,13 @@ export default function Booked() {
                             <StyledTableCell align="center">
                                 {row.street} - {row.city}
                             </StyledTableCell>
-
                             <StyledTableCell align="center">
-                                {row.area}m²
+                                {row.roomType === 'basic' && 'Basic'}
+                                {row.roomType === 'advance' && 'Advance'}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.roomType === 'basic' && 'Tiêu chuẩn'}
-                                {row.roomType === 'advance' && 'Cao cấp'}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.capacity}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.price} VND
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.description}
+                                {(row.total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}VND
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
@@ -107,7 +91,7 @@ export default function Booked() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="danger" onClick={() => cancel(row.id)}>
+                                <Button outline color="danger" onClick={() => cancel(row.bookingId)}>
                                     Hủy
                                 </Button>
                             </StyledTableCell>

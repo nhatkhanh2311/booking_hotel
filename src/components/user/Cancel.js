@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { axios } from "../../axios";
+import React, {useEffect, useState} from 'react';
+import {axios} from "../../axios";
 import "../css/List.css";
-import { StyledTableCell, StyledTableRow, useStyles } from "../Table";
+import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
 import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
@@ -14,9 +14,9 @@ export default function History() {
     const getData = () => {
         const fetchData = () => {
             axios
-                .get('/user/history-booking-before')
+                .get('/user/history-cancel-booking')
                 .then(function (res) {
-                    console.log(res.data);
+                    console.log('cancel',res.data);
                     setData(res.data);
                 })
                 .catch(function (err) {
@@ -31,21 +31,18 @@ export default function History() {
     }, []);
 
     return (
-        <TableContainer style={{ padding: '30px' }}>
-            <h2>Lịch sử đặt phòng</h2>
+        <TableContainer style={{padding: '30px'}}>
+            <h2>Lịch sử hủy phòng</h2>
 
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell align="center">Tên phòng</StyledTableCell>
-                        <StyledTableCell align="center">Khách sạn</StyledTableCell>
-                        <StyledTableCell align="center">Địa chỉ</StyledTableCell>
-                        <StyledTableCell align="center">Diện tích</StyledTableCell>
-                        <StyledTableCell align="center">Loại phòng</StyledTableCell>
-                        <StyledTableCell align="center">Số người</StyledTableCell>
-                        <StyledTableCell align="center">Giá phòng/ngày</StyledTableCell>
-                        <StyledTableCell align="center">Mô tả</StyledTableCell>
-                        <StyledTableCell align="center">Ngày sử dụng</StyledTableCell>
+                        <StyledTableCell align="center">Room name</StyledTableCell>
+                        <StyledTableCell align="center">Hotel</StyledTableCell>
+                        <StyledTableCell align="center">Address</StyledTableCell>
+                        <StyledTableCell align="center">Room type</StyledTableCell>
+                        <StyledTableCell align="center">Total cost</StyledTableCell>
+                        <StyledTableCell align="center">Checkin - Checkout</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
@@ -65,24 +62,12 @@ export default function History() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.area}m²
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
                                 {row.roomType === 'basic' && 'Tiêu chuẩn'}
                                 {row.roomType === 'advance' && 'Cao cấp'}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.capacity}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
                                 {(row.total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}VND
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.description}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">

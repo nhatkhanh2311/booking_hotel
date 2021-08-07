@@ -147,7 +147,7 @@ export default function RoomList(props) {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <i style={{ color: 'green', fontSize: '20px' }} Click={() => editRoom(row)} class='bx bx-pencil'></i>
+                                <i style={{ color: 'green', fontSize: '20px' }} onClick={() => editRoom(row)} class='bx bx-pencil'></i>
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
