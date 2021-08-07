@@ -1,14 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import {axios} from "../../axios";
+import React, { useEffect, useState } from 'react';
+import { axios } from "../../axios";
 import TableContainer from "@material-ui/core/TableContainer";
-import {Button, Input} from "reactstrap";
-import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
+import { Button, Input } from "reactstrap";
+import { StyledTableCell, StyledTableRow, useStyles } from "../Table";
 import TableHead from "@material-ui/core/TableHead";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
+import Pagination from "react-js-pagination";
 
 export default function StatisticMonth() {
     const classes = useStyles();
+    const [activePage, setActivePage] = useState(1);
     const [data, setData] = useState([]);
     const [stat, setStat] = useState([]);
     const [month, setMonth] = useState('1');
@@ -66,23 +68,31 @@ export default function StatisticMonth() {
     }, []);
 
     return (
-        <TableContainer style={{padding: '30px'}}>
+        <TableContainer style={{ padding: '30px' }}>
             <h2>Statistic </h2>
 
-            <p>Select month</p>
-            <Input type="select" id="month" required
-                   onChange={(e) => setMonth(e.target.value)}>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((month) => <option value={month}>{month}</option>)}
-            </Input>
+            <div style={{ display: 'flex', justifyContent: 'row', margin: '20px 0', }}>
+                <div style={{ flexBasic: '30%', width: '30%' }}>
+                    <p>Select month</p>
+                    <Input type="select" id="month" required
+                           onChange={(e) => setMonth(e.target.value)}>
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((month) => <option value={month}>{month}</option>)}
+                    </Input>
+                </div>
 
-            <p>Select hotel</p>
-            <Input type="select" id="hotel" required
-                   onChange={(e) => setHotel(e.target.value)}>
-                <option value="">--All--</option>
-                {data.map((hotel) => <option value={hotel.id}>{hotel.name}</option>)}
-            </Input>
+                <div style={{ flexBasic: '30%', width: '30%', marginLeft: '30px' }}>
+                    <p>Select month</p>
+                    <Input type="select" id="hotel" required
+                           onChange={(e) => setHotel(e.target.value)}>
+                        <option value="">--All--</option>
+                        {data.map((hotel) => <option value={hotel.id}>{hotel.name}</option>)}
+                    </Input>
+                </div>
 
-            <Button color="primary" onClick={getData}>Get result</Button>
+                <div style={{ flexBasic: '30%', width: '15%', marginTop: '40px', marginLeft: '30px' }}>
+                    <Button color="primary" onClick={getData}>Get result</Button>
+                </div>
+            </div>
 
             <Table className={classes.table}>
                 <TableHead>
@@ -98,7 +108,7 @@ export default function StatisticMonth() {
                 </TableHead>
 
                 <TableBody>
-                    {stat.map((row) => (
+                    {stat.slice((activePage - 1) * 5, activePage * 5).map((row) => (
                         <StyledTableRow key={row.bookingId}>
                             <StyledTableCell align="center">
                                 {row.hotelName}
@@ -132,6 +142,13 @@ export default function StatisticMonth() {
                     ))}
                 </TableBody>
             </Table>
+
+            <br/>
+            <div style={{ textAlign: 'center', marginLeft: '40%' }}>
+                <Pagination  activePage={activePage} itemsCountPerPage={5} totalItemsCount={stat.length}
+                             pageRangeDisplayed={5} onChange={(numPage) => { setActivePage(numPage) }}
+                             itemClass="page-item" linkClass="page-link" />
+            </div>
         </TableContainer>
     );
 }

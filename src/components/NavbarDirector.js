@@ -14,7 +14,7 @@ export default function NavbarDirector(props) {
             axios
                 .get('/get-avatar')
                 .then(function (res) {
-                    console.log(res.data);
+                    // console.log(res.data);
                 })
                 .catch(function (err) {
                     console.log(err);

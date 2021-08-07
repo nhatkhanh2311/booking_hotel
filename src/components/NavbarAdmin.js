@@ -12,7 +12,7 @@ export default function NavbarDirector(props) {
         localStorage.removeItem("roles");
         localStorage.removeItem("accessToken");
         localStorage.removeItem("tokenType");
-        localStorage.clear()
+        localStorage.clear();
         window.location.reload();
     }
 
@@ -26,7 +26,7 @@ export default function NavbarDirector(props) {
                 </div>
 
                 <div className="avatar-sidebar">
-                <img  src="https://cdn.himalaya.com/d64ae4a39c1f4d4594fa9d1216ab0b29.jpg?auth_key=4102416000-1234-0-e63fc56ba1b11b35a34d758f36c371d4"></img>
+                <img  src="https://cdn.himalaya.com/d64ae4a39c1f4d4594fa9d1216ab0b29.jpg?auth_key=4102416000-1234-0-e63fc56ba1b11b35a34d758f36c371d4"/>
 
                 </div>
 
@@ -54,4 +54,3 @@ export default function NavbarDirector(props) {
         </div>
     );
 }
-

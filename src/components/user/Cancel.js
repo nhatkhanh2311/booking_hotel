@@ -6,9 +6,11 @@ import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
+import Pagination from "react-js-pagination";
 
 export default function History() {
     const classes = useStyles();
+    const [activePage, setActivePage] = useState(1);
     const [data, setData] = useState([]);
 
     const getData = () => {
@@ -47,7 +49,7 @@ export default function History() {
                 </TableHead>
 
                 <TableBody>
-                    {data.map((row) => (
+                    {data.slice((activePage - 1) * 5, activePage * 5).map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
                                 {row.roomName}
@@ -77,6 +79,13 @@ export default function History() {
                     ))}
                 </TableBody>
             </Table>
+
+            <br/>
+            <div style={{ textAlign: 'center', marginLeft: '40%' }}>
+                <Pagination  activePage={activePage} itemsCountPerPage={5} totalItemsCount={data.length}
+                             pageRangeDisplayed={5} onChange={(numPage) => { setActivePage(numPage) }}
+                             itemClass="page-item" linkClass="page-link" />
+            </div>
         </TableContainer>
     );
 }

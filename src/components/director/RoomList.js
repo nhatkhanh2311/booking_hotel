@@ -12,9 +12,11 @@ import TableHead from '@material-ui/core/TableHead';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import EditRoom from "./EditRoom";
+import Pagination from "react-js-pagination";
 
 export default function RoomList(props) {
     const classes = useStyles();
+    const [activePage, setActivePage] = useState(1);
     const [data, setData] = useState(props.data.rooms);
     const [dataEdit, setDataEdit] = useState({});
     const [add, setAdd] = useState(false);
@@ -27,7 +29,7 @@ export default function RoomList(props) {
             axios
                 .get(`/director/${props.data.id}/all-room`)
                 .then(function (res) {
-                    console.log(res.data);
+                    console.log('room',res.data);
                     setData(res.data);
                 })
                 .catch(function (err) {
@@ -114,7 +116,7 @@ export default function RoomList(props) {
                 </TableHead>
 
                 <TableBody>
-                    {data.map((row) => (
+                    {data.slice((activePage - 1) * 5, activePage * 5).map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
                                 {row.name}
@@ -157,6 +159,13 @@ export default function RoomList(props) {
                     ))}
                 </TableBody>
             </Table>
+
+            <br/>
+            <div style={{ textAlign: 'center', marginLeft: '40%' }}>
+                <Pagination  activePage={activePage} itemsCountPerPage={5} totalItemsCount={data.length}
+                             pageRangeDisplayed={5} onChange={(numPage) => { setActivePage(numPage) }}
+                             itemClass="page-item" linkClass="page-link" />
+            </div>
         </TableContainer>
     );
 }

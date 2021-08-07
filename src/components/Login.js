@@ -114,7 +114,7 @@ export default function Login() {
                     <Form>
                         <h5 style={{ textAlign: 'center' }}>Forgot password</h5>
                         <FormGroup>
-                            <Label for="tokenInput">Please check token</Label>
+                            <Label for="tokenInput">Please check email and enter token</Label>
                             <Input type="token" id="tokenInput" placeholder="Enter token" required
                                 onChange={(e) => setToken(e.target.value)} />
                         </FormGroup>

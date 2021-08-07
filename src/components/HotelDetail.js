@@ -23,7 +23,7 @@ export default function HotelDetail() {
 
     const standard = () => {
         let stars = [];
-        for (let i = 0; i < location.state.hotel.standard; i++) stars.push(<IoIcons.AiFillStar style={{color: 'yellow'}}/>);
+        for (let i = 0; i < location.state.hotel.standard; i++) stars.push(<IoIcons.AiFillStar style={{color: 'yellow', fontSize: '15px', opacity: '1'}}/>);
         return stars;
     }
 
@@ -61,6 +61,7 @@ export default function HotelDetail() {
         setRoom(room);
         console.log(room);
     }
+
     return (
         <div className="room-page">
             <div className="hotel-info container">
@@ -143,6 +144,7 @@ export default function HotelDetail() {
                     </div>
                 </div>
             </div>
+
             <Modal className='modal-dialog modal-dialog-centered' isOpen={accept} toggle={toggleAccept}>
                 <ModalBody>
                     <h4>Are you sure you want to book this room from {location.state.checkIn} to {location.state.checkOut}?</h4>
@@ -157,6 +159,7 @@ export default function HotelDetail() {
                     </Button>
                 </ModalFooter>
             </Modal>
+
             <Modal className='modal-dialog modal-dialog-centered' isOpen={login} toggle={toggleLogin}>
                 <ModalBody>
                     <h4>You must be logged in to make a reservation!</h4>
@@ -167,6 +170,7 @@ export default function HotelDetail() {
                     </Button>
                 </ModalFooter>
             </Modal>
+
             <Modal className='modal-dialog modal-dialog-centered' isOpen={notUser} toggle={toggleNotUser}>
                 <ModalBody>
                     <h4>You are not logged in, please login to use the service!</h4>
@@ -177,10 +181,10 @@ export default function HotelDetail() {
                     </Button>
                 </ModalFooter>
             </Modal>
+
             <Modal className='modal-dialog modal-dialog-centered' isOpen={success}>
                 <ModalBody>
-                    <h4>
-                        Booking successfully, check your email</h4>
+                    <h4>Booking successfully, check your email</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
                     <Button outline color="success" style={{ width: '40%' }} onClick={() => history.push('/booking')}>

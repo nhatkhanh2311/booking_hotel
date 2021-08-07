@@ -7,10 +7,12 @@ import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
+import { Input } from '@material-ui/core';
 
 export default function Statistic(props) {
     const classes = useStyles();
     const [data, setData] = useState([]);
+    const [searchText, setSearchText] = useState('');
 
     const getData = () => {
         const fetchData = () => {
@@ -34,6 +36,10 @@ export default function Statistic(props) {
     return (
         <TableContainer style={{padding: '30px'}}>
             <h2>Hotel statistics by province/city</h2>
+            <div>
+                <Input style={{ marginBottom: '10px' }} type="text" id="userInput" placeholder="Search..." required
+                                onChange={(e) => setSearchText(e.target.value)} />
+            </div>
 
             <Table className={classes.table}>
                 <TableHead>
@@ -45,8 +51,9 @@ export default function Statistic(props) {
                 </TableHead>
 
                 <TableBody>
-                    {data.map((row) => (
+                    {data.filter(hotel => hotel.cityName.includes(searchText)).map((row) => (
                         <StyledTableRow key={row.cityName}>
+                            
                             <StyledTableCell align="center">
                                 {row.cityName}
                             </StyledTableCell>

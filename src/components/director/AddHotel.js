@@ -28,14 +28,14 @@ export default function AddHotel(props) {
                 .post('/director/hotel/new-hotel', formData)
                 .then(function (res) {
                     if (res.data['message'] === 'add hotel successfully') {
-                        window.alert('Thêm khách sạn thành công!');
+                        window.alert('Add hotel successfully!');
                         props.render('refresh');
                     }
-                    else window.alert('Tài khoản của bạn chưa được duyệt!');
+                    else window.alert('Your account have not approved yet!');
                     console.log(res.data);
                 })
                 .catch(function (err) {
-                    window.alert('Đã có lỗi xảy ra!');
+                    window.alert('Something wrong!');
                     console.log(err);
                 });
         }

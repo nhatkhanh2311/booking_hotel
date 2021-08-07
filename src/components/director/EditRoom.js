@@ -44,15 +44,25 @@ export default function EditRoom(props) {
     return (
         <Form onSubmit={onSubmit}>
             <FormGroup>
+<<<<<<< HEAD
                 <Label for="nameInput">Room name</Label>
                 <Input type="text" id="nameInput" placeholder="Enter room name..." required
+=======
+                <Label for="nameInput">Tên phòng</Label>
+                <Input style={{ margin: '10px 0' }} type="text" id="nameInput" placeholder="Nhập tên phòng" required
+>>>>>>> master
                        defaultValue={name}
                        onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
+<<<<<<< HEAD
                 <Label for="typeInput">Room type</Label>
                 <Input type="select" id="typeInput" required
+=======
+                <Label for="typeInput">Loại phòng</Label>
+                <Input style={{ margin: '10px 0' }} type="select" id="typeInput" required
+>>>>>>> master
                        defaultValue={type}
                        onChange={(e) => setType(e.target.value)}>
                     <option value='basic'>Basic</option>
@@ -61,35 +71,60 @@ export default function EditRoom(props) {
             </FormGroup>
 
             <FormGroup>
+<<<<<<< HEAD
                 <Label for="areaInput">Area (m²)</Label>
                 <Input type="number" id="areaInput" placeholder="0" required
+=======
+                <Label for="areaInput">Diện tích phòng (m²)</Label>
+                <Input style={{ margin: '10px 0' }} type="number" id="areaInput" min="0" placeholder="0" required
+>>>>>>> master
                        defaultValue={area}
                        onChange={(e) => setArea(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
+<<<<<<< HEAD
                 <Label for="priceInput">Cost/day (VND)</Label>
                 <Input type="number" step="50000" id="priceInput" placeholder="0" required
+=======
+                <Label for="priceInput">Giá phòng/ngày (VND)</Label>
+                <Input style={{ margin: '10px 0' }} type="number" step="10000" min="0" id="priceInput" placeholder="0" required
+>>>>>>> master
                        defaultValue={price}
                        onChange={(e) => setPrice(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
+<<<<<<< HEAD
                 <Label for="capaInput">Capacity</Label>
                 <Input type="number" id="capaInput" placeholder="0" required
+=======
+                <Label for="capaInput">Số người</Label>
+                <Input style={{ margin: '10px 0' }} type="number" id="capaInput" min="0" placeholder="0" required
+>>>>>>> master
                        defaultValue={capa}
                        onChange={(e) => setCapa(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
+<<<<<<< HEAD
                 <Label for="descInput">Description</Label>
                 <Input type="textarea" id="descInput" placeholder="Nhập mô tả" required
+=======
+                <Label for="descInput">Mô tả</Label>
+                <Input style={{ margin: '10px 0' }} type="textarea" id="descInput" placeholder="Nhập mô tả" required
+>>>>>>> master
                        defaultValue={desc}
                        onChange={(e) => setDesc(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
+<<<<<<< HEAD
                 <Label>Room picture</Label>
+=======
+                <Label>Hình ảnh phòng</Label>
+                <br/>
+>>>>>>> master
                 <Input type="file" multiple required
                        onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>
@@ -101,8 +136,13 @@ export default function EditRoom(props) {
             </div>
 
             <br/>
+<<<<<<< HEAD
             <Button color="primary" block>
                 Update room
+=======
+            <Button style={{width: '200px', backgroundColor: "#092A4A", margin:"auto" }} block>
+                Cập nhật phòng
+>>>>>>> master
             </Button>
         </Form>
     );
