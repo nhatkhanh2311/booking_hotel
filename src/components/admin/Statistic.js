@@ -48,9 +48,9 @@ List of hotels</StyledTableCell>
 
                 <TableBody>
                     {data.map((row) => (
-                        <StyledTableRow key={row.city}>
+                        <StyledTableRow key={row.cityName}>
                             <StyledTableCell align="center">
-                                {row.city}
+                                {row.cityName}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">

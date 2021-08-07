@@ -6,7 +6,6 @@ import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
 import TableBody from "@material-ui/core/TableBody";
-import {Button} from "reactstrap";
 
 export default function History() {
     const classes = useStyles();
@@ -54,36 +53,36 @@ export default function History() {
                     {data.map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
-                                {row.room.name}
+                                {row.roomName}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-
+                                {row.hotelName}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-
+                                {row.street} - {row.city}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.room.area}m²
+                                {row.area}m²
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.room.type === 'basic' && 'Tiêu chuẩn'}
-                                {row.room.type === 'advance' && 'Cao cấp'}
+                                {row.roomType === 'basic' && 'Tiêu chuẩn'}
+                                {row.roomType === 'advance' && 'Cao cấp'}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.room.capacity}
+                                {row.capacity}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.room.price} VND
+                                {row.price} VND
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.room.description}
+                                {row.description}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
