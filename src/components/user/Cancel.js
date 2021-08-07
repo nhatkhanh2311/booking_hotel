@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { axios } from "../../axios";
+import React, {useEffect, useState} from 'react';
+import {axios} from "../../axios";
 import "../css/List.css";
-import { StyledTableCell, StyledTableRow, useStyles } from "../Table";
+import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
 import TableContainer from "@material-ui/core/TableContainer";
 import Table from "@material-ui/core/Table";
 import TableHead from "@material-ui/core/TableHead";
@@ -14,9 +14,9 @@ export default function History() {
     const getData = () => {
         const fetchData = () => {
             axios
-                .get('/user/history-booking-before')
+                .get('/user/history-cancel-booking')
                 .then(function (res) {
-                    console.log(res.data);
+                    console.log('cancel',res.data);
                     setData(res.data);
                 })
                 .catch(function (err) {
@@ -31,13 +31,12 @@ export default function History() {
     }, []);
 
     return (
-        <TableContainer style={{ padding: '30px' }}>
-            <h2>Lịch sử đặt phòng</h2>
+        <TableContainer style={{padding: '30px'}}>
+            <h2>Lịch sử hủy phòng</h2>
 
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-
                         <StyledTableCell align="center">Room name</StyledTableCell>
                         <StyledTableCell align="center">Hotel</StyledTableCell>
                         <StyledTableCell align="center">Address</StyledTableCell>
@@ -63,8 +62,8 @@ export default function History() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.roomType === 'basic' && 'Basic'}
-                                {row.roomType === 'advance' && 'Advance'}
+                                {row.roomType === 'basic' && 'Tiêu chuẩn'}
+                                {row.roomType === 'advance' && 'Cao cấp'}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">

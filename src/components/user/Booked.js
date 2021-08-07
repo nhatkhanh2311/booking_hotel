@@ -17,7 +17,7 @@ export default function Booked() {
             axios
                 .get('/user/history-booking-after')
                 .then(function (res) {
-                    console.log(res.data);
+                    console.log('after', res.data);
                     setData(res.data);
                 })
                 .catch(function (err) {
@@ -53,18 +53,19 @@ export default function Booked() {
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell align="center">Tên phòng</StyledTableCell>
-                        <StyledTableCell align="center">Khách sạn</StyledTableCell>
-                        <StyledTableCell align="center">Địa chỉ</StyledTableCell>
-                        <StyledTableCell align="center">Tổng tiền</StyledTableCell>
-                        <StyledTableCell align="center">Ngày sử dụng</StyledTableCell>
-                        <StyledTableCell align="center">Hủy đặt</StyledTableCell>
+                    <StyledTableCell align="center">Room name</StyledTableCell>
+                        <StyledTableCell align="center">Hotel</StyledTableCell>
+                        <StyledTableCell align="center">Address</StyledTableCell>
+                        <StyledTableCell align="center">Room type</StyledTableCell>
+                        <StyledTableCell align="center">Total cost</StyledTableCell>
+                        <StyledTableCell align="center">Checkin - Checkout</StyledTableCell>
+                        <StyledTableCell align="center">Cancel</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
                 <TableBody>
                     {data.map((row) => (
-                        <StyledTableRow key={row.id}>
+                        <StyledTableRow key={row.bookingId}>
                             <StyledTableCell align="center">
                                 {row.roomName}
                             </StyledTableCell>
@@ -76,9 +77,13 @@ export default function Booked() {
                             <StyledTableCell align="center">
                                 {row.street} - {row.city}
                             </StyledTableCell>
+                            <StyledTableCell align="center">
+                                {row.roomType === 'basic' && 'Basic'}
+                                {row.roomType === 'advance' && 'Advance'}
+                            </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.total}VND
+                                {(row.total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}VND
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
