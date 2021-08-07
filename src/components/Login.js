@@ -30,6 +30,7 @@ export default function Login() {
                         localStorage.setItem('roles', res.data['roles'][0]);
                         localStorage.setItem('accessToken', res.data['accessToken']);
                         localStorage.setItem('tokenType', res.data['tokenType']);
+                        localStorage.setItem('avt', res.data['userDetail'].avatar)
                         switch (res.data['roles'][0]) {
                             case 'ROLE_USER':
                                 window.location.reload();
@@ -75,24 +76,24 @@ export default function Login() {
                 {!forgot && (
                     <Form onSubmit={onSubmit}>
                         <FormGroup>
-                            <Label style={{ marginBottom: '10px' }} for="userInput">Tên đăng nhập</Label>
-                            <Input style={{ marginBottom: '10px' }} type="text" id="userInput" placeholder="Nhập tên đăng nhập" required
+                            <Label style={{ marginBottom: '10px' }} for="userInput">Username</Label>
+                            <Input style={{ marginBottom: '10px' }} type="text" id="userInput" placeholder="Enter username" required
                                 onChange={(e) => setUser(e.target.value)} />
                         </FormGroup>
 
                         <FormGroup>
-                            <Label style={{ marginBottom: '10px' }} for="passInput">Mật khẩu</Label>
-                            <Input style={{ marginBottom: '10px' }} type="password" id="passInput" placeholder="Nhập mật khẩu" required
+                            <Label style={{ marginBottom: '10px' }} for="passInput">Password</Label>
+                            <Input style={{ marginBottom: '10px' }} type="password" id="passInput" placeholder="Enter password" required
                                 onChange={(e) => setPass(e.target.value)} />
                         </FormGroup>
 
                         <br />
                         <Button color="primary" block>
-                            Đăng nhập
+                            Login
                         </Button>
 
                         <p className="text-right" style={{ marginTop: '10px' }}>
-                            <a href="#" onClick={toggleForgot}>Quên mật khẩu?</a>
+                            <a href="#" onClick={toggleForgot}>Forgot password?</a>
                         </p>
                     </Form>
                 )}

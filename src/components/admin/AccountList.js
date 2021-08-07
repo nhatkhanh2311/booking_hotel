@@ -47,7 +47,7 @@ export default function AccountList() {
 
     return (
         <TableContainer style={{padding: '30px'}}>
-            <h2>Duyệt tài khoản director đã đăng ký</h2>
+            <h2>Registered director accounts</h2>
 
             <Table className={classes.table}>
                 <TableHead>

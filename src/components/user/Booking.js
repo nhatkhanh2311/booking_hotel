@@ -16,9 +16,6 @@ export default function Booking() {
                 <Tab eventKey="profile" title="History">
                     <BookingBeforeNow />
                 </Tab>
-                <Tab eventKey="contact" title="Cancel">
-                    nothing
-                </Tab>
             </Tabs>
             </div>
         </div>

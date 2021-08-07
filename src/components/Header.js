@@ -6,7 +6,7 @@ import logo from "../assets/logo.png";
 import { Button, Modal, ModalBody, ModalHeader } from "reactstrap";
 import Login from "./Login";
 import SignUp from "./SignUp";
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, NavDropdown } from 'react-bootstrap';
 
 export default function Header(props) {
   const history = useHistory();
@@ -24,6 +24,7 @@ export default function Header(props) {
     localStorage.removeItem("roles");
     localStorage.removeItem("accessToken");
     localStorage.removeItem("tokenType");
+    localStorage.clear();
     history.push("/")
   };
   const changeBackground = () => {
@@ -46,29 +47,18 @@ export default function Header(props) {
         <div className="nav-item nav-menu">
           <ul className="navbar-nav">
             <li>
-              <Link className="nav-link header-link" to="./">Địa điểm</Link>
+              <Link className="nav-link header-link" to="/">Home</Link>
             </li>
             <li>
-              <Link className="nav-link header-link">Trải nghiệm</Link>
+              <Link className="nav-link header-link">Blog</Link>
             </li>
             {localStorage.getItem("roles") && (
               <>
-                {/* <li>
-                  <Button onClick={toAccount}>
-                    Thông tin
-                  </Button>
-                </li>
-                <li>
-                  <Button onClick={logout}>
-                    Đăng xuất
-                  </Button>
-                </li> */}
                 <li>
                   <Dropdown>
-                    <Dropdown.Toggle id="dropdown-basic">
-                      Avatar
+                    <Dropdown.Toggle id="dropdown-button-dark-example1" variant="dark" >
+                        <img style={{ width: '40px', height: '40px', borderRadius:"50%" }} src="https://cdn.himalaya.com/d64ae4a39c1f4d4594fa9d1216ab0b29.jpg?auth_key=4102416000-1234-0-e63fc56ba1b11b35a34d758f36c371d4"></img>
                     </Dropdown.Toggle>
-
                     <Dropdown.Menu style={{ backgroundColor: 'white', color: 'black' }}>
                       <Dropdown.Item onClick={toAccount} style={{ color: 'black'}}>Profile</Dropdown.Item>
                       <Dropdown.Item onClick={toBookingHistory} style={{ color: 'black'}}>Booking history</Dropdown.Item>
@@ -82,7 +72,7 @@ export default function Header(props) {
               <>
                 <li>
                   <Button onClick={toggleLogin}>
-                    Đăng nhập
+                    Login
                   </Button>
                   <Modal
                     className="modal-dialog modal-dialog-centered"
@@ -90,7 +80,7 @@ export default function Header(props) {
                     toggle={toggleLogin}
                   >
                     <ModalHeader>
-                      <h2>Đăng nhập</h2>
+                      <h2>Login</h2>
                     </ModalHeader>
                     <ModalBody>
                       <Login />
@@ -99,7 +89,7 @@ export default function Header(props) {
                 </li>
                 <li>
                   <Button onClick={toggleSignup}>
-                    Đăng ký
+                    Sign up
                   </Button>
                   <Modal
                     className="modal-dialog modal-dialog-centered"
@@ -107,7 +97,7 @@ export default function Header(props) {
                     toggle={toggleSignup}
                   >
                     <ModalHeader>
-                      <h2>Đăng ký</h2>
+                      <h2>Sign up</h2>
                     </ModalHeader>
                     <ModalBody>
                       <SignUp />

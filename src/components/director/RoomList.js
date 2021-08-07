@@ -69,20 +69,20 @@ export default function RoomList(props) {
     }, []);
 
     return (
-        <TableContainer className="room-list" style={{padding: '30px', width: '70vw'}}>
-            <Link className='back' onClick={() => props.render('hotel')}>
-                {'<< Khách sạn của bạn'}
+        <TableContainer className="room-list" style={{ width: '98%' }}>
+            <Link style={{ textDecoration: 'none', color: 'black' }} className='back' onClick={() => props.render('hotel')}>
+                 <i class='bx bx-building-house'></i> {'Back to hotel list'}
             </Link>
 
-            <h2>Khách sạn {props.data.name}</h2>
+            <h2> {props.data.name}</h2>
 
-            <Fab color="primary" aria-label="add" className={classes.addButton} onClick={toggleAdd}>
+            <Fab style={{ color: 'white', backgroundColor: 'rgb(5, 24, 43)', width: '45px', height: '45px', marginBottom: '20px'  }} className={classes.addButton} onClick={toggleAdd}>
                 <AddIcon/>
             </Fab>
 
             <Modal className='modal-dialog modal-dialog-centered' isOpen={add} toggle={toggleAdd}>
                 <ModalHeader>
-                    <h2>Thêm phòng</h2>
+                    <h2>Add room</h2>
                 </ModalHeader>
                 <ModalBody>
                     <AddRoom id={props.data.id} render={(status) => {if (status === 'refresh') refresh()}}/>
@@ -91,25 +91,25 @@ export default function RoomList(props) {
 
             <Modal className='modal-dialog modal-dialog-centered' isOpen={edit} toggle={toggleEdit}>
                 <ModalHeader>
-                    <h2>Cập nhật phòng {dataEdit.name}</h2>
+                    <h2>Update room {dataEdit.name}</h2>
                 </ModalHeader>
                 <ModalBody>
                     <EditRoom id={props.data.id} data={dataEdit} render={(status) => {if (status === 'refresh') refresh()}}/>
                 </ModalBody>
             </Modal>
 
-            <Table className={classes.table} style={{ width: '63vw' }}>
+            <Table className={classes.table}  >
                 <TableHead >
                     <StyledTableRow>
-                        <StyledTableCell style={{ width: '200px' }} align="center">Tên phòng</StyledTableCell>
-                        <StyledTableCell  align="center">Diện tích</StyledTableCell>
-                        <StyledTableCell style={{ width: '200px' }} align="center">Trạng thái</StyledTableCell>
-                        <StyledTableCell align="center">Loại phòng</StyledTableCell>
-                        <StyledTableCell align="center">Số người</StyledTableCell>
-                        <StyledTableCell align="center">Giá phòng/ngày</StyledTableCell>
-                        <StyledTableCell align="center">Mô tả</StyledTableCell>
-                        <StyledTableCell align="center">Sửa</StyledTableCell>
-                        <StyledTableCell align="center">Xóa</StyledTableCell>
+                        <StyledTableCell style={{ width: '200px' }} align="center">Name</StyledTableCell>
+                        <StyledTableCell  align="center">Area</StyledTableCell>
+                        <StyledTableCell style={{ width: '100px' }} align="center">Status</StyledTableCell>
+                        <StyledTableCell align="center">Type</StyledTableCell>
+                        <StyledTableCell align="center">People</StyledTableCell>
+                        <StyledTableCell align="center">Cost/day</StyledTableCell>
+                        <StyledTableCell style={{ width: '350px' }} align="center">Description</StyledTableCell>
+                        <StyledTableCell style={{ width: '50px' }} align="center">Edit</StyledTableCell>
+                        <StyledTableCell style={{ width: '50px' }} align="center">Delete</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
@@ -121,17 +121,17 @@ export default function RoomList(props) {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.area}m²
+                                {(row.area).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}m²
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.availability && 'Còn trống'}
-                                {!row.availability && 'Đã đặt'}
+                                {row.availability && <i class='bx bx-radio-circle-marked' style={{ color: 'green', fontSize: '20px' }}></i>}
+                                {!row.availability && <i class='bx bx-radio-circle-marked' style={{ color: 'red', fontSize: '20px' }}></i>}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.type === 'basic' && 'Tiêu chuẩn'}
-                                {row.type === 'advance' && 'Cao cấp'}
+                                {row.type === 'basic' && 'Basic'}
+                                {row.type === 'advance' && 'Advance'}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
@@ -139,7 +139,7 @@ export default function RoomList(props) {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.price} VND
+                                {(row.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
@@ -147,15 +147,11 @@ export default function RoomList(props) {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="primary" onClick={() => editRoom(row)}>
-                                    Sửa
-                                </Button>
+                                <i style={{ color: 'green', fontSize: '20px' }} Click={() => editRoom(row)} class='bx bx-pencil'></i>
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="danger" onClick={() => deleteRoom(row.id)}>
-                                    Xóa
-                                </Button>
+                                <i style={{ color: 'rgb(252, 96, 96)', fontSize: '20px' }} onClick={() => deleteRoom(row.id)} class='bx bx-trash' ></i>
                             </StyledTableCell>
                         </StyledTableRow>
                     ))}

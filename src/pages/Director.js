@@ -17,8 +17,11 @@ export default function Director() {
                 <NavbarDirector render={(tab) => setTab(tab)}/>
 
                 </div>
+                <div style={{ marginLeft: "15px", width: '75%' }}>
                 {tab === 'posted' && <Post/>}
                 {tab === 'information' && <Information/>}
+                </div>
+                
             </div>
         </>
     );

@@ -35,7 +35,7 @@ export default function Footer() {
                   bookingHotelCNPM@gmail.com
                 </li>
                 <li className="infor-footer">
-                  <i class='bx bx-mobile icon-footer'></i> 01365484574
+                  <i className='bx bx-mobile icon-footer'></i> 01365484574
                 </li>
                 <li className="infor-footer">
                   <i className="bx bxs-map icon-footer"></i>154 - Nguyen Luong Bang -

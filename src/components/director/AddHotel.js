@@ -46,13 +46,13 @@ export default function AddHotel(props) {
         <Form onSubmit={onSubmit}>
             <FormGroup>
                 <Label for="nameInput">Tên khách sạn</Label>
-                <Input type="text" id="nameInput" placeholder="Nhập tên khách sạn" required
+                <Input style={{ margin: '10px 0' }} type="text" id="nameInput" placeholder="Nhập tên khách sạn" required
                        onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="cityInput">Tỉnh/Thành phố</Label>
-                <Input type="select" id="cityInput" required
+                <Input style={{ margin: '10px 0' }} type="select" id="cityInput" required
                        onChange={(e) => setCity(e.target.value)}>
                     <option value=''>--Chọn tỉnh/thành--</option>
                     {cities.map((city) => <option value={city}>{city}</option>)}
@@ -61,11 +61,11 @@ export default function AddHotel(props) {
 
             <FormGroup>
                 <Label for="addressInput">Số nhà, tên đường</Label>
-                <Input type="text" id="addressInput" placeholder="Nhập số nhà, tên đường" required
+                <Input style={{ margin: '10px 0' }} type="text" id="addressInput" placeholder="Nhập số nhà, tên đường" required
                        onChange={(e) => setAddress(e.target.value)}/>
             </FormGroup>
 
-            <FormGroup style={{display: 'flex', flexDirection: 'row'}}>
+            <FormGroup style={{display: 'flex', flexDirection: 'row', margin: '15px 0'}}>
                 <Label>Chất lượng</Label>
                 <FormGroup check style={{marginLeft: '40px'}}>
                     <Input type="radio" name="standard" id="1" defaultChecked
@@ -73,7 +73,7 @@ export default function AddHotel(props) {
                     <Label check htmlFor="1">1</Label>
                 </FormGroup>
                 <FormGroup check style={{marginLeft: '40px'}}>
-                    <Input type="radio" name="standard" id="2"
+                    <Input  type="radio" name="standard" id="2"
                            onClick={() => setStandard(2)}/>
                     <Label check htmlFor="2">2</Label>
                 </FormGroup>
@@ -96,7 +96,7 @@ export default function AddHotel(props) {
 
             <FormGroup>
                 <Label>Hình ảnh khách sạn</Label>
-                <Input type="file" multiple required
+                <Input style={{ margin: '10px 0' }} type="file" multiple required
                        onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>
 

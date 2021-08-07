@@ -32,9 +32,9 @@ export default function StatisticHotel(props) {
     }, []);
 
     return (
-        <TableContainer style={{padding: '30px'}}>
-            <Link className='back' onClick={() => props.render('city')}>
-                {'<< Thống kê theo tỉnh/thành phố'}
+        <TableContainer style={{ padding: '30px', width: '90%', marginLeft: '5%' }}>
+            <Link style={{ textDecoration: 'none' }} className='back' onClick={() => props.render('city')}>
+                <i class='bx bxs-dashboard' ></i> {' Thống kê theo tỉnh/thành phố'}
             </Link>
 
             <h2>Khách sạn ở {props.name}</h2>
