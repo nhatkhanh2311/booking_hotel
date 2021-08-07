@@ -62,11 +62,7 @@ export default function NavbarDirector(props) {
 
                 <li onClick={() => setTab('statisticmonth')} className="row">
                     <div className="icon"><IoIcons.IoIosAlbums/></div>
-<<<<<<< HEAD
                     <div className="title">Statistic</div>
-=======
-                    <div className="title">Thống kê</div>
->>>>>>> f5ec6eab9e1c3e5e25c3cb0220e505bc26984095
                 </li>
 
                 <li onClick={logout} className="row">

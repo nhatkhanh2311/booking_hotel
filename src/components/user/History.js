@@ -67,7 +67,6 @@ export default function History() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-<<<<<<< HEAD
                                 {row.capacity}
                             </StyledTableCell>
 
@@ -77,9 +76,6 @@ export default function History() {
 
                             <StyledTableCell align="center">
                                 {row.description}
-=======
-                                {row.total}VND
->>>>>>> f5ec6eab9e1c3e5e25c3cb0220e505bc26984095
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
