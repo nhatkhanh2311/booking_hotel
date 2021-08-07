@@ -48,7 +48,7 @@ export default function Booked() {
 
     return (
         <TableContainer style={{padding: '30px'}}>
-            <h2>Phòng đã đặt</h2>
+            <h2>List booking</h2>
 
             <Table className={classes.table}>
                 <TableHead>

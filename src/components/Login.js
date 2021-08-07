@@ -24,7 +24,7 @@ export default function Login() {
                 })
                 .then(function (res) {
                     if (res.data['message'] === 'incorrect')
-                        window.alert('Tên tài khoản hoặc mật khẩu không đúng!');
+                        window.alert('Username or password incorrect!');
                     else {
                         localStorage.setItem('username', res.data['username']);
                         localStorage.setItem('roles', res.data['roles'][0]);
@@ -58,7 +58,7 @@ export default function Login() {
                 .post(`/forgot-password/${email}`)
                 .then(function (res) {
                     if (res.data['message'] === 'Email does not exist')
-                        window.alert('Email không tồn tại!');
+                        window.alert('Email does not exist!');
                     else {
                         toggleSend();
                     }
@@ -99,26 +99,22 @@ export default function Login() {
                 )}
                 {forgot && !send && (
                     <Form onSubmit={submitForgot}>
-                        <h5 style={{ textAlign: 'center' }}>Quên mật khẩu</h5>
+                        <h5 style={{ textAlign: 'center' }}>Forgot password</h5>
                         <FormGroup>
-                            <Label for="emailInput">Nhập email</Label>
+                            <Label for="emailInput">Enter your email</Label>
                             <Input type="email" id="emailInput" placeholder="Nhập email" required
                                 onChange={(e) => setEmail(e.target.value)} />
                         </FormGroup>
                         <Button color="primary" block>
-                            Gửi email xác nhận
+                            Send email
                         </Button>
-
-                        <p className="text-right" style={{ marginTop: '10px' }}>
-                            <a href="#" onClick={toggleForgot}>Nhớ mật khẩu?</a>
-                        </p>
                     </Form>
                 )}
                 {forgot && send && (
                     <Form>
-                        <h5 style={{ textAlign: 'center' }}>Quên mật khẩu</h5>
+                        <h5 style={{ textAlign: 'center' }}>Forgot password</h5>
                         <FormGroup>
-                            <Label for="tokenInput">Kiểm tra email và nhập token vào đây</Label>
+                            <Label for="tokenInput">Please check token</Label>
                             <Input type="token" id="tokenInput" placeholder="Nhập token" required
                                 onChange={(e) => setToken(e.target.value)} />
                         </FormGroup>
@@ -126,9 +122,6 @@ export default function Login() {
                             Xác nhận
                         </Button>
 
-                        <p className="text-right" style={{ marginTop: '10px' }}>
-                            <a href="#" onClick={toggleForgot}>Nhớ mật khẩu?</a>
-                        </p>
                     </Form>
                 )}
             </>

@@ -32,7 +32,7 @@ export default function History() {
 
     return (
         <TableContainer style={{ padding: '30px' }}>
-            <h2>Lịch sử đặt phòng</h2>
+            <h2>Booking history</h2>
 
             <Table className={classes.table}>
                 <TableHead>

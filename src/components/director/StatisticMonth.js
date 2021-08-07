@@ -67,18 +67,18 @@ export default function StatisticMonth() {
 
     return (
         <TableContainer style={{padding: '30px'}}>
-            <h2>Thống kê </h2>
+            <h2>Statistic </h2>
 
-            <p>Chọn tháng</p>
+            <p>Select month</p>
             <Input type="select" id="month" required
                    onChange={(e) => setMonth(e.target.value)}>
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((month) => <option value={month}>{month}</option>)}
             </Input>
 
-            <p>Chọn khách sạn</p>
+            <p>Select hotel</p>
             <Input type="select" id="hotel" required
                    onChange={(e) => setHotel(e.target.value)}>
-                <option value="">--Tất cả--</option>
+                <option value="">--All--</option>
                 {data.map((hotel) => <option value={hotel.id}>{hotel.name}</option>)}
             </Input>
 
@@ -87,10 +87,10 @@ export default function StatisticMonth() {
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell  align="center">Tên khách sạn</StyledTableCell>
-                        <StyledTableCell  align="center">Tên phòng</StyledTableCell>
-                        <StyledTableCell  align="center">Loại phòng</StyledTableCell>
-                        <StyledTableCell  align="center">Người đặt</StyledTableCell>
+                        <StyledTableCell  align="center">Hotel name</StyledTableCell>
+                        <StyledTableCell  align="center">Room name</StyledTableCell>
+                        <StyledTableCell  align="center">Room type</StyledTableCell>
+                        <StyledTableCell  align="center">User booking</StyledTableCell>
                         <StyledTableCell  align="center">Email</StyledTableCell>
                         <StyledTableCell  align="center">Check in</StyledTableCell>
                         <StyledTableCell  align="center">Check out</StyledTableCell>
@@ -109,8 +109,8 @@ export default function StatisticMonth() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.roomType === 'basic' && 'Tiêu chuẩn'}
-                                {row.roomType === 'advance' && 'Cao cấp'}
+                                {row.roomType === 'basic' && 'Basic'}
+                                {row.roomType === 'advance' && 'Advance'}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
