@@ -56,11 +56,7 @@ export default function Booked() {
                         <StyledTableCell align="center">Tên phòng</StyledTableCell>
                         <StyledTableCell align="center">Khách sạn</StyledTableCell>
                         <StyledTableCell align="center">Địa chỉ</StyledTableCell>
-                        <StyledTableCell align="center">Diện tích</StyledTableCell>
-                        <StyledTableCell align="center">Loại phòng</StyledTableCell>
-                        <StyledTableCell align="center">Số người</StyledTableCell>
-                        <StyledTableCell align="center">Giá phòng/ngày</StyledTableCell>
-                        <StyledTableCell align="center">Mô tả</StyledTableCell>
+                        <StyledTableCell align="center">Tổng tiền</StyledTableCell>
                         <StyledTableCell align="center">Ngày sử dụng</StyledTableCell>
                         <StyledTableCell align="center">Hủy đặt</StyledTableCell>
                     </StyledTableRow>
@@ -82,24 +78,7 @@ export default function Booked() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.area}m²
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.roomType === 'basic' && 'Tiêu chuẩn'}
-                                {row.roomType === 'advance' && 'Cao cấp'}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.capacity}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.price} VND
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.description}
+                                {row.total}VND
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
