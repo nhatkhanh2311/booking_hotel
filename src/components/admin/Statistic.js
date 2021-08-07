@@ -39,10 +39,8 @@ export default function Statistic(props) {
                 <TableHead>
                     <StyledTableRow>
                         <StyledTableCell align="center">Province/city</StyledTableCell>
-                        <StyledTableCell align="center">
-Number of hotels</StyledTableCell>
-                        <StyledTableCell align="center">
-List of hotels</StyledTableCell>
+                        <StyledTableCell align="center">Number of hotels</StyledTableCell>
+                        <StyledTableCell align="center">List of hotels</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 

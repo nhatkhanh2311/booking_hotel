@@ -50,6 +50,7 @@ export default function HotelList(props) {
                 .then(function (res) {
                     console.log(res.data);
                     if (res.data['message'] === 'Delete hotel successful') window.alert('Xóa khách sạn thành công');
+                    getData();
                 })
                 .catch(function (err) {
                     console.log(err);

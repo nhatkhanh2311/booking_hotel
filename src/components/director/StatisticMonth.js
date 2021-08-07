@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {axios} from "../../axios";
 import TableContainer from "@material-ui/core/TableContainer";
-import {Input} from "reactstrap";
+import {Button, Input} from "reactstrap";
 import {StyledTableCell, StyledTableRow, useStyles} from "../Table";
 import TableHead from "@material-ui/core/TableHead";
 import Table from "@material-ui/core/Table";
@@ -71,22 +71,18 @@ export default function StatisticMonth() {
 
             <p>Chọn tháng</p>
             <Input type="select" id="month" required
-                   onChange={(e) => {
-                       setMonth(e.target.value);
-                       getData();
-                   }}>
+                   onChange={(e) => setMonth(e.target.value)}>
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((month) => <option value={month}>{month}</option>)}
             </Input>
 
             <p>Chọn khách sạn</p>
             <Input type="select" id="hotel" required
-                   onChange={(e) => {
-                       setHotel(e.target.value);
-                       getData();
-                   }}>
+                   onChange={(e) => setHotel(e.target.value)}>
                 <option value="">--Tất cả--</option>
                 {data.map((hotel) => <option value={hotel.id}>{hotel.name}</option>)}
             </Input>
+
+            <Button color="primary" onClick={getData}>Get result</Button>
 
             <Table className={classes.table}>
                 <TableHead>
