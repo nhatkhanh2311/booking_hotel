@@ -86,7 +86,7 @@ export default function Booked() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="danger" onClick={() => cancel(row.id)}>
+                                <Button outline color="danger" onClick={() => cancel(row.bookingId)}>
                                     Hủy
                                 </Button>
                             </StyledTableCell>

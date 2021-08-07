@@ -71,7 +71,7 @@ export default function RoomList(props) {
     return (
         <TableContainer className="room-list" style={{ width: '98%' }}>
             <Link style={{ textDecoration: 'none', color: 'black' }} className='back' onClick={() => props.render('hotel')}>
-                 <i class='bx bx-building-house'></i> {'Back to hotel list'}
+                 <i class='bx bx-building-house'/> {'Back to hotel list'}
             </Link>
 
             <h2> {props.data.name}</h2>
@@ -125,8 +125,8 @@ export default function RoomList(props) {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.availability && <i class='bx bx-radio-circle-marked' style={{ color: 'green', fontSize: '20px' }}></i>}
-                                {!row.availability && <i class='bx bx-radio-circle-marked' style={{ color: 'red', fontSize: '20px' }}></i>}
+                                {row.availability && <i class='bx bx-radio-circle-marked' style={{color: 'green', fontSize: '20px'}}/>}
+                                {!row.availability && <i class='bx bx-radio-circle-marked' style={{color: 'red', fontSize: '20px'}}/>}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
@@ -147,11 +147,11 @@ export default function RoomList(props) {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <i style={{ color: 'green', fontSize: '20px' }} Click={() => editRoom(row)} class='bx bx-pencil'></i>
+                                <i style={{color: 'green', fontSize: '20px'}} onClick={() => editRoom(row)} class='bx bx-pencil'/>
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <i style={{ color: 'rgb(252, 96, 96)', fontSize: '20px' }} onClick={() => deleteRoom(row.id)} class='bx bx-trash' ></i>
+                                <i style={{color: 'rgb(252, 96, 96)', fontSize: '20px'}} onClick={() => deleteRoom(row.id)} class='bx bx-trash'/>
                             </StyledTableCell>
                         </StyledTableRow>
                     ))}

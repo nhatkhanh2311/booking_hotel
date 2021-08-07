@@ -1,7 +1,7 @@
-import { Tabs, Tab } from "react-bootstrap"
-import BookingBeforeNow from "./History"
-import BookingAfterNow from "./History"
-import Header from "../Header"
+import { Tabs, Tab } from "react-bootstrap";
+import Header from "../Header";
+import Booked from "./Booked";
+import History from "./History";
 
 export default function Booking() {
 
@@ -11,10 +11,10 @@ export default function Booking() {
             <div className="container">
             <Tabs style={{ paddingTop: "100px" }} defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
                 <Tab eventKey="home" title="Booking">
-                    <BookingAfterNow />
+                    <Booked/>
                 </Tab>
                 <Tab eventKey="profile" title="History">
-                    <BookingBeforeNow />
+                    <History/>
                 </Tab>
             </Tabs>
             </div>
