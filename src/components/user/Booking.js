@@ -10,7 +10,7 @@ export default function Booking() {
         <div>
             <Header color="rgb(5, 24, 43)" />
             <div className="container">
-                <Tabs style={{ paddingTop: "100px" }} defaultActiveKey="profile" id="uncontrolled-tab-example" className="mb-3">
+                <Tabs style={{ paddingTop: "100px" }} defaultActiveKey="home" id="uncontrolled-tab-example" className="mb-3">
                     <Tab eventKey="home" title="Booking">
                         <BookingAfterNow />
                     </Tab>

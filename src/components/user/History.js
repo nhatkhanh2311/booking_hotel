@@ -37,12 +37,13 @@ export default function History() {
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell align="center">Tên phòng</StyledTableCell>
-                        <StyledTableCell align="center">Khách sạn</StyledTableCell>
-                        <StyledTableCell align="center">Địa chỉ</StyledTableCell>
-                        <StyledTableCell align="center">Loại phòng</StyledTableCell>
-                        <StyledTableCell align="center">Tổng tiền</StyledTableCell>
-                        <StyledTableCell align="center">Ngày sử dụng</StyledTableCell>
+
+                        <StyledTableCell align="center">Room name</StyledTableCell>
+                        <StyledTableCell align="center">Hotel</StyledTableCell>
+                        <StyledTableCell align="center">Address</StyledTableCell>
+                        <StyledTableCell align="center">Room type</StyledTableCell>
+                        <StyledTableCell align="center">Total cost</StyledTableCell>
+                        <StyledTableCell align="center">Checkin - Checkout</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
@@ -62,20 +63,12 @@ export default function History() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.roomType === 'basic' && 'Tiêu chuẩn'}
-                                {row.roomType === 'advance' && 'Cao cấp'}
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.capacity}
+                                {row.roomType === 'basic' && 'Basic'}
+                                {row.roomType === 'advance' && 'Advance'}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
                                 {(row.total).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}VND
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
-                                {row.description}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
