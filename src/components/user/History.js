@@ -40,11 +40,8 @@ export default function History() {
                         <StyledTableCell align="center">Tên phòng</StyledTableCell>
                         <StyledTableCell align="center">Khách sạn</StyledTableCell>
                         <StyledTableCell align="center">Địa chỉ</StyledTableCell>
-                        <StyledTableCell align="center">Diện tích</StyledTableCell>
                         <StyledTableCell align="center">Loại phòng</StyledTableCell>
-                        <StyledTableCell align="center">Số người</StyledTableCell>
-                        <StyledTableCell align="center">Giá phòng/ngày</StyledTableCell>
-                        <StyledTableCell align="center">Mô tả</StyledTableCell>
+                        <StyledTableCell align="center">Tổng tiền</StyledTableCell>
                         <StyledTableCell align="center">Ngày sử dụng</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
@@ -65,15 +62,12 @@ export default function History() {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.area}m²
-                            </StyledTableCell>
-
-                            <StyledTableCell align="center">
                                 {row.roomType === 'basic' && 'Tiêu chuẩn'}
                                 {row.roomType === 'advance' && 'Cao cấp'}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
+<<<<<<< HEAD
                                 {row.capacity}
                             </StyledTableCell>
 
@@ -83,6 +77,9 @@ export default function History() {
 
                             <StyledTableCell align="center">
                                 {row.description}
+=======
+                                {row.total}VND
+>>>>>>> f5ec6eab9e1c3e5e25c3cb0220e505bc26984095
                             </StyledTableCell>
 
                             <StyledTableCell align="center">

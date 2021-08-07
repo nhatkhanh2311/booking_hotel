@@ -58,7 +58,7 @@ List of hotels</StyledTableCell>
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                <Button outline color="success" onClick={() => props.render('hotel', row.city)}>
+                                <Button outline color="success" onClick={() => props.render('hotel', row.cityName)}>
                                     View
                                 </Button>
                             </StyledTableCell>
