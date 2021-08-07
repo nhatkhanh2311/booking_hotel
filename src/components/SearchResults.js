@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -28,21 +28,38 @@ export default function SearchResults() {
     }
     const standard = (start) => {
         let stars = [];
-        for (let i = 0; i < start; i++) stars.push(<IoIcons.AiFillStar />);
+        for (let i = 0; i < start; i++) stars.push(<IoIcons.AiFillStar style={{ color: 'red', fontSize: '15px', opacity: '0.7' }} />);
         return stars;
     };
+    
+    const sortByStandar = () => {
+        location.state.data.sort((a, b) => (a.hotel.standard > b.hotel.standard) ? 1 : -1)
+        console.log(location.state.data);
+    }
+
+    const sortByRoomAvailable = () => {
+        location.state.data.sort((a, b) => (a.hotel.rooms.length < b.hotel.rooms.length) ? 1 : -1)
+        console.log(location.state.data);
+    }
     useEffect(() => {
-        console.log(location.state);
+        console.log('fetch', location.state);
     });
 
     return (
         <div className="container-search-result">
             <div>
                 <h4 style={{ marginLeft: '45px' }} className="title-search">Your Reservation</h4>
-            <SearchLeft/>
+                <SearchLeft />
             </div>
-
             <div className="right">
+                <div style={{ display: 'flex' }}>
+                <Button style={{ width: '150px'}} id="button-submit" className="search-input-container search" onClick={() => sortByStandar()} >
+                sortByStandar
+                                </Button>
+                                <Button style={{ width: '200px'}} id="button-submit" className="search-input-container search" onClick={() => sortByRoomAvailable()} >
+                                sortByRoomAvailable
+                                </Button>
+                </div>
                 <h4 style={{ marginLeft: '25px' }} className="title-search">Hotel</h4>
                 {location.state.data.map((hotel) => (
                     <Paper className="hotel-info">
@@ -50,7 +67,7 @@ export default function SearchResults() {
                             <Grid item>
                                 <Zoom scale={0.4} className={classes.image}>
                                     {hotel.hotel.images.map((each, index) => (
-                                        <img key={index} style={{width: "100%"}} src={`data:image/jpeg;base64,${each.img}`}/>
+                                        <img key={index} style={{ width: "100%" }} src={`data:image/jpeg;base64,${each.img}`} />
                                     ))}
                                 </Zoom>
                             </Grid>
@@ -58,7 +75,7 @@ export default function SearchResults() {
                                 <Grid item xs container direction="column" spacing={2}>
                                     <Grid item xs>
                                         <Typography gutterBottom variant="subtitle1">
-                                           <h6> {hotel.hotel.name}</h6>
+                                            <h6> {hotel.hotel.name}</h6>
                                         </Typography>
                                         <Typography variant="body2" gutterBottom>
                                             Address: {hotel.hotel.address.street} - {hotel.hotel.address.city}
@@ -67,15 +84,15 @@ export default function SearchResults() {
                                             We have {hotel.hotel.rooms.length} rooms for you
                                         </Typography>
                                         <Typography variant="body2" color="red">
-                                        {standard(hotel.hotel.standard)}
+                                            {standard(hotel.hotel.standard)}
                                         </Typography>
                                     </Grid>
                                     <Grid item sm>
-                                    <ButtonToggle className={classes.button} onClick={() => toHotel(hotel.hotel)}>
+                                        <ButtonToggle className={classes.button} onClick={() => toHotel(hotel.hotel)}>
                                             See more
                                         </ButtonToggle>
                                     </Grid>
-                                    
+
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -87,7 +104,7 @@ export default function SearchResults() {
 }
 
 const useStyles = makeStyles((theme) => ({
-    
+
     image: {
         width: 250,
         height: 180,

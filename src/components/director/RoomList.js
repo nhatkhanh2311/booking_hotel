@@ -12,6 +12,7 @@ import TableHead from '@material-ui/core/TableHead';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import EditRoom from "./EditRoom";
+import { Input } from '@material-ui/core';
 
 export default function RoomList(props) {
     const classes = useStyles();
@@ -21,13 +22,14 @@ export default function RoomList(props) {
     const [edit, setEdit] = useState(false);
     const toggleAdd = () => setAdd(!add);
     const toggleEdit = () => setEdit(!edit);
+    const [searchText, setSearchText] = useState('');
 
     const getData = () => {
         const fetchData = () => {
             axios
                 .get(`/director/${props.data.id}/all-room`)
                 .then(function (res) {
-                    console.log(res.data);
+                    console.log('room',res.data);
                     setData(res.data);
                 })
                 .catch(function (err) {
@@ -98,6 +100,10 @@ export default function RoomList(props) {
                 </ModalBody>
             </Modal>
 
+            <div>
+                <Input style={{ marginBottom: '10px' }} type="text" id="userInput" placeholder="Search..." required
+                                onChange={(e) => setSearchText(e.target.value)} />
+            </div>
             <Table className={classes.table}  >
                 <TableHead >
                     <StyledTableRow>

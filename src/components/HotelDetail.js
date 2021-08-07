@@ -23,7 +23,7 @@ export default function HotelDetail() {
 
     const standard = () => {
         let stars = [];
-        for (let i = 0; i < location.state.hotel.standard; i++) stars.push(<IoIcons.AiFillStar style={{color: 'yellow'}}/>);
+        for (let i = 0; i < location.state.hotel.standard; i++) stars.push(<IoIcons.AiFillStar style={{color: 'yellow', fontSize: '15px', opacity: '1'}}/>);
         return stars;
     }
 

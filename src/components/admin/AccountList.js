@@ -7,10 +7,12 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
+import { Input } from '@material-ui/core';
 
 export default function AccountList() {
     const classes = useStyles();
     const [data, setData] = useState([]);
+    const [searchText, setSearchText] = useState('');
 
     const unlock = (id) => {
         const fetchData = () => {
@@ -48,7 +50,10 @@ export default function AccountList() {
     return (
         <TableContainer style={{padding: '30px'}}>
             <h2>Registered director accounts</h2>
-
+            <div>
+                <Input style={{ margin: '10px 0' }} type="text" id="userInput" placeholder="Search..." required
+                                onChange={(e) => setSearchText(e.target.value)} />
+            </div>
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
@@ -62,7 +67,7 @@ export default function AccountList() {
                 </TableHead>
 
                 <TableBody>
-                    {data.map((row) => (
+                    {data.filter(director => director.username.includes(searchText) || director.email.includes(searchText) || director.userDetail.nameUserDetail.includes(searchText)|| director.userDetail.phoneNumber.includes(searchText)).map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
                                 {row.userDetail.nameUserDetail}
