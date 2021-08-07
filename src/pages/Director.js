@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import NavbarDirector from "../components/NavbarDirector";
 import Post from "../components/director/Post";
 import Information from "../components/Information";
+import StatisticMonth from "../components/director/StatisticMonth";
 
 export default function Director() {
     const [tab, setTab] = useState("");
@@ -13,11 +14,11 @@ export default function Director() {
     return (
         <>
             <div style={{display: 'flex', flexDirection: 'row'}}>
-                <div style={{ width: "300px" }}> 
-                <NavbarDirector render={(tab) => setTab(tab)}/>
-
+                <div style={{ width: "300px" }}>
+                    <NavbarDirector render={(tab) => setTab(tab)}/>
                 </div>
                 {tab === 'posted' && <Post/>}
+                {tab === 'statisticmonth' && <StatisticMonth/>}
                 {tab === 'information' && <Information/>}
             </div>
         </>

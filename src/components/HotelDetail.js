@@ -25,7 +25,7 @@ export default function HotelDetail() {
 
     const standard = () => {
         let stars = [];
-        for (let i = 0; i < location.state.hotel.standard; i++) stars.push(<IoIcons.AiFillStar />);
+        for (let i = 0; i < location.state.hotel.standard; i++) stars.push(<IoIcons.AiFillStar style={{color: 'yellow'}}/>);
         return stars;
     }
 
@@ -56,7 +56,7 @@ export default function HotelDetail() {
 
     useEffect(() => {
         console.log(location.state);
-        setRoom(location.state.hotel.rooms[1]);
+        setRoom(location.state.hotel.rooms[0]);
     }, []);
 
     const roomInf = (room) => {

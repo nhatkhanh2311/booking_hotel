@@ -45,7 +45,7 @@ export default function StatisticHotel(props) {
                         <StyledTableCell align="center">Tên khách sạn</StyledTableCell>
                         <StyledTableCell align="center">Địa chỉ</StyledTableCell>
                         <StyledTableCell align="center">Chủ sở hữu</StyledTableCell>
-                        <StyledTableCell align="center">Số điện thoại</StyledTableCell>
+                        <StyledTableCell align="center">Email</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
@@ -61,11 +61,11 @@ export default function StatisticHotel(props) {
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.hotelOwner}
+                                {row.directorName}
                             </StyledTableCell>
 
                             <StyledTableCell align="center">
-                                {row.phone_number}
+                                {row.directorEmail}
                             </StyledTableCell>
                         </StyledTableRow>
                     ))}
