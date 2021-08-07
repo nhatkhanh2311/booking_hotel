@@ -102,7 +102,7 @@ export default function Login() {
                         <h5 style={{ textAlign: 'center' }}>Forgot password</h5>
                         <FormGroup>
                             <Label for="emailInput">Enter your email</Label>
-                            <Input type="email" id="emailInput" placeholder="Nhập email" required
+                            <Input type="email" id="emailInput" placeholder="Enter email" required
                                 onChange={(e) => setEmail(e.target.value)} />
                         </FormGroup>
                         <Button color="primary" block>
@@ -115,7 +115,7 @@ export default function Login() {
                         <h5 style={{ textAlign: 'center' }}>Forgot password</h5>
                         <FormGroup>
                             <Label for="tokenInput">Please check token</Label>
-                            <Input type="token" id="tokenInput" placeholder="Nhập token" required
+                            <Input type="token" id="tokenInput" placeholder="Enter token" required
                                 onChange={(e) => setToken(e.target.value)} />
                         </FormGroup>
                         <Button color="primary" block>
