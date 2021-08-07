@@ -63,11 +63,12 @@ export default function HomePage() {
       <div className="container4">
         <div className="content">
           <div className="content-left">
-            <h1>
+            <p><h1>
               Unlocking the
-              <span className="h1Text">potential</span> of those who
-              advance the world
             </h1>
+              <span className="h1Text">potential</span> of those who
+              <h1> advance the world
+              </h1></p>
             <p>
               numquam odit ab eius minus voluptatum tenetur, minima beatae
               voluptas ut, quia nobis necessitatibus optio.
@@ -89,7 +90,7 @@ export default function HomePage() {
                 <img src="https://i.pinimg.com/564x/c1/8d/99/c18d99fb7d6fb9dd37406c71be2447ca.jpg" alt="" />
               </div>
               <div className="description">
-                <h4>Cho o doc dao</h4>
+                <h4>Design</h4>
               </div>
             </div>
           </li>
@@ -99,7 +100,7 @@ export default function HomePage() {
                 <img src="https://i.pinimg.com/564x/bf/9e/d4/bf9ed439091ac676d73c4ed133466332.jpg" alt="" />
               </div>
               <div className="description">
-                <h4>Cho o doc dao</h4>
+                <h4>Ocean</h4>
               </div>
             </div>
           </li>
@@ -109,7 +110,7 @@ export default function HomePage() {
                 <img src="https://i.pinimg.com/564x/30/fc/91/30fc91d46ab449defdacb7c717bc3ee5.jpg" alt="" />
               </div>
               <div className="description">
-                <h4>Cho o doc dao</h4>
+                <h4>old house</h4>
               </div>
             </div>
           </li>
@@ -119,7 +120,7 @@ export default function HomePage() {
                 <img src="https://i.pinimg.com/564x/5b/d0/d9/5bd0d9c6c17d39f9b11da9ee9f77b9a1.jpg" alt="" />
               </div>
               <div className="description">
-                <h4>Cho o doc dao</h4>
+                <h4>Garden</h4>
               </div>
             </div>
           </li>
@@ -130,12 +131,12 @@ export default function HomePage() {
 
           <div className="five-star-1">
             <div className="content">
-              <p className="infor-title"> KHÁCH SẠN TIÊU CHUẨN 5 SAO</p>
+              <p className="infor-title"> 5 STAR STANDARD HOTEL</p>
               <p className="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
                 deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
                 architecto eaque, ut nobis iure aliquam.</p>
               <button className="infor-btn">
-                Thêm thông tin
+                See more
               </button>
             </div>
           </div>
@@ -149,26 +150,27 @@ export default function HomePage() {
           </div>
           <div className="transport-2">
             <div className="content">
-              <p className="infor-title"> BAO GỒM DỊCH VỤ VẬN CHUYỂN </p>
+              <p className="infor-title">
+INCLUDING SHIPPING SERVICES </p>
               <p className="infor-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto impedit corrupti
                 deleniti autem eveniet sed facilis vel voluptatibus animi natus beatae laboriosam, eos placeat,
                 architecto eaque, ut nobis iure aliquam.</p>
               <button className="infor-btn">
-                Thêm thông tin
+                See more
               </button>
             </div>
 
           </div>
         </div>
 
-        
+
       </div>
 
       <div className="best-loacation con">
-        <h3 className="h3-tit des">Top điểm đến được yêu thích</h3>
+        <h3 className="h3-tit des">Top place</h3>
         <div className="destinations">
           <div className="destination" >
-            <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="https://vietnamtourism.gov.vn/images/2018/DaLat3.jpg" className={classes.large} />
+            <Avatar style={{ marginLeft: "0%" }} alt="Remy Sharp" src="http://divui.com/blog/wp-content/uploads/2018/03/du-lich-da-lat-cuoi-tuan-cover.jpg" className={classes.large} />
             <p>Thành phố Đà Lạt</p>
           </div>
           <div className="destination">

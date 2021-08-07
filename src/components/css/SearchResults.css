@@ -3,6 +3,11 @@
     display: flex;
 }
 
+.container-search-result img {
+    width: 320px;
+    height: 170px;
+}
+
 .container-search-result .right {
     flex-basis: 65%;
 }

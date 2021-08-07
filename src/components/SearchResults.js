@@ -9,6 +9,8 @@ import "./css/SearchResults.css";
 import { Button, Form, FormGroup, Input, Label, ButtonToggle } from "reactstrap";
 import { Zoom } from "react-slideshow-image";
 import SearchLeft from "./SearchLeft"
+import * as IoIcons from 'react-icons/ai';
+
 
 export default function SearchResults() {
     const history = useHistory();
@@ -24,7 +26,11 @@ export default function SearchResults() {
             hotel: hotel
         });
     }
-
+    const standard = (start) => {
+        let stars = [];
+        for (let i = 0; i < start; i++) stars.push(<IoIcons.AiFillStar />);
+        return stars;
+    };
     useEffect(() => {
         console.log(location.state);
     });
@@ -32,12 +38,12 @@ export default function SearchResults() {
     return (
         <div className="container-search-result">
             <div>
-                <h4 style={{ marginLeft: 'px' }} className="title-search">Your Reservation</h4>
+                <h4 style={{ marginLeft: '45px' }} className="title-search">Your Reservation</h4>
             <SearchLeft/>
             </div>
 
             <div className="right">
-                <h4 className="title-search">Hotel</h4>
+                <h4 style={{ marginLeft: '25px' }} className="title-search">Hotel</h4>
                 {location.state.data.map((hotel) => (
                     <Paper className="hotel-info">
                         <Grid container spacing={2}>
@@ -55,15 +61,18 @@ export default function SearchResults() {
                                            <h6> {hotel.hotel.name}</h6>
                                         </Typography>
                                         <Typography variant="body2" gutterBottom>
-                                            Địa chỉ: {hotel.hotel.address.street} - {hotel.hotel.address.city}
+                                            Address: {hotel.hotel.address.street} - {hotel.hotel.address.city}
                                         </Typography>
                                         <Typography variant="body2" color="textSecondary">
-                                            Có {hotel.hotel.rooms.length} phòng thỏa mãn điều kiện
+                                            We have {hotel.hotel.rooms.length} rooms for you
+                                        </Typography>
+                                        <Typography variant="body2" color="red">
+                                        {standard(hotel.hotel.standard)}
                                         </Typography>
                                     </Grid>
                                     <Grid item sm>
                                     <ButtonToggle className={classes.button} onClick={() => toHotel(hotel.hotel)}>
-                                            Xem thêm
+                                            See more
                                         </ButtonToggle>
                                     </Grid>
                                     

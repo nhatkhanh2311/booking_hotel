@@ -33,14 +33,16 @@ export default function Statistic(props) {
 
     return (
         <TableContainer style={{padding: '30px'}}>
-            <h2>Thống kê khách sạn theo tỉnh/thành phố</h2>
+            <h2>Hotel statistics by province/city</h2>
 
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell align="center">Tỉnh/Thành phố</StyledTableCell>
-                        <StyledTableCell align="center">Số lượng khách sạn</StyledTableCell>
-                        <StyledTableCell align="center">Danh sách khách sạn</StyledTableCell>
+                        <StyledTableCell align="center">Province/city</StyledTableCell>
+                        <StyledTableCell align="center">
+Number of hotels</StyledTableCell>
+                        <StyledTableCell align="center">
+List of hotels</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
@@ -57,7 +59,7 @@ export default function Statistic(props) {
 
                             <StyledTableCell align="center">
                                 <Button outline color="success" onClick={() => props.render('hotel', row.cityName)}>
-                                    Xem
+                                    View
                                 </Button>
                             </StyledTableCell>
                         </StyledTableRow>

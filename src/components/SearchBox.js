@@ -37,7 +37,7 @@ export default function SearchBox() {
                         });
                     })
                     .catch((err) => {
-                        window.alert('Đã có lỗi xảy ra!');
+                        window.alert('Something wrong');
                         console.log(err);
                     });
             }
@@ -83,12 +83,12 @@ export default function SearchBox() {
                             <div className="col-12 col-md-4 col-lg-4 pr-0 pl-1" style={{ padding: 0 }}>
                                 <div className="search-input-container">
                                     <div className="input-label">
-                                        điểm đến
+                                        Destination
                                     </div>
 
                                     <select id="search-keyword" color="#292e46" required
                                             onChange={(e) => setCity(e.target.value)}>
-                                        <option value=''>Bạn dự định đến đâu?</option>
+                                        <option value=''>Where are you going?</option>
                                         {cities.map((city) => <option value={city}>{city}</option>)}
                                     </select>
                                 </div>
@@ -107,7 +107,7 @@ export default function SearchBox() {
                             <div className="search-cpacity col-3 col-md-2 col-lg-2 text-center pr-0 pl-1" style={{ padding: '0' }}>
                                 <div className="search-input-container">
                                     <div className="input-label">
-                                        số người
+                                        People
                                     </div>
                                     <div className="search-input-guests d-inline-block pl-1">
                                         <input className="input-guests d-inline-block" required

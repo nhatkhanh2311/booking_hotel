@@ -17,9 +17,11 @@ export default function Admin() {
                 <div style={{ width: "300px" }}>
                     <NavbarAdmin render={(tab) => setTab(tab)} />
                 </div>
+                <div style={{ marginLeft: "15px", width: '75%' }}>
                 {tab === 'statistic' && <StatisticTab />}
                 {tab === 'account' && <AccountList />}
                 {tab === 'information' && <Information />}
+                </div>
             </div>
         </>
     );

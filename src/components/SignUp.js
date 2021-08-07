@@ -53,58 +53,58 @@ export default function SignUp() {
     return (
         <Form onSubmit={onSubmit}>
             <FormGroup>
-                <Label for="userInput">Tên đăng nhập</Label>
-                <Input type="text" id="userInput" placeholder="Nhập tên đăng nhập" required
+                <Label style={{ marginBottom: '10px' }} for="userInput">Tên đăng nhập</Label>
+                <Input style={{ marginBottom: '10px' }} type="text" id="userInput" placeholder="Nhập tên đăng nhập" required
                        onChange={(e) => setUser(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
-                <Label for="passInput">Mật khẩu</Label>
-                <Input type="password" id="passInput" placeholder="Nhập mật khẩu" required
+                <Label style={{ marginBottom: '10px' }} for="passInput">Mật khẩu</Label>
+                <Input style={{ marginBottom: '10px' }} type="password" id="passInput" placeholder="Nhập mật khẩu" required
                        onChange={(e) => setPass(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
-                <Label for="repassInput">Nhập lại mật khẩu</Label>
-                <Input type="password" id="repassInput" placeholder="Xác nhận lại mật khẩu" required
+                <Label style={{ marginBottom: '10px' }} for="repassInput">Nhập lại mật khẩu</Label>
+                <Input style={{ marginBottom: '10px' }} type="password" id="repassInput" placeholder="Xác nhận lại mật khẩu" required
                        onChange={(e) => setRetypePass(e.target.value)}/>
                 {retypePass && pass !== retypePass && <span style={{color: "red"}}>Mật khẩu nhập lại chưa đúng!</span>}
             </FormGroup>
 
             <FormGroup>
-                <Label for="emailInput">Địa chỉ email</Label>
-                <Input type="email" id="emailInput" placeholder="Nhập email" required
+                <Label style={{ marginBottom: '10px' }} for="emailInput">Địa chỉ email</Label>
+                <Input style={{ marginBottom: '10px' }} type="email" id="emailInput" placeholder="Nhập email" required
                        onChange={(e) => setEmail(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
-                <Label for="nameInput">Họ tên</Label>
-                <Input type="text" id="nameInput" placeholder="Nhập họ tên" required
+                <Label style={{ marginBottom: '10px' }} for="nameInput">Họ tên</Label>
+                <Input style={{ marginBottom: '10px' }} type="text" id="nameInput" placeholder="Nhập họ tên" required
                        onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
-                <Label for="dateInput">Ngày sinh</Label>
-                <Input type="date" id="dateInput" required
+                <Label style={{ marginBottom: '10px' }} for="dateInput">Ngày sinh</Label>
+                <Input style={{ marginBottom: '10px' }} type="date" id="dateInput" required
                        onChange={(e) => setDate(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
-                <Label for="teleInput">Số điện thoại</Label>
-                <Input type="tel" pattern="[0]{1}[0-9]{9}" id="teleInput" placeholder="Nhập số điện thoại" required
+                <Label style={{ marginBottom: '10px' }} for="teleInput">Số điện thoại</Label>
+                <Input style={{ marginBottom: '10px' }} type="tel" pattern="[0]{1}[0-9]{9}" id="teleInput" placeholder="Nhập số điện thoại" required
                        onChange={(e) => setPhone(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <FormGroup check>
-                    <Input type="radio" name="role" id="user" defaultChecked
+                    <Input style={{ marginBottom: '10px' }} type="radio" name="role" id="user" defaultChecked
                            onClick={() => setRole(true)}/>
-                    <Label check htmlFor="user">Tôi là khách hàng</Label>
+                    <Label style={{ marginBottom: '10px' }} check htmlFor="user">Tôi là khách hàng</Label>
                 </FormGroup>
                 <FormGroup check>
-                    <Input type="radio" name="role" id="director"
+                    <Input style={{ marginBottom: '10px' }} type="radio" name="role" id="director"
                            onClick={() => setRole(false)}/>
-                    <Label check htmlFor="director">Tôi là nhân viên khách sạn</Label>
+                    <Label style={{ marginBottom: '10px' }} check htmlFor="director">Tôi là nhân viên khách sạn</Label>
                 </FormGroup>
             </FormGroup>
 
@@ -113,9 +113,7 @@ export default function SignUp() {
                 Đăng ký
             </Button>
 
-            <p className="forgot-password text-right" style={{marginTop: '10px'}}>
-                Đã có tài khoản? <a href="#">Đăng nhập</a>
-            </p>
+            
         </Form>
     );
 }

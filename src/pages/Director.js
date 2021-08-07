@@ -17,9 +17,12 @@ export default function Director() {
                 <div style={{ width: "300px" }}>
                     <NavbarDirector render={(tab) => setTab(tab)}/>
                 </div>
+                <div style={{ marginLeft: "15px", width: '75%' }}>
                 {tab === 'posted' && <Post/>}
                 {tab === 'statisticmonth' && <StatisticMonth/>}
                 {tab === 'information' && <Information/>}
+                </div>
+                
             </div>
         </>
     );

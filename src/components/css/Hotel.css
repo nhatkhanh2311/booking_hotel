@@ -3,6 +3,7 @@
     margin: 0 auto;
     padding: 0;
     overflow-x: auto;
+    margin-left: 100px;
 }
 
 .hotelList .row {

@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 import { axios } from "../axios";
 import "./css/HotelDetail.css";
-import { Button, Modal, ModalBody, ModalFooter, Table } from "reactstrap";
-import { Zoom } from "react-slideshow-image";
+import { Button, Modal, ModalBody, ModalFooter } from "reactstrap";
 import * as IoIcons from 'react-icons/ai';
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay } from 'swiper';
 import "swiper/swiper.min.css";
 
 export default function HotelDetail() {
@@ -63,7 +61,6 @@ export default function HotelDetail() {
         setRoom(room);
         console.log(room);
     }
-
     return (
         <div className="room-page">
             <div className="hotel-info container">
@@ -77,7 +74,7 @@ export default function HotelDetail() {
                     <span>{location.state.hotel.hOwner.userDetail.phoneNumber}</span>
                 </div>
                 <div>
-                    <label/>
+                    <label />
                     <span>{location.state.hotel.hOwner.email}</span>
                 </div>
                 <div>
@@ -86,17 +83,17 @@ export default function HotelDetail() {
                 </div>
             </div>
 
-            <div className="room-list">
+            <div className="room-list-result">
                 <div>
                     <Swiper className="swiper-container container"
-                            spaceBetween={0}
-                            slidesPerView={3}
-                            onSwiper={(swiper) => console.log(swiper)}
-                            onSlideChange={() => console.log('slide change')}
-                            loop={true}
-                            autoplay={{
-                                delay: 3000
-                            }}
+                        spaceBetween={0}
+                        slidesPerView={3}
+                        onSwiper={(swiper) => console.log(swiper)}
+                        onSlideChange={() => console.log('slide change')}
+                        loop={true}
+                        autoplay={{
+                            delay: 3000
+                        }}
                     >
                         {location.state.hotel.rooms.map((room) => (
                             <SwiperSlide onClick={() => roomInf(room)} className='swiper-slide'>
@@ -108,16 +105,19 @@ export default function HotelDetail() {
                 </div>
                 <div className="room-info">
                     <div className="room-left-content">
-                        <div>Tên phòng: {room.name}</div>
-                        <div>Diện tích: {room.area}m²</div>
-                        <div>Số người: {room.capacity}</div>
-                        <div>Giá tiền: {room.price}đ/ngày</div>
-                        <div>{room.description}</div>
+                        <h1>Room nformation</h1>
+                        <div className=" group"><label>Name:</label> <span>{room.name}</span></div>
+                        <div className="group"><label>Area:</label> <span>{room.area}m²</span></div>
+                        <div className="group"><label>People: </label><span>{room.capacity}</span></div>
+                        <div className="group"><label>
+                            Cost:
+                        </label> <span>{room.price}vnd/day</span></div>
+                        <div className="group"><label>Descripton: </label><span>{room.description}</span></div>
                     </div>
                     <div className="room-right-content">
                         <div className="right-content">
                             <div className="content-info">
-                                <h5>GRAND LUXURY</h5>
+                                <h5>{location.state.hotel.name}</h5>
                                 <p>{location.state.hotel.address.street} - {location.state.hotel.address.city}</p>
                                 <div className="checkin group">
                                     <label>Check in </label>
@@ -135,7 +135,7 @@ export default function HotelDetail() {
                                     <span className="content-group">{room.capacity} people</span>
                                 </div>
                                 <Button className="selectBtn" style={{ width: '40%', backgroundColor: 'rgb(5, 24, 43)', textTransform: 'uppercase' }}
-                                        onClick={() => booking(room.id)}>
+                                    onClick={() => booking(room.id)}>
                                     select available
                                 </Button>
                             </div>
@@ -143,25 +143,23 @@ export default function HotelDetail() {
                     </div>
                 </div>
             </div>
-
             <Modal className='modal-dialog modal-dialog-centered' isOpen={accept} toggle={toggleAccept}>
                 <ModalBody>
-                    <h4>Bạn có chắc chắn muốn đặt phòng này trong khoảng từ {location.state.checkIn} đến {location.state.checkOut}?</h4>
+                    <h4>Are you sure you want to book this room from {location.state.checkIn} to {location.state.checkOut}?</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
                     <Button outline color="success" style={{ width: '30%' }}
-                            onClick={() => sendData(idBook, location.state.checkIn, location.state.checkOut)}>
-                        Xác nhận
+                        onClick={() => sendData(idBook, location.state.checkIn, location.state.checkOut)}>
+                        Confirm
                     </Button>
                     <Button outline color="danger" style={{ width: '30%' }} onClick={toggleAccept}>
-                        Không
+                        Cancel
                     </Button>
                 </ModalFooter>
             </Modal>
-
             <Modal className='modal-dialog modal-dialog-centered' isOpen={login} toggle={toggleLogin}>
                 <ModalBody>
-                    <h4>Bạn phải đăng nhập để đặt phòng!</h4>
+                    <h4>You must be logged in to make a reservation!</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
                     <Button outline color="success" style={{ width: '30%' }} onClick={toggleLogin}>
@@ -169,7 +167,6 @@ export default function HotelDetail() {
                     </Button>
                 </ModalFooter>
             </Modal>
-
             <Modal className='modal-dialog modal-dialog-centered' isOpen={notUser} toggle={toggleNotUser}>
                 <ModalBody>
                     <h4>Chức năng đặt phòng chỉ dành cho tài khoản người dùng!</h4>
@@ -180,17 +177,17 @@ export default function HotelDetail() {
                     </Button>
                 </ModalFooter>
             </Modal>
-
             <Modal className='modal-dialog modal-dialog-centered' isOpen={success}>
                 <ModalBody>
-                    <h4>Đặt phòng thành công</h4>
+                    <h4>
+                        Booking successfully, check your email</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
-                    <Button outline color="success" style={{ width: '40%' }} onClick={() => history.push('/account')}>
-                        Đến trang cá nhân
+                    <Button outline color="success" style={{ width: '40%' }} onClick={() => history.push('/booking')}>
+                        Check your reservation
                     </Button>
                     <Button outline color="success" style={{ width: '40%' }} onClick={() => history.push('/')}>
-                        Về trang chủ
+                        Go to home
                     </Button>
                 </ModalFooter>
             </Modal>

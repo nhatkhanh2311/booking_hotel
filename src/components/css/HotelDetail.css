@@ -93,5 +93,14 @@
       top: 77%;
       left: -3%;
       padding: 10px;
-      width: 90px;
+      width: 120px;
+}
+
+.room-left-content .group {
+  margin-top: 15px;
+  display: flex;
+}
+
+.room-left-content .group label {
+  flex-basis: 30%;
 }

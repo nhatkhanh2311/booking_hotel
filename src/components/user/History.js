@@ -46,7 +46,7 @@ export default function History() {
                     </StyledTableRow>
                 </TableHead>
 
-                <TableBody>
+                {/* <TableBody>
                     {data.map((row) => (
                         <StyledTableRow key={row.id}>
                             <StyledTableCell align="center">
@@ -75,7 +75,7 @@ export default function History() {
                             </StyledTableCell>
                         </StyledTableRow>
                     ))}
-                </TableBody>
+                </TableBody> */}
             </Table>
         </TableContainer>
     );
