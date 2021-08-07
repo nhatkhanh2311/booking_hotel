@@ -52,7 +52,7 @@ export default function Header(props) {
             <li>
               <Link className="nav-link header-link">Blog</Link>
             </li>
-            {(localStorage.getItem("roles") == 'user') && (
+            {(localStorage.getItem("roles") && localStorage.getItem("roles")==='ROLE_USER') && (
               <>
                 <li>
                   <Dropdown>
@@ -68,7 +68,7 @@ export default function Header(props) {
                 </li>
               </>
             )}
-            {(localStorage.getItem("roles") != 'user') && (
+            {(localStorage.getItem("roles") && localStorage.getItem("roles")!=='ROLE_USER') && (
               <>
                 <li>
                   <Dropdown>

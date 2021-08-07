@@ -51,17 +51,18 @@ export default function SearchResults() {
                 <SearchLeft />
             </div>
             <div className="right">
-                <div style={{ display: 'flex' }}>
-                    <Button style={{ width: '150px'}} id="button-submit" className="search-input-container search"
+            <h4 style={{ marginLeft: '25px' }} className="title-search">Hotel</h4>
+
+                <div className="sort" style={{ display: 'flex' }}>
+                    <Button className="sortBtn" style={{ width: '100px', backgroundColor: 'white', color: 'black', padding: '8px', borderRadius: '30px', margin:'0 25px' }}
                             onClick={() => sortByStandard()} >
-                        Sort by standard
+                        Standard
                     </Button>
-                    <Button style={{ width: '200px'}} id="button-submit" className="search-input-container search"
+                    <Button className="sortBtn" style={{ width: '150px', backgroundColor: 'white', color: 'black', padding: '8px', borderRadius: '30px' }}
                             onClick={() => sortByRoomAvailable()} >
-                        Sort by room available
+                        Room available
                     </Button>
                 </div>
-                <h4 style={{ marginLeft: '25px' }} className="title-search">Hotel</h4>
                 {data.map((hotel) => (
                     <Paper className="hotel-info">
                         <Grid container spacing={2}>
