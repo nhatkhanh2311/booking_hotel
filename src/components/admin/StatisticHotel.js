@@ -36,17 +36,17 @@ export default function StatisticHotel(props) {
     return (
         <TableContainer style={{ padding: '30px', width: '90%', marginLeft: '5%' }}>
             <Link style={{ textDecoration: 'none' }} className='back' onClick={() => props.render('city')}>
-                <i class='bx bxs-dashboard' /> {' Thống kê theo tỉnh/thành phố'}
+                <i class='bx bxs-dashboard' /> {' Statistic by province/city'}
             </Link>
 
-            <h2>Khách sạn ở {props.name}</h2>
+            <h2>Hotel in {props.name}</h2>
 
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell align="center">Tên khách sạn</StyledTableCell>
-                        <StyledTableCell align="center">Địa chỉ</StyledTableCell>
-                        <StyledTableCell align="center">Chủ sở hữu</StyledTableCell>
+                        <StyledTableCell align="center">Hotel name</StyledTableCell>
+                        <StyledTableCell align="center">Address</StyledTableCell>
+                        <StyledTableCell align="center">Owner</StyledTableCell>
                         <StyledTableCell align="center">Email</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>

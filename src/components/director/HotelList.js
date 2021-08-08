@@ -49,7 +49,7 @@ export default function HotelList(props) {
                 .delete(`/director/hotel/${id}/delete`)
                 .then(function (res) {
                     console.log(res.data);
-                    if (res.data['message'] === 'Delete hotel successful') window.alert('Xóa khách sạn thành công');
+                    if (res.data['message'] === 'Delete hotel successful') window.alert('Delete hotel successfully!');
                     getData();
                 })
                 .catch(function (err) {

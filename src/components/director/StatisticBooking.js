@@ -82,7 +82,7 @@ export default function StatisticMonth() {
                     <p>Select hotel</p>
                     <Input type="select" id="hotel" required style={{ textAlign: 'center' }}
                            onChange={(e) => setHotel(e.target.value)}>
-                        <option value="">--Tất cả--</option>
+                        <option value="">--All--</option>
                         {data.map((hotel) => <option value={hotel.id}>{hotel.name}</option>)}
                     </Input>
                 </div>

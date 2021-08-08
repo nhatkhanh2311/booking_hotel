@@ -28,13 +28,13 @@ export default function EditHotel(props) {
                 .post(`/director/hotel/${props.data.id}/update/save`, formData)
                 .then(function (res) {
                     if (res.data['message'] === 'Save changes') {
-                        window.alert(`Cập nhật khách sạn ${name} thành công!`);
+                        window.alert(`Update hotel ${name} successfully!`);
                         props.render('refresh');
                     }
                     console.log(res.data);
                 })
                 .catch(function (err) {
-                    window.alert('Đã có lỗi xảy ra!');
+                    window.alert('Something wrong!');
                     console.log(err);
                 });
         }
@@ -98,6 +98,7 @@ export default function EditHotel(props) {
 
             <FormGroup>
                 <Label>Hotel picture</Label>
+                <br/>
                 <Input style={{ margin: '10px 0' }} type="file" multiple required
                        onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>

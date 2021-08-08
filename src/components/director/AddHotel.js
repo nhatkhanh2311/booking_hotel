@@ -60,7 +60,7 @@ export default function AddHotel(props) {
             </FormGroup>
 
             <FormGroup>
-                <Label for="addressInput">Adrress</Label>
+                <Label for="addressInput">Address</Label>
                 <Input style={{ margin: '10px 0' }} type="text" id="addressInput" placeholder="Enter address..." required
                        onChange={(e) => setAddress(e.target.value)}/>
             </FormGroup>
@@ -96,6 +96,7 @@ export default function AddHotel(props) {
 
             <FormGroup style={{ margin: '10px 0' }}>
                 <Label>Hotel's picture</Label>
+                <br/>
                 <Input style={{ margin: '10px 0' }} type="file" multiple required
                        onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>

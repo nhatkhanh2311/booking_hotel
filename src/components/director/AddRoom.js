@@ -28,13 +28,13 @@ export default function AddRoom(props) {
                 .post(`/director/hotel/${props.id}/new-room`, formData)
                 .then(function (res) {
                     if (res.data['message'] === 'add room successfully') {
-                        window.alert('Thêm phòng thành công!');
+                        window.alert('Add room successfully!');
                         props.render('refresh');
                     }
                     console.log(res.data);
                 })
                 .catch(function (err) {
-                    window.alert('Đã có lỗi xảy ra!');
+                    window.alert('Something wrong!');
                     console.log(err);
                 });
         }
@@ -45,13 +45,13 @@ export default function AddRoom(props) {
         <Form onSubmit={onSubmit}>
             <FormGroup>
                 <Label for="nameInput">Room name</Label>
-                <Input type="text" id="nameInput" placeholder="Enter room name..." required
+                <Input style={{ margin: '10px 0' }} type="text" id="nameInput" placeholder="Enter room name..." required
                        onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="typeInput">Room type</Label>
-                <Input type="select" id="typeInput" required
+                <Input style={{ margin: '10px 0' }} type="select" id="typeInput" required
                        onChange={(e) => setType(e.target.value)}>
                     <option value='basic'>Basic</option>
                     <option value='advance'>Advance</option>
@@ -60,31 +60,32 @@ export default function AddRoom(props) {
 
             <FormGroup>
                 <Label for="areaInput">Area (m²)</Label>
-                <Input type="number" id="areaInput" min="0" placeholder="0" required
+                <Input style={{ margin: '10px 0' }} type="number" id="areaInput" min="0" placeholder="0" required
                        onChange={(e) => setArea(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="priceInput">Cost/day (VND)</Label>
-                <Input type="number" step="10000" min="0" id="priceInput" placeholder="0" required
+                <Input style={{ margin: '10px 0' }} type="number" step="10000" min="0" id="priceInput" placeholder="0" required
                        onChange={(e) => setPrice(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="capaInput">Capacity</Label>
-                <Input type="number" id="capaInput" min="0" placeholder="0" required
+                <Input style={{ margin: '10px 0' }} type="number" id="capaInput" min="0" placeholder="0" required
                        onChange={(e) => setCapa(parseInt(e.target.value))}/>
             </FormGroup>
 
             <FormGroup>
                 <Label for="descInput">Description</Label>
-                <Input type="textarea" id="descInput" placeholder="Enter description" required
+                <Input style={{ margin: '10px 0' }} type="textarea" id="descInput" placeholder="Enter description" required
                        onChange={(e) => setDesc(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
                 <Label>Room picture</Label>
-                <Input type="file" multiple required
+                <br/>
+                <Input style={{ margin: '10px 0' }} type="file" multiple required
                        onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>
 

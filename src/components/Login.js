@@ -7,6 +7,7 @@ export default function Login() {
     const history = useHistory();
     const [user, setUser] = useState("");
     const [pass, setPass] = useState("");
+    const [repass, setRepass] = useState("");
     const [email, setEmail] = useState("");
     const [token, setToken] = useState("");
     const [forgot, setForgot] = useState(false);
@@ -72,58 +73,73 @@ export default function Login() {
     }
 
     return (
-            <>
-                {!forgot && (
-                    <Form onSubmit={onSubmit}>
-                        <FormGroup>
-                            <Label style={{ marginBottom: '10px' }} for="userInput">Username</Label>
-                            <Input style={{ marginBottom: '10px' }} type="text" id="userInput" placeholder="Enter username" required
-                                onChange={(e) => setUser(e.target.value)} />
-                        </FormGroup>
+        <>
+            {!forgot && (
+                <Form onSubmit={onSubmit}>
+                    <FormGroup>
+                        <Label style={{ marginBottom: '10px' }} for="userInput">Username</Label>
+                        <Input style={{ marginBottom: '10px' }} type="text" id="userInput" placeholder="Enter username" required
+                               onChange={(e) => setUser(e.target.value)} />
+                    </FormGroup>
 
-                        <FormGroup>
-                            <Label style={{ marginBottom: '10px' }} for="passInput">Password</Label>
-                            <Input style={{ marginBottom: '10px' }} type="password" id="passInput" placeholder="Enter password" required
-                                onChange={(e) => setPass(e.target.value)} />
-                        </FormGroup>
+                    <FormGroup>
+                        <Label style={{ marginBottom: '10px' }} for="passInput">Password</Label>
+                        <Input style={{ marginBottom: '10px' }} type="password" id="passInput" placeholder="Enter password" required
+                               onChange={(e) => setPass(e.target.value)} />
+                    </FormGroup>
 
-                        <br />
-                        <Button color="primary" block>
-                            Login
-                        </Button>
+                    <br/>
+                    <Button color="primary" block>
+                        Login
+                    </Button>
 
-                        <p className="text-right" style={{ marginTop: '10px' }}>
-                            <a href="#" onClick={toggleForgot}>Forgot password?</a>
-                        </p>
-                    </Form>
-                )}
-                {forgot && !send && (
-                    <Form onSubmit={submitForgot}>
-                        <h5 style={{ textAlign: 'center' }}>Forgot password</h5>
-                        <FormGroup>
-                            <Label for="emailInput">Enter your email</Label>
-                            <Input type="email" id="emailInput" placeholder="Enter email" required
-                                onChange={(e) => setEmail(e.target.value)} />
-                        </FormGroup>
-                        <Button color="primary" block>
-                            Send email
-                        </Button>
-                    </Form>
-                )}
-                {forgot && send && (
-                    <Form>
-                        <h5 style={{ textAlign: 'center' }}>Forgot password</h5>
-                        <FormGroup>
-                            <Label for="tokenInput">Please check email and enter token</Label>
-                            <Input type="token" id="tokenInput" placeholder="Enter token" required
-                                onChange={(e) => setToken(e.target.value)} />
-                        </FormGroup>
-                        <Button color="primary" block>
-                            Xác nhận
-                        </Button>
+                    <p className="text-right" style={{ marginTop: '10px' }}>
+                        <a href="#" onClick={toggleForgot}>Forgot password?</a>
+                    </p>
+                </Form>
+            )}
+            {forgot && !send && (
+                <Form onSubmit={submitForgot}>
+                    <h5 style={{ textAlign: 'center' }}>Forgot password</h5>
+                    <FormGroup>
+                        <Label style={{ marginBottom: '10px' }} for="emailInput">Enter your email</Label>
+                        <Input style={{ marginBottom: '10px' }} type="email" id="emailInput" placeholder="Enter email" required
+                               onChange={(e) => setEmail(e.target.value)} />
+                    </FormGroup>
 
-                    </Form>
-                )}
-            </>
-            );
+                    <br/>
+                    <Button color="primary" block>
+                        Send email
+                    </Button>
+                </Form>
+            )}
+            {forgot && send && (
+                <Form>
+                    <h5 style={{ textAlign: 'center' }}>Forgot password</h5>
+                    <FormGroup>
+                        <Label style={{ marginBottom: '10px' }} for="tokenInput">Please check email and enter token</Label>
+                        <Input style={{ marginBottom: '10px' }} type="text" id="tokenInput" placeholder="Enter token" required
+                               onChange={(e) => setToken(e.target.value)} />
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Label style={{ marginBottom: '10px' }} for="passInput">New password</Label>
+                        <Input style={{ marginBottom: '10px' }} type="password" id="passInput" placeholder="Enter new password" required
+                               onChange={(e) => setToken(e.target.value)} />
+                    </FormGroup>
+
+                    <FormGroup>
+                        <Label style={{ marginBottom: '10px' }} for="tokenInput">New password again</Label>
+                        <Input style={{ marginBottom: '10px' }} type="password" id="repassInput" placeholder="Enter new password" required
+                               onChange={(e) => setToken(e.target.value)} />
+                    </FormGroup>
+
+                    <br/>
+                    <Button color="primary" block>
+                        OK
+                    </Button>
+                </Form>
+            )}
+        </>
+    );
 }

@@ -50,7 +50,7 @@ export default function RoomList(props) {
                 .delete(`/director/hotel/${props.data.id}/${roomID}/delete`)
                 .then(function (res) {
                     console.log(res.data);
-                    if (res.data['message'] === 'Delete room successful') window.alert('Xóa phòng thành công');
+                    if (res.data['message'] === 'Delete room successful') window.alert('Delete room successfully!');
                     getData();
                 })
                 .catch(function (err) {
