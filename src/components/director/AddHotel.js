@@ -28,14 +28,14 @@ export default function AddHotel(props) {
                 .post('/director/hotel/new-hotel', formData)
                 .then(function (res) {
                     if (res.data['message'] === 'add hotel successfully') {
-                        window.alert('Thêm khách sạn thành công!');
+                        window.alert('Add hotel successfully!');
                         props.render('refresh');
                     }
-                    else window.alert('Tài khoản của bạn chưa được duyệt!');
+                    else window.alert('Your account have not approved yet!');
                     console.log(res.data);
                 })
                 .catch(function (err) {
-                    window.alert('Đã có lỗi xảy ra!');
+                    window.alert('Something wrong!');
                     console.log(err);
                 });
         }
@@ -45,28 +45,28 @@ export default function AddHotel(props) {
     return (
         <Form onSubmit={onSubmit}>
             <FormGroup>
-                <Label for="nameInput">Tên khách sạn</Label>
-                <Input style={{ margin: '10px 0' }} type="text" id="nameInput" placeholder="Nhập tên khách sạn" required
+                <Label for="nameInput">Hotel name</Label>
+                <Input style={{ margin: '10px 0' }} type="text" id="nameInput" placeholder="Enter your hotel name..." required
                        onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
-                <Label for="cityInput">Tỉnh/Thành phố</Label>
+                <Label for="cityInput">Province/city</Label>
                 <Input style={{ margin: '10px 0' }} type="select" id="cityInput" required
                        onChange={(e) => setCity(e.target.value)}>
-                    <option value=''>--Chọn tỉnh/thành--</option>
+                    <option value=''>--Select province/city--</option>
                     {cities.map((city) => <option value={city}>{city}</option>)}
                 </Input>
             </FormGroup>
 
             <FormGroup>
-                <Label for="addressInput">Số nhà, tên đường</Label>
-                <Input style={{ margin: '10px 0' }} type="text" id="addressInput" placeholder="Nhập số nhà, tên đường" required
+                <Label for="addressInput">Adrress</Label>
+                <Input style={{ margin: '10px 0' }} type="text" id="addressInput" placeholder="Enter address..." required
                        onChange={(e) => setAddress(e.target.value)}/>
             </FormGroup>
 
             <FormGroup style={{display: 'flex', flexDirection: 'row', margin: '15px 0'}}>
-                <Label>Chất lượng</Label>
+                <Label>Standard</Label>
                 <FormGroup check style={{marginLeft: '40px'}}>
                     <Input type="radio" name="standard" id="1" defaultChecked
                            onClick={() => setStandard(1)}/>
@@ -94,9 +94,8 @@ export default function AddHotel(props) {
                 </FormGroup>
             </FormGroup>
 
-            <FormGroup>
-                <Label>Hình ảnh khách sạn</Label>
-                <br/>
+            <FormGroup style={{ margin: '10px 0' }}>
+                <Label>Hotel's picture</Label>
                 <Input style={{ margin: '10px 0' }} type="file" multiple required
                        onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>
@@ -109,7 +108,7 @@ export default function AddHotel(props) {
 
             <br/>
             <Button style={{width: '200px', backgroundColor: "#092A4A", margin:"auto" }} block>
-                Thêm khách sạn
+                Add new hotel
             </Button>
         </Form>
     );

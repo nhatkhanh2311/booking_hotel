@@ -44,31 +44,31 @@ export default function EditHotel(props) {
     return (
         <Form onSubmit={onSubmit}>
             <FormGroup>
-                <Label for="nameInput">Tên khách sạn</Label>
-                <Input style={{ margin: '10px 0' }} type="text" id="nameInput" placeholder="Nhập tên khách sạn" required
+                <Label for="nameInput">Hotel name</Label>
+                <Input style={{ margin: '10px 0' }} type="text" id="nameInput" placeholder="Enter hotel name" required
                        defaultValue={name}
                        onChange={(e) => setName(e.target.value)}/>
             </FormGroup>
 
             <FormGroup>
-                <Label for="cityInput">Tỉnh/Thành phố</Label>
+                <Label for="cityInput">Province/city</Label>
                 <Input style={{ margin: '10px 0' }} type="select" id="cityInput" required
                        defaultValue={city}
                        onChange={(e) => setCity(e.target.value)}>
-                    <option value=''>--Chọn tỉnh/thành--</option>
+                    <option value=''>--Select province/city--</option>
                     {cities.map((city) => <option value={city}>{city}</option>)}
                 </Input>
             </FormGroup>
 
             <FormGroup>
-                <Label for="addressInput">Số nhà, tên đường</Label>
-                <Input style={{ margin: '10px 0' }} type="text" id="addressInput" placeholder="Nhập số nhà, tên đường" required
+                <Label for="addressInput">Address</Label>
+                <Input style={{ margin: '10px 0' }} type="text" id="addressInput" placeholder="Enter address" required
                        defaultValue={address}
                        onChange={(e) => setAddress(e.target.value)}/>
             </FormGroup>
 
             <FormGroup style={{ margin: '15px 0' }} style={{display: 'flex', flexDirection: 'row'}}>
-                <Label>Chất lượng</Label>
+                <Label>Standar</Label>
                 <FormGroup check style={{marginLeft: '40px'}}>
                     <Input type="radio" name="standard" id="1" defaultChecked
                            onClick={() => setStandard(1)}/>
@@ -97,8 +97,7 @@ export default function EditHotel(props) {
             </FormGroup>
 
             <FormGroup>
-                <Label>Hình ảnh khách sạn</Label>
-                <br/>
+                <Label>Hotel picture</Label>
                 <Input style={{ margin: '10px 0' }} type="file" multiple required
                        onChange={(e) => setImages(e.target.files)}/>
             </FormGroup>
@@ -111,7 +110,7 @@ export default function EditHotel(props) {
 
             <br/>
             <Button color="primary" block>
-                Cập nhật khách sạn
+                Update hotel
             </Button>
         </Form>
     );

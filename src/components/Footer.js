@@ -38,8 +38,7 @@ export default function Footer() {
                   <i className='bx bx-mobile icon-footer'></i> 01365484574
                 </li>
                 <li className="infor-footer">
-                  <i className="bx bxs-map icon-footer"></i>154 - Nguyen Luong Bang -
-                  Lien Chieu - Da Nang
+                  <i className="bx bxs-map icon-footer"></i>54 Nguyễn Lương Bằng, Liêu Chiểu Đà Nẵng
                 </li>
               </ul>
             </div>

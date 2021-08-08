@@ -3,6 +3,9 @@
     display: flex;
 }
 
+.sort button:hover {
+    background-color: aquamarine;
+}
 .container-search-result img {
     width: 320px;
     height: 170px;

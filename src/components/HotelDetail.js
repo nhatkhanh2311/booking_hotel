@@ -173,7 +173,7 @@ export default function HotelDetail() {
 
             <Modal className='modal-dialog modal-dialog-centered' isOpen={notUser} toggle={toggleNotUser}>
                 <ModalBody>
-                    <h4>Chức năng đặt phòng chỉ dành cho tài khoản người dùng!</h4>
+                    <h4>You are not logged in, please login to use the service!</h4>
                 </ModalBody>
                 <ModalFooter className="justify-content-center">
                     <Button outline color="success" style={{ width: '30%' }} onClick={toggleNotUser}>

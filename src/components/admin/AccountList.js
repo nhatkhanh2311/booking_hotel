@@ -57,12 +57,12 @@ export default function AccountList() {
             <Table className={classes.table}>
                 <TableHead>
                     <StyledTableRow>
-                        <StyledTableCell align="center">Tên tài khoản</StyledTableCell>
-                        <StyledTableCell align="center">Tên đăng nhập</StyledTableCell>
+                        <StyledTableCell align="center">Full name</StyledTableCell>
+                        <StyledTableCell align="center">Username</StyledTableCell>
                         <StyledTableCell align="center">Email</StyledTableCell>
-                        <StyledTableCell align="center">Số điện thoại</StyledTableCell>
-                        <StyledTableCell align="center">Ngày sinh</StyledTableCell>
-                        <StyledTableCell align="center">Duyệt tài khoản</StyledTableCell>
+                        <StyledTableCell align="center">Phone number</StyledTableCell>
+                        <StyledTableCell align="center">Birthday</StyledTableCell>
+                        <StyledTableCell align="center">Approving</StyledTableCell>
                     </StyledTableRow>
                 </TableHead>
 
@@ -91,7 +91,7 @@ export default function AccountList() {
 
                             <StyledTableCell align="center">
                                 <Button outline color="success" onClick={() => unlock(row.id)}>
-                                    Duyệt
+                                    Approve
                                 </Button>
                             </StyledTableCell>
                         </StyledTableRow>

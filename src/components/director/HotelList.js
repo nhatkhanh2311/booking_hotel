@@ -86,7 +86,7 @@ export default function HotelList(props) {
 
             <Modal className='modal-dialog modal-dialog-centered' isOpen={edit} toggle={toggleEdit}>
                 <ModalHeader>
-                    <h2>Cập nhật khách sạn {dataEdit.name}</h2>
+                    <h2>Update Hotel{dataEdit.name}</h2>
                 </ModalHeader>
                 <ModalBody>
                     <EditHotel data={dataEdit} render={(status) => { if (status === 'refresh') refresh() }} />

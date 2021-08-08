@@ -52,7 +52,7 @@ export default function Header(props) {
             <li>
               <Link className="nav-link header-link">Blog</Link>
             </li>
-            {localStorage.getItem("roles") && (
+            {(localStorage.getItem("roles") && localStorage.getItem("roles")==='ROLE_USER') && (
               <>
                 <li>
                   <Dropdown>
@@ -62,6 +62,21 @@ export default function Header(props) {
                     <Dropdown.Menu style={{ backgroundColor: 'white', color: 'black' }}>
                       <Dropdown.Item onClick={toAccount} style={{ color: 'black'}}>Profile</Dropdown.Item>
                       <Dropdown.Item onClick={toBookingHistory} style={{ color: 'black'}}>Booking history</Dropdown.Item>
+                      <Dropdown.Item onClick={logout} style={{ color: 'black'}}>Logout</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </li>
+              </>
+            )}
+            {(localStorage.getItem("roles") && localStorage.getItem("roles")!=='ROLE_USER') && (
+              <>
+                <li>
+                  <Dropdown>
+                    <Dropdown.Toggle id="dropdown-button-dark-example1" variant="dark" >
+                        <img style={{ width: '40px', height: '40px', borderRadius:"50%" }} src="https://cdn.himalaya.com/d64ae4a39c1f4d4594fa9d1216ab0b29.jpg?auth_key=4102416000-1234-0-e63fc56ba1b11b35a34d758f36c371d4"></img>
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu style={{ backgroundColor: 'white', color: 'black' }}>
+                      <Dropdown.Item onClick={toAccount} style={{ color: 'black'}}>Profile</Dropdown.Item>
                       <Dropdown.Item onClick={logout} style={{ color: 'black'}}>Logout</Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
